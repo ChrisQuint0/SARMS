@@ -1,0 +1,204 @@
+====================================================================
+  SARMS - Smart Academic Records Management System
+  Group 1: Student Enrollment System
+  XPath Queries (Minimum 5 Required)
+====================================================================
+
+The following XPath expressions are designed to extract and filter
+data from students.xml. Each query includes an explanation and
+its expected output.
+
+Context document: students.xml
+
+
+--------------------------------------------------------------------
+QUERY 1: Retrieve all students with GPA > 2.0
+(Required by Case Study)
+--------------------------------------------------------------------
+
+Expression:
+  //student[gpa > 2.0]
+
+Explanation:
+  This query selects all <student> elements where the <gpa> child
+  element has a value greater than 2.0. In the PLP grading system,
+  a GPA above 2.0 indicates a lower academic standing (higher number
+  = lower performance), so this identifies students who may need
+  academic intervention.
+
+Expected Result:
+  - 23-00003 (Jose Reyes, GPA: 2.63)
+  - 23-00006 (Patricia Villanueva, GPA: 2.92)
+  - 23-00008 (Angela Ramos, GPA: 2.42)
+  - 23-00010 (Isabela Cruz, GPA: 3.25)
+
+
+--------------------------------------------------------------------
+QUERY 2: List all students enrolled in the BSIT course
+--------------------------------------------------------------------
+
+Expression:
+  //student[course = 'BSIT']
+
+Explanation:
+  Selects all <student> elements whose <course> child element
+  matches exactly "BSIT". This is useful for generating
+  course-specific reports or enrollment counts.
+
+Expected Result:
+  - 23-00001 (Juan Dela Cruz, Year 4)
+  - 23-00003 (Jose Reyes, Year 2)
+  - 23-00007 (Miguel Torres, Year 3)
+  - 23-00008 (Angela Ramos, Year 1)
+  - 23-00010 (Isabela Cruz, Year 4)
+
+
+--------------------------------------------------------------------
+QUERY 3: Get the names of all 4th year students
+--------------------------------------------------------------------
+
+Expression:
+  //student[yearLevel = 4]/firstName | //student[yearLevel = 4]/lastName
+
+Explanation:
+  This query uses the union operator (|) to retrieve both the
+  <firstName> and <lastName> elements of students in year level 4.
+  This can be used for graduation candidate lists.
+
+Expected Result:
+  - Juan Dela Cruz (23-00001)
+  - Carlos Mendoza (23-00005)
+  - Isabela Cruz (23-00010)
+
+
+--------------------------------------------------------------------
+QUERY 4: Find all subjects with a grade of 1.00 (perfect mark)
+--------------------------------------------------------------------
+
+Expression:
+  //subject[grade = 1.00]/subjectName
+
+Explanation:
+  Selects the <subjectName> of every <subject> where the <grade>
+  equals 1.00, representing a perfect/highest mark. This can be
+  used to identify high-performing subject areas.
+
+Expected Result:
+  - "Data Structures and Algorithms" (Maria Santos, SUB-005)
+  - "Networking Fundamentals" (Miguel Torres, SUB-022)
+  - "Information Assurance" (Miguel Torres, SUB-024)
+
+
+--------------------------------------------------------------------
+QUERY 5: Count total number of enrolled students
+--------------------------------------------------------------------
+
+Expression:
+  count(//student)
+
+Explanation:
+  Uses the count() function to return the total number of
+  <student> elements in the document. Useful for enrollment
+  statistics and summary reports.
+
+Expected Result:
+  10
+
+
+--------------------------------------------------------------------
+QUERY 6: Retrieve students enrolled in more than 3 subjects
+--------------------------------------------------------------------
+
+Expression:
+  //student[count(enrolledSubjects/subject) > 3]
+
+Explanation:
+  Selects <student> elements where the count of <subject> children
+  within <enrolledSubjects> exceeds 3. This identifies students
+  with heavier course loads.
+
+Expected Result:
+  - 23-00001 (Juan Dela Cruz, 4 subjects)
+  - 23-00003 (Jose Reyes, 4 subjects)
+  - 23-00005 (Carlos Mendoza, 4 subjects)
+  - 23-00007 (Miguel Torres, 4 subjects)
+  - 23-00009 (Rafael Lim, 4 subjects)
+
+
+--------------------------------------------------------------------
+QUERY 7: Get the student ID and GPA of the Dean's Listers
+         (GPA <= 1.75)
+--------------------------------------------------------------------
+
+Expression:
+  //student[gpa <= 1.75]/@studentId | //student[gpa <= 1.75]/gpa
+
+Explanation:
+  Uses the union operator to select both the studentId attribute
+  and gpa element of students whose GPA is 1.75 or below,
+  qualifying them for Dean's List honors.
+
+Expected Result:
+  - 23-00001 (GPA: 1.63)
+  - 23-00002 (GPA: 1.25)
+  - 23-00005 (GPA: 1.50)
+  - 23-00007 (GPA: 1.19)
+  - 23-00009 (GPA: 1.75)
+
+
+--------------------------------------------------------------------
+QUERY 8: List all subject names for student 23-00003
+--------------------------------------------------------------------
+
+Expression:
+  //student[@studentId = '23-00003']/enrolledSubjects/subject/subjectName
+
+Explanation:
+  Navigates to a specific student using the studentId attribute
+  predicate, then traverses down to retrieve all subject names.
+  Demonstrates precise attribute-based filtering combined with
+  path navigation.
+
+Expected Result:
+  - "Object-Oriented Programming"
+  - "Discrete Mathematics"
+  - "Web Development"
+  - "Platform Technologies"
+
+
+--------------------------------------------------------------------
+QUERY 9: Calculate the total units enrolled across all students
+--------------------------------------------------------------------
+
+Expression:
+  sum(//subject/units)
+
+Explanation:
+  Uses the sum() function to aggregate the <units> values across
+  all <subject> elements in the entire document. Useful for
+  institutional workload and resource planning.
+
+Expected Result:
+  105 (sum of all subject unit values)
+
+
+--------------------------------------------------------------------
+QUERY 10: Retrieve students from BSCS course in year level 4
+          (Complex XPath with multiple predicates)
+--------------------------------------------------------------------
+
+Expression:
+  //student[course = 'BSCS' and yearLevel = 4]
+
+Explanation:
+  Combines two predicates using the logical "and" operator to
+  filter students by both course program and year level
+  simultaneously. Demonstrates compound filtering.
+
+Expected Result:
+  - 23-00005 (Carlos Mendoza, BSCS, Year 4)
+
+
+====================================================================
+END OF XPATH QUERIES
+====================================================================
