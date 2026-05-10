@@ -34,8 +34,8 @@
 
           body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9fafb;
-            color: #111827;
+            background-color: #f8fafc;
+            color: #334155;
             line-height: 1.6;
           }
 
@@ -84,30 +84,49 @@
           .stats-bar {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            padding: 20px 40px;
-            background-color: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
+            gap: 24px;
+            padding: 30px 40px 10px;
+            background-color: transparent;
+            border-bottom: none;
             flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
           }
 
           .stat-item {
             text-align: center;
-            min-width: 120px;
+            min-width: 180px;
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
 
           .stat-value {
-            font-size: 28px;
-            font-weight: 700;
+            font-size: 36px;
+            font-weight: 800;
             color: #006b35;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+          }
+          
+          .stat-value svg {
+            color: #10b981;
+            opacity: 0.8;
           }
 
           .stat-label {
-            font-size: 12px;
+            font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #4b5563;
-            margin-top: 4px;
+            color: #64748b;
+            margin-top: 8px;
+            font-weight: 600;
           }
 
           /* ========== Container ========== */
@@ -120,47 +139,70 @@
           /* ========== Student Card ========== */
           .student-card {
             background-color: #ffffff;
-            border-radius: 10px;
-            margin-bottom: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-radius: 12px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
             overflow: hidden;
-            border-left: 5px solid #008a45;
+            border-left: 6px solid #008a45;
           }
 
           .student-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 24px;
-            background-color: #f9fafb;
-            border-bottom: 1px solid #e5e7eb;
+            padding: 24px 32px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 16px;
+          }
+
+          .student-info-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+          }
+
+          .avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+            color: #475569;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            flex-shrink: 0;
+            border: 2px solid #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
           }
 
           .student-info h2 {
-            font-size: 20px;
-            font-weight: 600;
-            color: #111827;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 4px;
           }
 
           .student-meta {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            margin-top: 10px;
             font-size: 13px;
-            color: #4b5563;
+            color: #64748b;
           }
 
           .student-meta span {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background-color: #f3f4f6;
+            background-color: #f8fafc;
             padding: 5px 12px;
             border-radius: 20px;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #e2e8f0;
             font-weight: 500;
           }
 
@@ -170,13 +212,14 @@
 
           /* ========== GPA Badge ========== */
           .gpa-badge {
-            padding: 8px 18px;
-            border-radius: 20px;
+            padding: 8px 20px;
+            border-radius: 24px;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 16px;
             color: #ffffff;
             text-align: center;
-            min-width: 100px;
+            min-width: 110px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
           }
 
           .gpa-honors {
@@ -202,23 +245,25 @@
           }
 
           .subjects-table th {
-            background-color: #f9fafb;
-            color: #6b7280;
-            padding: 14px 24px;
+            background-color: #f8fafc;
+            color: #64748b;
+            padding: 16px 32px;
             text-align: left;
-            font-size: 11px;
+            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1.2px;
             font-weight: 600;
-            border-top: 1px solid #e5e7eb;
-            border-bottom: 1px solid #e5e7eb;
+            border-top: none;
+            border-bottom: 1px solid #e2e8f0;
           }
 
           .subjects-table td {
-            padding: 14px 24px;
-            border-bottom: 1px solid #f3f4f6;
+            padding: 16px 32px;
+            border-bottom: 1px solid #e2e8f0; /* Thin, light-gray horizontal line */
+            border-left: none; /* No vertical lines */
+            border-right: none;
             font-size: 14px;
-            color: #374151;
+            color: #334155;
             transition: background-color 0.15s ease;
           }
 
@@ -227,26 +272,22 @@
           }
 
           .subjects-table tr:hover td {
-            background-color: #f9fafb;
+            background-color: #f8fafc;
           }
 
           .subject-id {
             font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            font-size: 12px;
-            color: #6b7280;
-            background-color: #f3f4f6;
-            padding: 4px 8px;
-            border-radius: 6px;
-            border: 1px solid #e5e7eb;
+            font-size: 13px;
+            color: #475569;
           }
 
           .subject-name {
             font-weight: 600;
-            color: #111827;
+            color: #1e293b;
           }
 
           .units-cell {
-            color: #6b7280;
+            color: #64748b;
             font-weight: 500;
           }
 
@@ -260,10 +301,10 @@
             min-width: 54px;
           }
 
-          .grade-excellent { background-color: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
-          .grade-good { background-color: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
-          .grade-average { background-color: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
-          .grade-poor { background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+          .grade-excellent { background-color: #d1fae5; color: #065f46; }
+          .grade-good { background-color: #dbeafe; color: #1e40af; }
+          .grade-average { background-color: #fef3c7; color: #92400e; }
+          .grade-poor { background-color: #fee2e2; color: #991b1b; }
 
           /* ========== Footer ========== */
           .footer {
@@ -277,29 +318,32 @@
 
           /* ========== Legend ========== */
           .legend {
+            position: sticky;
+            top: 20px;
+            z-index: 10;
             display: flex;
             justify-content: center;
-            gap: 24px;
-            padding: 16px;
-            margin-bottom: 24px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            gap: 16px;
+            padding: 16px 24px;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
             flex-wrap: wrap;
           }
 
           .legend-item {
-            display: flex;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #ffffff;
+            display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-size: 13px;
-            color: #4b5563;
-          }
-
-          .legend-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
           }
         </style>
       </head>
@@ -318,19 +362,31 @@
         <!-- Summary Statistics Bar -->
         <div class="stats-bar">
           <div class="stat-item">
-            <div class="stat-value"><xsl:value-of select="count(students/student)"/></div>
+            <div class="stat-value">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              <xsl:value-of select="count(students/student)"/>
+            </div>
             <div class="stat-label">Total Students</div>
           </div>
           <div class="stat-item">
-            <div class="stat-value"><xsl:value-of select="count(students/student/enrolledSubjects/subject)"/></div>
+            <div class="stat-value">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              <xsl:value-of select="count(students/student/enrolledSubjects/subject)"/>
+            </div>
             <div class="stat-label">Total Enrollments</div>
           </div>
           <div class="stat-item">
-            <div class="stat-value"><xsl:value-of select="count(students/student[gpa &lt;= 1.75])"/></div>
+            <div class="stat-value">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              <xsl:value-of select="count(students/student[gpa &lt;= 1.75])"/>
+            </div>
             <div class="stat-label">Dean's Listers</div>
           </div>
           <div class="stat-item">
-            <div class="stat-value"><xsl:value-of select="count(students/student[gpa &gt; 3.0])"/></div>
+            <div class="stat-value">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              <xsl:value-of select="count(students/student[gpa &gt; 3.0])"/>
+            </div>
             <div class="stat-label">At Risk</div>
           </div>
         </div>
@@ -339,20 +395,16 @@
 
           <!-- GPA Legend -->
           <div class="legend">
-            <div class="legend-item">
-              <div class="legend-dot" style="background: linear-gradient(135deg, #10b981, #059669);"/>
+            <div class="legend-item" style="background: linear-gradient(135deg, #10b981, #059669);">
               <span>Honors (1.00–1.75)</span>
             </div>
-            <div class="legend-item">
-              <div class="legend-dot" style="background: linear-gradient(135deg, #3b82f6, #2563eb);"/>
+            <div class="legend-item" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">
               <span>Regular (1.76–2.50)</span>
             </div>
-            <div class="legend-item">
-              <div class="legend-dot" style="background: linear-gradient(135deg, #f59e0b, #d97706);"/>
+            <div class="legend-item" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
               <span>Warning (2.51–3.00)</span>
             </div>
-            <div class="legend-item">
-              <div class="legend-dot" style="background: linear-gradient(135deg, #ef4444, #dc2626);"/>
+            <div class="legend-item" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
               <span>At Risk (&gt;3.00)</span>
             </div>
           </div>
@@ -380,27 +432,32 @@
 
       <!-- Student Header with Name, Meta Info, and GPA Badge -->
       <div class="student-header">
-        <div class="student-info">
-          <h2>
-            <xsl:value-of select="lastName"/>, <xsl:value-of select="firstName"/>
-          </h2>
-          <div class="student-meta">
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10h2"/><path d="M16 14h2"/><path d="M6.17 15a3 3 0 0 1 5.66 0"/><circle cx="9" cy="11" r="2"/><rect x="2" y="5" width="20" height="14" rx="2"/></svg>
-              <xsl:value-of select="@studentId"/>
-            </span>
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-              <xsl:value-of select="course"/>
-            </span>
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-              Year <xsl:value-of select="yearLevel"/>
-            </span>
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
-              <xsl:value-of select="count(enrolledSubjects/subject)"/> Subjects
-            </span>
+        <div class="student-info-wrapper">
+          <div class="avatar">
+            <xsl:value-of select="substring(firstName, 1, 1)"/><xsl:value-of select="substring(lastName, 1, 1)"/>
+          </div>
+          <div class="student-info">
+            <h2>
+              <xsl:value-of select="lastName"/>, <xsl:value-of select="firstName"/>
+            </h2>
+            <div class="student-meta">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10h2"/><path d="M16 14h2"/><path d="M6.17 15a3 3 0 0 1 5.66 0"/><circle cx="9" cy="11" r="2"/><rect x="2" y="5" width="20" height="14" rx="2"/></svg>
+                <xsl:value-of select="@studentId"/>
+              </span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                <xsl:value-of select="course"/>
+              </span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                Year <xsl:value-of select="yearLevel"/>
+              </span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
+                <xsl:value-of select="count(enrolledSubjects/subject)"/> Subjects
+              </span>
+            </div>
           </div>
         </div>
 
