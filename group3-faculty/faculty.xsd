@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Smart Academic Records Management System (SARMS)
+    Module: Faculty Workload (Group 3)
+    Rules: 
+    1. Weekly teaching hours must not exceed 30.
+    2. Sum of subject hours must match the totalHours field (XSD 1.1).
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
+           vc:minVersion="1.1">
+    
+    <!-- Wrapper element for the faculty module -->
+    <xs:element name="faculty">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- Collection of faculty members -->
+                <xs:element name="facultyMember" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="id" type="xs:string"/>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="department" type="xs:string"/>
+                            <xs:element name="subjects">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="subject" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="subjectName" type="xs:string"/>
+                                                    <xs:element name="hours" type="xs:integer"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="totalHours">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:integer">
+                                        <!-- Constraint: Maximum teaching hours is 30 per week -->
+                                        <xs:maxInclusive value="30"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                        
+                        <!-- Self-Study: XSD 1.1 Assertions -->
+                        <!-- Ensures data integrity between individual hours and the total -->
+                        <xs:assert test="sum(subjects/subject/hours) = totalHours"/>
+                        <!-- Double-check: Enforce the 30-hour limit via assertion -->
+                        <xs:assert test="totalHours &lt;= 30"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

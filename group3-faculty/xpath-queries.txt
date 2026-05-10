@@ -1,0 +1,100 @@
+# SARMS Group 3: Faculty Workload Queries
+
+This file contains a comprehensive list of XPath and XQuery examples for extracting and analyzing data from the Faculty Workload module.
+
+---
+
+## 1. XPath Queries (Data Extraction & Filtering)
+
+### Basic Selection
+- **Retrieve all faculty names:**
+  `//facultyMember/name`
+- **Retrieve all unique departments:**
+  `distinct-values(//facultyMember/department)`
+- **Count the total number of faculty members:**
+  `count(//facultyMember)`
+
+### Conditional Filtering
+- **Find faculty teaching more than 3 subjects:**
+  `//facultyMember[count(subjects/subject) > 3]`
+- **Find faculty in the "College of Computer Studies":**
+  `//facultyMember[department='College of Computer Studies']`
+- **Find faculty teaching "Cloud Computing":**
+  `//facultyMember[subjects/subject/subjectName='Cloud Computing']`
+- **Find faculty with a light workload (less than 15 hours):**
+  `//facultyMember[totalHours < 15]`
+
+### Advanced Retrieval
+- **Get the IDs of all "Sir" or "Ma'am" titled faculty:**
+  `//facultyMember[starts-with(name, 'Sir') or starts-with(name, "Ma'am")]/id`
+- **Find the maximum total hours assigned to any faculty:**
+  `max(//facultyMember/totalHours)`
+- **List all subjects that carry exactly 5 credit hours:**
+  `//subject[hours=5]/subjectName`
+
+---
+
+## 2. XQuery Scripts (Advanced Analysis & Transformation)
+
+### A. Find Overloaded Faculty
+Returns a new XML structure containing only faculty at or above the 30-hour limit.
+```xquery
+for $f in doc("faculty.xml")//facultyMember
+where $f/totalHours >= 30
+order by $f/totalHours descending
+return 
+    <overloadedFaculty>
+        <id>{$f/id/text()}</id>
+        <name>{$f/name/text()}</name>
+        <hours>{$f/totalHours/text()}</hours>
+    </overloadedFaculty>
+```
+
+### B. Departmental Faculty Count
+Generates a summary of how many faculty members are in each unique department.
+```xquery
+<departmentSummary>
+{
+    for $d in distinct-values(doc("faculty.xml")//department)
+    let $count := count(doc("faculty.xml")//facultyMember[department = $d])
+    order by $count descending
+    return 
+        <dept name="{$d}">
+            <facultyCount>{$count}</facultyCount>
+        </dept>
+}
+</departmentSummary>
+```
+
+### C. Average Workload Calculation
+Calculates the global average teaching hours across the entire faculty.
+```xquery
+let $allHours := doc("faculty.xml")//totalHours
+return 
+    <statistics>
+        <averageHours>{avg($allHours)}</averageHours>
+        <totalFaculty>{count($allHours)}</totalFaculty>
+    </statistics>
+```
+
+### D. Subject Catalog
+Lists all unique subjects being handled by the faculty, sorted alphabetically.
+```xquery
+<subjectCatalog>
+{
+    for $s in distinct-values(doc("faculty.xml")//subjectName)
+    order by $s
+    return <subject>{$s}</subject>
+}
+</subjectCatalog>
+```
+
+### E. Faculty Workload Text Report
+Generates a simple, human-readable text report.
+```xquery
+string-join(
+    for $f in doc("faculty.xml")//facultyMember
+    return concat($f/id, ": ", $f/name, " [", $f/totalHours, " hrs]"),
+    "&#10;"
+)
+```

@@ -1,0 +1,3216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="faculty.xsl"?>
+<faculty xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="faculty.xsd">
+    <facultyMember>
+        <id>FAC-001</id>
+        <name>Sir Amelita Hontiveros</name>
+        <department>College of Education</department>
+        <subjects>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>14</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-002</id>
+        <name>Dr. Andres Atienza</name>
+        <department>College of Computer Studies</department>
+        <subjects>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>22</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-003</id>
+        <name>Ma'am Angelica Cruz</name>
+        <department>College of Education</department>
+        <subjects>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+        </subjects>
+        <totalHours>16</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-004</id>
+        <name>Ma'am Arnel Cruz</name>
+        <department>College of Nursing</department>
+        <subjects>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>12</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-005</id>
+        <name>Prof. Arnel Prats</name>
+        <department>College of Computer Studies</department>
+        <subjects>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+        </subjects>
+        <totalHours>13</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-006</id>
+        <name>Ma'am Arturo Zubiri</name>
+        <department>College of International Hospitality Management</department>
+        <subjects>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>24</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-007</id>
+        <name>Engr. Bayani Garcia</name>
+        <department>College of Nursing</department>
+        <subjects>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+        </subjects>
+        <totalHours>16</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-008</id>
+        <name>Sir Bayani Lapid</name>
+        <department>College of Arts &amp; Sciences</department>
+        <subjects>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>23</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-009</id>
+        <name>Dr. Bayani Luna</name>
+        <department>College of Computer Studies</department>
+        <subjects>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+        </subjects>
+        <totalHours>21</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-010</id>
+        <name>Prof. Benigno Dela Cruz</name>
+        <department>College of Nursing</department>
+        <subjects>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>12</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-011</id>
+        <name>Prof. Benigno Mendoza</name>
+        <department>College of Nursing</department>
+        <subjects>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>15</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-012</id>
+        <name>Ma'am Benigno Prats</name>
+        <department>College of Education</department>
+        <subjects>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+        </subjects>
+        <totalHours>22</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-013</id>
+        <name>Engr. Bernadette Manzano</name>
+        <department>College of Arts &amp; Sciences</department>
+        <subjects>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+        </subjects>
+        <totalHours>26</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-014</id>
+        <name>Dr. Bernadette Villanueva</name>
+        <department>College of Education</department>
+        <subjects>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>23</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-015</id>
+        <name>Engr. Billy Marcos</name>
+        <department>College of Nursing</department>
+        <subjects>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>16</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-016</id>
+        <name>Prof. Christopher Garcia</name>
+        <department>College of Engineering</department>
+        <subjects>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>20</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-017</id>
+        <name>Ma'am Christopher Heussaff</name>
+        <department>College of Education</department>
+        <subjects>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>15</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-018</id>
+        <name>Sir Coco Garcia</name>
+        <department>College of Arts &amp; Sciences</department>
+        <subjects>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>26</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-019</id>
+        <name>Engr. Coco Pangilinan</name>
+        <department>College of Engineering</department>
+        <subjects>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>12</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-020</id>
+        <name>Engr. Coco Prats</name>
+        <department>College of Nursing</department>
+        <subjects>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>21</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-021</id>
+        <name>Engr. Corazon Lacson</name>
+        <department>College of Engineering</department>
+        <subjects>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>25</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-022</id>
+        <name>Ma'am Dalisay Jacinto</name>
+        <department>College of Education</department>
+        <subjects>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>17</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-023</id>
+        <name>Ma'am Dalisay Legarda</name>
+        <department>College of Education</department>
+        <subjects>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>16</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-024</id>
+        <name>Engr. Daniel Sotto</name>
+        <department>College of Engineering</department>
+        <subjects>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>12</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-025</id>
+        <name>Sir Danilo Bernardo</name>
+        <department>College of Business Administration</department>
+        <subjects>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>15</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-026</id>
+        <name>Engr. Danilo Mabini</name>
+        <department>College of Education</department>
+        <subjects>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>12</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-027</id>
+        <name>Ma'am Dawn Gordon</name>
+        <department>College of International Hospitality Management</department>
+        <subjects>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>16</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-028</id>
+        <name>Engr. Dawn Recto</name>
+        <department>College of Computer Studies</department>
+        <subjects>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>12</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-029</id>
+        <name>Engr. Dawn del Pilar</name>
+        <department>College of Arts &amp; Sciences</department>
+        <subjects>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>20</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-030</id>
+        <name>Engr. Ding Robredo</name>
+        <department>College of Engineering</department>
+        <subjects>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>12</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-031</id>
+        <name>Dr. Dingdong Lapid</name>
+        <department>College of Arts &amp; Sciences</department>
+        <subjects>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>12</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-032</id>
+        <name>Sir Dingdong Manzano</name>
+        <department>College of Education</department>
+        <subjects>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>21</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-033</id>
+        <name>Dr. Dingdong Valdez</name>
+        <department>College of Arts &amp; Sciences</department>
+        <subjects>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+        </subjects>
+        <totalHours>27</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-034</id>
+        <name>Sir Edgardo Muhlach</name>
+        <department>College of Computer Studies</department>
+        <subjects>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+        </subjects>
+        <totalHours>13</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-035</id>
+        <name>Prof. Edgardo Pascual</name>
+        <department>College of Arts &amp; Sciences</department>
+        <subjects>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>27</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-036</id>
+        <name>Dr. Edgardo Pimentel</name>
+        <department>College of Arts &amp; Sciences</department>
+        <subjects>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+        </subjects>
+        <totalHours>14</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-037</id>
+        <name>Engr. Eduardo Bautista</name>
+        <department>College of Engineering</department>
+        <subjects>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>21</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-038</id>
+        <name>Engr. Eduardo Robredo</name>
+        <department>College of Education</department>
+        <subjects>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+        </subjects>
+        <totalHours>24</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-039</id>
+        <name>Sir Eduardo Sotto</name>
+        <department>College of International Hospitality Management</department>
+        <subjects>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>18</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-040</id>
+        <name>Engr. Fernando Muhlach</name>
+        <department>College of Engineering</department>
+        <subjects>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>25</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-041</id>
+        <name>Dr. Francisco Gatchalian</name>
+        <department>College of Nursing</department>
+        <subjects>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+        </subjects>
+        <totalHours>26</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-042</id>
+        <name>Ma'am Gabriel Ejercito</name>
+        <department>College of Engineering</department>
+        <subjects>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>14</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-043</id>
+        <name>Dr. Gabriel Heussaff</name>
+        <department>College of Education</department>
+        <subjects>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>25</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-044</id>
+        <name>Sir Gerald Rizal</name>
+        <department>College of Computer Studies</department>
+        <subjects>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>21</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-045</id>
+        <name>Engr. Gloria Binay</name>
+        <department>College of Computer Studies</department>
+        <subjects>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>21</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-046</id>
+        <name>Prof. Grace Go</name>
+        <department>College of Computer Studies</department>
+        <subjects>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>25</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-047</id>
+        <name>Sir Grace Villar</name>
+        <department>College of Engineering</department>
+        <subjects>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>13</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-048</id>
+        <name>Engr. Grace del Pilar</name>
+        <department>College of International Hospitality Management</department>
+        <subjects>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>12</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-049</id>
+        <name>Sir Gregorio Ocampo</name>
+        <department>College of Engineering</department>
+        <subjects>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>15</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-050</id>
+        <name>Prof. Gregorio Sotto</name>
+        <department>College of Computer Studies</department>
+        <subjects>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>18</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-051</id>
+        <name>Ma'am Ian Poe</name>
+        <department>College of Education</department>
+        <subjects>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>15</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-052</id>
+        <name>Sir Ian Villanueva</name>
+        <department>College of Education</department>
+        <subjects>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>24</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-053</id>
+        <name>Prof. Imee Poe</name>
+        <department>College of Engineering</department>
+        <subjects>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>18</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-054</id>
+        <name>Engr. Imee Villanueva</name>
+        <department>College of Engineering</department>
+        <subjects>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>15</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-055</id>
+        <name>Prof. John Paulo Constantino</name>
+        <department>College of Nursing</department>
+        <subjects>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>24</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-056</id>
+        <name>Dr. John Paulo Lapid</name>
+        <department>College of Engineering</department>
+        <subjects>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>20</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-057</id>
+        <name>Dr. John Paulo del Pilar</name>
+        <department>College of Business Administration</department>
+        <subjects>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>20</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-058</id>
+        <name>Dr. Juancho Crawford</name>
+        <department>College of Engineering</department>
+        <subjects>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>24</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-059</id>
+        <name>Engr. Juancho Marcos</name>
+        <department>College of Nursing</department>
+        <subjects>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>19</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-060</id>
+        <name>Dr. Juancho Pimentel</name>
+        <department>College of Business Administration</department>
+        <subjects>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>21</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-061</id>
+        <name>Engr. Liza Mendoza</name>
+        <department>College of Nursing</department>
+        <subjects>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>21</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-062</id>
+        <name>Sir Lourdes Sotto</name>
+        <department>College of Arts &amp; Sciences</department>
+        <subjects>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>21</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-063</id>
+        <name>Prof. Lualhati Alcasid</name>
+        <department>College of Computer Studies</department>
+        <subjects>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>23</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-064</id>
+        <name>Dr. Lualhati Estrada</name>
+        <department>College of Arts &amp; Sciences</department>
+        <subjects>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>19</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-065</id>
+        <name>Engr. Lualhati Jacinto</name>
+        <department>College of Education</department>
+        <subjects>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>18</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-066</id>
+        <name>Dr. Ma. Victoria Santos</name>
+        <department>College of Business Administration</department>
+        <subjects>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>18</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-067</id>
+        <name>Engr. Manuel Garcia</name>
+        <department>College of Education</department>
+        <subjects>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>21</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-068</id>
+        <name>Ma'am Manuel Mendoza</name>
+        <department>College of Arts &amp; Sciences</department>
+        <subjects>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>21</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-069</id>
+        <name>Engr. Manuel Tecson</name>
+        <department>College of Computer Studies</department>
+        <subjects>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>20</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-070</id>
+        <name>Sir Marcelo Angara</name>
+        <department>College of Arts &amp; Sciences</department>
+        <subjects>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>12</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-071</id>
+        <name>Dr. Maria Christina Arellano</name>
+        <department>College of International Hospitality Management</department>
+        <subjects>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>12</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-072</id>
+        <name>Prof. Maria Christina Villanueva</name>
+        <department>College of Business Administration</department>
+        <subjects>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>13</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-073</id>
+        <name>Dr. Marian Bonifacio</name>
+        <department>College of International Hospitality Management</department>
+        <subjects>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>18</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-074</id>
+        <name>Sir Nadine Angara</name>
+        <department>College of Nursing</department>
+        <subjects>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>23</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-075</id>
+        <name>Dr. Nadine Geronimo</name>
+        <department>College of Nursing</department>
+        <subjects>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>18</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-076</id>
+        <name>Dr. Nora Heussaff</name>
+        <department>College of Business Administration</department>
+        <subjects>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>21</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-077</id>
+        <name>Prof. Nora Lapid</name>
+        <department>College of Nursing</department>
+        <subjects>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>21</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-078</id>
+        <name>Sir Nora Mabini</name>
+        <department>College of Computer Studies</department>
+        <subjects>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>18</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-079</id>
+        <name>Sir Pacita Dela Rosa</name>
+        <department>College of International Hospitality Management</department>
+        <subjects>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>12</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-080</id>
+        <name>Dr. Pia Robredo</name>
+        <department>College of Nursing</department>
+        <subjects>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>26</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-081</id>
+        <name>Engr. Pilar Cruz</name>
+        <department>College of International Hospitality Management</department>
+        <subjects>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>19</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-082</id>
+        <name>Dr. Pilar Gordon</name>
+        <department>College of Computer Studies</department>
+        <subjects>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>24</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-083</id>
+        <name>Engr. Pilar Ocampo</name>
+        <department>College of Nursing</department>
+        <subjects>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>26</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-084</id>
+        <name>Prof. Ramon Padilla</name>
+        <department>College of Computer Studies</department>
+        <subjects>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>20</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-085</id>
+        <name>Engr. Ricardo Geronimo</name>
+        <department>College of Business Administration</department>
+        <subjects>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>18</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-086</id>
+        <name>Engr. Ricardo Santos</name>
+        <department>College of Computer Studies</department>
+        <subjects>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>21</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-087</id>
+        <name>Sir Richard Hontiveros</name>
+        <department>College of Business Administration</department>
+        <subjects>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>27</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-088</id>
+        <name>Sir Risa Bong Revilla</name>
+        <department>College of Engineering</department>
+        <subjects>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>26</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-089</id>
+        <name>Ma'am Risa Padilla</name>
+        <department>College of Engineering</department>
+        <subjects>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>22</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-090</id>
+        <name>Ma'am Rogelio Crawford</name>
+        <department>College of Computer Studies</department>
+        <subjects>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>21</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-091</id>
+        <name>Ma'am Rogelio Curtis</name>
+        <department>College of Arts &amp; Sciences</department>
+        <subjects>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Numerical Analysis</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>27</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-092</id>
+        <name>Sir Salvador Bernardo</name>
+        <department>College of Arts &amp; Sciences</department>
+        <subjects>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>13</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-093</id>
+        <name>Dr. Salvador Marcos</name>
+        <department>College of Computer Studies</department>
+        <subjects>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Discrete Structures</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>24</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-094</id>
+        <name>Sir Salvador Sotto</name>
+        <department>College of Arts &amp; Sciences</department>
+        <subjects>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Technopreneurship</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Professional Ethics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>19</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-095</id>
+        <name>Prof. Susan Poe</name>
+        <department>College of International Hospitality Management</department>
+        <subjects>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Object Oriented Programming</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Web Systems and Technologies</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>24</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-096</id>
+        <name>Sir Teresa Angara</name>
+        <department>College of Arts &amp; Sciences</department>
+        <subjects>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+        </subjects>
+        <totalHours>22</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-097</id>
+        <name>Ma'am Vice Crawford</name>
+        <department>College of Computer Studies</department>
+        <subjects>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Artificial Intelligence</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Mobile Application Development</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>12</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-098</id>
+        <name>Prof. Vilma Revilla</name>
+        <department>College of Arts &amp; Sciences</department>
+        <subjects>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Computer Architecture</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Software Engineering</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Digital Signal Processing</subjectName>
+                <hours>4</hours>
+            </subject>
+        </subjects>
+        <totalHours>19</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-099</id>
+        <name>Prof. Wilfredo Binay</name>
+        <department>College of Business Administration</department>
+        <subjects>
+            <subject>
+                <subjectName>Cloud Computing</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Information Management</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>12</totalHours>
+    </facultyMember>
+    <facultyMember>
+        <id>FAC-100</id>
+        <name>Sir Xian Lapid</name>
+        <department>College of Business Administration</department>
+        <subjects>
+            <subject>
+                <subjectName>Operating Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Advanced Database Systems</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Network Security</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Calculus with Analytic Geometry</subjectName>
+                <hours>5</hours>
+            </subject>
+            <subject>
+                <subjectName>Machine Learning</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Data Science and Analytics</subjectName>
+                <hours>3</hours>
+            </subject>
+            <subject>
+                <subjectName>Human Computer Interaction</subjectName>
+                <hours>3</hours>
+            </subject>
+        </subjects>
+        <totalHours>23</totalHours>
+    </facultyMember>
+</faculty>
