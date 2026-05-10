@@ -34,39 +34,50 @@
 
           body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            color: #1a1a2e;
+            background-color: #f9fafb;
+            color: #111827;
             line-height: 1.6;
           }
 
           /* ========== Header ========== */
           .header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background: linear-gradient(135deg, #004d26 0%, #006b35 50%, #008a45 100%);
             color: #ffffff;
-            padding: 30px 40px;
+            padding: 40px 40px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-          }
-
-          .header h1 {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            margin-bottom: 8px;
-          }
-
-          .header .subtitle {
-            font-size: 14px;
-            font-weight: 300;
-            opacity: 0.85;
-            letter-spacing: 0.5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
           }
 
           .header .school-name {
-            font-size: 16px;
-            font-weight: 500;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #a7f3d0;
+            margin-bottom: 4px;
+          }
+
+          .header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+          }
+
+          .header .subtitle {
+            font-size: 15px;
+            font-weight: 400;
+            color: #d1fae5;
+            opacity: 0.9;
             margin-top: 4px;
-            color: #e2b714;
           }
 
           /* ========== Summary Stats ========== */
@@ -76,7 +87,7 @@
             gap: 30px;
             padding: 20px 40px;
             background-color: #ffffff;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e5e7eb;
             flex-wrap: wrap;
           }
 
@@ -88,14 +99,14 @@
           .stat-value {
             font-size: 28px;
             font-weight: 700;
-            color: #0f3460;
+            color: #006b35;
           }
 
           .stat-label {
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #666;
+            color: #4b5563;
             margin-top: 4px;
           }
 
@@ -111,9 +122,9 @@
             background-color: #ffffff;
             border-radius: 10px;
             margin-bottom: 24px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             overflow: hidden;
-            border-left: 5px solid #0f3460;
+            border-left: 5px solid #008a45;
           }
 
           .student-header {
@@ -121,8 +132,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 18px 24px;
-            background-color: #fafbfc;
-            border-bottom: 1px solid #eee;
+            background-color: #f9fafb;
+            border-bottom: 1px solid #e5e7eb;
             flex-wrap: wrap;
             gap: 10px;
           }
@@ -130,21 +141,31 @@
           .student-info h2 {
             font-size: 20px;
             font-weight: 600;
-            color: #1a1a2e;
+            color: #111827;
           }
 
           .student-meta {
             display: flex;
-            gap: 16px;
-            margin-top: 4px;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
             font-size: 13px;
-            color: #555;
+            color: #4b5563;
           }
 
           .student-meta span {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
+            background-color: #f3f4f6;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid #e5e7eb;
+            font-weight: 500;
+          }
+
+          .student-meta svg {
+            color: #006b35;
           }
 
           /* ========== GPA Badge ========== */
@@ -159,19 +180,19 @@
           }
 
           .gpa-honors {
-            background: linear-gradient(135deg, #00b894, #00cec9);
+            background: linear-gradient(135deg, #10b981, #059669);
           }
 
           .gpa-regular {
-            background: linear-gradient(135deg, #0984e3, #6c5ce7);
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
           }
 
           .gpa-warning {
-            background: linear-gradient(135deg, #fdcb6e, #e17055);
+            background: linear-gradient(135deg, #f59e0b, #d97706);
           }
 
           .gpa-danger {
-            background: linear-gradient(135deg, #d63031, #e84393);
+            background: linear-gradient(135deg, #ef4444, #dc2626);
           }
 
           /* ========== Subject Table ========== */
@@ -181,49 +202,76 @@
           }
 
           .subjects-table th {
-            background-color: #16213e;
-            color: #ffffff;
-            padding: 12px 24px;
+            background-color: #f9fafb;
+            color: #6b7280;
+            padding: 14px 24px;
             text-align: left;
-            font-size: 12px;
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
             font-weight: 600;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
           }
 
           .subjects-table td {
-            padding: 12px 24px;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 14px 24px;
+            border-bottom: 1px solid #f3f4f6;
             font-size: 14px;
+            color: #374151;
+            transition: background-color 0.15s ease;
           }
 
           .subjects-table tr:last-child td {
             border-bottom: none;
           }
 
-          .subjects-table tr:hover {
-            background-color: #f8f9fa;
+          .subjects-table tr:hover td {
+            background-color: #f9fafb;
+          }
+
+          .subject-id {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 12px;
+            color: #6b7280;
+            background-color: #f3f4f6;
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+          }
+
+          .subject-name {
+            font-weight: 600;
+            color: #111827;
+          }
+
+          .units-cell {
+            color: #6b7280;
+            font-weight: 500;
           }
 
           .grade-cell {
-            font-weight: 600;
+            font-weight: 700;
             text-align: center;
-            border-radius: 4px;
-            padding: 4px 10px;
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 13px;
+            display: inline-block;
+            min-width: 54px;
           }
 
-          .grade-excellent { color: #00b894; }
-          .grade-good { color: #0984e3; }
-          .grade-average { color: #fdcb6e; }
-          .grade-poor { color: #d63031; }
+          .grade-excellent { background-color: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+          .grade-good { background-color: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
+          .grade-average { background-color: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+          .grade-poor { background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
 
           /* ========== Footer ========== */
           .footer {
             text-align: center;
             padding: 24px;
-            color: #999;
+            color: #6b7280;
             font-size: 12px;
-            border-top: 1px solid #e0e0e0;
+            border-top: 1px solid #e5e7eb;
             margin-top: 20px;
           }
 
@@ -236,7 +284,7 @@
             margin-bottom: 24px;
             background: #fff;
             border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             flex-wrap: wrap;
           }
 
@@ -245,7 +293,7 @@
             align-items: center;
             gap: 8px;
             font-size: 13px;
-            color: #555;
+            color: #4b5563;
           }
 
           .legend-dot {
@@ -259,9 +307,12 @@
 
         <!-- Page Header -->
         <div class="header">
-          <h1>&#x1F393; SARMS — Student Enrollment Grade Report</h1>
           <div class="school-name">Pamantasan ng Lungsod ng Pasig</div>
-          <div class="subtitle">Smart Academic Records Management System — Group 1: Student Enrollment</div>
+          <h1>
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            Student Enrollment Grade Report
+          </h1>
+          <div class="subtitle">SARMS: Smart Academic Records Management System <span style="opacity: 0.5; margin: 0 8px;">|</span> Group 1</div>
         </div>
 
         <!-- Summary Statistics Bar -->
@@ -289,19 +340,19 @@
           <!-- GPA Legend -->
           <div class="legend">
             <div class="legend-item">
-              <div class="legend-dot" style="background: linear-gradient(135deg, #00b894, #00cec9);"/>
+              <div class="legend-dot" style="background: linear-gradient(135deg, #10b981, #059669);"/>
               <span>Honors (1.00–1.75)</span>
             </div>
             <div class="legend-item">
-              <div class="legend-dot" style="background: linear-gradient(135deg, #0984e3, #6c5ce7);"/>
+              <div class="legend-dot" style="background: linear-gradient(135deg, #3b82f6, #2563eb);"/>
               <span>Regular (1.76–2.50)</span>
             </div>
             <div class="legend-item">
-              <div class="legend-dot" style="background: linear-gradient(135deg, #fdcb6e, #e17055);"/>
+              <div class="legend-dot" style="background: linear-gradient(135deg, #f59e0b, #d97706);"/>
               <span>Warning (2.51–3.00)</span>
             </div>
             <div class="legend-item">
-              <div class="legend-dot" style="background: linear-gradient(135deg, #d63031, #e84393);"/>
+              <div class="legend-dot" style="background: linear-gradient(135deg, #ef4444, #dc2626);"/>
               <span>At Risk (&gt;3.00)</span>
             </div>
           </div>
@@ -334,10 +385,22 @@
             <xsl:value-of select="lastName"/>, <xsl:value-of select="firstName"/>
           </h2>
           <div class="student-meta">
-            <span>&#x1F194; <xsl:value-of select="@studentId"/></span>
-            <span>&#x1F4DA; <xsl:value-of select="course"/></span>
-            <span>&#x1F4C5; Year <xsl:value-of select="yearLevel"/></span>
-            <span>&#x1F4DD; <xsl:value-of select="count(enrolledSubjects/subject)"/> Subjects</span>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10h2"/><path d="M16 14h2"/><path d="M6.17 15a3 3 0 0 1 5.66 0"/><circle cx="9" cy="11" r="2"/><rect x="2" y="5" width="20" height="14" rx="2"/></svg>
+              <xsl:value-of select="@studentId"/>
+            </span>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              <xsl:value-of select="course"/>
+            </span>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+              Year <xsl:value-of select="yearLevel"/>
+            </span>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
+              <xsl:value-of select="count(enrolledSubjects/subject)"/> Subjects
+            </span>
           </div>
         </div>
 
@@ -379,9 +442,9 @@
   <!-- ============================================================ -->
   <xsl:template match="subject">
     <tr>
-      <td><xsl:value-of select="@subjectId"/></td>
-      <td><xsl:value-of select="subjectName"/></td>
-      <td style="text-align: center;"><xsl:value-of select="units"/></td>
+      <td><span class="subject-id"><xsl:value-of select="@subjectId"/></span></td>
+      <td class="subject-name"><xsl:value-of select="subjectName"/></td>
+      <td style="text-align: center;" class="units-cell"><xsl:value-of select="units"/></td>
       <td style="text-align: center;">
         <span>
           <xsl:attribute name="class">
