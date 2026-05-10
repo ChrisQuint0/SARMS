@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  SARMS - Smart Academic Records Management System
-  Group 1: Student Enrollment System - XSLT Stylesheet
-  
-  This stylesheet transforms the students.xml data into a styled HTML grade report.
-  Features:
-    - Professional dashboard-style layout with PLP branding
-    - Student enrollment summary table with grades and GPA
-    - Color-coded GPA indicators (honors, regular, at-risk)
-    - Responsive design for easy viewing
--->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <!-- Output method: HTML document -->
   <xsl:output method="html" indent="yes" encoding="UTF-8"/>
-
-  <!-- ============================================================ -->
-  <!-- ROOT TEMPLATE: Main page structure                            -->
-  <!-- ============================================================ -->
   <xsl:template match="/">
     <html lang="en">
       <head>
