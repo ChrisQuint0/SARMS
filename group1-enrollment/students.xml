@@ -1,21 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- 
-  SARMS - Smart Academic Records Management System
-  Group 1: Student Enrollment System
-  
-  This XML document stores student enrollment data including
-  personal information, enrolled subjects, units, grades, and GPA.
-  
-  Naming Conventions:
-    - Elements/Attributes: camelCase
-    - Student IDs: STU-XXX format
-    - Subject IDs: SUB-XXX format
--->
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE students SYSTEM "students.dtd">
 <?xml-stylesheet type="text/xsl" href="students.xsl"?>
 <students>
 
-  <!-- Student 1: 4th Year BSIT Student -->
   <student studentId="23-00001">
     <firstName>Juan</firstName>
     <lastName>Dela Cruz</lastName>
@@ -45,8 +32,7 @@
     </enrolledSubjects>
     <gpa>1.63</gpa>
   </student>
-
-  <!-- Student 2: 3rd Year BSCS Student -->
+  
   <student studentId="23-00002">
     <firstName>Maria</firstName>
     <lastName>Santos</lastName>
@@ -71,8 +57,7 @@
     </enrolledSubjects>
     <gpa>1.25</gpa>
   </student>
-
-  <!-- Student 3: 2nd Year BSIT Student -->
+  
   <student studentId="23-00003">
     <firstName>Jose</firstName>
     <lastName>Reyes</lastName>
@@ -103,7 +88,7 @@
     <gpa>2.63</gpa>
   </student>
 
-  <!-- Student 4: 1st Year BSIS Student -->
+  
   <student studentId="23-00004">
     <firstName>Ana</firstName>
     <lastName>Garcia</lastName>
@@ -129,7 +114,7 @@
     <gpa>2.00</gpa>
   </student>
 
-  <!-- Student 5: 4th Year BSCS Student -->
+  
   <student studentId="23-00005">
     <firstName>Carlos</firstName>
     <lastName>Mendoza</lastName>
@@ -160,7 +145,7 @@
     <gpa>1.50</gpa>
   </student>
 
-  <!-- Student 6: 2nd Year BSIS Student -->
+  
   <student studentId="23-00006">
     <firstName>Patricia</firstName>
     <lastName>Villanueva</lastName>
@@ -186,7 +171,7 @@
     <gpa>2.92</gpa>
   </student>
 
-  <!-- Student 7: 3rd Year BSIT Student -->
+  
   <student studentId="23-00007">
     <firstName>Miguel</firstName>
     <lastName>Torres</lastName>
@@ -217,7 +202,7 @@
     <gpa>1.19</gpa>
   </student>
 
-  <!-- Student 8: 1st Year BSIT Student -->
+  
   <student studentId="23-00008">
     <firstName>Angela</firstName>
     <lastName>Ramos</lastName>
@@ -243,7 +228,7 @@
     <gpa>2.42</gpa>
   </student>
 
-  <!-- Student 9: 3rd Year BSIS Student -->
+  
   <student studentId="23-00009">
     <firstName>Rafael</firstName>
     <lastName>Lim</lastName>
@@ -274,7 +259,7 @@
     <gpa>1.75</gpa>
   </student>
 
-  <!-- Student 10: 4th Year BSIT Student (at-risk) -->
+  
   <student studentId="23-00010">
     <firstName>Isabela</firstName>
     <lastName>Cruz</lastName>
@@ -302,7 +287,7 @@
 
 
 
-  <!-- Student 11: Dummy Student -->
+  
   <student studentId="23-00011">
     <firstName>Gabriela</firstName>
     <lastName>Sosa</lastName>
@@ -337,7 +322,7 @@
     </enrolledSubjects>
     <gpa>2.04</gpa>
   </student>
-  <!-- Student 12: Dummy Student -->
+  
   <student studentId="23-00012">
     <firstName>Miguel</firstName>
     <lastName>Sosa</lastName>
@@ -362,7 +347,7 @@
     </enrolledSubjects>
     <gpa>2.82</gpa>
   </student>
-  <!-- Student 13: Dummy Student -->
+  
   <student studentId="23-00013">
     <firstName>Mateo</firstName>
     <lastName>Castro</lastName>
@@ -397,7 +382,7 @@
     </enrolledSubjects>
     <gpa>2.71</gpa>
   </student>
-  <!-- Student 14: Dummy Student -->
+  
   <student studentId="23-00014">
     <firstName>Pedro</firstName>
     <lastName>Santos</lastName>
@@ -422,7 +407,7 @@
     </enrolledSubjects>
     <gpa>3.14</gpa>
   </student>
-  <!-- Student 15: Dummy Student -->
+  
   <student studentId="23-00015">
     <firstName>Gabriel</firstName>
     <lastName>Martinez</lastName>
@@ -447,7 +432,7 @@
     </enrolledSubjects>
     <gpa>4.33</gpa>
   </student>
-  <!-- Student 16: Dummy Student -->
+  
   <student studentId="23-00016">
     <firstName>Patricia</firstName>
     <lastName>Sosa</lastName>
@@ -482,7 +467,7 @@
     </enrolledSubjects>
     <gpa>3.75</gpa>
   </student>
-  <!-- Student 17: Dummy Student -->
+  
   <student studentId="23-00017">
     <firstName>Gabriel</firstName>
     <lastName>Diaz</lastName>
@@ -507,7 +492,7 @@
     </enrolledSubjects>
     <gpa>1.27</gpa>
   </student>
-  <!-- Student 18: Dummy Student -->
+  
   <student studentId="23-00018">
     <firstName>Camila</firstName>
     <lastName>Gomez</lastName>
@@ -532,7 +517,7 @@
     </enrolledSubjects>
     <gpa>2.09</gpa>
   </student>
-  <!-- Student 19: Dummy Student -->
+  
   <student studentId="23-00019">
     <firstName>Gabriel</firstName>
     <lastName>Jimenez</lastName>
@@ -562,7 +547,7 @@
     </enrolledSubjects>
     <gpa>2.48</gpa>
   </student>
-  <!-- Student 20: Dummy Student -->
+  
   <student studentId="23-00020">
     <firstName>Jose</firstName>
     <lastName>Ruiz</lastName>
@@ -592,7 +577,7 @@
     </enrolledSubjects>
     <gpa>1.98</gpa>
   </student>
-  <!-- Student 21: Dummy Student -->
+  
   <student studentId="23-00021">
     <firstName>Javier</firstName>
     <lastName>Ramos</lastName>
@@ -622,7 +607,7 @@
     </enrolledSubjects>
     <gpa>1.81</gpa>
   </student>
-  <!-- Student 22: Dummy Student -->
+  
   <student studentId="23-00022">
     <firstName>Lucia</firstName>
     <lastName>Mendoza</lastName>
@@ -652,7 +637,7 @@
     </enrolledSubjects>
     <gpa>2.88</gpa>
   </student>
-  <!-- Student 23: Dummy Student -->
+  
   <student studentId="23-00023">
     <firstName>Miguel</firstName>
     <lastName>Lim</lastName>
@@ -687,7 +672,7 @@
     </enrolledSubjects>
     <gpa>1.89</gpa>
   </student>
-  <!-- Student 24: Dummy Student -->
+  
   <student studentId="23-00024">
     <firstName>Mateo</firstName>
     <lastName>Santos</lastName>
@@ -717,7 +702,7 @@
     </enrolledSubjects>
     <gpa>2.38</gpa>
   </student>
-  <!-- Student 25: Dummy Student -->
+  
   <student studentId="23-00025">
     <firstName>Valentina</firstName>
     <lastName>Torres</lastName>
@@ -747,7 +732,7 @@
     </enrolledSubjects>
     <gpa>1.85</gpa>
   </student>
-  <!-- Student 26: Dummy Student -->
+  
   <student studentId="23-00026">
     <firstName>Javier</firstName>
     <lastName>Diaz</lastName>
@@ -772,7 +757,7 @@
     </enrolledSubjects>
     <gpa>3.25</gpa>
   </student>
-  <!-- Student 27: Dummy Student -->
+  
   <student studentId="23-00027">
     <firstName>Mateo</firstName>
     <lastName>Torres</lastName>
@@ -797,7 +782,7 @@
     </enrolledSubjects>
     <gpa>2.02</gpa>
   </student>
-  <!-- Student 28: Dummy Student -->
+  
   <student studentId="23-00028">
     <firstName>Alejandro</firstName>
     <lastName>Flores</lastName>
@@ -822,7 +807,7 @@
     </enrolledSubjects>
     <gpa>2.00</gpa>
   </student>
-  <!-- Student 29: Dummy Student -->
+  
   <student studentId="23-00029">
     <firstName>Luis</firstName>
     <lastName>Dela Cruz</lastName>
@@ -847,7 +832,7 @@
     </enrolledSubjects>
     <gpa>2.23</gpa>
   </student>
-  <!-- Student 30: Dummy Student -->
+  
   <student studentId="23-00030">
     <firstName>Carlos</firstName>
     <lastName>Mendoza</lastName>
@@ -877,7 +862,7 @@
     </enrolledSubjects>
     <gpa>2.08</gpa>
   </student>
-  <!-- Student 31: Dummy Student -->
+  
   <student studentId="23-00031">
     <firstName>Angela</firstName>
     <lastName>Garcia</lastName>
@@ -912,7 +897,7 @@
     </enrolledSubjects>
     <gpa>2.34</gpa>
   </student>
-  <!-- Student 32: Dummy Student -->
+  
   <student studentId="23-00032">
     <firstName>Isabela</firstName>
     <lastName>Garcia</lastName>
@@ -937,7 +922,7 @@
     </enrolledSubjects>
     <gpa>4.33</gpa>
   </student>
-  <!-- Student 33: Dummy Student -->
+  
   <student studentId="23-00033">
     <firstName>Miguel</firstName>
     <lastName>Lopez</lastName>
@@ -972,7 +957,7 @@
     </enrolledSubjects>
     <gpa>1.90</gpa>
   </student>
-  <!-- Student 34: Dummy Student -->
+  
   <student studentId="23-00034">
     <firstName>Miguel</firstName>
     <lastName>Garcia</lastName>
@@ -1002,7 +987,7 @@
     </enrolledSubjects>
     <gpa>2.00</gpa>
   </student>
-  <!-- Student 35: Dummy Student -->
+  
   <student studentId="23-00035">
     <firstName>Gabriel</firstName>
     <lastName>Villanueva</lastName>
@@ -1032,7 +1017,7 @@
     </enrolledSubjects>
     <gpa>4.25</gpa>
   </student>
-  <!-- Student 36: Dummy Student -->
+  
   <student studentId="23-00036">
     <firstName>Javier</firstName>
     <lastName>Lim</lastName>
@@ -1062,7 +1047,7 @@
     </enrolledSubjects>
     <gpa>2.59</gpa>
   </student>
-  <!-- Student 37: Dummy Student -->
+  
   <student studentId="23-00037">
     <firstName>Daniel</firstName>
     <lastName>Sanchez</lastName>
@@ -1097,7 +1082,7 @@
     </enrolledSubjects>
     <gpa>2.53</gpa>
   </student>
-  <!-- Student 38: Dummy Student -->
+  
   <student studentId="23-00038">
     <firstName>Mateo</firstName>
     <lastName>Dominguez</lastName>
@@ -1132,7 +1117,7 @@
     </enrolledSubjects>
     <gpa>2.08</gpa>
   </student>
-  <!-- Student 39: Dummy Student -->
+  
   <student studentId="23-00039">
     <firstName>Valentina</firstName>
     <lastName>Martinez</lastName>
@@ -1167,7 +1152,7 @@
     </enrolledSubjects>
     <gpa>2.50</gpa>
   </student>
-  <!-- Student 40: Dummy Student -->
+  
   <student studentId="23-00040">
     <firstName>Patricia</firstName>
     <lastName>Romero</lastName>
@@ -1197,7 +1182,7 @@
     </enrolledSubjects>
     <gpa>2.11</gpa>
   </student>
-  <!-- Student 41: Dummy Student -->
+  
   <student studentId="23-00041">
     <firstName>Jose</firstName>
     <lastName>Perez</lastName>
@@ -1232,7 +1217,7 @@
     </enrolledSubjects>
     <gpa>3.13</gpa>
   </student>
-  <!-- Student 42: Dummy Student -->
+  
   <student studentId="23-00042">
     <firstName>Andres</firstName>
     <lastName>Sosa</lastName>
@@ -1262,7 +1247,7 @@
     </enrolledSubjects>
     <gpa>2.42</gpa>
   </student>
-  <!-- Student 43: Dummy Student -->
+  
   <student studentId="23-00043">
     <firstName>Angela</firstName>
     <lastName>Reyes</lastName>
@@ -1292,7 +1277,7 @@
     </enrolledSubjects>
     <gpa>2.39</gpa>
   </student>
-  <!-- Student 44: Dummy Student -->
+  
   <student studentId="23-00044">
     <firstName>Victoria</firstName>
     <lastName>Jimenez</lastName>
@@ -1322,7 +1307,7 @@
     </enrolledSubjects>
     <gpa>2.62</gpa>
   </student>
-  <!-- Student 45: Dummy Student -->
+  
   <student studentId="23-00045">
     <firstName>Camila</firstName>
     <lastName>Villanueva</lastName>
@@ -1347,7 +1332,7 @@
     </enrolledSubjects>
     <gpa>1.67</gpa>
   </student>
-  <!-- Student 46: Dummy Student -->
+  
   <student studentId="23-00046">
     <firstName>Miguel</firstName>
     <lastName>Sanchez</lastName>
@@ -1372,7 +1357,7 @@
     </enrolledSubjects>
     <gpa>3.42</gpa>
   </student>
-  <!-- Student 47: Dummy Student -->
+  
   <student studentId="23-00047">
     <firstName>Daniela</firstName>
     <lastName>Alvarez</lastName>
@@ -1397,7 +1382,7 @@
     </enrolledSubjects>
     <gpa>1.75</gpa>
   </student>
-  <!-- Student 48: Dummy Student -->
+  
   <student studentId="23-00048">
     <firstName>Daniela</firstName>
     <lastName>Gomez</lastName>
@@ -1432,7 +1417,7 @@
     </enrolledSubjects>
     <gpa>2.55</gpa>
   </student>
-  <!-- Student 49: Dummy Student -->
+  
   <student studentId="23-00049">
     <firstName>Daniela</firstName>
     <lastName>Perez</lastName>
@@ -1467,7 +1452,7 @@
     </enrolledSubjects>
     <gpa>2.65</gpa>
   </student>
-  <!-- Student 50: Dummy Student -->
+  
   <student studentId="23-00050">
     <firstName>Juan</firstName>
     <lastName>Martinez</lastName>
@@ -1502,7 +1487,7 @@
     </enrolledSubjects>
     <gpa>2.82</gpa>
   </student>
-  <!-- Student 51: Dummy Student -->
+  
   <student studentId="23-00051">
     <firstName>Patricia</firstName>
     <lastName>Gomez</lastName>
@@ -1537,7 +1522,7 @@
     </enrolledSubjects>
     <gpa>3.06</gpa>
   </student>
-  <!-- Student 52: Dummy Student -->
+  
   <student studentId="23-00052">
     <firstName>Mateo</firstName>
     <lastName>Reyes</lastName>
@@ -1572,7 +1557,7 @@
     </enrolledSubjects>
     <gpa>2.80</gpa>
   </student>
-  <!-- Student 53: Dummy Student -->
+  
   <student studentId="23-00053">
     <firstName>Gabriela</firstName>
     <lastName>Sanchez</lastName>
@@ -1597,7 +1582,7 @@
     </enrolledSubjects>
     <gpa>2.45</gpa>
   </student>
-  <!-- Student 54: Dummy Student -->
+  
   <student studentId="23-00054">
     <firstName>Camila</firstName>
     <lastName>Villanueva</lastName>
@@ -1627,7 +1612,7 @@
     </enrolledSubjects>
     <gpa>1.65</gpa>
   </student>
-  <!-- Student 55: Dummy Student -->
+  
   <student studentId="23-00055">
     <firstName>Mariana</firstName>
     <lastName>Gonzalez</lastName>
@@ -1652,7 +1637,7 @@
     </enrolledSubjects>
     <gpa>2.91</gpa>
   </student>
-  <!-- Student 56: Dummy Student -->
+  
   <student studentId="23-00056">
     <firstName>Rafael</firstName>
     <lastName>Villanueva</lastName>
@@ -1687,7 +1672,7 @@
     </enrolledSubjects>
     <gpa>2.25</gpa>
   </student>
-  <!-- Student 57: Dummy Student -->
+  
   <student studentId="23-00057">
     <firstName>Valeria</firstName>
     <lastName>Ortiz</lastName>
@@ -1712,7 +1697,7 @@
     </enrolledSubjects>
     <gpa>2.68</gpa>
   </student>
-  <!-- Student 58: Dummy Student -->
+  
   <student studentId="23-00058">
     <firstName>Patricia</firstName>
     <lastName>Ortiz</lastName>
@@ -1737,7 +1722,7 @@
     </enrolledSubjects>
     <gpa>2.30</gpa>
   </student>
-  <!-- Student 59: Dummy Student -->
+  
   <student studentId="23-00059">
     <firstName>Alejandro</firstName>
     <lastName>Rodriguez</lastName>
@@ -1772,7 +1757,7 @@
     </enrolledSubjects>
     <gpa>2.25</gpa>
   </student>
-  <!-- Student 60: Dummy Student -->
+  
   <student studentId="23-00060">
     <firstName>Lucia</firstName>
     <lastName>Mendoza</lastName>
@@ -1807,7 +1792,7 @@
     </enrolledSubjects>
     <gpa>2.21</gpa>
   </student>
-  <!-- Student 61: Dummy Student -->
+  
   <student studentId="23-00061">
     <firstName>Angela</firstName>
     <lastName>Santos</lastName>
@@ -1837,7 +1822,7 @@
     </enrolledSubjects>
     <gpa>3.19</gpa>
   </student>
-  <!-- Student 62: Dummy Student -->
+  
   <student studentId="23-00062">
     <firstName>Miguel</firstName>
     <lastName>Garcia</lastName>
@@ -1862,7 +1847,7 @@
     </enrolledSubjects>
     <gpa>3.42</gpa>
   </student>
-  <!-- Student 63: Dummy Student -->
+  
   <student studentId="23-00063">
     <firstName>Daniel</firstName>
     <lastName>Villanueva</lastName>
@@ -1887,7 +1872,7 @@
     </enrolledSubjects>
     <gpa>2.55</gpa>
   </student>
-  <!-- Student 64: Dummy Student -->
+  
   <student studentId="23-00064">
     <firstName>Luis</firstName>
     <lastName>Jimenez</lastName>
@@ -1912,7 +1897,7 @@
     </enrolledSubjects>
     <gpa>2.36</gpa>
   </student>
-  <!-- Student 65: Dummy Student -->
+  
   <student studentId="23-00065">
     <firstName>Miguel</firstName>
     <lastName>Perez</lastName>
@@ -1942,7 +1927,7 @@
     </enrolledSubjects>
     <gpa>2.98</gpa>
   </student>
-  <!-- Student 66: Dummy Student -->
+  
   <student studentId="23-00066">
     <firstName>Miguel</firstName>
     <lastName>Ortiz</lastName>
@@ -1972,7 +1957,7 @@
     </enrolledSubjects>
     <gpa>2.23</gpa>
   </student>
-  <!-- Student 67: Dummy Student -->
+  
   <student studentId="23-00067">
     <firstName>Miguel</firstName>
     <lastName>Flores</lastName>
@@ -2002,7 +1987,7 @@
     </enrolledSubjects>
     <gpa>3.15</gpa>
   </student>
-  <!-- Student 68: Dummy Student -->
+  
   <student studentId="23-00068">
     <firstName>Diego</firstName>
     <lastName>Castro</lastName>
@@ -2037,7 +2022,7 @@
     </enrolledSubjects>
     <gpa>1.86</gpa>
   </student>
-  <!-- Student 69: Dummy Student -->
+  
   <student studentId="23-00069">
     <firstName>Gabriela</firstName>
     <lastName>Diaz</lastName>
@@ -2072,7 +2057,7 @@
     </enrolledSubjects>
     <gpa>2.71</gpa>
   </student>
-  <!-- Student 70: Dummy Student -->
+  
   <student studentId="23-00070">
     <firstName>Ana</firstName>
     <lastName>Ortiz</lastName>
@@ -2097,7 +2082,7 @@
     </enrolledSubjects>
     <gpa>2.57</gpa>
   </student>
-  <!-- Student 71: Dummy Student -->
+  
   <student studentId="23-00071">
     <firstName>Maria</firstName>
     <lastName>Fernandez</lastName>
@@ -2127,7 +2112,7 @@
     </enrolledSubjects>
     <gpa>1.92</gpa>
   </student>
-  <!-- Student 72: Dummy Student -->
+  
   <student studentId="23-00072">
     <firstName>Carlos</firstName>
     <lastName>Reyes</lastName>
@@ -2157,7 +2142,7 @@
     </enrolledSubjects>
     <gpa>2.00</gpa>
   </student>
-  <!-- Student 73: Dummy Student -->
+  
   <student studentId="23-00073">
     <firstName>Daniel</firstName>
     <lastName>Torres</lastName>
@@ -2187,7 +2172,7 @@
     </enrolledSubjects>
     <gpa>3.19</gpa>
   </student>
-  <!-- Student 74: Dummy Student -->
+  
   <student studentId="23-00074">
     <firstName>Valentina</firstName>
     <lastName>Martinez</lastName>
@@ -2217,7 +2202,7 @@
     </enrolledSubjects>
     <gpa>2.06</gpa>
   </student>
-  <!-- Student 75: Dummy Student -->
+  
   <student studentId="23-00075">
     <firstName>Valeria</firstName>
     <lastName>Sosa</lastName>
@@ -2247,7 +2232,7 @@
     </enrolledSubjects>
     <gpa>4.02</gpa>
   </student>
-  <!-- Student 76: Dummy Student -->
+  
   <student studentId="23-00076">
     <firstName>Rafael</firstName>
     <lastName>Dominguez</lastName>
@@ -2272,7 +2257,7 @@
     </enrolledSubjects>
     <gpa>3.50</gpa>
   </student>
-  <!-- Student 77: Dummy Student -->
+  
   <student studentId="23-00077">
     <firstName>Victoria</firstName>
     <lastName>Perez</lastName>
@@ -2307,7 +2292,7 @@
     </enrolledSubjects>
     <gpa>2.53</gpa>
   </student>
-  <!-- Student 78: Dummy Student -->
+  
   <student studentId="23-00078">
     <firstName>Ana</firstName>
     <lastName>Alvarez</lastName>
@@ -2332,7 +2317,7 @@
     </enrolledSubjects>
     <gpa>1.89</gpa>
   </student>
-  <!-- Student 79: Dummy Student -->
+  
   <student studentId="23-00079">
     <firstName>Isabela</firstName>
     <lastName>Rojas</lastName>
@@ -2367,7 +2352,7 @@
     </enrolledSubjects>
     <gpa>1.80</gpa>
   </student>
-  <!-- Student 80: Dummy Student -->
+  
   <student studentId="23-00080">
     <firstName>Pedro</firstName>
     <lastName>Lim</lastName>
@@ -2397,7 +2382,7 @@
     </enrolledSubjects>
     <gpa>2.75</gpa>
   </student>
-  <!-- Student 81: Dummy Student -->
+  
   <student studentId="23-00081">
     <firstName>Lucia</firstName>
     <lastName>Perez</lastName>
@@ -2432,7 +2417,7 @@
     </enrolledSubjects>
     <gpa>2.19</gpa>
   </student>
-  <!-- Student 82: Dummy Student -->
+  
   <student studentId="23-00082">
     <firstName>Patricia</firstName>
     <lastName>Reyes</lastName>
@@ -2457,7 +2442,7 @@
     </enrolledSubjects>
     <gpa>2.02</gpa>
   </student>
-  <!-- Student 83: Dummy Student -->
+  
   <student studentId="23-00083">
     <firstName>Fernando</firstName>
     <lastName>Gomez</lastName>
@@ -2492,7 +2477,7 @@
     </enrolledSubjects>
     <gpa>1.89</gpa>
   </student>
-  <!-- Student 84: Dummy Student -->
+  
   <student studentId="23-00084">
     <firstName>Carmen</firstName>
     <lastName>Lopez</lastName>
@@ -2527,7 +2512,7 @@
     </enrolledSubjects>
     <gpa>1.88</gpa>
   </student>
-  <!-- Student 85: Dummy Student -->
+  
   <student studentId="23-00085">
     <firstName>Javier</firstName>
     <lastName>Torres</lastName>
@@ -2552,7 +2537,7 @@
     </enrolledSubjects>
     <gpa>2.48</gpa>
   </student>
-  <!-- Student 86: Dummy Student -->
+  
   <student studentId="23-00086">
     <firstName>Andres</firstName>
     <lastName>Santos</lastName>
@@ -2577,7 +2562,7 @@
     </enrolledSubjects>
     <gpa>2.73</gpa>
   </student>
-  <!-- Student 87: Dummy Student -->
+  
   <student studentId="23-00087">
     <firstName>Valentina</firstName>
     <lastName>Flores</lastName>
@@ -2602,7 +2587,7 @@
     </enrolledSubjects>
     <gpa>2.25</gpa>
   </student>
-  <!-- Student 88: Dummy Student -->
+  
   <student studentId="23-00088">
     <firstName>Mateo</firstName>
     <lastName>Sosa</lastName>
@@ -2637,7 +2622,7 @@
     </enrolledSubjects>
     <gpa>2.69</gpa>
   </student>
-  <!-- Student 89: Dummy Student -->
+  
   <student studentId="23-00089">
     <firstName>Victoria</firstName>
     <lastName>Reyes</lastName>
@@ -2667,7 +2652,7 @@
     </enrolledSubjects>
     <gpa>2.71</gpa>
   </student>
-  <!-- Student 90: Dummy Student -->
+  
   <student studentId="23-00090">
     <firstName>Victoria</firstName>
     <lastName>Dela Cruz</lastName>
@@ -2697,7 +2682,7 @@
     </enrolledSubjects>
     <gpa>1.84</gpa>
   </student>
-  <!-- Student 91: Dummy Student -->
+  
   <student studentId="23-00091">
     <firstName>Valentina</firstName>
     <lastName>Jimenez</lastName>
@@ -2722,7 +2707,7 @@
     </enrolledSubjects>
     <gpa>2.18</gpa>
   </student>
-  <!-- Student 92: Dummy Student -->
+  
   <student studentId="23-00092">
     <firstName>Andres</firstName>
     <lastName>Mendoza</lastName>
@@ -2757,7 +2742,7 @@
     </enrolledSubjects>
     <gpa>2.18</gpa>
   </student>
-  <!-- Student 93: Dummy Student -->
+  
   <student studentId="23-00093">
     <firstName>Lucia</firstName>
     <lastName>Gonzalez</lastName>
@@ -2782,7 +2767,7 @@
     </enrolledSubjects>
     <gpa>1.73</gpa>
   </student>
-  <!-- Student 94: Dummy Student -->
+  
   <student studentId="23-00094">
     <firstName>Maria</firstName>
     <lastName>Jimenez</lastName>
@@ -2817,7 +2802,7 @@
     </enrolledSubjects>
     <gpa>2.42</gpa>
   </student>
-  <!-- Student 95: Dummy Student -->
+  
   <student studentId="23-00095">
     <firstName>Gabriela</firstName>
     <lastName>Flores</lastName>
@@ -2842,7 +2827,7 @@
     </enrolledSubjects>
     <gpa>3.00</gpa>
   </student>
-  <!-- Student 96: Dummy Student -->
+  
   <student studentId="23-00096">
     <firstName>Valentina</firstName>
     <lastName>Castro</lastName>
@@ -2872,7 +2857,7 @@
     </enrolledSubjects>
     <gpa>2.89</gpa>
   </student>
-  <!-- Student 97: Dummy Student -->
+  
   <student studentId="23-00097">
     <firstName>Patricia</firstName>
     <lastName>Rojas</lastName>
@@ -2907,7 +2892,7 @@
     </enrolledSubjects>
     <gpa>2.84</gpa>
   </student>
-  <!-- Student 98: Dummy Student -->
+  
   <student studentId="23-00098">
     <firstName>Mariana</firstName>
     <lastName>Diaz</lastName>
@@ -2932,7 +2917,7 @@
     </enrolledSubjects>
     <gpa>2.75</gpa>
   </student>
-  <!-- Student 99: Dummy Student -->
+  
   <student studentId="23-00099">
     <firstName>Diego</firstName>
     <lastName>Villanueva</lastName>
@@ -2957,7 +2942,7 @@
     </enrolledSubjects>
     <gpa>2.15</gpa>
   </student>
-  <!-- Student 100: Dummy Student -->
+  
   <student studentId="23-00100">
     <firstName>Mateo</firstName>
     <lastName>Sosa</lastName>

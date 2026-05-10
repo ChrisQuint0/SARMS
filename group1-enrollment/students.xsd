@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  SARMS - Smart Academic Records Management System
-  Group 1: Student Enrollment System - XSD (XML Schema Definition)
-  
-  This schema provides advanced type validation beyond what DTD can offer:
-    - Year level restricted to integers 1–4 only
-    - Units must be a positive integer
-    - Grade must be a decimal between 1.00 and 5.00
-    - GPA must not exceed 5.0 (XSD Assertion - Self-Study)
-    - Student IDs follow STU-XXX pattern
-    - Subject IDs follow SUB-XXX pattern
--->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
            vc:minVersion="1.1">
-
-  <!-- ============================================================ -->
-  <!-- SIMPLE TYPES: Custom data types for validation                -->
-  <!-- ============================================================ -->
 
   <!-- StudentIdType: Enforces 00-00000 format -->
   <xs:simpleType name="studentIdType">
