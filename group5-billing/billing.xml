@@ -1,0 +1,705 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="billing.xsl"?>
+<!DOCTYPE billing SYSTEM "billing.dtd">
+<billing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="billing.xsd">
+  <record>
+    <studentId>BIL-001</studentId>
+    <name>Sarah Williams</name>
+    <tuitionFee>34478</tuitionFee>
+    <paymentsMade>18603</paymentsMade>
+    <balance>15875</balance>
+  </record>
+  <record>
+    <studentId>BIL-002</studentId>
+    <name>Robert Martin</name>
+    <tuitionFee>21599</tuitionFee>
+    <paymentsMade>6653</paymentsMade>
+    <balance>14946</balance>
+  </record>
+  <record>
+    <studentId>BIL-003</studentId>
+    <name>Jane Rodriguez</name>
+    <tuitionFee>46289</tuitionFee>
+    <paymentsMade>42464</paymentsMade>
+    <balance>3825</balance>
+  </record>
+  <record>
+    <studentId>BIL-004</studentId>
+    <name>Charles Anderson</name>
+    <tuitionFee>37978</tuitionFee>
+    <paymentsMade>16122</paymentsMade>
+    <balance>21856</balance>
+  </record>
+  <record>
+    <studentId>BIL-005</studentId>
+    <name>Emily Lopez</name>
+    <tuitionFee>42600</tuitionFee>
+    <paymentsMade>38093</paymentsMade>
+    <balance>4507</balance>
+  </record>
+  <record>
+    <studentId>BIL-006</studentId>
+    <name>Amelia Smith</name>
+    <tuitionFee>36355</tuitionFee>
+    <paymentsMade>12336</paymentsMade>
+    <balance>24019</balance>
+  </record>
+  <record>
+    <studentId>BIL-007</studentId>
+    <name>Thomas Hernandez</name>
+    <tuitionFee>46512</tuitionFee>
+    <paymentsMade>11239</paymentsMade>
+    <balance>35273</balance>
+  </record>
+  <record>
+    <studentId>BIL-008</studentId>
+    <name>James Garcia</name>
+    <tuitionFee>45675</tuitionFee>
+    <paymentsMade>40456</paymentsMade>
+    <balance>5219</balance>
+  </record>
+  <record>
+    <studentId>BIL-009</studentId>
+    <name>Isabella Miller</name>
+    <tuitionFee>34009</tuitionFee>
+    <paymentsMade>27378</paymentsMade>
+    <balance>6631</balance>
+  </record>
+  <record>
+    <studentId>BIL-010</studentId>
+    <name>Joseph Davis</name>
+    <tuitionFee>36405</tuitionFee>
+    <paymentsMade>22095</paymentsMade>
+    <balance>14310</balance>
+  </record>
+  <record>
+    <studentId>BIL-011</studentId>
+    <name>Harper Jackson</name>
+    <tuitionFee>25522</tuitionFee>
+    <paymentsMade>19371</paymentsMade>
+    <balance>6151</balance>
+  </record>
+  <record>
+    <studentId>BIL-012</studentId>
+    <name>Mia Martin</name>
+    <tuitionFee>27277</tuitionFee>
+    <paymentsMade>24487</paymentsMade>
+    <balance>2790</balance>
+  </record>
+  <record>
+    <studentId>BIL-013</studentId>
+    <name>Matthew Jones</name>
+    <tuitionFee>45618</tuitionFee>
+    <paymentsMade>37301</paymentsMade>
+    <balance>8317</balance>
+  </record>
+  <record>
+    <studentId>BIL-014</studentId>
+    <name>Harper Williams</name>
+    <tuitionFee>30420</tuitionFee>
+    <paymentsMade>24117</paymentsMade>
+    <balance>6303</balance>
+  </record>
+  <record>
+    <studentId>BIL-015</studentId>
+    <name>Laura Gonzalez</name>
+    <tuitionFee>48090</tuitionFee>
+    <paymentsMade>42328</paymentsMade>
+    <balance>5762</balance>
+  </record>
+  <record>
+    <studentId>BIL-016</studentId>
+    <name>Robert Hernandez</name>
+    <tuitionFee>43323</tuitionFee>
+    <paymentsMade>39539</paymentsMade>
+    <balance>3784</balance>
+  </record>
+  <record>
+    <studentId>BIL-017</studentId>
+    <name>William Martinez</name>
+    <tuitionFee>41831</tuitionFee>
+    <paymentsMade>18771</paymentsMade>
+    <balance>23060</balance>
+  </record>
+  <record>
+    <studentId>BIL-018</studentId>
+    <name>Evelyn Gonzalez</name>
+    <tuitionFee>38676</tuitionFee>
+    <paymentsMade>37467</paymentsMade>
+    <balance>1209</balance>
+  </record>
+  <record>
+    <studentId>BIL-019</studentId>
+    <name>Harper Jackson</name>
+    <tuitionFee>35059</tuitionFee>
+    <paymentsMade>12281</paymentsMade>
+    <balance>22778</balance>
+  </record>
+  <record>
+    <studentId>BIL-020</studentId>
+    <name>Mia Lopez</name>
+    <tuitionFee>40917</tuitionFee>
+    <paymentsMade>35564</paymentsMade>
+    <balance>5353</balance>
+  </record>
+  <record>
+    <studentId>BIL-021</studentId>
+    <name>Thomas Lopez</name>
+    <tuitionFee>40848</tuitionFee>
+    <paymentsMade>3430</paymentsMade>
+    <balance>37418</balance>
+  </record>
+  <record>
+    <studentId>BIL-022</studentId>
+    <name>Laura Anderson</name>
+    <tuitionFee>45901</tuitionFee>
+    <paymentsMade>3386</paymentsMade>
+    <balance>42515</balance>
+  </record>
+  <record>
+    <studentId>BIL-023</studentId>
+    <name>John Jackson</name>
+    <tuitionFee>42142</tuitionFee>
+    <paymentsMade>40968</paymentsMade>
+    <balance>1174</balance>
+  </record>
+  <record>
+    <studentId>BIL-024</studentId>
+    <name>Sarah Moore</name>
+    <tuitionFee>43809</tuitionFee>
+    <paymentsMade>37835</paymentsMade>
+    <balance>5974</balance>
+  </record>
+  <record>
+    <studentId>BIL-025</studentId>
+    <name>Emma Hernandez</name>
+    <tuitionFee>31197</tuitionFee>
+    <paymentsMade>19112</paymentsMade>
+    <balance>12085</balance>
+  </record>
+  <record>
+    <studentId>BIL-026</studentId>
+    <name>Thomas Moore</name>
+    <tuitionFee>41063</tuitionFee>
+    <paymentsMade>19335</paymentsMade>
+    <balance>21728</balance>
+  </record>
+  <record>
+    <studentId>BIL-027</studentId>
+    <name>Evelyn Thomas</name>
+    <tuitionFee>25778</tuitionFee>
+    <paymentsMade>13285</paymentsMade>
+    <balance>12493</balance>
+  </record>
+  <record>
+    <studentId>BIL-028</studentId>
+    <name>Isabella Moore</name>
+    <tuitionFee>20455</tuitionFee>
+    <paymentsMade>7193</paymentsMade>
+    <balance>13262</balance>
+  </record>
+  <record>
+    <studentId>BIL-029</studentId>
+    <name>Harper Miller</name>
+    <tuitionFee>21495</tuitionFee>
+    <paymentsMade>9134</paymentsMade>
+    <balance>12361</balance>
+  </record>
+  <record>
+    <studentId>BIL-030</studentId>
+    <name>Emma Garcia</name>
+    <tuitionFee>33366</tuitionFee>
+    <paymentsMade>7364</paymentsMade>
+    <balance>26002</balance>
+  </record>
+  <record>
+    <studentId>BIL-031</studentId>
+    <name>Charlotte Anderson</name>
+    <tuitionFee>37101</tuitionFee>
+    <paymentsMade>34924</paymentsMade>
+    <balance>2177</balance>
+  </record>
+  <record>
+    <studentId>BIL-032</studentId>
+    <name>Amelia Wilson</name>
+    <tuitionFee>27546</tuitionFee>
+    <paymentsMade>3027</paymentsMade>
+    <balance>24519</balance>
+  </record>
+  <record>
+    <studentId>BIL-033</studentId>
+    <name>Jane Garcia</name>
+    <tuitionFee>40560</tuitionFee>
+    <paymentsMade>9653</paymentsMade>
+    <balance>30907</balance>
+  </record>
+  <record>
+    <studentId>BIL-034</studentId>
+    <name>Charles Jones</name>
+    <tuitionFee>21523</tuitionFee>
+    <paymentsMade>17621</paymentsMade>
+    <balance>3902</balance>
+  </record>
+  <record>
+    <studentId>BIL-035</studentId>
+    <name>Alex Johnson</name>
+    <tuitionFee>43217</tuitionFee>
+    <paymentsMade>36109</paymentsMade>
+    <balance>7108</balance>
+  </record>
+  <record>
+    <studentId>BIL-036</studentId>
+    <name>Emma Gonzalez</name>
+    <tuitionFee>31860</tuitionFee>
+    <paymentsMade>640</paymentsMade>
+    <balance>31220</balance>
+  </record>
+  <record>
+    <studentId>BIL-037</studentId>
+    <name>Robert Davis</name>
+    <tuitionFee>47482</tuitionFee>
+    <paymentsMade>18231</paymentsMade>
+    <balance>29251</balance>
+  </record>
+  <record>
+    <studentId>BIL-038</studentId>
+    <name>Charles Hernandez</name>
+    <tuitionFee>32208</tuitionFee>
+    <paymentsMade>7100</paymentsMade>
+    <balance>25108</balance>
+  </record>
+  <record>
+    <studentId>BIL-039</studentId>
+    <name>Harper Johnson</name>
+    <tuitionFee>32953</tuitionFee>
+    <paymentsMade>32772</paymentsMade>
+    <balance>181</balance>
+  </record>
+  <record>
+    <studentId>BIL-040</studentId>
+    <name>Olivia Hernandez</name>
+    <tuitionFee>42761</tuitionFee>
+    <paymentsMade>19177</paymentsMade>
+    <balance>23584</balance>
+  </record>
+  <record>
+    <studentId>BIL-041</studentId>
+    <name>Emma Thomas</name>
+    <tuitionFee>42404</tuitionFee>
+    <paymentsMade>2677</paymentsMade>
+    <balance>39727</balance>
+  </record>
+  <record>
+    <studentId>BIL-042</studentId>
+    <name>Olivia Williams</name>
+    <tuitionFee>27884</tuitionFee>
+    <paymentsMade>8446</paymentsMade>
+    <balance>19438</balance>
+  </record>
+  <record>
+    <studentId>BIL-043</studentId>
+    <name>Olivia Jackson</name>
+    <tuitionFee>28635</tuitionFee>
+    <paymentsMade>27448</paymentsMade>
+    <balance>1187</balance>
+  </record>
+  <record>
+    <studentId>BIL-044</studentId>
+    <name>Emily Jackson</name>
+    <tuitionFee>24164</tuitionFee>
+    <paymentsMade>18483</paymentsMade>
+    <balance>5681</balance>
+  </record>
+  <record>
+    <studentId>BIL-045</studentId>
+    <name>Michael Williams</name>
+    <tuitionFee>31588</tuitionFee>
+    <paymentsMade>10471</paymentsMade>
+    <balance>21117</balance>
+  </record>
+  <record>
+    <studentId>BIL-046</studentId>
+    <name>Thomas Miller</name>
+    <tuitionFee>33830</tuitionFee>
+    <paymentsMade>16032</paymentsMade>
+    <balance>17798</balance>
+  </record>
+  <record>
+    <studentId>BIL-047</studentId>
+    <name>Evelyn Rodriguez</name>
+    <tuitionFee>35793</tuitionFee>
+    <paymentsMade>6069</paymentsMade>
+    <balance>29724</balance>
+  </record>
+  <record>
+    <studentId>BIL-048</studentId>
+    <name>James Smith</name>
+    <tuitionFee>44226</tuitionFee>
+    <paymentsMade>20838</paymentsMade>
+    <balance>23388</balance>
+  </record>
+  <record>
+    <studentId>BIL-049</studentId>
+    <name>Anthony Jones</name>
+    <tuitionFee>39651</tuitionFee>
+    <paymentsMade>30091</paymentsMade>
+    <balance>9560</balance>
+  </record>
+  <record>
+    <studentId>BIL-050</studentId>
+    <name>Amelia Lopez</name>
+    <tuitionFee>41978</tuitionFee>
+    <paymentsMade>38926</paymentsMade>
+    <balance>3052</balance>
+  </record>
+  <record>
+    <studentId>BIL-051</studentId>
+    <name>David Brown</name>
+    <tuitionFee>40522</tuitionFee>
+    <paymentsMade>30609</paymentsMade>
+    <balance>9913</balance>
+  </record>
+  <record>
+    <studentId>BIL-052</studentId>
+    <name>Emily Johnson</name>
+    <tuitionFee>47085</tuitionFee>
+    <paymentsMade>38721</paymentsMade>
+    <balance>8364</balance>
+  </record>
+  <record>
+    <studentId>BIL-053</studentId>
+    <name>Olivia Jackson</name>
+    <tuitionFee>46179</tuitionFee>
+    <paymentsMade>20465</paymentsMade>
+    <balance>25714</balance>
+  </record>
+  <record>
+    <studentId>BIL-054</studentId>
+    <name>Joseph Miller</name>
+    <tuitionFee>21166</tuitionFee>
+    <paymentsMade>18053</paymentsMade>
+    <balance>3113</balance>
+  </record>
+  <record>
+    <studentId>BIL-055</studentId>
+    <name>Jane Davis</name>
+    <tuitionFee>37552</tuitionFee>
+    <paymentsMade>13249</paymentsMade>
+    <balance>24303</balance>
+  </record>
+  <record>
+    <studentId>BIL-056</studentId>
+    <name>Charlotte Moore</name>
+    <tuitionFee>42131</tuitionFee>
+    <paymentsMade>27024</paymentsMade>
+    <balance>15107</balance>
+  </record>
+  <record>
+    <studentId>BIL-057</studentId>
+    <name>Isabella Johnson</name>
+    <tuitionFee>47854</tuitionFee>
+    <paymentsMade>28631</paymentsMade>
+    <balance>19223</balance>
+  </record>
+  <record>
+    <studentId>BIL-058</studentId>
+    <name>William Jackson</name>
+    <tuitionFee>20845</tuitionFee>
+    <paymentsMade>6851</paymentsMade>
+    <balance>13994</balance>
+  </record>
+  <record>
+    <studentId>BIL-059</studentId>
+    <name>Emily Johnson</name>
+    <tuitionFee>33915</tuitionFee>
+    <paymentsMade>18338</paymentsMade>
+    <balance>15577</balance>
+  </record>
+  <record>
+    <studentId>BIL-060</studentId>
+    <name>Michael Gonzalez</name>
+    <tuitionFee>32280</tuitionFee>
+    <paymentsMade>4937</paymentsMade>
+    <balance>27343</balance>
+  </record>
+  <record>
+    <studentId>BIL-061</studentId>
+    <name>Evelyn Thomas</name>
+    <tuitionFee>49008</tuitionFee>
+    <paymentsMade>24278</paymentsMade>
+    <balance>24730</balance>
+  </record>
+  <record>
+    <studentId>BIL-062</studentId>
+    <name>Charles Smith</name>
+    <tuitionFee>46602</tuitionFee>
+    <paymentsMade>33555</paymentsMade>
+    <balance>13047</balance>
+  </record>
+  <record>
+    <studentId>BIL-063</studentId>
+    <name>Anthony Garcia</name>
+    <tuitionFee>31248</tuitionFee>
+    <paymentsMade>26090</paymentsMade>
+    <balance>5158</balance>
+  </record>
+  <record>
+    <studentId>BIL-064</studentId>
+    <name>John Anderson</name>
+    <tuitionFee>28834</tuitionFee>
+    <paymentsMade>25627</paymentsMade>
+    <balance>3207</balance>
+  </record>
+  <record>
+    <studentId>BIL-065</studentId>
+    <name>David Moore</name>
+    <tuitionFee>33152</tuitionFee>
+    <paymentsMade>5148</paymentsMade>
+    <balance>28004</balance>
+  </record>
+  <record>
+    <studentId>BIL-066</studentId>
+    <name>Emily Jackson</name>
+    <tuitionFee>41067</tuitionFee>
+    <paymentsMade>13287</paymentsMade>
+    <balance>27780</balance>
+  </record>
+  <record>
+    <studentId>BIL-067</studentId>
+    <name>James Thomas</name>
+    <tuitionFee>23776</tuitionFee>
+    <paymentsMade>17939</paymentsMade>
+    <balance>5837</balance>
+  </record>
+  <record>
+    <studentId>BIL-068</studentId>
+    <name>Charles Moore</name>
+    <tuitionFee>40830</tuitionFee>
+    <paymentsMade>27399</paymentsMade>
+    <balance>13431</balance>
+  </record>
+  <record>
+    <studentId>BIL-069</studentId>
+    <name>Emma Moore</name>
+    <tuitionFee>35539</tuitionFee>
+    <paymentsMade>26390</paymentsMade>
+    <balance>9149</balance>
+  </record>
+  <record>
+    <studentId>BIL-070</studentId>
+    <name>Robert Johnson</name>
+    <tuitionFee>39189</tuitionFee>
+    <paymentsMade>11342</paymentsMade>
+    <balance>27847</balance>
+  </record>
+  <record>
+    <studentId>BIL-071</studentId>
+    <name>Isabella Taylor</name>
+    <tuitionFee>43494</tuitionFee>
+    <paymentsMade>5976</paymentsMade>
+    <balance>37518</balance>
+  </record>
+  <record>
+    <studentId>BIL-072</studentId>
+    <name>Anthony Brown</name>
+    <tuitionFee>33719</tuitionFee>
+    <paymentsMade>2504</paymentsMade>
+    <balance>31215</balance>
+  </record>
+  <record>
+    <studentId>BIL-073</studentId>
+    <name>Sarah Martinez</name>
+    <tuitionFee>20766</tuitionFee>
+    <paymentsMade>15130</paymentsMade>
+    <balance>5636</balance>
+  </record>
+  <record>
+    <studentId>BIL-074</studentId>
+    <name>Amelia Williams</name>
+    <tuitionFee>35378</tuitionFee>
+    <paymentsMade>4399</paymentsMade>
+    <balance>30979</balance>
+  </record>
+  <record>
+    <studentId>BIL-075</studentId>
+    <name>Evelyn Hernandez</name>
+    <tuitionFee>31477</tuitionFee>
+    <paymentsMade>14004</paymentsMade>
+    <balance>17473</balance>
+  </record>
+  <record>
+    <studentId>BIL-076</studentId>
+    <name>Thomas Hernandez</name>
+    <tuitionFee>37920</tuitionFee>
+    <paymentsMade>510</paymentsMade>
+    <balance>37410</balance>
+  </record>
+  <record>
+    <studentId>BIL-077</studentId>
+    <name>Laura Garcia</name>
+    <tuitionFee>33161</tuitionFee>
+    <paymentsMade>16500</paymentsMade>
+    <balance>16661</balance>
+  </record>
+  <record>
+    <studentId>BIL-078</studentId>
+    <name>Sarah Garcia</name>
+    <tuitionFee>21211</tuitionFee>
+    <paymentsMade>15034</paymentsMade>
+    <balance>6177</balance>
+  </record>
+  <record>
+    <studentId>BIL-079</studentId>
+    <name>Olivia Jones</name>
+    <tuitionFee>36768</tuitionFee>
+    <paymentsMade>20512</paymentsMade>
+    <balance>16256</balance>
+  </record>
+  <record>
+    <studentId>BIL-080</studentId>
+    <name>Harper Miller</name>
+    <tuitionFee>23339</tuitionFee>
+    <paymentsMade>21614</paymentsMade>
+    <balance>1725</balance>
+  </record>
+  <record>
+    <studentId>BIL-081</studentId>
+    <name>William Rodriguez</name>
+    <tuitionFee>49725</tuitionFee>
+    <paymentsMade>1412</paymentsMade>
+    <balance>48313</balance>
+  </record>
+  <record>
+    <studentId>BIL-082</studentId>
+    <name>Sarah Garcia</name>
+    <tuitionFee>38875</tuitionFee>
+    <paymentsMade>10889</paymentsMade>
+    <balance>27986</balance>
+  </record>
+  <record>
+    <studentId>BIL-083</studentId>
+    <name>Emma Garcia</name>
+    <tuitionFee>43916</tuitionFee>
+    <paymentsMade>22046</paymentsMade>
+    <balance>21870</balance>
+  </record>
+  <record>
+    <studentId>BIL-084</studentId>
+    <name>Charles Moore</name>
+    <tuitionFee>21922</tuitionFee>
+    <paymentsMade>17087</paymentsMade>
+    <balance>4835</balance>
+  </record>
+  <record>
+    <studentId>BIL-085</studentId>
+    <name>Michael Gonzalez</name>
+    <tuitionFee>31377</tuitionFee>
+    <paymentsMade>23429</paymentsMade>
+    <balance>7948</balance>
+  </record>
+  <record>
+    <studentId>BIL-086</studentId>
+    <name>Daniel Miller</name>
+    <tuitionFee>33590</tuitionFee>
+    <paymentsMade>25291</paymentsMade>
+    <balance>8299</balance>
+  </record>
+  <record>
+    <studentId>BIL-087</studentId>
+    <name>Charlotte Davis</name>
+    <tuitionFee>25962</tuitionFee>
+    <paymentsMade>2468</paymentsMade>
+    <balance>23494</balance>
+  </record>
+  <record>
+    <studentId>BIL-088</studentId>
+    <name>Charles Williams</name>
+    <tuitionFee>33363</tuitionFee>
+    <paymentsMade>23139</paymentsMade>
+    <balance>10224</balance>
+  </record>
+  <record>
+    <studentId>BIL-089</studentId>
+    <name>Olivia Moore</name>
+    <tuitionFee>49739</tuitionFee>
+    <paymentsMade>16448</paymentsMade>
+    <balance>33291</balance>
+  </record>
+  <record>
+    <studentId>BIL-090</studentId>
+    <name>Thomas Johnson</name>
+    <tuitionFee>24445</tuitionFee>
+    <paymentsMade>23232</paymentsMade>
+    <balance>1213</balance>
+  </record>
+  <record>
+    <studentId>BIL-091</studentId>
+    <name>William Davis</name>
+    <tuitionFee>47180</tuitionFee>
+    <paymentsMade>10399</paymentsMade>
+    <balance>36781</balance>
+  </record>
+  <record>
+    <studentId>BIL-092</studentId>
+    <name>Sophia Anderson</name>
+    <tuitionFee>46487</tuitionFee>
+    <paymentsMade>32998</paymentsMade>
+    <balance>13489</balance>
+  </record>
+  <record>
+    <studentId>BIL-093</studentId>
+    <name>Emily Johnson</name>
+    <tuitionFee>23489</tuitionFee>
+    <paymentsMade>11325</paymentsMade>
+    <balance>12164</balance>
+  </record>
+  <record>
+    <studentId>BIL-094</studentId>
+    <name>Thomas Smith</name>
+    <tuitionFee>25591</tuitionFee>
+    <paymentsMade>3083</paymentsMade>
+    <balance>22508</balance>
+  </record>
+  <record>
+    <studentId>BIL-095</studentId>
+    <name>Sarah Jones</name>
+    <tuitionFee>24671</tuitionFee>
+    <paymentsMade>6786</paymentsMade>
+    <balance>17885</balance>
+  </record>
+  <record>
+    <studentId>BIL-096</studentId>
+    <name>Emma Martin</name>
+    <tuitionFee>46558</tuitionFee>
+    <paymentsMade>13725</paymentsMade>
+    <balance>32833</balance>
+  </record>
+  <record>
+    <studentId>BIL-097</studentId>
+    <name>Evelyn Davis</name>
+    <tuitionFee>29244</tuitionFee>
+    <paymentsMade>4737</paymentsMade>
+    <balance>24507</balance>
+  </record>
+  <record>
+    <studentId>BIL-098</studentId>
+    <name>David Martin</name>
+    <tuitionFee>48273</tuitionFee>
+    <paymentsMade>24775</paymentsMade>
+    <balance>23498</balance>
+  </record>
+  <record>
+    <studentId>BIL-099</studentId>
+    <name>Isabella Anderson</name>
+    <tuitionFee>24787</tuitionFee>
+    <paymentsMade>22996</paymentsMade>
+    <balance>1791</balance>
+  </record>
+  <record>
+    <studentId>BIL-100</studentId>
+    <name>Isabella Taylor</name>
+    <tuitionFee>32363</tuitionFee>
+    <paymentsMade>18153</paymentsMade>
+    <balance>14210</balance>
+  </record>
+</billing>
