@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           vc:minVersion="1.1"
+           xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
+
+  <!-- ==================== ROOT ELEMENT ==================== -->
+  <xs:element name="library">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="books"            type="BooksType"/>
+        <xs:element name="borrowingRecords" type="BorrowingRecordsType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ==================== BOOKS ==================== -->
+
+  <!-- BooksType: contains one or more BookType elements -->
+  <xs:complexType name="BooksType">
+    <xs:sequence>
+      <xs:element name="book" type="BookType"
+                  minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- BookType: defines structure and constraints for a single book -->
+  <xs:complexType name="BookType">
+    <xs:sequence>
+      <xs:element name="title"    type="xs:string"/>
+      <xs:element name="author"   type="xs:string"/>
+      <xs:element name="category" type="xs:string"/>
+      <xs:element name="isbn"     type="xs:string"/>
+
+      <!--
+        RULE 1: copies must be a positive integer (>= 1).
+        xs:positiveInteger rejects 0 and negative values.
+      -->
+      <xs:element name="copies">
+        <xs:simpleType>
+          <xs:restriction base="xs:positiveInteger"/>
+        </xs:simpleType>
+      </xs:element>
+
+    </xs:sequence>
+    <!-- bookId is a unique XML identifier (xs:ID) -->
+    <xs:attribute name="bookId" type="xs:ID" use="required"/>
+  </xs:complexType>
+
+  <!-- ==================== BORROWING RECORDS ==================== -->
+
+  <!-- BorrowingRecordsType: contains one or more RecordType elements -->
+  <xs:complexType name="BorrowingRecordsType">
+    <xs:sequence>
+      <xs:element name="record" type="RecordType"
+                  minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--
+    RecordType: defines structure and constraints for one borrowing record.
+
+    XSD ASSERTION (XSD 1.1 - Self-Study):
+      xs:assert enforces that dueDate is strictly later than borrowDate.
+      This is a business rule: a book cannot be due before it is borrowed.
+  -->
+  <xs:complexType name="RecordType">
+    <xs:sequence>
+      <xs:element name="bookId"     type="xs:string"/>
+      <xs:element name="borrower"   type="BorrowerType"/>
+
+      <!--
+        RULE 4: borrowDate must be a valid date in YYYY-MM-DD format.
+      -->
+      <xs:element name="borrowDate" type="xs:date"/>
+
+      <!--
+        RULE 5: dueDate must be a valid date in YYYY-MM-DD format.
+        Combined with ASSERT 1 below, dueDate must also be > borrowDate.
+      -->
+      <xs:element name="dueDate"    type="xs:date"/>
+
+      <!--
+        RULE 6: returnDate is either a valid xs:date OR an empty string.
+        Empty string is used when the book has not yet been returned.
+      -->
+      <xs:element name="returnDate" type="ReturnDateType"/>
+
+      <!-- RULE 3: status must be one of the four allowed values -->
+      <xs:element name="status"     type="StatusType"/>
+
+    </xs:sequence>
+
+    <!-- recordId is a unique XML identifier (xs:ID) -->
+    <xs:attribute name="recordId" type="xs:ID" use="required"/>
+
+    <!--
+      XSD ASSERTION (XSD 1.1 - Self-Study):
+      Ensures dueDate is strictly greater than borrowDate.
+      Processors: Saxon-EE 9.4+, Altova XMLSpy 2012+
+    -->
+    <xs:assert
+      test="dueDate > borrowDate"
+      xpathDefaultNamespace="##targetNamespace"/>
+
+  </xs:complexType>
+
+  <!-- ==================== BORROWER ==================== -->
+
+  <xs:complexType name="BorrowerType">
+    <xs:sequence>
+      <xs:element name="borrowerId"   type="xs:string"/>
+      <xs:element name="borrowerName" type="xs:string"/>
+
+      <!--
+        RULE 2: borrowerType must be exactly "Student" or "Faculty".
+      -->
+      <xs:element name="borrowerType" type="BorrowerTypeEnum"/>
+
+      <xs:element name="course"       type="xs:string"/>
+      <xs:element name="contactNo"    type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ==================== SIMPLE TYPE DEFINITIONS ==================== -->
+
+  <!--
+    BorrowerTypeEnum: restricts borrowerType to two allowed values.
+  -->
+  <xs:simpleType name="BorrowerTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Student"/>
+      <xs:enumeration value="Faculty"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--
+    StatusType: restricts status to four valid borrowing states.
+      Active        - book is currently borrowed, not yet due
+      Returned      - book was returned on or before dueDate
+      Overdue       - book was not returned by dueDate
+      Returned Late - book was returned but after dueDate
+  -->
+  <xs:simpleType name="StatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active"/>
+      <xs:enumeration value="Returned"/>
+      <xs:enumeration value="Overdue"/>
+      <xs:enumeration value="Returned Late"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--
+    ReturnDateType: accepts either a valid xs:date OR empty string.
+  -->
+  <xs:simpleType name="ReturnDateType">
+    <xs:union memberTypes="xs:date EmptyStringType"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="EmptyStringType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
