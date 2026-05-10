@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="library.xsl"?>
+<library xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="library.xsd">
+         
+  <!-- ==================== BOOKS ==================== -->
+  <books>
+
+    <!-- Technology Category -->
+    <book bookId="BK-001">
+      <title>Introduction to Programming</title>
+      <author>John D. Doe</author>
+      <category>Technology</category>
+      <isbn>978-0-13-468599-1</isbn>
+      <copies>5</copies>
+    </book>
+
+    <book bookId="BK-002">
+      <title>Data Structures and Algorithms</title>
+      <author>Mark R. Allen</author>
+      <category>Technology</category>
+      <isbn>978-0-13-284750-4</isbn>
+      <copies>3</copies>
+    </book>
+
+    <book bookId="BK-003">
+      <title>Database Management Systems</title>
+      <author>Ramez Elmasri</author>
+      <category>Technology</category>
+      <isbn>978-0-13-235-317-5</isbn>
+      <copies>2</copies>
+    </book>
+
+    <!-- Mathematics Category -->
+    <book bookId="BK-004">
+      <title>Calculus: Early Transcendentals</title>
+      <author>James Stewart</author>
+      <category>Mathematics</category>
+      <isbn>978-1-285-74155-0</isbn>
+      <copies>4</copies>
+    </book>
+
+    <book bookId="BK-005">
+      <title>Engineering Mathematics</title>
+      <author>K.A. Stroud</author>
+      <category>Mathematics</category>
+      <isbn>978-1-137-03120-4</isbn>
+      <copies>3</copies>
+    </book>
+
+    <!-- Social Science Category -->
+    <book bookId="BK-006">
+      <title>Philippine History and Culture</title>
+      <author>Maria Santos</author>
+      <category>Social Science</category>
+      <isbn>978-971-23-5678-1</isbn>
+      <copies>6</copies>
+    </book>
+
+    <!-- Business Category -->
+    <book bookId="BK-007">
+      <title>Fundamentals of Accounting</title>
+      <author>Carlos L. Reyes</author>
+      <category>Business</category>
+      <isbn>978-971-07-3421-9</isbn>
+      <copies>4</copies>
+    </book>
+
+    <!-- Language Category -->
+    <book bookId="BK-008">
+      <title>Technical Communication</title>
+      <author>Mike Markel</author>
+      <category>Language</category>
+      <isbn>978-1-319-05736-4</isbn>
+      <copies>5</copies>
+    </book>
+
+  </books>
+
+  <!-- ==================== BORROWING RECORDS ==================== -->
+  <borrowingRecords>
+
+    <!-- REC-001: Returned on time -->
+    <record recordId="REC-001">
+      <bookId>BK-001</bookId>
+      <borrower>
+        <borrowerId>STU-001</borrowerId>
+        <borrowerName>Ana Marie Cruz</borrowerName>
+        <borrowerType>Student</borrowerType>
+        <course>BSIT</course>
+        <contactNo>09171234567</contactNo>
+      </borrower>
+      <borrowDate>2025-04-01</borrowDate>
+      <dueDate>2025-04-15</dueDate>
+      <returnDate>2025-04-14</returnDate>
+      <status>Returned</status>
+    </record>
+
+    <!-- REC-002: OVERDUE - not returned, past due date -->
+    <record recordId="REC-002">
+      <bookId>BK-002</bookId>
+      <borrower>
+        <borrowerId>STU-002</borrowerId>
+        <borrowerName>Ramon Jose Dela Torre</borrowerName>
+        <borrowerType>Student</borrowerType>
+        <course>BSCS</course>
+        <contactNo>09189876543</contactNo>
+      </borrower>
+      <borrowDate>2025-03-10</borrowDate>
+      <dueDate>2025-03-24</dueDate>
+      <returnDate></returnDate>
+      <status>Overdue</status>
+    </record>
+
+    <!-- REC-003: Active - borrowed but not yet due -->
+    <record recordId="REC-003">
+      <bookId>BK-004</bookId>
+      <borrower>
+        <borrowerId>STU-003</borrowerId>
+        <borrowerName>Liza Mae Santos</borrowerName>
+        <borrowerType>Student</borrowerType>
+        <course>BSME</course>
+        <contactNo>09201122334</contactNo>
+      </borrower>
+      <borrowDate>2025-04-20</borrowDate>
+      <dueDate>2025-05-04</dueDate>
+      <returnDate></returnDate>
+      <status>Active</status>
+    </record>
+
+    <!-- REC-004: OVERDUE - Faculty borrower, not returned -->
+    <record recordId="REC-004">
+      <bookId>BK-006</bookId>
+      <borrower>
+        <borrowerId>FAC-001</borrowerId>
+        <borrowerName>Prof. Eduardo Manalo</borrowerName>
+        <borrowerType>Faculty</borrowerType>
+        <course>General Education</course>
+        <contactNo>09273344556</contactNo>
+      </borrower>
+      <borrowDate>2025-02-15</borrowDate>
+      <dueDate>2025-03-01</dueDate>
+      <returnDate></returnDate>
+      <status>Overdue</status>
+    </record>
+
+    <!-- REC-005: Returned on time -->
+    <record recordId="REC-005">
+      <bookId>BK-007</bookId>
+      <borrower>
+        <borrowerId>STU-004</borrowerId>
+        <borrowerName>Patricia Anne Flores</borrowerName>
+        <borrowerType>Student</borrowerType>
+        <course>BSBA</course>
+        <contactNo>09151234000</contactNo>
+      </borrower>
+      <borrowDate>2025-04-05</borrowDate>
+      <dueDate>2025-04-19</dueDate>
+      <returnDate>2025-04-18</returnDate>
+      <status>Returned</status>
+    </record>
+
+    <!-- REC-006: OVERDUE - not returned, past due date -->
+    <record recordId="REC-006">
+      <bookId>BK-003</bookId>
+      <borrower>
+        <borrowerId>STU-005</borrowerId>
+        <borrowerName>Kevin Ryan Reyes</borrowerName>
+        <borrowerType>Student</borrowerType>
+        <course>BSIT</course>
+        <contactNo>09261239876</contactNo>
+      </borrower>
+      <borrowDate>2025-03-01</borrowDate>
+      <dueDate>2025-03-15</dueDate>
+      <returnDate></returnDate>
+      <status>Overdue</status>
+    </record>
+
+    <!-- REC-007: Active - borrowed, not yet due -->
+    <record recordId="REC-007">
+      <bookId>BK-008</bookId>
+      <borrower>
+        <borrowerId>STU-006</borrowerId>
+        <borrowerName>Sophia Raine Navarro</borrowerName>
+        <borrowerType>Student</borrowerType>
+        <course>BSECE</course>
+        <contactNo>09175550001</contactNo>
+      </borrower>
+      <borrowDate>2025-04-22</borrowDate>
+      <dueDate>2025-05-06</dueDate>
+      <returnDate></returnDate>
+      <status>Active</status>
+    </record>
+
+    <!-- REC-008: Returned Late - returned after due date -->
+    <record recordId="REC-008">
+      <bookId>BK-005</bookId>
+      <borrower>
+        <borrowerId>STU-007</borrowerId>
+        <borrowerName>Daniel James Ocampo</borrowerName>
+        <borrowerType>Student</borrowerType>
+        <course>BSME</course>
+        <contactNo>09189990011</contactNo>
+      </borrower>
+      <borrowDate>2025-03-05</borrowDate>
+      <dueDate>2025-03-19</dueDate>
+      <returnDate>2025-03-28</returnDate>
+      <status>Returned Late</status>
+    </record>
+
+  </borrowingRecords>
+
+</library>
