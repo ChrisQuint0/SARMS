@@ -46,6 +46,37 @@
     </xsl:choose>
   </xsl:template>
 
+  <xsl:template name="attendanceSheet">
+    <div class="table-wrap">
+      <table id="attendanceTable">
+        <thead><tr><th>Event ID</th><th>Event Name</th><th>Date</th><th>Venue</th><th>Participant Name</th><th>Email</th><th>Status</th></tr></thead>
+        <tbody id="attendanceTableBody">
+          <xsl:for-each select="//event">
+            <xsl:sort select="eventName"/>
+            <xsl:variable name="eventId" select="@eventId"/>
+            <xsl:variable name="eventNameVal" select="eventName"/>
+            <xsl:variable name="eventDateVal" select="eventDate"/>
+            <xsl:variable name="eventVenueVal" select="venue"/>
+            <xsl:for-each select="//registration[@eventId=$eventId]">
+              <xsl:sort select="@registrationDate"/>
+              <xsl:variable name="participantId" select="@participantId"/>
+              <xsl:variable name="participant" select="//participant[@participantId=$participantId]"/>
+              <tr data-reg-status="{@registrationStatus}">
+                <td><xsl:value-of select="$eventId"/></td>
+                <td><xsl:choose><xsl:when test="$eventNameVal!=''"><xsl:value-of select="$eventNameVal"/></xsl:when><xsl:otherwise><span class="empty-cell">-</span></xsl:otherwise></xsl:choose></td>
+                <td><xsl:choose><xsl:when test="$eventDateVal!=''"><xsl:value-of select="$eventDateVal"/></xsl:when><xsl:otherwise><span class="empty-cell">-</span></xsl:otherwise></xsl:choose></td>
+                <td><xsl:choose><xsl:when test="$eventVenueVal!=''"><xsl:value-of select="$eventVenueVal"/></xsl:when><xsl:otherwise><span class="empty-cell">-</span></xsl:otherwise></xsl:choose></td>
+                <td><xsl:value-of select="$participant/fullName"/></td>
+                <td><xsl:value-of select="$participant/email"/></td>
+                <td><xsl:choose><xsl:when test="@registrationStatus='Registered'"><span class="badge badge-registered">Registered</span></xsl:when><xsl:when test="@registrationStatus='Attended'"><span class="badge badge-attended">Attended</span></xsl:when><xsl:when test="@registrationStatus='Cancelled'"><span class="badge badge-cancelled">Cancelled</span></xsl:when><xsl:otherwise><span class="badge badge-noshow">No-show</span></xsl:otherwise></xsl:choose></td>
+              </tr>
+            </xsl:for-each>
+          </xsl:for-each>
+        </tbody>
+      </table>
+    </div>
+  </xsl:template>
+
   <xsl:template match="/">
     <html>
       <head>
@@ -446,7 +477,7 @@
                       </div>
                       <div class="event-row"><span class="event-lbl">Venue</span><span class="event-val"><xsl:value-of select="venue"/></span></div>
                       <div class="event-row"><span class="event-lbl">Category</span><span class="event-val"><xsl:value-of select="category"/></span></div>
-                      <div class="event-row"><span class="event-lbl">Registrations</span><span class="event-val"><xsl:value-of select="registrations"/> / <xsl:value-of select="capacity"/></span></div>
+                      <div class="event-row"><span class="event-lbl">Registrations</span><span class="event-val"><xsl:value-of select="registrationCount"/> / <xsl:value-of select="capacity"/></span></div>
                     </div>
                   </div>
                 </xsl:for-each>
@@ -486,7 +517,7 @@
                         <td><xsl:value-of select="eventTime"/></td>
                         <td><xsl:value-of select="venue"/></td>
                         <td><xsl:value-of select="category"/></td>
-                        <td><xsl:value-of select="registrations"/> / <xsl:value-of select="capacity"/></td>
+                        <td><xsl:value-of select="registrationCount"/> / <xsl:value-of select="capacity"/></td>
                         <td><xsl:choose><xsl:when test="@eventStatus='upcoming'"><span class="badge badge-upcoming">Upcoming</span></xsl:when><xsl:when test="@eventStatus='current'"><span class="badge badge-current">Current</span></xsl:when><xsl:otherwise><span class="badge badge-closed">Closed</span></xsl:otherwise></xsl:choose></td>
                       </tr>
                     </xsl:for-each>
@@ -584,34 +615,7 @@
                   <option value="Cancelled">Cancelled</option><option value="No-show">No-show</option>
                 </select>
               </div>
-              <div class="table-wrap">
-                <table id="attendanceTable">
-                  <thead><tr><th>Event ID</th><th>Event Name</th><th>Date</th><th>Venue</th><th>Participant Name</th><th>Email</th><th>Status</th></tr></thead>
-                  <tbody id="attendanceTableBody">
-                    <xsl:for-each select="//event">
-                      <xsl:sort select="eventName"/>
-                      <xsl:variable name="eventId" select="@eventId"/>
-                      <xsl:variable name="eventNameVal" select="eventName"/>
-                      <xsl:variable name="eventDateVal" select="eventDate"/>
-                      <xsl:variable name="eventVenueVal" select="venue"/>
-                      <xsl:for-each select="//registration[@eventId=$eventId]">
-                        <xsl:sort select="@registrationDate"/>
-                        <xsl:variable name="participantId" select="@participantId"/>
-                        <xsl:variable name="participant" select="//participant[@participantId=$participantId]"/>
-                        <tr data-reg-status="{@registrationStatus}">
-                          <td><xsl:value-of select="$eventId"/></td>
-                          <td><xsl:choose><xsl:when test="$eventNameVal!=''"><xsl:value-of select="$eventNameVal"/></xsl:when><xsl:otherwise><span class="empty-cell">—</span></xsl:otherwise></xsl:choose></td>
-                          <td><xsl:choose><xsl:when test="$eventDateVal!=''"><xsl:value-of select="$eventDateVal"/></xsl:when><xsl:otherwise><span class="empty-cell">—</span></xsl:otherwise></xsl:choose></td>
-                          <td><xsl:choose><xsl:when test="$eventVenueVal!=''"><xsl:value-of select="$eventVenueVal"/></xsl:when><xsl:otherwise><span class="empty-cell">—</span></xsl:otherwise></xsl:choose></td>
-                          <td><xsl:value-of select="$participant/fullName"/></td>
-                          <td><xsl:value-of select="$participant/email"/></td>
-                          <td><xsl:choose><xsl:when test="@registrationStatus='Registered'"><span class="badge badge-registered">Registered</span></xsl:when><xsl:when test="@registrationStatus='Attended'"><span class="badge badge-attended">Attended</span></xsl:when><xsl:when test="@registrationStatus='Cancelled'"><span class="badge badge-cancelled">Cancelled</span></xsl:when><xsl:otherwise><span class="badge badge-noshow">No-show</span></xsl:otherwise></xsl:choose></td>
-                        </tr>
-                      </xsl:for-each>
-                    </xsl:for-each>
-                  </tbody>
-                </table>
-              </div>
+              <xsl:call-template name="attendanceSheet"/>
               <div id="attendanceNoRecords" class="no-records" style="display: none;">No attendance records found matching your filters.</div>
             </section>
 
@@ -640,13 +644,13 @@
                   <thead><tr><th>Event Name</th><th>Category</th><th>Registered</th><th>Capacity</th><th>Occupancy %</th><th>Status</th></tr></thead>
                   <tbody id="reportsTableBody">
                     <xsl:for-each select="//event">
-                      <xsl:sort select="registrations" data-type="number" order="descending"/>
+                      <xsl:sort select="registrationCount" data-type="number" order="descending"/>
                       <tr data-status="{@eventStatus}" data-category="{category}">
                         <td><xsl:value-of select="eventName"/></td>
                         <td><xsl:value-of select="category"/></td>
-                        <td><xsl:value-of select="registrations"/></td>
+                        <td><xsl:value-of select="registrationCount"/></td>
                         <td><xsl:value-of select="capacity"/></td>
-                        <td><xsl:value-of select="round((registrations div capacity) * 100)"/>%</td>
+                        <td><xsl:value-of select="round((registrationCount div capacity) * 100)"/>%</td>
                         <td><xsl:choose><xsl:when test="@eventStatus='upcoming'"><span class="badge badge-upcoming">Upcoming</span></xsl:when><xsl:when test="@eventStatus='current'"><span class="badge badge-current">Current</span></xsl:when><xsl:otherwise><span class="badge badge-closed">Closed</span></xsl:otherwise></xsl:choose></td>
                       </tr>
                     </xsl:for-each>
@@ -660,7 +664,7 @@
         </main>
 
         <footer class="footer">
-          <p>© 2026 Pamantasan ng Lungsod ng Pasig — Events Management System</p>
+          <p>Â© 2026 Pamantasan ng Lungsod ng Pasig â€” Events Management System</p>
         </footer>
 
         <script>

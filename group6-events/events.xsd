@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+           vc:minVersion="1.1">
   <!-- XML Schema for Events Management System with Type Validation and Assertions -->
   
   <xs:element name="eventManagementSystem">
@@ -16,7 +18,7 @@
                     <xs:element name="eventTime" type="xs:time" minOccurs="1"/>
                     <xs:element name="venue" type="xs:string" minOccurs="1"/>
                     <xs:element name="capacity" type="xs:positiveInteger" minOccurs="1"/>
-                    <xs:element name="registrations" type="xs:nonNegativeInteger" minOccurs="1"/>
+                    <xs:element name="registrationCount" type="xs:nonNegativeInteger" minOccurs="1"/>
                     <xs:element name="category" type="eventCategoryType" minOccurs="1"/>
                     <xs:element name="description" type="xs:string" minOccurs="1"/>
                   </xs:sequence>
@@ -62,6 +64,8 @@
           </xs:complexType>
         </xs:element>
       </xs:sequence>
+      <xs:assert test="every $e in events/event satisfies xs:date($e/eventDate) ge current-date()"/>
+      <xs:assert test="every $r in registrations/registration satisfies exists(events/event[@eventId = string($r/@eventId)]) and xs:date($r/@registrationDate) lt xs:date(events/event[@eventId = string($r/@eventId)][1]/eventDate)"/>
     </xs:complexType>
   </xs:element>
   
@@ -80,10 +84,6 @@
       <xs:enumeration value="Professional Development"/>
       <xs:enumeration value="Cultural"/>
       <xs:enumeration value="Sports"/>
-      <xs:enumeration value="Workshop"/>
-      <xs:enumeration value="Seminar"/>
-      <xs:enumeration value="Forum"/>
-      <xs:enumeration value="Symposium"/>
     </xs:restriction>
   </xs:simpleType>
   
@@ -104,11 +104,13 @@
   
   <xs:simpleType name="departmentType">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="Computer Science"/>
-      <xs:enumeration value="Information Technology"/>
-      <xs:enumeration value="Engineering"/>
-      <xs:enumeration value="Business"/>
-      <xs:enumeration value="Arts"/>
+      <xs:enumeration value="College of Computer Studies"/>
+      <xs:enumeration value="College of Business and Accountancy"/>
+      <xs:enumeration value="College of Engineering"/>
+      <xs:enumeration value="College of Arts and Science"/>
+      <xs:enumeration value="College of Education"/>
+      <xs:enumeration value="College of Nursing"/>
+      <xs:enumeration value="College of International Hospitality Management"/>
     </xs:restriction>
   </xs:simpleType>
   

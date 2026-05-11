@@ -48,8 +48,8 @@
 # DATE-BASED QUERIES
 # ============================================
 
-# Get events on specific date (May 11, 2026)
-//event[eventDate='2026-05-11']
+# Get events on specific date (May 12, 2026)
+//event[eventDate='2026-05-12']
 
 # Get events after May 20, 2026
 //event[eventDate > '2026-05-20']
@@ -65,23 +65,23 @@
 # CAPACITY & REGISTRATION QUERIES
 # ============================================
 
-# Get events at full capacity (registrations = capacity)
-//event[registrations = capacity]
+# Get events at full capacity (registrationCount = capacity)
+//event[registrationCount = capacity]
 
-# Get events with available spots (registrations < capacity)
-//event[registrations < capacity]
+# Get events with available spots (registrationCount < capacity)
+//event[registrationCount < capacity]
 
 # Get high-demand events (80%+ occupied)
-//event[registrations >= (capacity * 0.8)]
+//event[registrationCount >= (capacity * 0.8)]
 
 # Get low-occupancy events (less than 25% occupied)
-//event[registrations < (capacity * 0.25)]
+//event[registrationCount < (capacity * 0.25)]
 
 # Get events with more than 20 registrations
-//event[registrations > 20]
+//event[registrationCount > 20]
 
 # Get events with less than 10 registrations
-//event[registrations < 10]
+//event[registrationCount < 10]
 
 
 # ============================================
@@ -97,17 +97,17 @@
 # Get all participant IDs
 //participant/@participantId
 
-# Get participants from Computer Science department
-//participant[department='Computer Science']
+# Get participants from College of Computer Studies
+//participant[department='College of Computer Studies']
 
-# Get participants from Information Technology
-//participant[department='Information Technology']
+# Get participants from Arts and Science
+//participant[department='College of Arts and Science']
 
-# Get participants from Business department
-//participant[department='Business']
+# Get participants from College of Business and Accountancy
+//participant[department='College of Business and Accountancy']
 
-# Get participants from Engineering department
-//participant[department='Engineering']
+# Get participants from College of Engineering
+//participant[department='College of Engineering']
 
 # Get first-year students
 //participant[yearLevel='1']
@@ -182,8 +182,8 @@ count(//event[category='Academic'])
 # Count Professional Development events
 count(//event[category='Professional Development'])
 
-# Count Computer Science students
-count(//participant[department='Computer Science'])
+# Count College of Computer Studies students
+count(//participant[department='College of Computer Studies'])
 
 
 # ============================================
@@ -191,16 +191,16 @@ count(//participant[department='Computer Science'])
 # ============================================
 
 # Sum all registrations
-sum(//event/registrations)
+sum(//event/registrationCount)
 
 # Average capacity
 sum(//event/capacity) div count(//event)
 
 # Maximum registrations
-max(//event/registrations)
+max(//event/registrationCount)
 
 # Minimum registrations
-min(//event/registrations)
+min(//event/registrationCount)
 
 # Total capacity across all events
 sum(//event/capacity)
@@ -283,16 +283,16 @@ sum(//event/capacity)
 //event[@eventStatus='upcoming' and category='Academic']
 
 # Get current events that are not full
-//event[@eventStatus='current' and registrations < capacity]
+//event[@eventStatus='current' and registrationCount < capacity]
 
 # Get closed Professional Development events with high attendance
-//event[@eventStatus='closed' and category='Professional Development' and registrations >= 30]
+//event[@eventStatus='closed' and category='Professional Development' and registrationCount >= 30]
 
 # Get events in specific venue with upcoming status
 //event[@eventStatus='upcoming' and contains(venue, 'Computer Lab')]
 
-# Get third-year Business students
-//participant[yearLevel='3' and department='Business']
+# Get third-year College of Business and Accountancy students
+//participant[yearLevel='3' and department='College of Business and Accountancy']
 
 # Get new registrations (after May 15) that are confirmed
 //registration[@registrationDate > '2026-05-15' and @registrationStatus='Registered']
@@ -320,16 +320,16 @@ sum(//event/capacity)
 # ============================================
 
 # Events with registration rate between 30-70%
-//event[(registrations >= (capacity * 0.3)) and (registrations <= (capacity * 0.7))]
+//event[(registrationCount >= (capacity * 0.3)) and (registrationCount <= (capacity * 0.7))]
 
-# Participants from top 2 departments
-//participant[department='Computer Science' or department='Information Technology']
+# Participants from top 2 colleges
+//participant[department='College of Computer Studies' or department='College of Arts and Science']
 
 # Recent registrations for upcoming events
 //registration[@eventId=//event[@eventStatus='upcoming']/@eventId and @registrationDate > '2026-05-10']
 
 # High-capacity events with low registration
-//event[capacity >= 100 and registrations < 20]
+//event[capacity >= 100 and registrationCount < 20]
 
 # Small-capacity events that are full
-//event[capacity &lt; 50 and registrations = capacity]
+//event[capacity &lt; 50 and registrationCount = capacity]
