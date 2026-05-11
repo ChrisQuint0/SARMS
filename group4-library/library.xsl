@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!--
+  SARMS - Smart Academic Records Management System
+  Module  : Group 4 - Library Management System
+  File    : library.xsl
+  Purpose : Transforms library.xml into an HTML report
+            Green theme - SARMS unified design
+-->
 <xsl:stylesheet version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
@@ -9,120 +15,434 @@
     <html lang="en">
       <head>
         <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>SARMS - Library Management Report</title>
         <style>
-          * { box-sizing: border-box; margin: 0; padding: 0; }
+          * { margin: 0; padding: 0; box-sizing: border-box; }
 
           body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            color: #222;
-            padding: 32px;
-            font-size: 14px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0faf4;
+            color: #1a3a2a;
+            line-height: 1.6;
           }
 
-          /* Header */
+          /* ── Header ── */
           .header {
-            background: #1a365d;
-            color: white;
-            padding: 24px 28px;
-            margin-bottom: 24px;
-          }
-          .header h1 { font-size: 1.4rem; font-weight: bold; }
-          .header p  { font-size: 0.88rem; margin-top: 4px; opacity: 0.85; }
-
-          /* Summary Cards */
-          .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 12px;
-            margin-bottom: 24px;
-          }
-          .card {
-            background: white;
-            border: 1px solid #ddd;
-            padding: 16px;
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%);
+            color: #ffffff;
+            padding: 48px 40px;
             text-align: center;
+            box-shadow: 0 4px 20px rgba(6,78,59,0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            position: relative;
+            overflow: hidden;
           }
-          .card .num { font-size: 2rem; font-weight: bold; color: #1a365d; }
-          .card .lbl { font-size: 0.75rem; color: #666; margin-top: 4px; text-transform: uppercase; }
-
-          /* Section */
-          .section {
-            background: white;
-            border: 1px solid #ddd;
-            padding: 24px;
-            margin-bottom: 24px;
+          .header::before {
+            content: "";
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 220px; height: 220px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
           }
-          .section h2 {
-            font-size: 1rem;
-            font-weight: bold;
-            color: #1a365d;
-            border-bottom: 2px solid #1a365d;
-            padding-bottom: 8px;
-            margin-bottom: 16px;
+          .header::after {
+            content: "";
+            position: absolute;
+            bottom: -80px; left: -40px;
+            width: 280px; height: 280px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
           }
-          .section h2.danger {
-            color: #c53030;
-            border-bottom-color: #c53030;
-          }
-
-          /* Tables */
-          table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
-          th {
-            background: #1a365d;
-            color: white;
-            padding: 10px 12px;
-            text-align: left;
-            font-size: 0.8rem;
+          .header .school-name {
+            font-size: 11px;
+            font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #6ee7b7;
+            margin-bottom: 6px;
           }
-          td { padding: 10px 12px; border-bottom: 1px solid #e2e8f0; }
-          tr:last-child td { border-bottom: none; }
-          tr:hover td { background: #f9f9f9; }
-          .row-overdue td { background: #fff5f5; }
+          .header h1 {
+            font-size: 34px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+          }
+          .header .subtitle {
+            font-size: 14px;
+            color: #a7f3d0;
+            margin-top: 6px;
+          }
+          .header .badges {
+            display: flex;
+            gap: 10px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+          .header-badge {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #d1fae5;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 5px 16px;
+            border-radius: 20px;
+          }
 
-          /* Status */
-          .status {
-            display: inline-block;
-            padding: 2px 10px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            border: 1px solid;
+          /* ── Stats Bar ── */
+          .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 32px 40px 8px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
           }
-          .status-overdue      { color: #9b2c2c; border-color: #9b2c2c; background: #fff5f5; }
-          .status-active       { color: #276749; border-color: #276749; background: #f0fff4; }
-          .status-returned     { color: #2a4365; border-color: #2a4365; background: #ebf8ff; }
-          .status-late         { color: #744210; border-color: #744210; background: #fffff0; }
+          .stat-item {
+            text-align: center;
+            min-width: 160px;
+            background: #ffffff;
+            border: 1px solid #d1fae5;
+            border-top: 4px solid #059669;
+            border-radius: 12px;
+            padding: 20px 24px;
+            box-shadow: 0 2px 8px rgba(6,78,59,0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s;
+          }
+          .stat-item:hover { transform: translateY(-2px); }
+          .stat-item.danger  { border-top-color: #dc2626; }
+          .stat-item.warning { border-top-color: #d97706; }
+          .stat-item.blue    { border-top-color: #2563eb; }
+          .stat-value {
+            font-size: 38px;
+            font-weight: 800;
+            color: #065f46;
+            line-height: 1;
+          }
+          .stat-item.danger  .stat-value { color: #dc2626; }
+          .stat-item.warning .stat-value { color: #d97706; }
+          .stat-item.blue    .stat-value { color: #2563eb; }
+          .stat-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: #6b7280;
+            margin-top: 8px;
+            font-weight: 700;
+          }
 
-          /* Overdue Notice */
-          .notice {
-            border: 1px solid #c53030;
-            padding: 18px 20px;
-            margin-bottom: 16px;
+          /* ── Container ── */
+          .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 20px;
           }
-          .notice h3 { font-size: 0.95rem; color: #c53030; margin-bottom: 12px; }
-          .notice table { font-size: 0.85rem; }
-          .notice td { padding: 5px 10px; border-bottom: 1px solid #f5d0d0; }
-          .notice td:first-child { color: #555; font-weight: bold; width: 140px; }
-          .notice .warning {
-            margin-top: 12px;
-            background: #c53030;
+
+          /* ── Legend ── */
+          .legend {
+            position: sticky;
+            top: 16px;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 14px 24px;
+            margin-bottom: 32px;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            border: 1px solid #d1fae5;
+            box-shadow: 0 4px 12px rgba(6,78,59,0.1);
+            flex-wrap: wrap;
+          }
+          .legend-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #374151;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            align-self: center;
+            margin-right: 4px;
+          }
+          .legend-item {
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.3px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+          }
+
+          /* ── Section Header ── */
+          .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 36px 0 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #059669;
+          }
+          .section-header.danger { border-bottom-color: #dc2626; }
+          .section-number {
+            background: #059669;
             color: white;
-            padding: 8px 12px;
-            font-size: 0.82rem;
-            font-weight: bold;
+            font-size: 12px;
+            font-weight: 800;
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+          }
+          .section-header.danger .section-number { background: #dc2626; }
+          .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #064e3b;
+          }
+          .section-header.danger .section-title { color: #dc2626; }
+          .section-count {
+            margin-left: auto;
+            background: #d1fae5;
+            color: #065f46;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 20px;
+          }
+          .section-header.danger .section-count {
+            background: #fee2e2;
+            color: #dc2626;
           }
 
-          .no-data { color: #999; font-style: italic; padding: 16px 0; }
+          /* ── Book Card ── */
+          .book-card {
+            background: #ffffff;
+            border-radius: 14px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(6,78,59,0.08);
+            overflow: hidden;
+            border-left: 6px solid #059669;
+            transition: box-shadow 0.2s, transform 0.2s;
+          }
+          .book-card:hover {
+            box-shadow: 0 6px 20px rgba(6,78,59,0.15);
+            transform: translateY(-1px);
+          }
+          .book-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 28px;
+            flex-wrap: wrap;
+            gap: 16px;
+          }
+          .book-info-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+          }
+          .avatar {
+            width: 52px; height: 52px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+            color: #065f46;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 800;
+            flex-shrink: 0;
+            border: 2px solid #6ee7b7;
+          }
+          .book-info h2 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a3a2a;
+            margin-bottom: 6px;
+          }
+          .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+          }
+          .book-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #065f46;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+          }
+          .isbn-tag {
+            font-family: ui-monospace, monospace;
+            font-size: 11px;
+            color: #6b7280;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            padding: 6px 14px;
+            border-radius: 8px;
+            align-self: center;
+          }
 
+          /* ── Records Table ── */
+          .table-wrapper {
+            background: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(6,78,59,0.08);
+            overflow: hidden;
+            margin-bottom: 8px;
+          }
+          .records-table {
+            width: 100%;
+            border-collapse: collapse;
+          }
+          .records-table thead {
+            background: linear-gradient(135deg, #064e3b, #065f46);
+          }
+          .records-table th {
+            color: #a7f3d0;
+            padding: 14px 20px;
+            text-align: left;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            font-weight: 700;
+          }
+          .records-table td {
+            padding: 14px 20px;
+            border-bottom: 1px solid #ecfdf5;
+            font-size: 13px;
+            color: #374151;
+          }
+          .records-table tr:last-child td { border-bottom: none; }
+          .records-table tbody tr:hover td { background: #f0fdf4; }
+          .records-table tr.row-overdue td { background: #fff5f5; }
+          .records-table tr.row-overdue:hover td { background: #fee2e2; }
+          .id-mono {
+            font-family: ui-monospace, monospace;
+            font-size: 12px;
+            color: #059669;
+            font-weight: 700;
+          }
+          .borrower-name { font-weight: 700; color: #1a3a2a; }
+
+          /* ── Status Badge ── */
+          .status-badge {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+            color: #fff;
+          }
+          .s-active       { background: linear-gradient(135deg, #10b981, #059669); }
+          .s-returned     { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+          .s-overdue      { background: linear-gradient(135deg, #ef4444, #dc2626); }
+          .s-late         { background: linear-gradient(135deg, #f59e0b, #d97706); }
+
+          /* ── Overdue Notice Card ── */
+          .notice-card {
+            background: #ffffff;
+            border-radius: 14px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(220,38,38,0.1);
+            overflow: hidden;
+            border-left: 6px solid #dc2626;
+          }
+          .notice-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 28px;
+            background: linear-gradient(135deg, #fff5f5, #fee2e2);
+            border-bottom: 1px solid #fecaca;
+            flex-wrap: wrap;
+            gap: 12px;
+          }
+          .notice-top h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #991b1b;
+          }
+          .notice-tag {
+            background: #dc2626;
+            color: white;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 5px 16px;
+            border-radius: 20px;
+          }
+          .notice-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+          }
+          .notice-row {
+            display: flex;
+            padding: 11px 28px;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 13px;
+          }
+          .notice-row:nth-child(odd)  { background: #ffffff; }
+          .notice-row:nth-child(even) { background: #fafafa; }
+          .notice-label {
+            color: #6b7280;
+            font-weight: 700;
+            width: 130px;
+            flex-shrink: 0;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+          }
+          .notice-value { color: #1f2937; font-weight: 500; }
+          .notice-value.due { color: #dc2626; font-weight: 800; }
+          .warning-bar {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            text-align: center;
+            padding: 14px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+          }
+
+          .no-data {
+            text-align: center;
+            color: #9ca3af;
+            font-style: italic;
+            padding: 40px;
+            background: white;
+            border-radius: 14px;
+          }
+
+          /* ── Footer ── */
           .footer {
             text-align: center;
-            font-size: 0.78rem;
-            color: #999;
-            margin-top: 32px;
-            border-top: 1px solid #ddd;
-            padding-top: 16px;
+            padding: 28px;
+            color: #6b7280;
+            font-size: 12px;
+            border-top: 1px solid #d1fae5;
+            margin-top: 20px;
+            background: #ffffff;
           }
         </style>
       </head>
@@ -130,76 +450,118 @@
 
         <!-- Header -->
         <div class="header">
-          <h1>SARMS - Library Management System</h1>
-          <p>Pamantasan ng Lungsod ng Pasig | Group 4 | Integrative Programming</p>
-        </div>
-
-        <!-- Summary Cards -->
-        <div class="cards">
-          <div class="card">
-            <div class="num"><xsl:value-of select="count(/library/books/book)"/></div>
-            <div class="lbl">Total Books</div>
+          <div class="school-name">Pamantasan ng Lungsod ng Pasig</div>
+          <h1>Library Management Report</h1>
+          <div class="subtitle">
+            SARMS: Smart Academic Records Management System
+            <span style="opacity:0.4; margin:0 8px;">|</span>
+            Group 4
           </div>
-          <div class="card">
-            <div class="num"><xsl:value-of select="count(/library/borrowingRecords/record)"/></div>
-            <div class="lbl">Total Records</div>
-          </div>
-          <div class="card">
-            <div class="num"><xsl:value-of select="count(/library/borrowingRecords/record[status='Active'])"/></div>
-            <div class="lbl">Active</div>
-          </div>
-          <div class="card">
-            <div class="num" style="color:#c53030;"><xsl:value-of select="count(/library/borrowingRecords/record[status='Overdue'])"/></div>
-            <div class="lbl">Overdue</div>
-          </div>
-          <div class="card">
-            <div class="num"><xsl:value-of select="count(/library/borrowingRecords/record[status='Returned'])"/></div>
-            <div class="lbl">Returned</div>
-          </div>
-          <div class="card">
-            <div class="num"><xsl:value-of select="count(/library/borrowingRecords/record[status='Returned Late'])"/></div>
-            <div class="lbl">Returned Late</div>
+          <div class="badges">
+            <span class="header-badge">Library Management System</span>
+            <span class="header-badge">library.xml via library.xsl</span>
+            <span class="header-badge">XSLT 1.0</span>
           </div>
         </div>
 
-        <!-- SECTION 1: Book Inventory -->
-        <div class="section">
-          <h2>Book Inventory</h2>
-          <table>
-            <tr>
-              <th>Book ID</th>
-              <th>Title</th>
-              <th>Author</th>
-              <th>Category</th>
-              <th>ISBN</th>
-              <th>Copies</th>
-            </tr>
-            <xsl:apply-templates select="/library/books/book"/>
-          </table>
+        <!-- Stats -->
+        <div class="stats-bar">
+          <div class="stat-item">
+            <div class="stat-value">
+              <xsl:value-of select="count(/library/books/book)"/>
+            </div>
+            <div class="stat-label">Total Books</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">
+              <xsl:value-of select="count(/library/borrowingRecords/record)"/>
+            </div>
+            <div class="stat-label">Total Records</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">
+              <xsl:value-of select="count(/library/borrowingRecords/record[status='Active'])"/>
+            </div>
+            <div class="stat-label">Active Borrows</div>
+          </div>
+          <div class="stat-item danger">
+            <div class="stat-value">
+              <xsl:value-of select="count(/library/borrowingRecords/record[status='Overdue'])"/>
+            </div>
+            <div class="stat-label">Overdue</div>
+          </div>
+          <div class="stat-item blue">
+            <div class="stat-value">
+              <xsl:value-of select="count(/library/borrowingRecords/record[status='Returned'])"/>
+            </div>
+            <div class="stat-label">Returned</div>
+          </div>
+          <div class="stat-item warning">
+            <div class="stat-value">
+              <xsl:value-of select="count(/library/borrowingRecords/record[status='Returned Late'])"/>
+            </div>
+            <div class="stat-label">Returned Late</div>
+          </div>
         </div>
 
-        <!-- SECTION 2: Borrowing Records -->
-        <div class="section">
-          <h2>Borrowing Records</h2>
-          <table>
-            <tr>
-              <th>Record ID</th>
-              <th>Book ID</th>
-              <th>Borrower Name</th>
-              <th>Type</th>
-              <th>Course</th>
-              <th>Borrow Date</th>
-              <th>Due Date</th>
-              <th>Return Date</th>
-              <th>Status</th>
-            </tr>
-            <xsl:apply-templates select="/library/borrowingRecords/record"/>
-          </table>
-        </div>
+        <div class="container">
 
-        <!-- SECTION 3: Overdue Notices -->
-        <div class="section">
-          <h2 class="danger">Overdue Notices</h2>
+          <!-- Legend -->
+          <div class="legend">
+            <span class="legend-label">Status:</span>
+            <span class="legend-item" style="background:linear-gradient(135deg,#10b981,#059669);">Active</span>
+            <span class="legend-item" style="background:linear-gradient(135deg,#3b82f6,#2563eb);">Returned</span>
+            <span class="legend-item" style="background:linear-gradient(135deg,#ef4444,#dc2626);">Overdue</span>
+            <span class="legend-item" style="background:linear-gradient(135deg,#f59e0b,#d97706);">Returned Late</span>
+          </div>
+
+          <!-- SECTION 1: Book Inventory -->
+          <div class="section-header">
+            <div class="section-number">1</div>
+            <div class="section-title">Book Inventory</div>
+            <div class="section-count">
+              <xsl:value-of select="count(/library/books/book)"/> Books
+            </div>
+          </div>
+          <xsl:apply-templates select="/library/books/book"/>
+
+          <!-- SECTION 2: Borrowing Records -->
+          <div class="section-header">
+            <div class="section-number">2</div>
+            <div class="section-title">Borrowing Records</div>
+            <div class="section-count">
+              <xsl:value-of select="count(/library/borrowingRecords/record)"/> Records
+            </div>
+          </div>
+          <div class="table-wrapper">
+            <table class="records-table">
+              <thead>
+                <tr>
+                  <th>Record ID</th>
+                  <th>Book ID</th>
+                  <th>Borrower Name</th>
+                  <th>Type</th>
+                  <th>Course</th>
+                  <th>Borrow Date</th>
+                  <th>Due Date</th>
+                  <th>Return Date</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <xsl:apply-templates select="/library/borrowingRecords/record"/>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- SECTION 3: Overdue Notices -->
+          <div class="section-header danger">
+            <div class="section-number">3</div>
+            <div class="section-title">Overdue Notices</div>
+            <div class="section-count">
+              <xsl:value-of select="count(/library/borrowingRecords/record[status='Overdue'])"/> Overdue
+            </div>
+          </div>
           <xsl:choose>
             <xsl:when test="/library/borrowingRecords/record[status='Overdue']">
               <xsl:apply-templates
@@ -207,40 +569,54 @@
                 mode="notice"/>
             </xsl:when>
             <xsl:otherwise>
-              <p class="no-data">No overdue records found.</p>
+              <div class="no-data">No overdue records found.</div>
             </xsl:otherwise>
           </xsl:choose>
+
         </div>
 
+        <!-- Footer -->
         <div class="footer">
-          SARMS Library Management System - Group 4 | Generated from library.xml using library.xsl
+          <p>SARMS — Smart Academic Records Management System | Pamantasan ng Lungsod ng Pasig</p>
+          <p style="margin-top:4px;">Group 4: Library Management System | Generated via XSLT Transformation from library.xml</p>
         </div>
 
       </body>
     </html>
   </xsl:template>
 
-  <!-- Book row -->
+  <!-- Book card template -->
   <xsl:template match="book">
-    <tr>
-      <td><xsl:value-of select="@bookId"/></td>
-      <td><xsl:value-of select="title"/></td>
-      <td><xsl:value-of select="author"/></td>
-      <td><xsl:value-of select="category"/></td>
-      <td><xsl:value-of select="isbn"/></td>
-      <td><xsl:value-of select="copies"/></td>
-    </tr>
+    <div class="book-card">
+      <div class="book-header">
+        <div class="book-info-wrapper">
+          <div class="avatar">
+            <xsl:value-of select="substring(title,1,2)"/>
+          </div>
+          <div class="book-info">
+            <h2><xsl:value-of select="title"/></h2>
+            <div class="book-meta">
+              <span><xsl:value-of select="@bookId"/></span>
+              <span><xsl:value-of select="author"/></span>
+              <span><xsl:value-of select="category"/></span>
+              <span><xsl:value-of select="copies"/> Copies</span>
+            </div>
+          </div>
+        </div>
+        <div class="isbn-tag"><xsl:value-of select="isbn"/></div>
+      </div>
+    </div>
   </xsl:template>
 
-  <!-- Borrowing record row -->
+  <!-- Record row template -->
   <xsl:template match="record">
-    <xsl:variable name="rowClass">
+    <xsl:variable name="rc">
       <xsl:if test="status = 'Overdue'">row-overdue</xsl:if>
     </xsl:variable>
-    <tr class="{$rowClass}">
-      <td><xsl:value-of select="@recordId"/></td>
-      <td><xsl:value-of select="bookId"/></td>
-      <td><xsl:value-of select="borrower/borrowerName"/></td>
+    <tr class="{$rc}">
+      <td><span class="id-mono"><xsl:value-of select="@recordId"/></span></td>
+      <td><span class="id-mono"><xsl:value-of select="bookId"/></span></td>
+      <td class="borrower-name"><xsl:value-of select="borrower/borrowerName"/></td>
       <td><xsl:value-of select="borrower/borrowerType"/></td>
       <td><xsl:value-of select="borrower/course"/></td>
       <td><xsl:value-of select="borrowDate"/></td>
@@ -248,16 +624,16 @@
       <td>
         <xsl:choose>
           <xsl:when test="returnDate != ''"><xsl:value-of select="returnDate"/></xsl:when>
-          <xsl:otherwise>-</xsl:otherwise>
+          <xsl:otherwise>—</xsl:otherwise>
         </xsl:choose>
       </td>
       <td>
         <xsl:variable name="sc">
           <xsl:choose>
-            <xsl:when test="status = 'Overdue'">status status-overdue</xsl:when>
-            <xsl:when test="status = 'Active'">status status-active</xsl:when>
-            <xsl:when test="status = 'Returned'">status status-returned</xsl:when>
-            <xsl:when test="status = 'Returned Late'">status status-late</xsl:when>
+            <xsl:when test="status = 'Overdue'">status-badge s-overdue</xsl:when>
+            <xsl:when test="status = 'Active'">status-badge s-active</xsl:when>
+            <xsl:when test="status = 'Returned'">status-badge s-returned</xsl:when>
+            <xsl:when test="status = 'Returned Late'">status-badge s-late</xsl:when>
           </xsl:choose>
         </xsl:variable>
         <span class="{$sc}"><xsl:value-of select="status"/></span>
@@ -265,49 +641,54 @@
     </tr>
   </xsl:template>
 
-  <!-- Overdue notice block -->
+  <!-- Overdue notice template -->
   <xsl:template match="record" mode="notice">
-    <div class="notice">
-      <h3>Notice for: <xsl:value-of select="borrower/borrowerName"/></h3>
-      <table>
-        <tr>
-          <td>Record ID</td>
-          <td><xsl:value-of select="@recordId"/></td>
-        </tr>
-        <tr>
-          <td>Borrower ID</td>
-          <td><xsl:value-of select="borrower/borrowerId"/></td>
-        </tr>
-        <tr>
-          <td>Borrower Type</td>
-          <td><xsl:value-of select="borrower/borrowerType"/></td>
-        </tr>
-        <tr>
-          <td>Course / Dept.</td>
-          <td><xsl:value-of select="borrower/course"/></td>
-        </tr>
-        <tr>
-          <td>Contact No.</td>
-          <td><xsl:value-of select="borrower/contactNo"/></td>
-        </tr>
-        <tr>
-          <td>Book ID</td>
-          <td><xsl:value-of select="bookId"/></td>
-        </tr>
-        <tr>
-          <td>Borrow Date</td>
-          <td><xsl:value-of select="borrowDate"/></td>
-        </tr>
-        <tr>
-          <td>Due Date</td>
-          <td><xsl:value-of select="dueDate"/></td>
-        </tr>
-        <tr>
-          <td>Return Date</td>
-          <td>Not yet returned</td>
-        </tr>
-      </table>
-      <div class="warning">This book is OVERDUE. Please return immediately to avoid penalties.</div>
+    <div class="notice-card">
+      <div class="notice-top">
+        <h3>Notice for: <xsl:value-of select="borrower/borrowerName"/></h3>
+        <span class="notice-tag">Overdue Notice</span>
+      </div>
+      <div class="notice-body">
+        <div class="notice-row">
+          <span class="notice-label">Record ID</span>
+          <span class="notice-value"><xsl:value-of select="@recordId"/></span>
+        </div>
+        <div class="notice-row">
+          <span class="notice-label">Borrower ID</span>
+          <span class="notice-value"><xsl:value-of select="borrower/borrowerId"/></span>
+        </div>
+        <div class="notice-row">
+          <span class="notice-label">Borrower Type</span>
+          <span class="notice-value"><xsl:value-of select="borrower/borrowerType"/></span>
+        </div>
+        <div class="notice-row">
+          <span class="notice-label">Course / Dept.</span>
+          <span class="notice-value"><xsl:value-of select="borrower/course"/></span>
+        </div>
+        <div class="notice-row">
+          <span class="notice-label">Contact No.</span>
+          <span class="notice-value"><xsl:value-of select="borrower/contactNo"/></span>
+        </div>
+        <div class="notice-row">
+          <span class="notice-label">Book ID</span>
+          <span class="notice-value"><xsl:value-of select="bookId"/></span>
+        </div>
+        <div class="notice-row">
+          <span class="notice-label">Borrow Date</span>
+          <span class="notice-value"><xsl:value-of select="borrowDate"/></span>
+        </div>
+        <div class="notice-row">
+          <span class="notice-label">Due Date</span>
+          <span class="notice-value due"><xsl:value-of select="dueDate"/></span>
+        </div>
+        <div class="notice-row">
+          <span class="notice-label">Return Date</span>
+          <span class="notice-value">Not yet returned</span>
+        </div>
+      </div>
+      <div class="warning-bar">
+        This book is OVERDUE. Please return immediately to avoid penalties.
+      </div>
     </div>
   </xsl:template>
 
