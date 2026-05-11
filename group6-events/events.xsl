@@ -77,19 +77,32 @@
           }
 
           /* -------------------------------------------------------
-             Header — deepest green, title + subtitle only
+             Header — deepest green with navbar
           ------------------------------------------------------- */
           .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
             background-color: var(--green-900);
             color: var(--text-inverted);
-            padding: var(--sp-3) 0.25rem;
+            padding: var(--sp-2) var(--sp-3);
             border-bottom: 4px solid var(--green-900);
-            text-align: center;
           }
 
           .header-inner {
-            max-width: 96%; /* Changed from 1300px to 96% */
+            max-width: 96%;
             margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+
+          .header-left {
+            display: flex;
+            flex-direction: column;
           }
 
           .header-title {
@@ -104,9 +117,37 @@
             margin-top: 2px;
           }
 
+          .navbar {
+            display: flex;
+            gap: var(--sp-3);
+            list-style: none;
+          }
+
+          .navbar li {
+            margin: 0;
+          }
+
+          .navbar a {
+            color: var(--text-inverted);
+            text-decoration: none;
+            font-size: var(--text-sm);
+            font-weight: 500;
+            padding: var(--sp-1) var(--sp-2);
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+          }
+
+          .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+          }
+
           /* -------------------------------------------------------
              Layout
           ------------------------------------------------------- */
+          main {
+            margin-top: 80px;
+          }
+
           .container {
             max-width: 96%; /* Changed from 1300px to 96% */
             margin: 0 auto;
@@ -191,7 +232,6 @@
           }
 
           .event-card-header {
-            background-color: rgba(0, 77, 38, 0.1);
             padding: var(--sp-2);
             border-bottom: 2px solid var(--green-900);
           }
@@ -305,6 +345,49 @@
           tbody tr:last-child td { border-bottom: none; }
 
           /* -------------------------------------------------------
+             Filter Controls
+          ------------------------------------------------------- */
+          .filter-controls {
+            display: flex;
+            gap: var(--sp-2);
+            align-items: center;
+            margin-bottom: var(--sp-3);
+            flex-wrap: wrap;
+          }
+
+          .filter-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: var(--text-sm);
+          }
+
+          .filter-select {
+            padding: var(--sp-1) var(--sp-2);
+            border: 2px solid var(--border);
+            background-color: var(--surface-0);
+            color: var(--text-primary);
+            border-radius: 4px;
+            font-size: var(--text-sm);
+            font-weight: 500;
+            cursor: pointer;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+          }
+
+          .filter-select:hover {
+            border-color: var(--green-900);
+          }
+
+          .filter-select:focus {
+            outline: none;
+            border-color: var(--green-900);
+            box-shadow: 0 0 0 3px rgba(0, 77, 38, 0.1);
+          }
+
+          .hidden-row {
+            display: none;
+          }
+
+          /* -------------------------------------------------------
              Footer — deepest green, matches header
           ------------------------------------------------------- */
           .footer {
@@ -321,12 +404,24 @@
       <body>
 
         <!-- ====================================================== -->
-        <!-- HEADER — title and institution only, no navigation      -->
+        <!-- HEADER with NAVBAR                                     -->
         <!-- ====================================================== -->
         <header class="header">
           <div class="header-inner">
-            <div class="header-title">Events Management System</div>
-            <div class="header-sub">Pamantasan ng Lungsod ng Pasig</div>
+            <div class="header-left">
+              <div class="header-title">Events Management System</div>
+              <div class="header-sub">Pamantasan ng Lungsod ng Pasig</div>
+            </div>
+            <nav>
+              <ul class="navbar">
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#participants">Participants</a></li>
+                <li><a href="#registrations">Registrations</a></li>
+                <li><a href="#attendance">Attendance</a></li>
+                <li><a href="#reports">Reports</a></li>
+              </ul>
+            </nav>
           </div>
         </header>
 
@@ -445,118 +540,65 @@
             </section>
 
             <!-- ================================================== -->
-            <!-- SECTION 3 — Upcoming Events Table                   -->
-            <!-- xsl:sort on eventDate; @eventStatus attribute pred  -->
-            <!-- ================================================== -->
-            <section class="section" id="upcoming">
-              <h2>Upcoming Events</h2>
-              <div class="table-wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Event ID</th>
-                      <th>Event Name</th>
-                      <th>Date</th>
-                      <th>Time</th>
-                      <th>Venue</th>
-                      <th>Category</th>
-                      <th>Registrations / Capacity</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <xsl:for-each select="//event[@eventStatus='upcoming']">
-                      <xsl:sort select="eventDate"/>
-                      <tr>
-                        <td><xsl:value-of select="@eventId"/></td>
-                        <td><xsl:value-of select="eventName"/></td>
-                        <td><xsl:value-of select="eventDate"/></td>
-                        <td><xsl:value-of select="eventTime"/></td>
-                        <td><xsl:value-of select="venue"/></td>
-                        <td><xsl:value-of select="category"/></td>
-                        <td>
-                          <xsl:value-of select="registrations"/>
-                          <xsl:text> / </xsl:text>
-                          <xsl:value-of select="capacity"/>
-                        </td>
-                      </tr>
-                    </xsl:for-each>
-                  </tbody>
-                </table>
-              </div>
-            </section>
-
-            <!-- ================================================== -->
-            <!-- SECTION 4 — Closed Events Table                     -->
-            <!-- xsl:sort on eventDate; @eventStatus attribute pred  -->
-            <!-- ================================================== -->
-            <section class="section" id="closed">
-              <h2>Closed Events</h2>
-              <div class="table-wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Event ID</th>
-                      <th>Event Name</th>
-                      <th>Date</th>
-                      <th>Time</th>
-                      <th>Venue</th>
-                      <th>Category</th>
-                      <th>Registrations / Capacity</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <xsl:for-each select="//event[@eventStatus='closed']">
-                      <xsl:sort select="eventDate"/>
-                      <tr>
-                        <td><xsl:value-of select="@eventId"/></td>
-                        <td><xsl:value-of select="eventName"/></td>
-                        <td><xsl:value-of select="eventDate"/></td>
-                        <td><xsl:value-of select="eventTime"/></td>
-                        <td><xsl:value-of select="venue"/></td>
-                        <td><xsl:value-of select="category"/></td>
-                        <td>
-                          <xsl:value-of select="registrations"/>
-                          <xsl:text> / </xsl:text>
-                          <xsl:value-of select="capacity"/>
-                        </td>
-                      </tr>
-                    </xsl:for-each>
-                  </tbody>
-                </table>
-              </div>
-            </section>
-
-            <!-- ================================================== -->
-            <!-- SECTION 5 — All Events Table                        -->
-            <!-- xsl:choose on @eventStatus for badge color          -->
+            <!-- SECTION 3 — All Events Table with Filter           -->
+            <!-- Filter by status and category                      -->
             <!-- ================================================== -->
             <section class="section" id="events">
               <h2>All Events</h2>
+              
+              <!-- Filter Controls -->
+              <div class="filter-controls">
+                <label for="eventStatusFilter" class="filter-label">Filter by Status:</label>
+                <select id="eventStatusFilter" class="filter-select" onchange="filterEvents()">
+                  <option value="">All</option>
+                  <option value="current">Current</option>
+                  <option value="upcoming">Upcoming</option>
+                  <option value="closed">Closed</option>
+                </select>
+                
+                <label for="eventCategoryFilter" class="filter-label">Filter by Category:</label>
+                <select id="eventCategoryFilter" class="filter-select" onchange="filterEvents()">
+                  <option value="">All Categories</option>
+                  <option value="Academic">Academic</option>
+                  <option value="Professional Development">Professional Development</option>
+                  <option value="Cultural">Cultural</option>
+                  <option value="Sports">Sports</option>
+                  <option value="Workshop">Workshop</option>
+                  <option value="Seminar">Seminar</option>
+                  <option value="Forum">Forum</option>
+                  <option value="Symposium">Symposium</option>
+                </select>
+              </div>
+
               <div class="table-wrap">
-                <table>
+                <table id="eventsTable">
                   <thead>
                     <tr>
                       <th>Event ID</th>
                       <th>Event Name</th>
                       <th>Date</th>
+                      <th>Time</th>
                       <th>Venue</th>
                       <th>Category</th>
-                      <th>Registrations</th>
-                      <th>Capacity</th>
+                      <th>Registrations / Capacity</th>
                       <th>Status</th>
                     </tr>
                   </thead>
                   <tbody>
                     <xsl:for-each select="//event">
                       <xsl:sort select="eventDate"/>
-                      <tr>
+                      <tr data-status="{@eventStatus}" data-category="{category}">
                         <td><xsl:value-of select="@eventId"/></td>
                         <td><xsl:value-of select="eventName"/></td>
                         <td><xsl:value-of select="eventDate"/></td>
+                        <td><xsl:value-of select="eventTime"/></td>
                         <td><xsl:value-of select="venue"/></td>
                         <td><xsl:value-of select="category"/></td>
-                        <td><xsl:value-of select="registrations"/></td>
-                        <td><xsl:value-of select="capacity"/></td>
+                        <td>
+                          <xsl:value-of select="registrations"/>
+                          <xsl:text> / </xsl:text>
+                          <xsl:value-of select="capacity"/>
+                        </td>
                         <td>
                           <xsl:choose>
                             <xsl:when test="@eventStatus='upcoming'">
@@ -578,13 +620,36 @@
             </section>
 
             <!-- ================================================== -->
-            <!-- SECTION 6 — Participants Table                      -->
-            <!-- xsl:sort alphabetically by fullName                 -->
+            <!-- SECTION 6 — Participants Table with Filter         -->
+            <!-- Filter by department and year level                -->
             <!-- ================================================== -->
             <section class="section" id="participants">
               <h2>Participants</h2>
+              
+              <!-- Department and Year Level Filters (Side by Side) -->
+              <div class="filter-controls">
+                <label for="deptFilter" class="filter-label">Filter by Department:</label>
+                <select id="deptFilter" class="filter-select" onchange="filterParticipants()">
+                  <option value="">All Departments</option>
+                  <option value="Computer Science">Computer Science</option>
+                  <option value="Information Technology">Information Technology</option>
+                  <option value="Engineering">Engineering</option>
+                  <option value="Business">Business</option>
+                  <option value="Arts">Arts</option>
+                </select>
+                
+                <label for="yearFilter" class="filter-label">Filter by Year Level:</label>
+                <select id="yearFilter" class="filter-select" onchange="filterParticipants()">
+                  <option value="">All Years</option>
+                  <option value="1">1st Year</option>
+                  <option value="2">2nd Year</option>
+                  <option value="3">3rd Year</option>
+                  <option value="4">4th Year</option>
+                </select>
+              </div>
+
               <div class="table-wrap">
-                <table>
+                <table id="participantsTable">
                   <thead>
                     <tr>
                       <th>Participant ID</th>
@@ -597,7 +662,7 @@
                   <tbody>
                     <xsl:for-each select="//participant">
                       <xsl:sort select="fullName"/>
-                      <tr>
+                      <tr data-dept="{department}" data-year="{yearLevel}">
                         <td><xsl:value-of select="@participantId"/></td>
                         <td><xsl:value-of select="fullName"/></td>
                         <td><xsl:value-of select="email"/></td>
@@ -611,13 +676,26 @@
             </section>
 
             <!-- ================================================== -->
-            <!-- SECTION 7 — Registrations Table                     -->
-            <!-- xsl:choose on @registrationStatus for badge color   -->
+            <!-- SECTION 7 — Registrations Table with Filter        -->
+            <!-- Filter by status: Registered, Attended, Cancelled, No-show -->
             <!-- ================================================== -->
             <section class="section" id="registrations">
               <h2>Registrations</h2>
+              
+              <!-- Filter Controls -->
+              <div class="filter-controls">
+                <label for="registrationStatusFilter" class="filter-label">Filter by Status:</label>
+                <select id="registrationStatusFilter" class="filter-select" onchange="filterRegistrations()">
+                  <option value="">All</option>
+                  <option value="Registered">Registered</option>
+                  <option value="Attended">Attended</option>
+                  <option value="Cancelled">Cancelled</option>
+                  <option value="No-show">No-show</option>
+                </select>
+              </div>
+
               <div class="table-wrap">
-                <table>
+                <table id="registrationsTable">
                   <thead>
                     <tr>
                       <th>Registration ID</th>
@@ -629,7 +707,7 @@
                   </thead>
                   <tbody>
                     <xsl:for-each select="//registration">
-                      <tr>
+                      <tr data-status="{@registrationStatus}">
                         <td><xsl:value-of select="@registrationId"/></td>
                         <td><xsl:value-of select="@eventId"/></td>
                         <td><xsl:value-of select="@participantId"/></td>
@@ -658,16 +736,120 @@
             </section>
 
             <!-- ================================================== -->
-            <!-- SECTION 8 — Reports                                 -->
-            <!-- Attendance stats, status summary, category totals   -->
+            <!-- SECTION 8 — Event Attendance Sheet                  -->
+            <!-- Lists participants registered for each event        -->
+            <!-- ================================================== -->
+            <section class="section" id="attendance">
+              <h2>Event Attendance Sheet</h2>
+
+              <!-- Filter Controls for Attendance Sheet -->
+              <div class="filter-controls">
+                <label for="attendanceEventFilter" class="filter-label">Filter by Event:</label>
+                <select id="attendanceEventFilter" class="filter-select" onchange="filterAttendance()">
+                  <option value="">All Events</option>
+                  <xsl:for-each select="//event">
+                    <xsl:sort select="eventName"/>
+                    <option value="{@eventId}"><xsl:value-of select="eventName"/></option>
+                  </xsl:for-each>
+                </select>
+
+                <label for="attendanceStatusFilter" class="filter-label">Filter by Status:</label>
+                <select id="attendanceStatusFilter" class="filter-select" onchange="filterAttendance()">
+                  <option value="">All Statuses</option>
+                  <option value="Registered">Registered</option>
+                  <option value="Attended">Attended</option>
+                  <option value="Cancelled">Cancelled</option>
+                  <option value="No-show">No-show</option>
+                </select>
+              </div>
+
+              <div class="table-wrap">
+                <table id="attendanceTable">
+                  <thead>
+                    <tr>
+                      <th>Event ID</th>
+                      <th>Event Name</th>
+                      <th>Date</th>
+                      <th>Venue</th>
+                      <th>Participant Name</th>
+                      <th>Email</th>
+                      <th>Registration Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <xsl:for-each select="//event">
+                      <xsl:sort select="eventName"/>
+                      <xsl:variable name="eventId" select="@eventId"/>
+                      <xsl:for-each select="//registration[@eventId=$eventId]">
+                        <xsl:sort select="@registrationDate"/>
+                        <xsl:variable name="participantId" select="@participantId"/>
+                        <xsl:variable name="participant" select="//participant[@participantId=$participantId]"/>
+                        <tr data-event="{$eventId}" data-reg-status="{@registrationStatus}">
+                          <td><xsl:value-of select="$eventId"/></td>
+                          <td><xsl:value-of select="../eventName"/></td>
+                          <td><xsl:value-of select="../eventDate"/></td>
+                          <td><xsl:value-of select="../venue"/></td>
+                          <td><xsl:value-of select="$participant/fullName"/></td>
+                          <td><xsl:value-of select="$participant/email"/></td>
+                          <td>
+                            <xsl:choose>
+                              <xsl:when test="@registrationStatus='Registered'">
+                                <span class="badge badge-registered">Registered</span>
+                              </xsl:when>
+                              <xsl:when test="@registrationStatus='Attended'">
+                                <span class="badge badge-attended">Attended</span>
+                              </xsl:when>
+                              <xsl:when test="@registrationStatus='Cancelled'">
+                                <span class="badge badge-cancelled">Cancelled</span>
+                              </xsl:when>
+                              <xsl:otherwise>
+                                <span class="badge badge-noshow">No-show</span>
+                              </xsl:otherwise>
+                            </xsl:choose>
+                          </td>
+                        </tr>
+                      </xsl:for-each>
+                    </xsl:for-each>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <!-- ================================================== -->
+            <!-- SECTION 9 — Reports                                 -->
+            <!-- Event capacity and attendance analysis              -->
             <!-- ================================================== -->
             <section class="section" id="reports">
               <h2>Reports</h2>
 
+              <!-- Filter Controls for Reports -->
+              <div class="filter-controls">
+                <label for="reportStatusFilter" class="filter-label">Filter by Status:</label>
+                <select id="reportStatusFilter" class="filter-select" onchange="filterReports()">
+                  <option value="">All</option>
+                  <option value="current">Current</option>
+                  <option value="upcoming">Upcoming</option>
+                  <option value="closed">Closed</option>
+                </select>
+                
+                <label for="reportCategoryFilter" class="filter-label">Filter by Category:</label>
+                <select id="reportCategoryFilter" class="filter-select" onchange="filterReports()">
+                  <option value="">All Categories</option>
+                  <option value="Academic">Academic</option>
+                  <option value="Professional Development">Professional Development</option>
+                  <option value="Cultural">Cultural</option>
+                  <option value="Sports">Sports</option>
+                  <option value="Workshop">Workshop</option>
+                  <option value="Seminar">Seminar</option>
+                  <option value="Forum">Forum</option>
+                  <option value="Symposium">Symposium</option>
+                </select>
+              </div>
+
               <!-- Top 20 Events by Registrations — descending sort -->
               <h3>Top 20 Events by Registrations</h3>
               <div class="table-wrap">
-                <table>
+                <table id="reportsTable">
                   <thead>
                     <tr>
                       <th>Event Name</th>
@@ -682,7 +864,7 @@
                     <xsl:for-each select="//event">
                       <xsl:sort select="registrations" data-type="number" order="descending"/>
                       <xsl:if test="position() &lt;= 20">
-                        <tr>
+                        <tr data-status="{@eventStatus}" data-category="{category}">
                           <td><xsl:value-of select="eventName"/></td>
                           <td><xsl:value-of select="category"/></td>
                           <td><xsl:value-of select="registrations"/></td>
@@ -711,130 +893,6 @@
                 </table>
               </div>
 
-              <!-- Registration Summary by Status -->
-              <h3 class="mt-3">Registration Summary by Status</h3>
-              <div class="table-wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Status</th>
-                      <th>Count</th>
-                      <th>Percentage</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><span class="badge badge-registered">Registered</span></td>
-                      <td>
-                        <xsl:value-of select="count(//registration[@registrationStatus='Registered'])"/>
-                      </td>
-                      <td>
-                        <xsl:value-of select="round((count(//registration[@registrationStatus='Registered']) div count(//registration)) * 100)"/>%
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><span class="badge badge-attended">Attended</span></td>
-                      <td>
-                        <xsl:value-of select="count(//registration[@registrationStatus='Attended'])"/>
-                      </td>
-                      <td>
-                        <xsl:value-of select="round((count(//registration[@registrationStatus='Attended']) div count(//registration)) * 100)"/>%
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><span class="badge badge-cancelled">Cancelled</span></td>
-                      <td>
-                        <xsl:value-of select="count(//registration[@registrationStatus='Cancelled'])"/>
-                      </td>
-                      <td>
-                        <xsl:value-of select="round((count(//registration[@registrationStatus='Cancelled']) div count(//registration)) * 100)"/>%
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><span class="badge badge-noshow">No-show</span></td>
-                      <td>
-                        <xsl:value-of select="count(//registration[@registrationStatus='No-show'])"/>
-                      </td>
-                      <td>
-                        <xsl:value-of select="round((count(//registration[@registrationStatus='No-show']) div count(//registration)) * 100)"/>%
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <!-- Events by Category — count, sum, avg per category -->
-              <h3 class="mt-3">Events by Category</h3>
-              <div class="table-wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Category</th>
-                      <th>Total Events</th>
-                      <th>Total Registrations</th>
-                      <th>Total Capacity</th>
-                      <th>Avg. Registrations</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Academic</td>
-                      <td><xsl:value-of select="count(//event[category='Academic'])"/></td>
-                      <td><xsl:value-of select="sum(//event[category='Academic']/registrations)"/></td>
-                      <td><xsl:value-of select="sum(//event[category='Academic']/capacity)"/></td>
-                      <td>
-                        <xsl:value-of select="round(sum(//event[category='Academic']/registrations) div count(//event[category='Academic']))"/>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Professional Development</td>
-                      <td><xsl:value-of select="count(//event[category='Professional Development'])"/></td>
-                      <td><xsl:value-of select="sum(//event[category='Professional Development']/registrations)"/></td>
-                      <td><xsl:value-of select="sum(//event[category='Professional Development']/capacity)"/></td>
-                      <td>
-                        <xsl:value-of select="round(sum(//event[category='Professional Development']/registrations) div count(//event[category='Professional Development']))"/>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Cultural</td>
-                      <td><xsl:value-of select="count(//event[category='Cultural'])"/></td>
-                      <td><xsl:value-of select="sum(//event[category='Cultural']/registrations)"/></td>
-                      <td><xsl:value-of select="sum(//event[category='Cultural']/capacity)"/></td>
-                      <td>
-                        <xsl:value-of select="round(sum(//event[category='Cultural']/registrations) div count(//event[category='Cultural']))"/>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Sports</td>
-                      <td><xsl:value-of select="count(//event[category='Sports'])"/></td>
-                      <td><xsl:value-of select="sum(//event[category='Sports']/registrations)"/></td>
-                      <td><xsl:value-of select="sum(//event[category='Sports']/capacity)"/></td>
-                      <td>
-                        <xsl:value-of select="round(sum(//event[category='Sports']/registrations) div count(//event[category='Sports']))"/>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Workshop</td>
-                      <td><xsl:value-of select="count(//event[category='Workshop'])"/></td>
-                      <td><xsl:value-of select="sum(//event[category='Workshop']/registrations)"/></td>
-                      <td><xsl:value-of select="sum(//event[category='Workshop']/capacity)"/></td>
-                      <td>
-                        <xsl:value-of select="round(sum(//event[category='Workshop']/registrations) div count(//event[category='Workshop']))"/>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Seminar</td>
-                      <td><xsl:value-of select="count(//event[category='Seminar'])"/></td>
-                      <td><xsl:value-of select="sum(//event[category='Seminar']/registrations)"/></td>
-                      <td><xsl:value-of select="sum(//event[category='Seminar']/capacity)"/></td>
-                      <td>
-                        <xsl:value-of select="round(sum(//event[category='Seminar']/registrations) div count(//event[category='Seminar']))"/>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
             </section>
 
           </div>
@@ -846,6 +904,119 @@
         <footer class="footer">
           <p>2026 Pamantasan ng Lungsod ng Pasig — Events Management System</p>
         </footer>
+
+        <!-- JavaScript for Filter Functionality -->
+        <script>
+          function filterEvents() {
+            const table = document.getElementById('eventsTable');
+            const rows = table.querySelectorAll('tbody tr');
+            const selectedStatus = document.getElementById('eventStatusFilter').value;
+            const selectedCategory = document.getElementById('eventCategoryFilter').value;
+            
+            // Filter rows by both status and category
+            rows.forEach(row => {
+              const rowStatus = row.getAttribute('data-status');
+              const rowCategory = row.getAttribute('data-category');
+              
+              let statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
+              let categoryMatch = (selectedCategory === '' || selectedCategory === rowCategory);
+              
+              if (statusMatch &amp;&amp; categoryMatch) {
+                row.classList.remove('hidden-row');
+              } else {
+                row.classList.add('hidden-row');
+              }
+            });
+          }
+
+          function filterRegistrations() {
+            const table = document.getElementById('registrationsTable');
+            const rows = table.querySelectorAll('tbody tr');
+            const selectedStatus = document.getElementById('registrationStatusFilter').value;
+            
+            // Filter rows by status
+            rows.forEach(row => {
+              const rowStatus = row.getAttribute('data-status');
+              if (selectedStatus === '' || selectedStatus === rowStatus) {
+                row.classList.remove('hidden-row');
+              } else {
+                row.classList.add('hidden-row');
+              }
+            });
+          }
+
+          function filterParticipants() {
+            const table = document.getElementById('participantsTable');
+            const rows = table.querySelectorAll('tbody tr');
+            
+            // Get selected values from dropdowns
+            const selectedDept = document.getElementById('deptFilter').value;
+            const selectedYear = document.getElementById('yearFilter').value;
+            
+            // Filter rows by both department and year level
+            rows.forEach(row => {
+              const rowDept = row.getAttribute('data-dept');
+              const rowYear = row.getAttribute('data-year');
+              
+              let deptMatch = (selectedDept === '' || selectedDept === rowDept);
+              let yearMatch = (selectedYear === '' || selectedYear === rowYear);
+              
+              if (deptMatch &amp;&amp; yearMatch) {
+                row.classList.remove('hidden-row');
+              } else {
+                row.classList.add('hidden-row');
+              }
+            });
+          }
+
+          function filterAttendance() {
+            const table = document.getElementById('attendanceTable');
+            const rows = table.querySelectorAll('tbody tr');
+            
+            // Get selected values from dropdowns
+            const selectedEvent = document.getElementById('attendanceEventFilter').value;
+            const selectedStatus = document.getElementById('attendanceStatusFilter').value;
+            
+            // Filter rows by both event and registration status
+            rows.forEach(row => {
+              const rowEvent = row.getAttribute('data-event');
+              const rowStatus = row.getAttribute('data-reg-status');
+              
+              let eventMatch = (selectedEvent === '' || selectedEvent === rowEvent);
+              let statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
+              
+              if (eventMatch &amp;&amp; statusMatch) {
+                row.classList.remove('hidden-row');
+              } else {
+                row.classList.add('hidden-row');
+              }
+            });
+          }
+
+          function filterReports() {
+            const table = document.getElementById('reportsTable');
+            const rows = table.querySelectorAll('tbody tr');
+            
+            // Get selected values from dropdowns
+            const selectedStatus = document.getElementById('reportStatusFilter').value;
+            const selectedCategory = document.getElementById('reportCategoryFilter').value;
+            
+            // Filter rows by both status and category
+            rows.forEach(row => {
+              const rowStatus = row.getAttribute('data-status');
+              const rowCategory = row.getAttribute('data-category');
+              
+              let statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
+              let categoryMatch = (selectedCategory === '' || selectedCategory === rowCategory);
+              
+              if (statusMatch &amp;&amp; categoryMatch) {
+                row.classList.remove('hidden-row');
+              } else {
+                row.classList.add('hidden-row');
+              }
+            });
+          }
+        </script>
 
       </body>
     </html>
