@@ -1,0 +1,14 @@
+﻿<!ELEMENT students (student*)>
+<!ELEMENT student (firstName, lastName, course, yearLevel, enrolledSubjects, gpa)>
+<!ATTLIST student studentId ID #REQUIRED>
+<!ELEMENT firstName (#PCDATA)>
+<!ELEMENT lastName (#PCDATA)>
+<!ELEMENT course (#PCDATA)>
+<!ELEMENT yearLevel (#PCDATA)>
+<!ELEMENT enrolledSubjects (subject+)>
+<!ELEMENT subject (subjectName, units, grade)>
+<!ATTLIST subject subjectId ID #REQUIRED>
+<!ELEMENT subjectName (#PCDATA)>
+<!ELEMENT units (#PCDATA)>
+<!ELEMENT grade (#PCDATA)>
+<!ELEMENT gpa (#PCDATA)>

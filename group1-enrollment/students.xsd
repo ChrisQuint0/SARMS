@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+           vc:minVersion="1.1">
+
+  <!-- StudentIdType: Enforces 00-00000 format -->
+  <xs:simpleType name="studentIdType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{2}-[0-9]{5}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- SubjectIdType: Enforces SUB-XXX format (e.g., SUB-001, SUB-999) -->
+  <xs:simpleType name="subjectIdType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="SUB-[0-9]{3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- YearLevelType: Restricts year level to 1, 2, 3, or 4 only -->
+  <xs:simpleType name="yearLevelType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- UnitsType: Units must be a positive integer (1 or more) -->
+  <xs:simpleType name="unitsType">
+    <xs:restriction base="xs:positiveInteger">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- GradeType: Grade must be a decimal between 1.00 and 5.00 (PLP grading scale) -->
+  <xs:simpleType name="gradeType">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="1.00"/>
+      <xs:maxInclusive value="5.00"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- GpaType: GPA must be a decimal between 1.00 and 5.00 -->
+  <xs:simpleType name="gpaType">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="1.00"/>
+      <xs:maxInclusive value="5.00"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- CourseType: Restricts to known PLP course programs -->
+  <xs:simpleType name="courseType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BSIT"/>
+      <xs:enumeration value="BSCS"/>
+      <xs:enumeration value="BSIS"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ============================================================ -->
+  <!-- COMPLEX TYPES: Element structures                             -->
+  <!-- ============================================================ -->
+
+  <!-- SubjectType: Defines the structure for a single subject -->
+  <xs:complexType name="subjectType">
+    <xs:sequence>
+      <xs:element name="subjectName" type="xs:string"/>
+      <xs:element name="units" type="unitsType"/>
+      <xs:element name="grade" type="gradeType"/>
+    </xs:sequence>
+    <!-- Subject ID attribute (required, must match SUB-XXX pattern) -->
+    <xs:attribute name="subjectId" type="subjectIdType" use="required"/>
+  </xs:complexType>
+
+  <!-- EnrolledSubjectsType: Container for one or more subjects -->
+  <xs:complexType name="enrolledSubjectsType">
+    <xs:sequence>
+      <!-- At least one subject is required per enrollment -->
+      <xs:element name="subject" type="subjectType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- StudentType: Defines the full structure for a student record -->
+  <!-- 
+    XSD Assertion (Self-Study):
+    The GPA value must not exceed 5.0 — enforced via xs:assert.
+    This demonstrates XSD 1.1 assertion capability for rule-based validation.
+  -->
+  <xs:complexType name="studentType">
+    <xs:sequence>
+      <xs:element name="firstName" type="xs:string"/>
+      <xs:element name="lastName" type="xs:string"/>
+      <xs:element name="course" type="courseType"/>
+      <xs:element name="yearLevel" type="yearLevelType"/>
+      <xs:element name="enrolledSubjects" type="enrolledSubjectsType"/>
+      <xs:element name="gpa" type="gpaType"/>
+    </xs:sequence>
+    <!-- Student ID attribute (required, must match STU-XXX pattern) -->
+    <xs:attribute name="studentId" type="studentIdType" use="required"/>
+
+    <!-- XSD 1.1 Assertion: GPA must not exceed 5.0 -->
+    <xs:assert test="gpa &lt;= 5.0"/>
+  </xs:complexType>
+
+  <!-- ============================================================ -->
+  <!-- ROOT ELEMENT DEFINITION                                       -->
+  <!-- ============================================================ -->
+
+  <!-- Root element: students contains zero or more student records -->
+  <xs:element name="students">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="student" type="studentType" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+
+    <!-- Uniqueness constraint: Student IDs must be unique -->
+    <xs:unique name="uniqueStudentId">
+      <xs:selector xpath="student"/>
+      <xs:field xpath="@studentId"/>
+    </xs:unique>
+
+    <!-- Uniqueness constraint: Subject IDs must be unique across all students -->
+    <xs:unique name="uniqueSubjectId">
+      <xs:selector xpath="student/enrolledSubjects/subject"/>
+      <xs:field xpath="@subjectId"/>
+    </xs:unique>
+  </xs:element>
+
+</xs:schema>
