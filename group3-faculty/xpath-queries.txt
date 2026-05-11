@@ -5,8 +5,7 @@ XPath Queries (Minimum 5 Required)
 ====================================================================
 
 The following XPath expressions are designed to extract and filter
-data from faculty.xml. Each query includes an explanation and
-its expected output.
+data from faculty.xml. Each query includes an explanation
 
 Context document: faculty.xml
 
