@@ -7,217 +7,152 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <!-- HEADER / NAVIGATION -->
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">Events Management</div>
+                <div class="logo">Events Management System</div>
                 <nav class="nav">
                     <a href="home.html">Home</a>
-                    <a href="index.html" class="active">Dashboard</a>
+                    <a href="index.html"  class="active">Dashboard</a>
                     <a href="events.html">Events</a>
                     <a href="participants.html">Participants</a>
                     <a href="reports.html">Reports</a>
+                    <button class="btn btn-primary" id="openModalBtn">+ Create Event</button>
                 </nav>
             </div>
         </div>
     </header>
-
     <!-- MAIN CONTENT -->
     <main class="main">
-
-
         <div class="container">
-            
-            <!-- SUMMARY STATISTICS CARDS -->
-            <section class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-label">Total Events</div>
-                    <div class="stat-value">50</div>
-                    <div class="stat-unit">University-wide</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label">Total Participants</div>
-                    <div class="stat-value">125</div>
-                    <div class="stat-unit">Registered students</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label">Total Registrations</div>
-                    <div class="stat-value">200</div>
-                    <div class="stat-unit">Event sign-ups</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label">Avg per Event</div>
-                    <div class="stat-value">4</div>
-                    <div class="stat-unit">registrations per event</div>
-                </div>
-            </section>
 
-            <!-- UPCOMING EVENTS SECTION -->
+            <!-- SUMMARY STATISTICS -->
             <section class="section">
-                <h2>Upcoming Events (Next 10)</h2>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Event ID</th>
-                                <th>Event Name</th>
-                                <th>Date</th>
-                                <th>Venue</th>
-                                <th>Registrations</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>EVT-002</td>
-                                <td>AI and Machine Learning Workshop</td>
-                                <td>May 25, 2026</td>
-                                <td>Engineering Building Room 301</td>
-                                <td>5</td>
-                            </tr>
-                            <tr>
-                                <td>EVT-011</td>
-                                <td>Entrepreneurship Workshop</td>
-                                <td>May 28, 2026</td>
-                                <td>Business School Room 101</td>
-                                <td>5</td>
-                            </tr>
-                            <tr>
-                                <td>EVT-005</td>
-                                <td>Web Development Masterclass</td>
-                                <td>May 30, 2026</td>
-                                <td>Engineering Building Room 205</td>
-                                <td>5</td>
-                            </tr>
-                            <tr>
-                                <td>EVT-046</td>
-                                <td>Wellness and Mental Health Awareness</td>
-                                <td>May 31, 2026</td>
-                                <td>Health and Wellness Center</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>EVT-041</td>
-                                <td>Career Development and Resume Workshop</td>
-                                <td>May 27, 2026</td>
-                                <td>Career Services Center</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>EVT-032</td>
-                                <td>Philosophy and Critical Thinking Forum</td>
-                                <td>May 26, 2026</td>
-                                <td>Humanities Building Room 201</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>EVT-022</td>
-                                <td>Environmental Science Seminar</td>
-                                <td>May 29, 2026</td>
-                                <td>Science Building Room 302</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>EVT-008</td>
-                                <td>DevOps and Containerization Workshop</td>
-                                <td>June 08, 2026</td>
-                                <td>Computer Lab 3</td>
-                                <td>5</td>
-                            </tr>
-                            <tr>
-                                <td>EVT-021</td>
-                                <td>Biotechnology Research Symposium</td>
-                                <td>June 10, 2026</td>
-                                <td>Science Building Room 501</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>EVT-048</td>
-                                <td>Research and Innovation Poster Session</td>
-                                <td>June 09, 2026</td>
-                                <td>Convention Center</td>
-                                <td>1</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- REGISTRATION STATUS OVERVIEW -->
-            <section class="section">
-                <h2>Registration Status Overview</h2>
+                <h2>Overview</h2>
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-label">Registered (Confirmed)</div>
-                        <div class="stat-value">160</div>
-                        <div class="badge badge-success">80% Confirmation</div>
+                        <div class="stat-label">Total Events</div>
+                        <div class="stat-value">50</div>
+                        <div class="stat-unit">University-wide</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-label">Pending Approval</div>
-                        <div class="stat-value">40</div>
-                        <div class="badge badge-pending">Awaiting</div>
+                        <div class="stat-label">Total Participants</div>
+                        <div class="stat-value">125</div>
+                        <div class="stat-unit">Registered students</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-label">Confirmation Rate</div>
-                        <div class="stat-value">80%</div>
-                        <div class="badge badge-primary">Metric</div>
+                        <div class="stat-label">Total Registrations</div>
+                        <div class="stat-value">200</div>
+                        <div class="stat-unit">Event sign-ups</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Avg per Event</div>
+                        <div class="stat-value">4</div>
+                        <div class="stat-unit">Registrations per event</div>
                     </div>
                 </div>
             </section>
 
-            <!-- DEPARTMENTS BREAKDOWN -->
+            <!-- UPCOMING EVENTS CARDS -->
             <section class="section">
-                <h2>Participants by Department</h2>
-                <div class="grid grid-cols-2">
-                    <div class="card">
-                        <div class="card-title">Computer Science</div>
+                <div class="page-header">
+                    <h2>Upcoming Events</h2>
+                    <a href="events.html" class="btn-view-all">View All</a>
+                </div>
+                <div class="grid grid-cols-4">
+
+                    <div class="card card-current" style="padding:1rem;">
+                        <span class="event-id">EVT-001</span>
+                        <div class="card-title" style="font-size:0.875rem; margin-bottom:0.5rem;">Intramurals 2026</div>
                         <div class="card-content">
-                            <p><strong>Total Participants:</strong> 25</p>
-                            <p><strong>Total Registrations:</strong> 42</p>
-                            <p><strong>Confirmed:</strong> 34 | <strong>Pending:</strong> 8</p>
+                            <p style="margin-bottom:0.25rem;">May 10, 2026 &mdash; Sports Complex</p>
+                            <span class="badge badge-confirmed">Confirmed</span>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-title">Engineering</div>
+
+                    <div class="card card-current" style="padding:1rem;">
+                        <span class="event-id">EVT-002</span>
+                        <div class="card-title" style="font-size:0.875rem; margin-bottom:0.5rem;">Research Congress</div>
                         <div class="card-content">
-                            <p><strong>Total Participants:</strong> 25</p>
-                            <p><strong>Total Registrations:</strong> 40</p>
-                            <p><strong>Confirmed:</strong> 32 | <strong>Pending:</strong> 8</p>
+                            <p style="margin-bottom:0.25rem;">May 15, 2026 &mdash; Audio-Visual Room</p>
+                            <span class="badge badge-confirmed">Confirmed</span>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-title">Business</div>
+
+                    <div class="card card-upcoming" style="padding:1rem;">
+                        <span class="event-id">EVT-003</span>
+                        <div class="card-title" style="font-size:0.875rem; margin-bottom:0.5rem;">Leadership Summit</div>
                         <div class="card-content">
-                            <p><strong>Total Participants:</strong> 25</p>
-                            <p><strong>Total Registrations:</strong> 40</p>
-                            <p><strong>Confirmed:</strong> 32 | <strong>Pending:</strong> 8</p>
+                            <p style="margin-bottom:0.25rem;">May 22, 2026 &mdash; Function Hall</p>
+                            <span class="badge badge-pending">Pending</span>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-title">Science</div>
+
+                    <div class="card card-upcoming" style="padding:1rem;">
+                        <span class="event-id">EVT-004</span>
+                        <div class="card-title" style="font-size:0.875rem; margin-bottom:0.5rem;">Acquaintance Party</div>
                         <div class="card-content">
-                            <p><strong>Total Participants:</strong> 25</p>
-                            <p><strong>Total Registrations:</strong> 39</p>
-                            <p><strong>Confirmed:</strong> 31 | <strong>Pending:</strong> 8</p>
+                            <p style="margin-bottom:0.25rem;">June 3, 2026 &mdash; Open Grounds</p>
+                            <span class="badge badge-pending">Pending</span>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-title">Humanities</div>
-                        <div class="card-content">
-                            <p><strong>Total Participants:</strong> 25</p>
-                            <p><strong>Total Registrations:</strong> 39</p>
-                            <p><strong>Confirmed:</strong> 31 | <strong>Pending:</strong> 8</p>
-                        </div>
-                    </div>
+
                 </div>
             </section>
 
+            <!-- RECENT REGISTRATIONS CARDS -->
+            <section class="section">
+                <div class="page-header">
+                    <h2>Recent Registrations</h2>
+                    <a href="participants.html" class="btn-view-all">View All</a>
+                </div>
+                <div class="grid grid-cols-4">
+
+                    <div class="card" style="padding:1rem;">
+                        <span class="event-id">REG-001</span>
+                        <div class="card-title" style="font-size:0.875rem; margin-bottom:0.5rem;">Juan Dela Cruz</div>
+                        <div class="card-content">
+                            <p style="margin-bottom:0.25rem;">Intramurals 2026 &mdash; May 1, 2026</p>
+                            <span class="badge badge-confirmed">Confirmed</span>
+                        </div>
+                    </div>
+
+                    <div class="card" style="padding:1rem;">
+                        <span class="event-id">REG-002</span>
+                        <div class="card-title" style="font-size:0.875rem; margin-bottom:0.5rem;">Maria Santos</div>
+                        <div class="card-content">
+                            <p style="margin-bottom:0.25rem;">Research Congress &mdash; May 2, 2026</p>
+                            <span class="badge badge-confirmed">Confirmed</span>
+                        </div>
+                    </div>
+
+                    <div class="card" style="padding:1rem;">
+                        <span class="event-id">REG-003</span>
+                        <div class="card-title" style="font-size:0.875rem; margin-bottom:0.5rem;">Jose Reyes</div>
+                        <div class="card-content">
+                            <p style="margin-bottom:0.25rem;">Leadership Summit &mdash; May 3, 2026</p>
+                            <span class="badge badge-pending">Pending</span>
+                        </div>
+                    </div>
+
+                    <div class="card" style="padding:1rem;">
+                        <span class="event-id">REG-004</span>
+                        <div class="card-title" style="font-size:0.875rem; margin-bottom:0.5rem;">Ana Gonzales</div>
+                        <div class="card-content">
+                            <p style="margin-bottom:0.25rem;">Intramurals 2026 &mdash; May 3, 2026</p>
+                            <span class="badge badge-confirmed">Confirmed</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
         </div>
     </main>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <p>&copy; 2026 University Events Management System. All rights reserved.</p>
+        <p>&copy; 2026 Pamantasan ng Lungsod ng Pasig Events Management System. All rights reserved.</p>
     </footer>
+
 </body>
 </html>

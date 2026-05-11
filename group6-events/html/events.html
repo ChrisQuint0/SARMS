@@ -7,116 +7,309 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <!-- HEADER / NAVIGATION -->
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">Events Management</div>
+                <div class="logo">Events Management System</div>
                 <nav class="nav">
                     <a href="home.html">Home</a>
                     <a href="index.html">Dashboard</a>
                     <a href="events.html" class="active">Events</a>
                     <a href="participants.html">Participants</a>
                     <a href="reports.html">Reports</a>
+                    <button class="btn btn-primary" id="openModalBtn">+ Create Event</button>
                 </nav>
             </div>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
     <main class="main">
-
         <div class="container">
-            
-            <!-- EVENTS TABLE -->
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Event ID</th>
-                            <th>Event Name</th>
-                            <th>Date</th>
-                            <th>Venue</th>
-                            <th>Status</th>
-                            <th>Registrations</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>EVT-001</td><td>University Tech Expo 2026</td><td>June 20, 2026</td><td>Main Auditorium</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-002</td><td>AI and Machine Learning Workshop</td><td>May 25, 2026</td><td>Engineering Building Room 301</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-003</td><td>Cloud Computing Seminar</td><td>June 15, 2026</td><td>Conference Hall B</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-004</td><td>Cybersecurity Bootcamp</td><td>July 10, 2026</td><td>Computer Lab 5</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-005</td><td>Web Development Masterclass</td><td>May 30, 2026</td><td>Engineering Building Room 205</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-006</td><td>Data Science Conference 2026</td><td>July 05, 2026</td><td>Main Auditorium</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-007</td><td>Mobile App Development Summit</td><td>June 28, 2026</td><td>Convention Center Hall A</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-008</td><td>DevOps and Containerization Workshop</td><td>June 08, 2026</td><td>Computer Lab 3</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-009</td><td>Blockchain Technology Forum</td><td>July 15, 2026</td><td>Conference Hall A</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-010</td><td>IoT Solutions Expo</td><td>June 22, 2026</td><td>Innovation Center</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-011</td><td>Entrepreneurship Workshop</td><td>May 28, 2026</td><td>Business School Room 101</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-012</td><td>Leadership Development Summit</td><td>July 02, 2026</td><td>Executive Conference Room</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-013</td><td>Business Analytics Symposium</td><td>June 18, 2026</td><td>Business School Auditorium</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-014</td><td>Innovation and Startup Pitching</td><td>July 08, 2026</td><td>Innovation Hub</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-015</td><td>Corporate Recruitment Drive</td><td>June 12, 2026</td><td>Student Center Grand Hall</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-016</td><td>Finance and Investment Masterclass</td><td>July 01, 2026</td><td>Business School Room 202</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-017</td><td>Marketing and Brand Strategy Workshop</td><td>June 24, 2026</td><td>Business School Room 301</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-018</td><td>Project Management Excellence</td><td>June 29, 2026</td><td>Conference Hall C</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-019</td><td>HR and Talent Management Forum</td><td>July 12, 2026</td><td>Business School Room 401</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-020</td><td>Supply Chain and Logistics Conference</td><td>July 20, 2026</td><td>Convention Center Hall B</td><td><span class="badge badge-primary">Upcoming</span></td><td>5</td></tr>
-                        <tr><td>EVT-021</td><td>Biotechnology Research Symposium</td><td>June 10, 2026</td><td>Science Building Room 501</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-022</td><td>Environmental Science Seminar</td><td>May 29, 2026</td><td>Science Building Room 302</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-023</td><td>Nanotechnology Research Forum</td><td>July 03, 2026</td><td>Research Center Building</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-024</td><td>Physics and Quantum Computing Workshop</td><td>June 30, 2026</td><td>Science Building Room 401</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-025</td><td>Chemistry Research Exposition</td><td>July 09, 2026</td><td>Chemistry Building Lab Wing</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-026</td><td>Mathematics and Computer Science Symposium</td><td>June 25, 2026</td><td>Science Building Room 601</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-027</td><td>Medical and Healthcare Technology Summit</td><td>July 14, 2026</td><td>Medical Research Building</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-028</td><td>Pharmaceutical Research Conference</td><td>July 18, 2026</td><td>Research Center Building</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-029</td><td>Agricultural Technology Forum</td><td>June 19, 2026</td><td>Agricultural Center</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-030</td><td>Space Exploration and Astronomy Lecture</td><td>July 11, 2026</td><td>Observatory Building</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-031</td><td>Digital Arts and Design Showcase</td><td>June 14, 2026</td><td>Art Gallery and Design Center</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-032</td><td>Philosophy and Critical Thinking Forum</td><td>May 26, 2026</td><td>Humanities Building Room 201</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-033</td><td>Literature and Creative Writing Workshop</td><td>July 06, 2026</td><td>Humanities Building Room 301</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-034</td><td>Linguistics and Language Studies Seminar</td><td>June 23, 2026</td><td>Humanities Building Room 401</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-035</td><td>History and Cultural Heritage Forum</td><td>June 16, 2026</td><td>Humanities Building Auditorium</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-036</td><td>Psychology and Behavioral Studies Conference</td><td>July 04, 2026</td><td>Social Sciences Building Room 301</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-037</td><td>Sociology and Social Change Symposium</td><td>July 17, 2026</td><td>Social Sciences Building Room 401</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-038</td><td>Political Science and Governance Forum</td><td>June 27, 2026</td><td>Social Sciences Building Room 501</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-039</td><td>Anthropology and Ethnography Lecture</td><td>July 13, 2026</td><td>Humanities Building Room 501</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-040</td><td>Music and Performing Arts Festival</td><td>July 21, 2026</td><td>University Theater</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-041</td><td>Career Development and Resume Workshop</td><td>May 27, 2026</td><td>Career Services Center</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-042</td><td>Professional Certification Programs</td><td>June 26, 2026</td><td>Professional Development Center</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-043</td><td>Alumni Networking and Mentorship Event</td><td>July 19, 2026</td><td>Student Center Grand Hall</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-044</td><td>International Students Cultural Exchange</td><td>June 11, 2026</td><td>Cultural Center</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-045</td><td>Volunteering and Community Service Forum</td><td>June 13, 2026</td><td>Community Engagement Office</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-046</td><td>Wellness and Mental Health Awareness</td><td>May 31, 2026</td><td>Health and Wellness Center</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-047</td><td>Academic Excellence Awards Ceremony</td><td>July 22, 2026</td><td>Main Auditorium</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-048</td><td>Research and Innovation Poster Session</td><td>June 09, 2026</td><td>Convention Center</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-049</td><td>Entrepreneurial Pitch Competition</td><td>July 16, 2026</td><td>Innovation Hub</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                        <tr><td>EVT-050</td><td>Graduation and Commencement Ceremony</td><td>July 25, 2026</td><td>University Stadium</td><td><span class="badge badge-primary">Upcoming</span></td><td>1</td></tr>
-                    </tbody>
-                </table>
-            </div>
 
-            <!-- TECH EVENTS CATEGORY -->
+            <!-- CURRENT EVENTS -->
             <section class="section">
-                <h2>Technology & Innovation Events</h2>
-                <div class="grid grid-cols-1">
-                    <div class="card">
-                        <div class="card-title">University Tech Expo 2026 <span style="color: #4B5563; font-size: 0.875rem;">(June 20, 2026)</span></div>
+                <h2>Current Events (This Week)</h2>
+                <div class="events-grid-container">
+
+                    <div class="card card-current">
+                        <div class="card-title">
+                            <span class="event-id">ID: EVT-2026-010</span>
+                            Data Science Bootcamp
+                            <span class="text-secondary" style="font-size: var(--font-size-sm); display: block; margin-top: var(--spacing-1);">Date: May 11, 2026</span>
+                        </div>
                         <div class="card-content">
-                            <p><strong>Venue:</strong> Main Auditorium</p>
-                            <p><strong>Description:</strong> Annual technology showcase featuring student projects and industry partnerships</p>
-                            <p><strong>Registrations:</strong> 5 participants</p>
+                            <p><strong>Category:</strong> Academic</p>
+                            <p><strong>Description:</strong> A comprehensive workshop on data science fundamentals.</p>
+                            <p><strong>Venue:</strong> Computer Lab 1</p>
+                            <p><strong>Registrations:</strong> 8 / 100</p>
                         </div>
                     </div>
+
+                    <div class="card card-current">
+                        <div class="card-title">
+                            <span class="event-id">ID: EVT-2026-011</span>
+                            Leadership and Communication Seminar
+                            <span class="text-secondary" style="font-size: var(--font-size-sm); display: block; margin-top: var(--spacing-1);">Date: May 12, 2026</span>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Category:</strong> Professional Development</p>
+                            <p><strong>Description:</strong> A seminar on effective leadership and communication skills.</p>
+                            <p><strong>Venue:</strong> Function Hall A</p>
+                            <p><strong>Registrations:</strong> 12 / 150</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-current">
+                        <div class="card-title">
+                            <span class="event-id">ID: EVT-2026-012</span>
+                            Digital Photography Workshop
+                            <span class="text-secondary" style="font-size: var(--font-size-sm); display: block; margin-top: var(--spacing-1);">Date: May 13, 2026</span>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Category:</strong> Professional Development</p>
+                            <p><strong>Description:</strong> A workshop on digital photography techniques.</p>
+                            <p><strong>Venue:</strong> Arts and Media Center</p>
+                            <p><strong>Registrations:</strong> 6 / 50</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-current">
+                        <div class="card-title">
+                            <span class="event-id">ID: EVT-2026-013</span>
+                            Public Speaking and Debate Training
+                            <span class="text-secondary" style="font-size: var(--font-size-sm); display: block; margin-top: var(--spacing-1);">Date: May 14, 2026</span>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Category:</strong> Professional Development</p>
+                            <p><strong>Description:</strong> A training session on public speaking and debate skills.</p>
+                            <p><strong>Venue:</strong> Speech Laboratory Room 2</p>
+                            <p><strong>Registrations:</strong> 10 / 100</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="view-all-container">
+                    <a class="btn-view-all">View All</a>
+                </div>
+            </section>
+
+            <!-- UPCOMING EVENTS -->
+            <section class="section">
+                <h2>Upcoming Events</h2>
+                <div class="events-grid-container">
+
+                    <div class="card card-upcoming">
+                        <div class="card-title">
+                            <span class="event-id">ID: EVT-2026-001</span>
+                            AI and Machine Learning Workshop
+                            <span class="text-secondary" style="font-size: var(--font-size-sm); display: block; margin-top: var(--spacing-1);">Date: May 25, 2026</span>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Category:</strong> Academic</p>
+                            <p><strong>Description:</strong> A workshop on artificial intelligence and machine learning concepts.</p>
+                            <p><strong>Venue:</strong> Engineering Building Room 301</p>
+                            <p><strong>Registrations:</strong> 5 / 100</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-upcoming">
+                        <div class="card-title">
+                            <span class="event-id">ID: EVT-2026-002</span>
+                            Philosophy and Critical Thinking Forum
+                            <span class="text-secondary" style="font-size: var(--font-size-sm); display: block; margin-top: var(--spacing-1);">Date: May 26, 2026</span>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Category:</strong> Academic</p>
+                            <p><strong>Description:</strong> A forum for discussing philosophical ideas and developing critical thinking skills.</p>
+                            <p><strong>Venue:</strong> Humanities Building Room 201</p>
+                            <p><strong>Registrations:</strong> 1 / 50</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-upcoming">
+                        <div class="card-title">
+                            <span class="event-id">ID: EVT-2026-003</span>
+                            Career Development and Resume Workshop
+                            <span class="text-secondary" style="font-size: var(--font-size-sm); display: block; margin-top: var(--spacing-1);">Date: May 27, 2026</span>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Category:</strong> Professional Development</p>
+                            <p><strong>Description:</strong> A workshop on career planning and resume writing.</p>
+                            <p><strong>Venue:</strong> Career Services Center</p>
+                            <p><strong>Registrations:</strong> 1 / 50</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-upcoming">
+                        <div class="card-title">
+                            <span class="event-id">ID: EVT-2026-004</span>
+                            Entrepreneurship Workshop
+                            <span class="text-secondary" style="font-size: var(--font-size-sm); display: block; margin-top: var(--spacing-1);">Date: May 28, 2026</span>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Category:</strong> Professional Development</p>
+                            <p><strong>Description:</strong> A workshop on entrepreneurship and business planning.</p>
+                            <p><strong>Venue:</strong> Business School Room 101</p>
+                            <p><strong>Registrations:</strong> 5 / 100</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="view-all-container">
+                    <a class="btn-view-all">View All</a>
+                </div>
+            </section>
+
+            <!-- CLOSED EVENTS -->
+            <section class="section">
+                <h2>Closed Events</h2>
+                <div class="events-grid-container">
+
+                    <div class="card card-closed">
+                        <div class="card-title">
+                            <span class="event-id">ID: EVT-2026-005</span>
+                            Cybersecurity Awareness Forum
+                            <span class="text-secondary" style="font-size: var(--font-size-sm); display: block; margin-top: var(--spacing-1);">Date: May 3, 2026</span>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Category:</strong> Professional Development</p>
+                            <p><strong>Description:</strong> A forum on cybersecurity awareness and best practices.</p>
+                            <p><strong>Venue:</strong> IT Building Auditorium</p>
+                            <p><strong>Registrations:</strong> 20 / 50</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-closed">
+                        <div class="card-title">
+                            <span class="event-id">ID: EVT-2026-006</span>
+                            Entrepreneurship Workshop
+                            <span class="text-secondary" style="font-size: var(--font-size-sm); display: block; margin-top: var(--spacing-1);">Date: May 5, 2026</span>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Category:</strong> Professional Development</p>
+                            <p><strong>Description:</strong> A workshop on entrepreneurship and business planning.</p>  
+                            <p><strong>Venue:</strong> Business School Room 101</p>
+                            <p><strong>Registrations:</strong> 5 / 100</p>
+                        </div>
+                    </div>
+                    <div class="card card-closed">
+                        <div class="card-title">
+                            <span class="event-id">ID: EVT-2026-005</span>
+                            Cybersecurity Awareness Forum
+                            <span class="text-secondary" style="font-size: var(--font-size-sm); display: block; margin-top: var(--spacing-1);">Date: May 3, 2026</span>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Category:</strong> Professional Development</p>
+                            <p><strong>Description:</strong> A forum on cybersecurity awareness and best practices.</p>
+                            <p><strong>Venue:</strong> IT Building Auditorium</p>
+                            <p><strong>Registrations:</strong> 20 / 50</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-closed">
+                        <div class="card-title">
+                            <span class="event-id">ID: EVT-2026-006</span>
+                            Entrepreneurship Workshop
+                            <span class="text-secondary" style="font-size: var(--font-size-sm); display: block; margin-top: var(--spacing-1);">Date: May 5, 2026</span>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>Category:</strong> Professional Development</p>
+                            <p><strong>Description:</strong> A workshop on entrepreneurship and business planning.</p>
+                            <p><strong>Venue:</strong> Business School Room 101</p>
+                            <p><strong>Registrations:</strong> 5 / 100</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all-container">
+                    <a class="btn-view-all">View All</a>
                 </div>
             </section>
 
         </div>
     </main>
 
-    <!-- FOOTER -->
+    <!-- CREATE EVENT MODAL -->
+    <div class="modal-overlay" id="createEventModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">Create New Event</h3>
+                <button class="modal-close" id="closeModalBtn" aria-label="Close modal">&#215;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="eventName">Event Name</label>
+                    <input type="text" id="eventName" placeholder="e.g. AI and Machine Learning Workshop">
+                </div>
+                <div class="form-group">
+                    <label for="eventDate">Event Date</label>
+                    <input type="date" id="eventDate">
+                </div>
+                <div class="form-group">
+                    <label for="eventVenue">Venue</label>
+                    <input type="text" id="eventVenue" placeholder="e.g. Engineering Building Room 301">
+                </div>
+                <div class="form-group">
+                    <label for="eventCategory">Category</label>
+                    <select id="eventCategory">
+                        <option value="" disabled selected>Select a category</option>
+                        <option value="academic">Academic</option>
+                        <option value="workshop">Workshop</option>
+                        <option value="seminar">Seminar</option>
+                        <option value="forum">Forum</option>
+                        <option value="symposium">Symposium</option>
+                        <option value="sports">Sports</option>
+                        <option value="cultural">Cultural</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="eventDescription">Description</label>
+                    <textarea id="eventDescription" rows="3" placeholder="Brief description of the event..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="eventCapacity">Max Participants</label>
+                    <input type="number" id="eventCapacity" placeholder="e.g. 50" min="1">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelModalBtn">Cancel</button>
+                <button class="btn btn-primary">Save Event</button>
+            </div>
+        </div>
+    </div>
+
     <footer class="footer">
-        <p>&copy; 2026 University Events Management System. All rights reserved.</p>
+        <p>&copy; 2026 Pamantasan ng Lungsod ng Pasig Events Management System. All rights reserved.</p>
     </footer>
+
+    <script>
+        const modal = document.getElementById('createEventModal');
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const cancelBtn = document.getElementById('cancelModalBtn');
+
+        function openModal() {
+            modal.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+
+        openBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        cancelBtn.addEventListener('click', closeModal);
+
+        // Close when clicking the backdrop
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) closeModal();
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+        });
+    </script>
 </body>
 </html>
