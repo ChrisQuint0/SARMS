@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Events Management System DTD -->
+<!-- Validates structural rules for event data -->
+
+<!ELEMENT eventManagementSystem (events, participants, registrations)>
+
+<!-- Events Section -->
+<!ELEMENT events (event+)>
+<!ELEMENT event (eventName, eventDate, eventTime, venue, capacity, registrations, category, description)>
+<!ATTLIST event
+    eventId ID #REQUIRED
+    eventStatus (upcoming|current|closed) #REQUIRED
+>
+
+<!-- Note: registrations inside event = count (PCDATA); registrations at root = section (registration+) -->
+<!-- DTD limitation: same element name used in two contexts. XSD handles this with complex types. -->
+<!-- For DTD validation, registrations here is declared as (#PCDATA | registration)* to support both uses -->
+<!ELEMENT registrations (#PCDATA | registration)*>
+
+<!ELEMENT eventName (#PCDATA)>
+<!ELEMENT eventDate (#PCDATA)>
+<!ELEMENT eventTime (#PCDATA)>
+<!ELEMENT venue (#PCDATA)>
+<!ELEMENT capacity (#PCDATA)>
+<!ELEMENT category (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+
+<!-- Participants Section -->
+<!ELEMENT participants (participant+)>
+<!ELEMENT participant (fullName, email, department, yearLevel)>
+<!ATTLIST participant
+    participantId ID #REQUIRED
+>
+
+<!ELEMENT fullName (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT department (#PCDATA)>
+<!ELEMENT yearLevel (#PCDATA)>
+
+<!-- Registration Element -->
+<!ELEMENT registration EMPTY>
+<!ATTLIST registration
+    registrationId ID #REQUIRED
+    eventId IDREF #REQUIRED
+    participantId IDREF #REQUIRED
+    registrationStatus (Registered|Attended|Cancelled|No-show) #REQUIRED
+    registrationDate CDATA #REQUIRED
+>

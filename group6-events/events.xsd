@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!-- XML Schema for Events Management System with Type Validation and Assertions -->
+  
+  <xs:element name="eventManagementSystem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="events" minOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="event" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="eventName" type="xs:string" minOccurs="1"/>
+                    <xs:element name="eventDate" type="xs:date" minOccurs="1"/>
+                    <xs:element name="eventTime" type="xs:time" minOccurs="1"/>
+                    <xs:element name="venue" type="xs:string" minOccurs="1"/>
+                    <xs:element name="capacity" type="xs:positiveInteger" minOccurs="1"/>
+                    <xs:element name="registrations" type="xs:nonNegativeInteger" minOccurs="1"/>
+                    <xs:element name="category" type="eventCategoryType" minOccurs="1"/>
+                    <xs:element name="description" type="xs:string" minOccurs="1"/>
+                  </xs:sequence>
+                  <xs:attribute name="eventId" type="xs:ID" use="required"/>
+                  <xs:attribute name="eventStatus" type="eventStatusType" use="required"/>
+                  <!-- Assertion: Registrations must not exceed capacity -->
+                  <xs:assert test="registrations &lt;= capacity"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        
+        <xs:element name="participants" minOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="participant" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="fullName" type="xs:string" minOccurs="1"/>
+                    <xs:element name="email" type="emailType" minOccurs="1"/>
+                    <xs:element name="department" type="departmentType" minOccurs="1"/>
+                    <xs:element name="yearLevel" type="yearLevelType" minOccurs="1"/>
+                  </xs:sequence>
+                  <xs:attribute name="participantId" type="xs:ID" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        
+        <xs:element name="registrations" minOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="registration" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="registrationId" type="xs:ID" use="required"/>
+                  <xs:attribute name="eventId" type="xs:IDREF" use="required"/>
+                  <xs:attribute name="participantId" type="xs:IDREF" use="required"/>
+                  <xs:attribute name="registrationStatus" type="registrationStatusType" use="required"/>
+                  <xs:attribute name="registrationDate" type="xs:date" use="required"/>
+                  <!-- XSD Assertion: Registration date must be before event date -->
+                  <xs:assert test="registrationDate &lt;= eventDate"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- Custom Type Definitions -->
+  <xs:simpleType name="eventStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="upcoming"/>
+      <xs:enumeration value="current"/>
+      <xs:enumeration value="closed"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="eventCategoryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Academic"/>
+      <xs:enumeration value="Professional Development"/>
+      <xs:enumeration value="Cultural"/>
+      <xs:enumeration value="Sports"/>
+      <xs:enumeration value="Workshop"/>
+      <xs:enumeration value="Seminar"/>
+      <xs:enumeration value="Forum"/>
+      <xs:enumeration value="Symposium"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="registrationStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Registered"/>
+      <xs:enumeration value="Attended"/>
+      <xs:enumeration value="Cancelled"/>
+      <xs:enumeration value="No-show"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="emailType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="departmentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Computer Science"/>
+      <xs:enumeration value="Information Technology"/>
+      <xs:enumeration value="Engineering"/>
+      <xs:enumeration value="Business"/>
+      <xs:enumeration value="Arts"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="yearLevelType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
