@@ -664,7 +664,7 @@
         </main>
 
         <footer class="footer">
-          <p>Â© 2026 Pamantasan ng Lungsod ng Pasig â€” Events Management System</p>
+          <p>&#169; 2026 Pamantasan ng Lungsod ng Pasig &#8212; Events Management System</p>
         </footer>
 
         <script>

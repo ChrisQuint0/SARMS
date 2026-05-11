@@ -12,8 +12,6 @@
     eventStatus (upcoming|current|closed) #REQUIRED
 >
 
-<!ELEMENT registrations (registration+)>
-
 <!ELEMENT eventName (#PCDATA)>
 <!ELEMENT eventDate (#PCDATA)>
 <!ELEMENT eventTime (#PCDATA)>
@@ -35,8 +33,9 @@
 <!ELEMENT department (#PCDATA)>
 <!ELEMENT yearLevel (#PCDATA)>
 
-<!-- Registration Element -->
-<!-- registrationDate is CDATA here because DTD has no native date type; XSD uses xs:date. -->
+<!-- Registrations Section -->
+<!-- Registration utilizes IDREF for relational mapping between events and participants -->
+<!ELEMENT registrations (registration+)>
 <!ELEMENT registration EMPTY>
 <!ATTLIST registration
     registrationId ID #REQUIRED

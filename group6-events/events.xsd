@@ -64,7 +64,10 @@
           </xs:complexType>
         </xs:element>
       </xs:sequence>
-      <xs:assert test="every $e in events/event satisfies xs:date($e/eventDate) ge current-date()"/>
+      <!-- Assertion 1: event date must not be in the past for upcoming/current events.
+           Closed events are excluded because they are intentionally past. -->
+      <xs:assert test="every $e in events/event[@eventStatus='upcoming' or @eventStatus='current'] satisfies xs:date($e/eventDate) ge current-date()"/>
+      <!-- Assertion 2: registration date must be strictly before the corresponding event date. -->
       <xs:assert test="every $r in registrations/registration satisfies exists(events/event[@eventId = string($r/@eventId)]) and xs:date($r/@registrationDate) lt xs:date(events/event[@eventId = string($r/@eventId)][1]/eventDate)"/>
     </xs:complexType>
   </xs:element>
@@ -78,6 +81,7 @@
     </xs:restriction>
   </xs:simpleType>
   
+  <!-- eventCategoryType: matches the four categories used in events.xml -->
   <xs:simpleType name="eventCategoryType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Academic"/>
