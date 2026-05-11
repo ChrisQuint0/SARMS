@@ -1,0 +1,30 @@
+<!-- 
+    Smart Academic Records Management System (SARMS)
+    Module: Faculty Workload (Group 3)
+    Description: Defines the structural constraints for faculty teaching assignments.
+-->
+
+<!-- The root element for this module section -->
+<!ELEMENT faculty (facultyMember*)>
+
+<!-- Metadata attributes for the faculty section (Integration Support) -->
+<!ATTLIST faculty 
+    xmlns:xsi CDATA #FIXED "http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation CDATA #FIXED "faculty.xsd">
+
+<!-- Individual faculty record -->
+<!ELEMENT facultyMember (id, name, department, subjects, totalHours)>
+
+<!-- Basic Faculty Information -->
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT department (#PCDATA)>
+
+<!-- Teaching Assignment Details -->
+<!ELEMENT subjects (subject+)>
+<!ELEMENT subject (subjectName, hours)>
+<!ELEMENT subjectName (#PCDATA)>
+<!ELEMENT hours (#PCDATA)>
+
+<!-- Calculated teaching load -->
+<!ELEMENT totalHours (#PCDATA)>
