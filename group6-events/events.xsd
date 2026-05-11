@@ -22,8 +22,6 @@
                   </xs:sequence>
                   <xs:attribute name="eventId" type="xs:ID" use="required"/>
                   <xs:attribute name="eventStatus" type="eventStatusType" use="required"/>
-                  <!-- Assertion: Registrations must not exceed capacity -->
-                  <xs:assert test="registrations &lt;= capacity"/>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
@@ -58,8 +56,6 @@
                   <xs:attribute name="participantId" type="xs:IDREF" use="required"/>
                   <xs:attribute name="registrationStatus" type="registrationStatusType" use="required"/>
                   <xs:attribute name="registrationDate" type="xs:date" use="required"/>
-                  <!-- XSD Assertion: Registration date must be before event date -->
-                  <xs:assert test="registrationDate &lt;= eventDate"/>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>

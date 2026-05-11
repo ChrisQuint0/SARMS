@@ -136,7 +136,10 @@
           }
 
           .navbar a:hover { background-color: rgba(255, 255, 255, 0.15); }
-          .navbar a.active { background-color: var(--green-500); font-weight: 600; }
+          .navbar a.active {
+            background-color: rgba(255, 255, 255, 0.15);
+            font-weight: 600;
+          }
 
           main { margin-top: 85px; }
           .container { max-width: 96%; margin: 0 auto; padding: var(--sp-3) 1rem; }
@@ -191,16 +194,16 @@
           .stat-card:nth-child(2) { background: linear-gradient(135deg, #F5F3FF, #EDE9FE); border-bottom: 3px solid #8B5CF6; }
           .stat-card:nth-child(3) { background: linear-gradient(135deg, #FFF7ED, #FFEDD5); border-bottom: 3px solid #F97316; }
           .stat-card:nth-child(4) { background: linear-gradient(135deg, #F0FDFA, #CCFBF1); border-bottom: 3px solid #14B8A6; }
-          .stat-card:nth-child(5) { background: linear-gradient(135deg, #FFF1F2, #FFE4E6); border-bottom: 3px solid #F43F5E; }
-          .stat-card:nth-child(6) { background: linear-gradient(135deg, #FFFBEB, #FEF3C7); border-bottom: 3px solid #F59E0B; }
+          .stat-card:nth-child(5) { background: linear-gradient(135deg, #FFFBEB, #FEF3C7); border-bottom: 3px solid #F59E0B; }
+          .stat-card:nth-child(6) { background: linear-gradient(135deg, #FFF1F2, #FFE4E6); border-bottom: 3px solid #F43F5E; }
 
           .stat-value { font-size: 3rem; font-weight: 800; line-height: 1.2; }
           .stat-card:nth-child(1) .stat-value { color: #2563EB; }
           .stat-card:nth-child(2) .stat-value { color: #7C3AED; }
           .stat-card:nth-child(3) .stat-value { color: #EA580C; }
           .stat-card:nth-child(4) .stat-value { color: #0D9488; }
-          .stat-card:nth-child(5) .stat-value { color: #E11D48; }
-          .stat-card:nth-child(6) .stat-value { color: #D97706; }
+          .stat-card:nth-child(5) .stat-value { color: #D97706; }
+          .stat-card:nth-child(6) .stat-value { color: #E11D48; }
 
           .stat-label { font-size: var(--text-base); font-weight: 600; color: var(--text-secondary); margin-top: 8px; }
 
@@ -342,6 +345,16 @@
           .filter-select:focus { outline: none; border-color: var(--green-500); box-shadow: 0 0 0 3px rgba(0, 77, 38, 0.1); }
 
           .hidden-row { display: none; }
+          
+          /* No Records Message */
+          .no-records {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: var(--text-base);
+            background: var(--surface-0);
+            border-radius: 16px;
+          }
 
           .footer {
             background: linear-gradient(135deg, var(--green-900), #003318);
@@ -395,12 +408,12 @@
                 <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//participant)"/></div><div class="stat-label">Total Participants</div></div>
                 <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//registration[@registrationStatus='Registered'])"/></div><div class="stat-label">Active Registrations</div></div>
                 <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//event[@eventStatus='upcoming'])"/></div><div class="stat-label">Upcoming Events</div></div>
-                <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//registration[@registrationStatus!='Attended' and @registrationStatus!='Registered'])"/></div><div class="stat-label">Not Attended</div></div>
                 <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//registration[@registrationStatus='Attended'])"/></div><div class="stat-label">Attended</div></div>
+                <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//registration[@registrationStatus='No-show'])"/></div><div class="stat-label">Not Attended</div></div>
               </div>
             </section>
 
-            <!-- Current Events with Formatted Dates and Times -->
+            <!-- Current Events -->
             <section class="section" id="current">
               <div class="section-header">
                 <h2>Current Events</h2>
@@ -493,7 +506,7 @@
               <div class="table-wrap">
                 <table id="eventsTable">
                   <thead><tr><th>Event ID</th><th>Event Name</th><th>Date</th><th>Time</th><th>Venue</th><th>Category</th><th>Registrations</th><th>Status</th></tr></thead>
-                  <tbody>
+                  <tbody id="eventsTableBody">
                     <xsl:for-each select="//event">
                       <xsl:sort select="eventDate"/>
                       <tr data-status="{@eventStatus}" data-category="{category}">
@@ -510,6 +523,7 @@
                   </tbody>
                 </table>
               </div>
+              <div id="eventsNoRecords" class="no-records" style="display: none;">No events found matching your filters.</div>
             </section>
 
             <!-- Participants -->
@@ -538,7 +552,7 @@
               <div class="table-wrap">
                 <table id="participantsTable">
                   <thead><tr><th>ID</th><th>Full Name</th><th>Email</th><th>College</th><th>Year Level</th></tr></thead>
-                  <tbody>
+                  <tbody id="participantsTableBody">
                     <xsl:for-each select="//participant">
                       <xsl:sort select="fullName"/>
                       <tr data-dept="{department}" data-year="{yearLevel}">
@@ -552,6 +566,7 @@
                   </tbody>
                 </table>
               </div>
+              <div id="participantsNoRecords" class="no-records" style="display: none;">No participants found matching your filters.</div>
             </section>
 
             <!-- Registrations -->
@@ -570,7 +585,7 @@
               <div class="table-wrap">
                 <table id="registrationsTable">
                   <thead><tr><th>Registration ID</th><th>Event ID</th><th>Participant ID</th><th>Registration Date</th><th>Status</th></tr></thead>
-                  <tbody>
+                  <tbody id="registrationsTableBody">
                     <xsl:for-each select="//registration">
                       <tr data-status="{@registrationStatus}">
                         <td><xsl:value-of select="@registrationId"/></td>
@@ -583,30 +598,26 @@
                   </tbody>
                 </table>
               </div>
+              <div id="registrationsNoRecords" class="no-records" style="display: none;">No registrations found matching your filters.</div>
             </section>
 
-            <!-- Event Attendance Sheet -->
+            <!-- Event Attendance Sheet (removed Filter by Event) -->
             <section class="section" id="attendance">
               <div class="section-header">
                 <h2>Event Attendance Sheet</h2>
                 <p class="section-desc">Monitor participant attendance per event with real-time status tracking</p>
               </div>
               <div class="filter-controls">
-                <label for="attendanceEventFilter" class="filter-label">Filter by Event:</label>
-                <select id="attendanceEventFilter" class="filter-select" onchange="filterAttendance()">
-                  <option value="">All Events</option>
-                  <xsl:for-each select="//event"><xsl:sort select="eventName"/><option value="{@eventId}"><xsl:value-of select="eventName"/></option></xsl:for-each>
-                </select>
                 <label for="attendanceStatusFilter" class="filter-label">Filter by Status:</label>
                 <select id="attendanceStatusFilter" class="filter-select" onchange="filterAttendance()">
-                  <option value="">All Statuses</option><option value="Registered">Registered</option><option value="Attended">Attended</option>
+                  <option value="">All</option><option value="Registered">Registered</option><option value="Attended">Attended</option>
                   <option value="Cancelled">Cancelled</option><option value="No-show">No-show</option>
                 </select>
               </div>
               <div class="table-wrap">
                 <table id="attendanceTable">
                   <thead><tr><th>Event ID</th><th>Event Name</th><th>Date</th><th>Venue</th><th>Participant Name</th><th>Email</th><th>Status</th></tr></thead>
-                  <tbody>
+                  <tbody id="attendanceTableBody">
                     <xsl:for-each select="//event">
                       <xsl:sort select="eventName"/>
                       <xsl:variable name="eventId" select="@eventId"/>
@@ -617,7 +628,7 @@
                         <xsl:sort select="@registrationDate"/>
                         <xsl:variable name="participantId" select="@participantId"/>
                         <xsl:variable name="participant" select="//participant[@participantId=$participantId]"/>
-                        <tr data-event="{$eventId}" data-reg-status="{@registrationStatus}">
+                        <tr data-reg-status="{@registrationStatus}">
                           <td><xsl:value-of select="$eventId"/></td>
                           <td><xsl:choose><xsl:when test="$eventNameVal!=''"><xsl:value-of select="$eventNameVal"/></xsl:when><xsl:otherwise><span class="empty-cell">—</span></xsl:otherwise></xsl:choose></td>
                           <td><xsl:choose><xsl:when test="$eventDateVal!=''"><xsl:value-of select="$eventDateVal"/></xsl:when><xsl:otherwise><span class="empty-cell">—</span></xsl:otherwise></xsl:choose></td>
@@ -631,6 +642,7 @@
                   </tbody>
                 </table>
               </div>
+              <div id="attendanceNoRecords" class="no-records" style="display: none;">No attendance records found matching your filters.</div>
             </section>
 
             <!-- Reports -->
@@ -656,7 +668,7 @@
               <div class="table-wrap">
                 <table id="reportsTable">
                   <thead><tr><th>Event Name</th><th>Category</th><th>Registered</th><th>Capacity</th><th>Occupancy %</th><th>Status</th></tr></thead>
-                  <tbody>
+                  <tbody id="reportsTableBody">
                     <xsl:for-each select="//event">
                       <xsl:sort select="registrations" data-type="number" order="descending"/>
                       <tr data-status="{@eventStatus}" data-category="{category}">
@@ -671,6 +683,7 @@
                   </tbody>
                 </table>
               </div>
+              <div id="reportsNoRecords" class="no-records" style="display: none;">No reports found matching your filters.</div>
             </section>
 
           </div>
@@ -701,65 +714,150 @@
 
           function filterEvents() {
             const table = document.getElementById('eventsTable');
-            const rows = table.querySelectorAll('tbody tr');
+            const tbody = document.getElementById('eventsTableBody');
+            const rows = tbody.querySelectorAll('tr');
+            const noRecords = document.getElementById('eventsNoRecords');
             const selectedStatus = document.getElementById('eventStatusFilter').value;
             const selectedCategory = document.getElementById('eventCategoryFilter').value;
+            let visibleCount = 0;
+            
             rows.forEach(row => {
               const rowStatus = row.getAttribute('data-status');
               const rowCategory = row.getAttribute('data-category');
               let statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
               let categoryMatch = (selectedCategory === '' || selectedCategory === rowCategory);
-              if (statusMatch && categoryMatch) { row.classList.remove('hidden-row'); } else { row.classList.add('hidden-row'); }
+              if (statusMatch && categoryMatch) { 
+                row.classList.remove('hidden-row'); 
+                visibleCount++;
+              } else { 
+                row.classList.add('hidden-row'); 
+              }
             });
+            
+            if (visibleCount === 0) {
+              noRecords.style.display = 'block';
+              table.style.display = 'none';
+            } else {
+              noRecords.style.display = 'none';
+              table.style.display = 'table';
+            }
           }
 
           function filterRegistrations() {
             const table = document.getElementById('registrationsTable');
-            const rows = table.querySelectorAll('tbody tr');
+            const tbody = document.getElementById('registrationsTableBody');
+            const rows = tbody.querySelectorAll('tr');
+            const noRecords = document.getElementById('registrationsNoRecords');
             const selectedStatus = document.getElementById('registrationStatusFilter').value;
-            rows.forEach(row => { const rowStatus = row.getAttribute('data-status'); if (selectedStatus === '' || selectedStatus === rowStatus) { row.classList.remove('hidden-row'); } else { row.classList.add('hidden-row'); } });
+            let visibleCount = 0;
+            
+            rows.forEach(row => { 
+              const rowStatus = row.getAttribute('data-status'); 
+              if (selectedStatus === '' || selectedStatus === rowStatus) { 
+                row.classList.remove('hidden-row'); 
+                visibleCount++;
+              } else { 
+                row.classList.add('hidden-row'); 
+              }
+            });
+            
+            if (visibleCount === 0) {
+              noRecords.style.display = 'block';
+              table.style.display = 'none';
+            } else {
+              noRecords.style.display = 'none';
+              table.style.display = 'table';
+            }
           }
 
           function filterParticipants() {
             const table = document.getElementById('participantsTable');
-            const rows = table.querySelectorAll('tbody tr');
+            const tbody = document.getElementById('participantsTableBody');
+            const rows = tbody.querySelectorAll('tr');
+            const noRecords = document.getElementById('participantsNoRecords');
             const selectedDept = document.getElementById('deptFilter').value;
             const selectedYear = document.getElementById('yearFilter').value;
+            let visibleCount = 0;
+            
             rows.forEach(row => {
               const rowDept = row.getAttribute('data-dept');
               const rowYear = row.getAttribute('data-year');
               let deptMatch = (selectedDept === '' || selectedDept === rowDept);
               let yearMatch = (selectedYear === '' || selectedYear === rowYear);
-              if (deptMatch && yearMatch) { row.classList.remove('hidden-row'); } else { row.classList.add('hidden-row'); }
+              if (deptMatch && yearMatch) { 
+                row.classList.remove('hidden-row'); 
+                visibleCount++;
+              } else { 
+                row.classList.add('hidden-row'); 
+              }
             });
+            
+            if (visibleCount === 0) {
+              noRecords.style.display = 'block';
+              table.style.display = 'none';
+            } else {
+              noRecords.style.display = 'none';
+              table.style.display = 'table';
+            }
           }
 
           function filterAttendance() {
             const table = document.getElementById('attendanceTable');
-            const rows = table.querySelectorAll('tbody tr');
-            const selectedEvent = document.getElementById('attendanceEventFilter').value;
+            const tbody = document.getElementById('attendanceTableBody');
+            const rows = tbody.querySelectorAll('tr');
+            const noRecords = document.getElementById('attendanceNoRecords');
             const selectedStatus = document.getElementById('attendanceStatusFilter').value;
+            let visibleCount = 0;
+            
             rows.forEach(row => {
-              const rowEvent = row.getAttribute('data-event');
               const rowStatus = row.getAttribute('data-reg-status');
-              let eventMatch = (selectedEvent === '' || selectedEvent === rowEvent);
               let statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
-              if (eventMatch && statusMatch) { row.classList.remove('hidden-row'); } else { row.classList.add('hidden-row'); }
+              if (statusMatch) { 
+                row.classList.remove('hidden-row'); 
+                visibleCount++;
+              } else { 
+                row.classList.add('hidden-row'); 
+              }
             });
+            
+            if (visibleCount === 0) {
+              noRecords.style.display = 'block';
+              table.style.display = 'none';
+            } else {
+              noRecords.style.display = 'none';
+              table.style.display = 'table';
+            }
           }
 
           function filterReports() {
             const table = document.getElementById('reportsTable');
-            const rows = table.querySelectorAll('tbody tr');
+            const tbody = document.getElementById('reportsTableBody');
+            const rows = tbody.querySelectorAll('tr');
+            const noRecords = document.getElementById('reportsNoRecords');
             const selectedStatus = document.getElementById('reportStatusFilter').value;
             const selectedCategory = document.getElementById('reportCategoryFilter').value;
+            let visibleCount = 0;
+            
             rows.forEach(row => {
               const rowStatus = row.getAttribute('data-status');
               const rowCategory = row.getAttribute('data-category');
               let statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
               let categoryMatch = (selectedCategory === '' || selectedCategory === rowCategory);
-              if (statusMatch && categoryMatch) { row.classList.remove('hidden-row'); } else { row.classList.add('hidden-row'); }
+              if (statusMatch && categoryMatch) { 
+                row.classList.remove('hidden-row'); 
+                visibleCount++;
+              } else { 
+                row.classList.add('hidden-row'); 
+              }
             });
+            
+            if (visibleCount === 0) {
+              noRecords.style.display = 'block';
+              table.style.display = 'none';
+            } else {
+              noRecords.style.display = 'none';
+              table.style.display = 'table';
+            }
           }
           ]]>
         </script>
