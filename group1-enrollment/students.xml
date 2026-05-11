@@ -1,0 +1,2970 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE students SYSTEM "students.dtd">
+<?xml-stylesheet type="text/xsl" href="students.xsl"?>
+<students>
+
+  <student studentId="23-00001">
+    <firstName>Juan</firstName>
+    <lastName>Dela Cruz</lastName>
+    <course>BSIT</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-001">
+        <subjectName>Integrative Programming</subjectName>
+        <units>3</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-002">
+        <subjectName>Capstone Project 2</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-003">
+        <subjectName>Information Assurance</subjectName>
+        <units>3</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-004">
+        <subjectName>Technopreneurship</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.63</gpa>
+  </student>
+  
+  <student studentId="23-00002">
+    <firstName>Maria</firstName>
+    <lastName>Santos</lastName>
+    <course>BSCS</course>
+    <yearLevel>3</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-005">
+        <subjectName>Data Structures and Algorithms</subjectName>
+        <units>3</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-006">
+        <subjectName>Operating Systems</subjectName>
+        <units>3</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-007">
+        <subjectName>Database Management</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.25</gpa>
+  </student>
+  
+  <student studentId="23-00003">
+    <firstName>Jose</firstName>
+    <lastName>Reyes</lastName>
+    <course>BSIT</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-008">
+        <subjectName>Object-Oriented Programming</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-009">
+        <subjectName>Discrete Mathematics</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-010">
+        <subjectName>Web Development</subjectName>
+        <units>3</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-011">
+        <subjectName>Platform Technologies</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.63</gpa>
+  </student>
+
+  
+  <student studentId="23-00004">
+    <firstName>Ana</firstName>
+    <lastName>Garcia</lastName>
+    <course>BSIS</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-012">
+        <subjectName>Introduction to Computing</subjectName>
+        <units>3</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-013">
+        <subjectName>Computer Programming 1</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-014">
+        <subjectName>Mathematics in the Modern World</subjectName>
+        <units>3</units>
+        <grade>2.25</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.00</gpa>
+  </student>
+
+  
+  <student studentId="23-00005">
+    <firstName>Carlos</firstName>
+    <lastName>Mendoza</lastName>
+    <course>BSCS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-015">
+        <subjectName>Artificial Intelligence</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-016">
+        <subjectName>Machine Learning</subjectName>
+        <units>3</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-017">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>3</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-018">
+        <subjectName>Research Methods</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.50</gpa>
+  </student>
+
+  
+  <student studentId="23-00006">
+    <firstName>Patricia</firstName>
+    <lastName>Villanueva</lastName>
+    <course>BSIS</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-019">
+        <subjectName>Systems Analysis and Design</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-020">
+        <subjectName>Information Management</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-021">
+        <subjectName>Accounting Principles</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.92</gpa>
+  </student>
+
+  
+  <student studentId="23-00007">
+    <firstName>Miguel</firstName>
+    <lastName>Torres</lastName>
+    <course>BSIT</course>
+    <yearLevel>3</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-022">
+        <subjectName>Networking Fundamentals</subjectName>
+        <units>3</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-023">
+        <subjectName>System Administration</subjectName>
+        <units>3</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-024">
+        <subjectName>Information Assurance</subjectName>
+        <units>3</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-025">
+        <subjectName>Quantitative Methods</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.19</gpa>
+  </student>
+
+  
+  <student studentId="23-00008">
+    <firstName>Angela</firstName>
+    <lastName>Ramos</lastName>
+    <course>BSIT</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-026">
+        <subjectName>Introduction to Computing</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-027">
+        <subjectName>Computer Programming 1</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-028">
+        <subjectName>Purposive Communication</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.42</gpa>
+  </student>
+
+  
+  <student studentId="23-00009">
+    <firstName>Rafael</firstName>
+    <lastName>Lim</lastName>
+    <course>BSIS</course>
+    <yearLevel>3</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-029">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>3</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-030">
+        <subjectName>IT Project Management</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-031">
+        <subjectName>Business Process Management</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-032">
+        <subjectName>Professional Ethics</subjectName>
+        <units>3</units>
+        <grade>1.75</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.75</gpa>
+  </student>
+
+  
+  <student studentId="23-00010">
+    <firstName>Isabela</firstName>
+    <lastName>Cruz</lastName>
+    <course>BSIT</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-033">
+        <subjectName>Capstone Project 2</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-034">
+        <subjectName>Technopreneurship</subjectName>
+        <units>3</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-035">
+        <subjectName>Practicum</subjectName>
+        <units>6</units>
+        <grade>3.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>3.25</gpa>
+  </student>
+
+
+
+  
+  <student studentId="23-00011">
+    <firstName>Gabriela</firstName>
+    <lastName>Sosa</lastName>
+    <course>BSIS</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-036">
+        <subjectName>Machine Learning</subjectName>
+        <units>3</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-037">
+        <subjectName>Accounting Principles</subjectName>
+        <units>4</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-038">
+        <subjectName>Machine Learning</subjectName>
+        <units>4</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-039">
+        <subjectName>Capstone Project 2</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-040">
+        <subjectName>System Administration</subjectName>
+        <units>3</units>
+        <grade>2.25</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.04</gpa>
+  </student>
+  
+  <student studentId="23-00012">
+    <firstName>Miguel</firstName>
+    <lastName>Sosa</lastName>
+    <course>BSCS</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-041">
+        <subjectName>Platform Technologies</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-042">
+        <subjectName>Machine Learning</subjectName>
+        <units>4</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-043">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>3</units>
+        <grade>5.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.82</gpa>
+  </student>
+  
+  <student studentId="23-00013">
+    <firstName>Mateo</firstName>
+    <lastName>Castro</lastName>
+    <course>BSIT</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-044">
+        <subjectName>Artificial Intelligence</subjectName>
+        <units>3</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-045">
+        <subjectName>Integrative Programming</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-046">
+        <subjectName>Platform Technologies</subjectName>
+        <units>3</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-047">
+        <subjectName>Object-Oriented Programming</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-048">
+        <subjectName>Computer Programming 1</subjectName>
+        <units>4</units>
+        <grade>1.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.71</gpa>
+  </student>
+  
+  <student studentId="23-00014">
+    <firstName>Pedro</firstName>
+    <lastName>Santos</lastName>
+    <course>BSIT</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-049">
+        <subjectName>Mathematics in the Modern World</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-050">
+        <subjectName>Technopreneurship</subjectName>
+        <units>4</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-051">
+        <subjectName>Purposive Communication</subjectName>
+        <units>4</units>
+        <grade>2.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>3.14</gpa>
+  </student>
+  
+  <student studentId="23-00015">
+    <firstName>Gabriel</firstName>
+    <lastName>Martinez</lastName>
+    <course>BSIS</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-052">
+        <subjectName>Discrete Mathematics</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-053">
+        <subjectName>Database Management</subjectName>
+        <units>4</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-054">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>4.33</gpa>
+  </student>
+  
+  <student studentId="23-00016">
+    <firstName>Patricia</firstName>
+    <lastName>Sosa</lastName>
+    <course>BSCS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-055">
+        <subjectName>Database Management</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-056">
+        <subjectName>Purposive Communication</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-057">
+        <subjectName>Operating Systems</subjectName>
+        <units>3</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-058">
+        <subjectName>Systems Analysis and Design</subjectName>
+        <units>3</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-059">
+        <subjectName>Web Development</subjectName>
+        <units>4</units>
+        <grade>5.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>3.75</gpa>
+  </student>
+  
+  <student studentId="23-00017">
+    <firstName>Gabriel</firstName>
+    <lastName>Diaz</lastName>
+    <course>BSIT</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-060">
+        <subjectName>Object-Oriented Programming</subjectName>
+        <units>3</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-061">
+        <subjectName>Data Structures and Algorithms</subjectName>
+        <units>4</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-062">
+        <subjectName>Networking Fundamentals</subjectName>
+        <units>3</units>
+        <grade>1.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.27</gpa>
+  </student>
+  
+  <student studentId="23-00018">
+    <firstName>Camila</firstName>
+    <lastName>Gomez</lastName>
+    <course>BSIT</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-063">
+        <subjectName>Research Methods</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-064">
+        <subjectName>Discrete Mathematics</subjectName>
+        <units>4</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-065">
+        <subjectName>Information Assurance</subjectName>
+        <units>4</units>
+        <grade>3.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.09</gpa>
+  </student>
+  
+  <student studentId="23-00019">
+    <firstName>Gabriel</firstName>
+    <lastName>Jimenez</lastName>
+    <course>BSIS</course>
+    <yearLevel>3</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-066">
+        <subjectName>IT Project Management</subjectName>
+        <units>4</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-067">
+        <subjectName>Technopreneurship</subjectName>
+        <units>3</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-068">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-069">
+        <subjectName>Platform Technologies</subjectName>
+        <units>4</units>
+        <grade>2.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.48</gpa>
+  </student>
+  
+  <student studentId="23-00020">
+    <firstName>Jose</firstName>
+    <lastName>Ruiz</lastName>
+    <course>BSIT</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-070">
+        <subjectName>Capstone Project 2</subjectName>
+        <units>3</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-071">
+        <subjectName>Accounting Principles</subjectName>
+        <units>4</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-072">
+        <subjectName>Research Methods</subjectName>
+        <units>4</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-073">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.98</gpa>
+  </student>
+  
+  <student studentId="23-00021">
+    <firstName>Javier</firstName>
+    <lastName>Ramos</lastName>
+    <course>BSIS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-074">
+        <subjectName>Systems Analysis and Design</subjectName>
+        <units>4</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-075">
+        <subjectName>Professional Ethics</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-076">
+        <subjectName>Systems Analysis and Design</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-077">
+        <subjectName>Business Process Management</subjectName>
+        <units>4</units>
+        <grade>3.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.81</gpa>
+  </student>
+  
+  <student studentId="23-00022">
+    <firstName>Lucia</firstName>
+    <lastName>Mendoza</lastName>
+    <course>BSCS</course>
+    <yearLevel>3</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-078">
+        <subjectName>Accounting Principles</subjectName>
+        <units>4</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-079">
+        <subjectName>Practicum</subjectName>
+        <units>4</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-080">
+        <subjectName>Computer Programming 1</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-081">
+        <subjectName>Professional Ethics</subjectName>
+        <units>4</units>
+        <grade>2.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.88</gpa>
+  </student>
+  
+  <student studentId="23-00023">
+    <firstName>Miguel</firstName>
+    <lastName>Lim</lastName>
+    <course>BSIT</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-082">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-083">
+        <subjectName>Information Assurance</subjectName>
+        <units>3</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-084">
+        <subjectName>Technopreneurship</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-085">
+        <subjectName>Information Assurance</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-086">
+        <subjectName>Integrative Programming</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.89</gpa>
+  </student>
+  
+  <student studentId="23-00024">
+    <firstName>Mateo</firstName>
+    <lastName>Santos</lastName>
+    <course>BSIT</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-087">
+        <subjectName>Integrative Programming</subjectName>
+        <units>3</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-088">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>4</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-089">
+        <subjectName>Professional Ethics</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-090">
+        <subjectName>Discrete Mathematics</subjectName>
+        <units>4</units>
+        <grade>3.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.38</gpa>
+  </student>
+  
+  <student studentId="23-00025">
+    <firstName>Valentina</firstName>
+    <lastName>Torres</lastName>
+    <course>BSCS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-091">
+        <subjectName>Machine Learning</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-092">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>4</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-093">
+        <subjectName>Database Management</subjectName>
+        <units>4</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-094">
+        <subjectName>Purposive Communication</subjectName>
+        <units>3</units>
+        <grade>2.25</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.85</gpa>
+  </student>
+  
+  <student studentId="23-00026">
+    <firstName>Javier</firstName>
+    <lastName>Diaz</lastName>
+    <course>BSCS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-095">
+        <subjectName>Discrete Mathematics</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-096">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>3</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-097">
+        <subjectName>Business Process Management</subjectName>
+        <units>4</units>
+        <grade>2.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>3.25</gpa>
+  </student>
+  
+  <student studentId="23-00027">
+    <firstName>Mateo</firstName>
+    <lastName>Torres</lastName>
+    <course>BSIT</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-098">
+        <subjectName>Business Process Management</subjectName>
+        <units>4</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-099">
+        <subjectName>Purposive Communication</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-100">
+        <subjectName>Research Methods</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.02</gpa>
+  </student>
+  
+  <student studentId="23-00028">
+    <firstName>Alejandro</firstName>
+    <lastName>Flores</lastName>
+    <course>BSIS</course>
+    <yearLevel>3</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-101">
+        <subjectName>Business Process Management</subjectName>
+        <units>3</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-102">
+        <subjectName>Discrete Mathematics</subjectName>
+        <units>4</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-103">
+        <subjectName>Data Structures and Algorithms</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.00</gpa>
+  </student>
+  
+  <student studentId="23-00029">
+    <firstName>Luis</firstName>
+    <lastName>Dela Cruz</lastName>
+    <course>BSCS</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-104">
+        <subjectName>Web Development</subjectName>
+        <units>4</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-105">
+        <subjectName>Object-Oriented Programming</subjectName>
+        <units>4</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-106">
+        <subjectName>Networking Fundamentals</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.23</gpa>
+  </student>
+  
+  <student studentId="23-00030">
+    <firstName>Carlos</firstName>
+    <lastName>Mendoza</lastName>
+    <course>BSIT</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-107">
+        <subjectName>Artificial Intelligence</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-108">
+        <subjectName>Operating Systems</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-109">
+        <subjectName>Practicum</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-110">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>4</units>
+        <grade>2.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.08</gpa>
+  </student>
+  
+  <student studentId="23-00031">
+    <firstName>Angela</firstName>
+    <lastName>Garcia</lastName>
+    <course>BSIT</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-111">
+        <subjectName>Professional Ethics</subjectName>
+        <units>3</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-112">
+        <subjectName>Object-Oriented Programming</subjectName>
+        <units>4</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-113">
+        <subjectName>Object-Oriented Programming</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-114">
+        <subjectName>Introduction to Computing</subjectName>
+        <units>4</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-115">
+        <subjectName>Mathematics in the Modern World</subjectName>
+        <units>3</units>
+        <grade>4.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.34</gpa>
+  </student>
+  
+  <student studentId="23-00032">
+    <firstName>Isabela</firstName>
+    <lastName>Garcia</lastName>
+    <course>BSIS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-116">
+        <subjectName>Business Process Management</subjectName>
+        <units>3</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-117">
+        <subjectName>Machine Learning</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-118">
+        <subjectName>Discrete Mathematics</subjectName>
+        <units>3</units>
+        <grade>5.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>4.33</gpa>
+  </student>
+  
+  <student studentId="23-00033">
+    <firstName>Miguel</firstName>
+    <lastName>Lopez</lastName>
+    <course>BSIT</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-119">
+        <subjectName>Networking Fundamentals</subjectName>
+        <units>4</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-120">
+        <subjectName>Professional Ethics</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-121">
+        <subjectName>Object-Oriented Programming</subjectName>
+        <units>4</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-122">
+        <subjectName>Quantitative Methods</subjectName>
+        <units>3</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-123">
+        <subjectName>Purposive Communication</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.90</gpa>
+  </student>
+  
+  <student studentId="23-00034">
+    <firstName>Miguel</firstName>
+    <lastName>Garcia</lastName>
+    <course>BSIT</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-124">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>4</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-125">
+        <subjectName>Artificial Intelligence</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-126">
+        <subjectName>Information Assurance</subjectName>
+        <units>4</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-127">
+        <subjectName>Accounting Principles</subjectName>
+        <units>4</units>
+        <grade>2.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.00</gpa>
+  </student>
+  
+  <student studentId="23-00035">
+    <firstName>Gabriel</firstName>
+    <lastName>Villanueva</lastName>
+    <course>BSIS</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-128">
+        <subjectName>Information Assurance</subjectName>
+        <units>3</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-129">
+        <subjectName>Operating Systems</subjectName>
+        <units>3</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-130">
+        <subjectName>Discrete Mathematics</subjectName>
+        <units>4</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-131">
+        <subjectName>Platform Technologies</subjectName>
+        <units>3</units>
+        <grade>5.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>4.25</gpa>
+  </student>
+  
+  <student studentId="23-00036">
+    <firstName>Javier</firstName>
+    <lastName>Lim</lastName>
+    <course>BSIT</course>
+    <yearLevel>3</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-132">
+        <subjectName>Machine Learning</subjectName>
+        <units>4</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-133">
+        <subjectName>IT Project Management</subjectName>
+        <units>3</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-134">
+        <subjectName>Accounting Principles</subjectName>
+        <units>4</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-135">
+        <subjectName>Machine Learning</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.59</gpa>
+  </student>
+  
+  <student studentId="23-00037">
+    <firstName>Daniel</firstName>
+    <lastName>Sanchez</lastName>
+    <course>BSCS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-136">
+        <subjectName>Business Process Management</subjectName>
+        <units>3</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-137">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-138">
+        <subjectName>Business Process Management</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-139">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>3</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-140">
+        <subjectName>Information Assurance</subjectName>
+        <units>4</units>
+        <grade>1.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.53</gpa>
+  </student>
+  
+  <student studentId="23-00038">
+    <firstName>Mateo</firstName>
+    <lastName>Dominguez</lastName>
+    <course>BSCS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-141">
+        <subjectName>Accounting Principles</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-142">
+        <subjectName>Machine Learning</subjectName>
+        <units>3</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-143">
+        <subjectName>Networking Fundamentals</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-144">
+        <subjectName>Discrete Mathematics</subjectName>
+        <units>3</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-145">
+        <subjectName>System Administration</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.08</gpa>
+  </student>
+  
+  <student studentId="23-00039">
+    <firstName>Valentina</firstName>
+    <lastName>Martinez</lastName>
+    <course>BSIT</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-146">
+        <subjectName>Purposive Communication</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-147">
+        <subjectName>Discrete Mathematics</subjectName>
+        <units>4</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-148">
+        <subjectName>IT Project Management</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-149">
+        <subjectName>Web Development</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-150">
+        <subjectName>Platform Technologies</subjectName>
+        <units>4</units>
+        <grade>1.75</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.50</gpa>
+  </student>
+  
+  <student studentId="23-00040">
+    <firstName>Patricia</firstName>
+    <lastName>Romero</lastName>
+    <course>BSCS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-151">
+        <subjectName>Object-Oriented Programming</subjectName>
+        <units>4</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-152">
+        <subjectName>Business Process Management</subjectName>
+        <units>3</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-153">
+        <subjectName>Systems Analysis and Design</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-154">
+        <subjectName>Research Methods</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.11</gpa>
+  </student>
+  
+  <student studentId="23-00041">
+    <firstName>Jose</firstName>
+    <lastName>Perez</lastName>
+    <course>BSIS</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-155">
+        <subjectName>Mathematics in the Modern World</subjectName>
+        <units>4</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-156">
+        <subjectName>Capstone Project 2</subjectName>
+        <units>3</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-157">
+        <subjectName>Operating Systems</subjectName>
+        <units>3</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-158">
+        <subjectName>System Administration</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-159">
+        <subjectName>Introduction to Computing</subjectName>
+        <units>4</units>
+        <grade>1.75</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>3.13</gpa>
+  </student>
+  
+  <student studentId="23-00042">
+    <firstName>Andres</firstName>
+    <lastName>Sosa</lastName>
+    <course>BSIT</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-160">
+        <subjectName>Database Management</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-161">
+        <subjectName>Web Development</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-162">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>4</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-163">
+        <subjectName>Technopreneurship</subjectName>
+        <units>3</units>
+        <grade>1.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.42</gpa>
+  </student>
+  
+  <student studentId="23-00043">
+    <firstName>Angela</firstName>
+    <lastName>Reyes</lastName>
+    <course>BSCS</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-164">
+        <subjectName>Artificial Intelligence</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-165">
+        <subjectName>Discrete Mathematics</subjectName>
+        <units>3</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-166">
+        <subjectName>Web Development</subjectName>
+        <units>4</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-167">
+        <subjectName>Integrative Programming</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.39</gpa>
+  </student>
+  
+  <student studentId="23-00044">
+    <firstName>Victoria</firstName>
+    <lastName>Jimenez</lastName>
+    <course>BSCS</course>
+    <yearLevel>3</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-168">
+        <subjectName>Business Process Management</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-169">
+        <subjectName>Purposive Communication</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-170">
+        <subjectName>Information Management</subjectName>
+        <units>3</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-171">
+        <subjectName>Computer Programming 1</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.62</gpa>
+  </student>
+  
+  <student studentId="23-00045">
+    <firstName>Camila</firstName>
+    <lastName>Villanueva</lastName>
+    <course>BSCS</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-172">
+        <subjectName>Professional Ethics</subjectName>
+        <units>3</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-173">
+        <subjectName>Business Process Management</subjectName>
+        <units>3</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-174">
+        <subjectName>System Administration</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.67</gpa>
+  </student>
+  
+  <student studentId="23-00046">
+    <firstName>Miguel</firstName>
+    <lastName>Sanchez</lastName>
+    <course>BSCS</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-175">
+        <subjectName>Capstone Project 2</subjectName>
+        <units>3</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-176">
+        <subjectName>IT Project Management</subjectName>
+        <units>4</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-177">
+        <subjectName>Data Structures and Algorithms</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>3.42</gpa>
+  </student>
+  
+  <student studentId="23-00047">
+    <firstName>Daniela</firstName>
+    <lastName>Alvarez</lastName>
+    <course>BSIT</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-178">
+        <subjectName>Capstone Project 2</subjectName>
+        <units>3</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-179">
+        <subjectName>Accounting Principles</subjectName>
+        <units>3</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-180">
+        <subjectName>Capstone Project 2</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.75</gpa>
+  </student>
+  
+  <student studentId="23-00048">
+    <firstName>Daniela</firstName>
+    <lastName>Gomez</lastName>
+    <course>BSIT</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-181">
+        <subjectName>Information Management</subjectName>
+        <units>4</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-182">
+        <subjectName>Operating Systems</subjectName>
+        <units>4</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-183">
+        <subjectName>Professional Ethics</subjectName>
+        <units>4</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-184">
+        <subjectName>Web Development</subjectName>
+        <units>4</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-185">
+        <subjectName>Introduction to Computing</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.55</gpa>
+  </student>
+  
+  <student studentId="23-00049">
+    <firstName>Daniela</firstName>
+    <lastName>Perez</lastName>
+    <course>BSIS</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-186">
+        <subjectName>IT Project Management</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-187">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>3</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-188">
+        <subjectName>Operating Systems</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-189">
+        <subjectName>Platform Technologies</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-190">
+        <subjectName>Quantitative Methods</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.65</gpa>
+  </student>
+  
+  <student studentId="23-00050">
+    <firstName>Juan</firstName>
+    <lastName>Martinez</lastName>
+    <course>BSIT</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-191">
+        <subjectName>IT Project Management</subjectName>
+        <units>3</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-192">
+        <subjectName>Practicum</subjectName>
+        <units>4</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-193">
+        <subjectName>Technopreneurship</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-194">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>4</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-195">
+        <subjectName>IT Project Management</subjectName>
+        <units>4</units>
+        <grade>2.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.82</gpa>
+  </student>
+  
+  <student studentId="23-00051">
+    <firstName>Patricia</firstName>
+    <lastName>Gomez</lastName>
+    <course>BSIS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-196">
+        <subjectName>Data Structures and Algorithms</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-197">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-198">
+        <subjectName>IT Project Management</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-199">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>3</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-200">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>3.06</gpa>
+  </student>
+  
+  <student studentId="23-00052">
+    <firstName>Mateo</firstName>
+    <lastName>Reyes</lastName>
+    <course>BSIT</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-201">
+        <subjectName>Research Methods</subjectName>
+        <units>4</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-202">
+        <subjectName>Technopreneurship</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-203">
+        <subjectName>Computer Programming 1</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-204">
+        <subjectName>Practicum</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-205">
+        <subjectName>Data Structures and Algorithms</subjectName>
+        <units>4</units>
+        <grade>1.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.80</gpa>
+  </student>
+  
+  <student studentId="23-00053">
+    <firstName>Gabriela</firstName>
+    <lastName>Sanchez</lastName>
+    <course>BSIS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-206">
+        <subjectName>Platform Technologies</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-207">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-208">
+        <subjectName>Integrative Programming</subjectName>
+        <units>4</units>
+        <grade>1.75</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.45</gpa>
+  </student>
+  
+  <student studentId="23-00054">
+    <firstName>Camila</firstName>
+    <lastName>Villanueva</lastName>
+    <course>BSCS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-209">
+        <subjectName>Business Process Management</subjectName>
+        <units>3</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-210">
+        <subjectName>Data Structures and Algorithms</subjectName>
+        <units>3</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-211">
+        <subjectName>Accounting Principles</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-212">
+        <subjectName>Information Assurance</subjectName>
+        <units>4</units>
+        <grade>1.25</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.65</gpa>
+  </student>
+  
+  <student studentId="23-00055">
+    <firstName>Mariana</firstName>
+    <lastName>Gonzalez</lastName>
+    <course>BSIT</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-213">
+        <subjectName>Artificial Intelligence</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-214">
+        <subjectName>Web Development</subjectName>
+        <units>4</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-215">
+        <subjectName>Object-Oriented Programming</subjectName>
+        <units>3</units>
+        <grade>5.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.91</gpa>
+  </student>
+  
+  <student studentId="23-00056">
+    <firstName>Rafael</firstName>
+    <lastName>Villanueva</lastName>
+    <course>BSCS</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-216">
+        <subjectName>Quantitative Methods</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-217">
+        <subjectName>IT Project Management</subjectName>
+        <units>4</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-218">
+        <subjectName>Networking Fundamentals</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-219">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-220">
+        <subjectName>Accounting Principles</subjectName>
+        <units>4</units>
+        <grade>1.75</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.25</gpa>
+  </student>
+  
+  <student studentId="23-00057">
+    <firstName>Valeria</firstName>
+    <lastName>Ortiz</lastName>
+    <course>BSIT</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-221">
+        <subjectName>Data Structures and Algorithms</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-222">
+        <subjectName>Object-Oriented Programming</subjectName>
+        <units>4</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-223">
+        <subjectName>Web Development</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.68</gpa>
+  </student>
+  
+  <student studentId="23-00058">
+    <firstName>Patricia</firstName>
+    <lastName>Ortiz</lastName>
+    <course>BSIS</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-224">
+        <subjectName>System Administration</subjectName>
+        <units>4</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-225">
+        <subjectName>Data Structures and Algorithms</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-226">
+        <subjectName>Accounting Principles</subjectName>
+        <units>3</units>
+        <grade>2.25</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.30</gpa>
+  </student>
+  
+  <student studentId="23-00059">
+    <firstName>Alejandro</firstName>
+    <lastName>Rodriguez</lastName>
+    <course>BSCS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-227">
+        <subjectName>Web Development</subjectName>
+        <units>4</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-228">
+        <subjectName>Web Development</subjectName>
+        <units>4</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-229">
+        <subjectName>Technopreneurship</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-230">
+        <subjectName>Technopreneurship</subjectName>
+        <units>4</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-231">
+        <subjectName>Platform Technologies</subjectName>
+        <units>4</units>
+        <grade>5.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.25</gpa>
+  </student>
+  
+  <student studentId="23-00060">
+    <firstName>Lucia</firstName>
+    <lastName>Mendoza</lastName>
+    <course>BSCS</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-232">
+        <subjectName>Web Development</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-233">
+        <subjectName>IT Project Management</subjectName>
+        <units>4</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-234">
+        <subjectName>System Administration</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-235">
+        <subjectName>Database Management</subjectName>
+        <units>4</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-236">
+        <subjectName>Information Assurance</subjectName>
+        <units>4</units>
+        <grade>1.25</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.21</gpa>
+  </student>
+  
+  <student studentId="23-00061">
+    <firstName>Angela</firstName>
+    <lastName>Santos</lastName>
+    <course>BSIT</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-237">
+        <subjectName>Web Development</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-238">
+        <subjectName>Computer Programming 1</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-239">
+        <subjectName>Introduction to Computing</subjectName>
+        <units>3</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-240">
+        <subjectName>Database Management</subjectName>
+        <units>3</units>
+        <grade>4.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>3.19</gpa>
+  </student>
+  
+  <student studentId="23-00062">
+    <firstName>Miguel</firstName>
+    <lastName>Garcia</lastName>
+    <course>BSIT</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-241">
+        <subjectName>Information Management</subjectName>
+        <units>3</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-242">
+        <subjectName>Professional Ethics</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-243">
+        <subjectName>System Administration</subjectName>
+        <units>3</units>
+        <grade>5.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>3.42</gpa>
+  </student>
+  
+  <student studentId="23-00063">
+    <firstName>Daniel</firstName>
+    <lastName>Villanueva</lastName>
+    <course>BSIS</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-244">
+        <subjectName>Capstone Project 2</subjectName>
+        <units>4</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-245">
+        <subjectName>Data Structures and Algorithms</subjectName>
+        <units>3</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-246">
+        <subjectName>Business Process Management</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.55</gpa>
+  </student>
+  
+  <student studentId="23-00064">
+    <firstName>Luis</firstName>
+    <lastName>Jimenez</lastName>
+    <course>BSIS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-247">
+        <subjectName>Professional Ethics</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-248">
+        <subjectName>Systems Analysis and Design</subjectName>
+        <units>4</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-249">
+        <subjectName>Professional Ethics</subjectName>
+        <units>3</units>
+        <grade>1.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.36</gpa>
+  </student>
+  
+  <student studentId="23-00065">
+    <firstName>Miguel</firstName>
+    <lastName>Perez</lastName>
+    <course>BSCS</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-250">
+        <subjectName>Networking Fundamentals</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-251">
+        <subjectName>Networking Fundamentals</subjectName>
+        <units>4</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-252">
+        <subjectName>Introduction to Computing</subjectName>
+        <units>3</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-253">
+        <subjectName>Computer Programming 1</subjectName>
+        <units>4</units>
+        <grade>5.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.98</gpa>
+  </student>
+  
+  <student studentId="23-00066">
+    <firstName>Miguel</firstName>
+    <lastName>Ortiz</lastName>
+    <course>BSIT</course>
+    <yearLevel>3</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-254">
+        <subjectName>Computer Programming 1</subjectName>
+        <units>4</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-255">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>4</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-256">
+        <subjectName>Artificial Intelligence</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-257">
+        <subjectName>Machine Learning</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.23</gpa>
+  </student>
+  
+  <student studentId="23-00067">
+    <firstName>Miguel</firstName>
+    <lastName>Flores</lastName>
+    <course>BSIT</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-258">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-259">
+        <subjectName>Platform Technologies</subjectName>
+        <units>4</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-260">
+        <subjectName>Machine Learning</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-261">
+        <subjectName>Web Development</subjectName>
+        <units>3</units>
+        <grade>1.75</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>3.15</gpa>
+  </student>
+  
+  <student studentId="23-00068">
+    <firstName>Diego</firstName>
+    <lastName>Castro</lastName>
+    <course>BSCS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-262">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>3</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-263">
+        <subjectName>Platform Technologies</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-264">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>3</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-265">
+        <subjectName>Discrete Mathematics</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-266">
+        <subjectName>Database Management</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.86</gpa>
+  </student>
+  
+  <student studentId="23-00069">
+    <firstName>Gabriela</firstName>
+    <lastName>Diaz</lastName>
+    <course>BSIT</course>
+    <yearLevel>3</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-267">
+        <subjectName>Data Structures and Algorithms</subjectName>
+        <units>3</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-268">
+        <subjectName>Networking Fundamentals</subjectName>
+        <units>4</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-269">
+        <subjectName>Information Assurance</subjectName>
+        <units>3</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-270">
+        <subjectName>Professional Ethics</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-271">
+        <subjectName>Information Assurance</subjectName>
+        <units>4</units>
+        <grade>2.25</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.71</gpa>
+  </student>
+  
+  <student studentId="23-00070">
+    <firstName>Ana</firstName>
+    <lastName>Ortiz</lastName>
+    <course>BSIT</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-272">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-273">
+        <subjectName>Data Structures and Algorithms</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-274">
+        <subjectName>Web Development</subjectName>
+        <units>4</units>
+        <grade>2.25</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.57</gpa>
+  </student>
+  
+  <student studentId="23-00071">
+    <firstName>Maria</firstName>
+    <lastName>Fernandez</lastName>
+    <course>BSIT</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-275">
+        <subjectName>Capstone Project 2</subjectName>
+        <units>3</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-276">
+        <subjectName>Integrative Programming</subjectName>
+        <units>3</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-277">
+        <subjectName>Business Process Management</subjectName>
+        <units>4</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-278">
+        <subjectName>Business Process Management</subjectName>
+        <units>3</units>
+        <grade>1.75</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.92</gpa>
+  </student>
+  
+  <student studentId="23-00072">
+    <firstName>Carlos</firstName>
+    <lastName>Reyes</lastName>
+    <course>BSCS</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-279">
+        <subjectName>Capstone Project 2</subjectName>
+        <units>3</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-280">
+        <subjectName>Practicum</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-281">
+        <subjectName>Professional Ethics</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-282">
+        <subjectName>Systems Analysis and Design</subjectName>
+        <units>4</units>
+        <grade>2.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.00</gpa>
+  </student>
+  
+  <student studentId="23-00073">
+    <firstName>Daniel</firstName>
+    <lastName>Torres</lastName>
+    <course>BSIT</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-283">
+        <subjectName>Mathematics in the Modern World</subjectName>
+        <units>3</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-284">
+        <subjectName>Web Development</subjectName>
+        <units>3</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-285">
+        <subjectName>Systems Analysis and Design</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-286">
+        <subjectName>Systems Analysis and Design</subjectName>
+        <units>3</units>
+        <grade>1.25</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>3.19</gpa>
+  </student>
+  
+  <student studentId="23-00074">
+    <firstName>Valentina</firstName>
+    <lastName>Martinez</lastName>
+    <course>BSCS</course>
+    <yearLevel>3</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-287">
+        <subjectName>Artificial Intelligence</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-288">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-289">
+        <subjectName>IT Project Management</subjectName>
+        <units>4</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-290">
+        <subjectName>Purposive Communication</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.06</gpa>
+  </student>
+  
+  <student studentId="23-00075">
+    <firstName>Valeria</firstName>
+    <lastName>Sosa</lastName>
+    <course>BSIS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-291">
+        <subjectName>Artificial Intelligence</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-292">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-293">
+        <subjectName>Object-Oriented Programming</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-294">
+        <subjectName>Database Management</subjectName>
+        <units>4</units>
+        <grade>5.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>4.02</gpa>
+  </student>
+  
+  <student studentId="23-00076">
+    <firstName>Rafael</firstName>
+    <lastName>Dominguez</lastName>
+    <course>BSCS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-295">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-296">
+        <subjectName>Accounting Principles</subjectName>
+        <units>4</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-297">
+        <subjectName>Object-Oriented Programming</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>3.50</gpa>
+  </student>
+  
+  <student studentId="23-00077">
+    <firstName>Victoria</firstName>
+    <lastName>Perez</lastName>
+    <course>BSCS</course>
+    <yearLevel>3</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-298">
+        <subjectName>Introduction to Computing</subjectName>
+        <units>4</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-299">
+        <subjectName>Mathematics in the Modern World</subjectName>
+        <units>3</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-300">
+        <subjectName>Mathematics in the Modern World</subjectName>
+        <units>3</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-301">
+        <subjectName>Technopreneurship</subjectName>
+        <units>3</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-302">
+        <subjectName>Integrative Programming</subjectName>
+        <units>4</units>
+        <grade>5.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.53</gpa>
+  </student>
+  
+  <student studentId="23-00078">
+    <firstName>Ana</firstName>
+    <lastName>Alvarez</lastName>
+    <course>BSIT</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-303">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-304">
+        <subjectName>Information Management</subjectName>
+        <units>3</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-305">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>4</units>
+        <grade>2.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.89</gpa>
+  </student>
+  
+  <student studentId="23-00079">
+    <firstName>Isabela</firstName>
+    <lastName>Rojas</lastName>
+    <course>BSIS</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-306">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>4</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-307">
+        <subjectName>Professional Ethics</subjectName>
+        <units>4</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-308">
+        <subjectName>Research Methods</subjectName>
+        <units>4</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-309">
+        <subjectName>Practicum</subjectName>
+        <units>4</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-310">
+        <subjectName>Systems Analysis and Design</subjectName>
+        <units>4</units>
+        <grade>1.25</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.80</gpa>
+  </student>
+  
+  <student studentId="23-00080">
+    <firstName>Pedro</firstName>
+    <lastName>Lim</lastName>
+    <course>BSIT</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-311">
+        <subjectName>Computer Programming 1</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-312">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>4</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-313">
+        <subjectName>Accounting Principles</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-314">
+        <subjectName>Discrete Mathematics</subjectName>
+        <units>4</units>
+        <grade>2.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.75</gpa>
+  </student>
+  
+  <student studentId="23-00081">
+    <firstName>Lucia</firstName>
+    <lastName>Perez</lastName>
+    <course>BSCS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-315">
+        <subjectName>Artificial Intelligence</subjectName>
+        <units>4</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-316">
+        <subjectName>Object-Oriented Programming</subjectName>
+        <units>3</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-317">
+        <subjectName>Artificial Intelligence</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-318">
+        <subjectName>Information Management</subjectName>
+        <units>4</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-319">
+        <subjectName>Artificial Intelligence</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.19</gpa>
+  </student>
+  
+  <student studentId="23-00082">
+    <firstName>Patricia</firstName>
+    <lastName>Reyes</lastName>
+    <course>BSCS</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-320">
+        <subjectName>Quantitative Methods</subjectName>
+        <units>4</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-321">
+        <subjectName>Research Methods</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-322">
+        <subjectName>Business Process Management</subjectName>
+        <units>4</units>
+        <grade>1.75</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.02</gpa>
+  </student>
+  
+  <student studentId="23-00083">
+    <firstName>Fernando</firstName>
+    <lastName>Gomez</lastName>
+    <course>BSIS</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-323">
+        <subjectName>Integrative Programming</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-324">
+        <subjectName>Research Methods</subjectName>
+        <units>3</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-325">
+        <subjectName>Machine Learning</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-326">
+        <subjectName>Platform Technologies</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-327">
+        <subjectName>Database Management</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.89</gpa>
+  </student>
+  
+  <student studentId="23-00084">
+    <firstName>Carmen</firstName>
+    <lastName>Lopez</lastName>
+    <course>BSCS</course>
+    <yearLevel>3</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-328">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-329">
+        <subjectName>Database Management</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-330">
+        <subjectName>Data Structures and Algorithms</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-331">
+        <subjectName>Discrete Mathematics</subjectName>
+        <units>4</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-332">
+        <subjectName>Introduction to Computing</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.88</gpa>
+  </student>
+  
+  <student studentId="23-00085">
+    <firstName>Javier</firstName>
+    <lastName>Torres</lastName>
+    <course>BSCS</course>
+    <yearLevel>3</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-333">
+        <subjectName>Accounting Principles</subjectName>
+        <units>3</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-334">
+        <subjectName>Platform Technologies</subjectName>
+        <units>4</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-335">
+        <subjectName>Business Process Management</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.48</gpa>
+  </student>
+  
+  <student studentId="23-00086">
+    <firstName>Andres</firstName>
+    <lastName>Santos</lastName>
+    <course>BSIT</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-336">
+        <subjectName>Computer Programming 1</subjectName>
+        <units>3</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-337">
+        <subjectName>Platform Technologies</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-338">
+        <subjectName>Accounting Principles</subjectName>
+        <units>4</units>
+        <grade>2.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.73</gpa>
+  </student>
+  
+  <student studentId="23-00087">
+    <firstName>Valentina</firstName>
+    <lastName>Flores</lastName>
+    <course>BSIT</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-339">
+        <subjectName>Integrative Programming</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-340">
+        <subjectName>IT Project Management</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-341">
+        <subjectName>Practicum</subjectName>
+        <units>3</units>
+        <grade>1.25</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.25</gpa>
+  </student>
+  
+  <student studentId="23-00088">
+    <firstName>Mateo</firstName>
+    <lastName>Sosa</lastName>
+    <course>BSCS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-342">
+        <subjectName>Database Management</subjectName>
+        <units>4</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-343">
+        <subjectName>Systems Analysis and Design</subjectName>
+        <units>4</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-344">
+        <subjectName>Practicum</subjectName>
+        <units>4</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-345">
+        <subjectName>Discrete Mathematics</subjectName>
+        <units>3</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-346">
+        <subjectName>Platform Technologies</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.69</gpa>
+  </student>
+  
+  <student studentId="23-00089">
+    <firstName>Victoria</firstName>
+    <lastName>Reyes</lastName>
+    <course>BSIT</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-347">
+        <subjectName>Information Management</subjectName>
+        <units>4</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-348">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>4</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-349">
+        <subjectName>Research Methods</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-350">
+        <subjectName>Technopreneurship</subjectName>
+        <units>3</units>
+        <grade>5.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.71</gpa>
+  </student>
+  
+  <student studentId="23-00090">
+    <firstName>Victoria</firstName>
+    <lastName>Dela Cruz</lastName>
+    <course>BSCS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-351">
+        <subjectName>Mathematics in the Modern World</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-352">
+        <subjectName>Technopreneurship</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-353">
+        <subjectName>Discrete Mathematics</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-354">
+        <subjectName>Accounting Principles</subjectName>
+        <units>4</units>
+        <grade>2.25</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.84</gpa>
+  </student>
+  
+  <student studentId="23-00091">
+    <firstName>Valentina</firstName>
+    <lastName>Jimenez</lastName>
+    <course>BSCS</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-355">
+        <subjectName>Business Process Management</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+      <subject subjectId="SUB-356">
+        <subjectName>Research Methods</subjectName>
+        <units>4</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-357">
+        <subjectName>Web Development</subjectName>
+        <units>3</units>
+        <grade>5.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.18</gpa>
+  </student>
+  
+  <student studentId="23-00092">
+    <firstName>Andres</firstName>
+    <lastName>Mendoza</lastName>
+    <course>BSIS</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-358">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-359">
+        <subjectName>Information Management</subjectName>
+        <units>4</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-360">
+        <subjectName>Practicum</subjectName>
+        <units>4</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-361">
+        <subjectName>Research Methods</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-362">
+        <subjectName>Business Process Management</subjectName>
+        <units>4</units>
+        <grade>1.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.18</gpa>
+  </student>
+  
+  <student studentId="23-00093">
+    <firstName>Lucia</firstName>
+    <lastName>Gonzalez</lastName>
+    <course>BSIS</course>
+    <yearLevel>3</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-363">
+        <subjectName>Web Development</subjectName>
+        <units>4</units>
+        <grade>1.50</grade>
+      </subject>
+      <subject subjectId="SUB-364">
+        <subjectName>Software Engineering 2</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-365">
+        <subjectName>Object-Oriented Programming</subjectName>
+        <units>4</units>
+        <grade>1.75</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>1.73</gpa>
+  </student>
+  
+  <student studentId="23-00094">
+    <firstName>Maria</firstName>
+    <lastName>Jimenez</lastName>
+    <course>BSCS</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-366">
+        <subjectName>Information Assurance</subjectName>
+        <units>3</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-367">
+        <subjectName>Artificial Intelligence</subjectName>
+        <units>4</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-368">
+        <subjectName>Research Methods</subjectName>
+        <units>4</units>
+        <grade>2.25</grade>
+      </subject>
+      <subject subjectId="SUB-369">
+        <subjectName>Professional Ethics</subjectName>
+        <units>4</units>
+        <grade>2.00</grade>
+      </subject>
+      <subject subjectId="SUB-370">
+        <subjectName>Information Assurance</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.42</gpa>
+  </student>
+  
+  <student studentId="23-00095">
+    <firstName>Gabriela</firstName>
+    <lastName>Flores</lastName>
+    <course>BSIS</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-371">
+        <subjectName>Purposive Communication</subjectName>
+        <units>3</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-372">
+        <subjectName>Introduction to Computing</subjectName>
+        <units>3</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-373">
+        <subjectName>Professional Ethics</subjectName>
+        <units>4</units>
+        <grade>1.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>3.00</gpa>
+  </student>
+  
+  <student studentId="23-00096">
+    <firstName>Valentina</firstName>
+    <lastName>Castro</lastName>
+    <course>BSCS</course>
+    <yearLevel>2</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-374">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>3</units>
+        <grade>5.00</grade>
+      </subject>
+      <subject subjectId="SUB-375">
+        <subjectName>Object-Oriented Programming</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-376">
+        <subjectName>Practicum</subjectName>
+        <units>4</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-377">
+        <subjectName>Computer Programming 1</subjectName>
+        <units>4</units>
+        <grade>1.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.89</gpa>
+  </student>
+  
+  <student studentId="23-00097">
+    <firstName>Patricia</firstName>
+    <lastName>Rojas</lastName>
+    <course>BSIT</course>
+    <yearLevel>1</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-378">
+        <subjectName>Artificial Intelligence</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+      <subject subjectId="SUB-379">
+        <subjectName>Web Development</subjectName>
+        <units>4</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-380">
+        <subjectName>Research Methods</subjectName>
+        <units>3</units>
+        <grade>2.50</grade>
+      </subject>
+      <subject subjectId="SUB-381">
+        <subjectName>Database Management</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-382">
+        <subjectName>Enterprise Architecture</subjectName>
+        <units>3</units>
+        <grade>1.50</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.84</gpa>
+  </student>
+  
+  <student studentId="23-00098">
+    <firstName>Mariana</firstName>
+    <lastName>Diaz</lastName>
+    <course>BSIS</course>
+    <yearLevel>3</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-383">
+        <subjectName>Operating Systems</subjectName>
+        <units>4</units>
+        <grade>1.25</grade>
+      </subject>
+      <subject subjectId="SUB-384">
+        <subjectName>Professional Ethics</subjectName>
+        <units>4</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-385">
+        <subjectName>Professional Ethics</subjectName>
+        <units>4</units>
+        <grade>4.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.75</gpa>
+  </student>
+  
+  <student studentId="23-00099">
+    <firstName>Diego</firstName>
+    <lastName>Villanueva</lastName>
+    <course>BSIT</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-386">
+        <subjectName>Object-Oriented Programming</subjectName>
+        <units>3</units>
+        <grade>1.75</grade>
+      </subject>
+      <subject subjectId="SUB-387">
+        <subjectName>Systems Analysis and Design</subjectName>
+        <units>3</units>
+        <grade>2.75</grade>
+      </subject>
+      <subject subjectId="SUB-388">
+        <subjectName>Operating Systems</subjectName>
+        <units>4</units>
+        <grade>2.00</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.15</gpa>
+  </student>
+  
+  <student studentId="23-00100">
+    <firstName>Mateo</firstName>
+    <lastName>Sosa</lastName>
+    <course>BSIT</course>
+    <yearLevel>4</yearLevel>
+    <enrolledSubjects>
+      <subject subjectId="SUB-389">
+        <subjectName>Information Management</subjectName>
+        <units>4</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-390">
+        <subjectName>Artificial Intelligence</subjectName>
+        <units>4</units>
+        <grade>3.00</grade>
+      </subject>
+      <subject subjectId="SUB-391">
+        <subjectName>Technopreneurship</subjectName>
+        <units>4</units>
+        <grade>2.75</grade>
+      </subject>
+    </enrolledSubjects>
+    <gpa>2.92</gpa>
+  </student>
+</students>
