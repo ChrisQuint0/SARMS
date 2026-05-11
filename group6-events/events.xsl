@@ -1,13 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  <!-- XSLT Stylesheet for Events Management System -->
-  <!-- Transforms XML into a single-page HTML dashboard -->
-
   <xsl:output method="html" indent="yes"/>
 
-  <!-- ============================================================ -->
-  <!-- ROOT TEMPLATE                                                 -->
-  <!-- ============================================================ -->
+  <!-- Date Formatting Template: YYYY-MM-DD to MM/DD/YYYY -->
+  <xsl:template name="formatDate">
+    <xsl:param name="dateString"/>
+    <xsl:choose>
+      <xsl:when test="string-length($dateString) >= 10">
+        <xsl:variable name="year" select="substring($dateString, 1, 4)"/>
+        <xsl:variable name="month" select="substring($dateString, 6, 2)"/>
+        <xsl:variable name="day" select="substring($dateString, 9, 2)"/>
+        <xsl:value-of select="concat($month, '/', $day, '/', $year)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$dateString"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <!-- Time Formatting Template: 24-hour to 12-hour with AM/PM -->
+  <xsl:template name="formatTime">
+    <xsl:param name="timeString"/>
+    <xsl:choose>
+      <xsl:when test="string-length($timeString) >= 5">
+        <xsl:variable name="hour" select="number(substring($timeString, 1, 2))"/>
+        <xsl:variable name="minute" select="substring($timeString, 4, 2)"/>
+        <xsl:choose>
+          <xsl:when test="$hour = 0">
+            <xsl:value-of select="concat('12:', $minute, ' AM')"/>
+          </xsl:when>
+          <xsl:when test="$hour = 12">
+            <xsl:value-of select="concat('12:', $minute, ' PM')"/>
+          </xsl:when>
+          <xsl:when test="$hour > 12">
+            <xsl:value-of select="concat($hour - 12, ':', $minute, ' PM')"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="concat($hour, ':', $minute, ' AM')"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$timeString"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
   <xsl:template match="/">
     <html>
       <head>
@@ -15,70 +53,48 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Events Management System</title>
         <style>
-          /* -------------------------------------------------------
-             Design Tokens
-          ------------------------------------------------------- */
           :root {
-            /* Green palette — dark to light */
             --green-900: #004D26;
             --green-700: #006B35;
             --green-500: #008A45;
             --green-100: #E6F4EC;
-
-            /* Yellow — minimal, reserved for current-status only */
-            --yellow-400: #FFCE00;
-            --yellow-100: #FFFBE6;
-
-            /* Surfaces */
-            --surface-0:  #FFFFFF;
+            --surface-0: #FFFFFF;
             --surface-50: #F8FAFC;
-
-            /* Borders and text */
-            --border:         #E5E7EB;
-            --text-primary:   #111827;
+            --border: #E5E7EB;
+            --text-primary: #111827;
             --text-secondary: #4B5563;
-            --text-inverted:  #FFFFFF;
-
-            /* Semantic */
+            --text-muted: #6B7280;
+            --text-inverted: #FFFFFF;
             --danger-500: #DC2626;
             --danger-100: #FEE2E2;
-
-            /* Spacing */
+            --success-500: #10B981;
+            --success-100: #D1FAE5;
+            --warning-500: #F59E0B;
+            --warning-100: #FEF3C7;
+            --info-500: #3B82F6;
+            --info-100: #DBEAFE;
             --sp-1: 0.5rem;
             --sp-2: 1rem;
             --sp-3: 1.5rem;
             --sp-4: 2rem;
-
-            /* Type scale */
-            --text-sm:   0.875rem;
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
             --text-base: 1rem;
-            --text-lg:   1.125rem;
-            --text-xl:   1.25rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
           }
 
-          /* -------------------------------------------------------
-             Reset
-          ------------------------------------------------------- */
-          *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-          }
+          *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-          /* -------------------------------------------------------
-             Base
-          ------------------------------------------------------- */
           body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-                         'Helvetica Neue', Arial, sans-serif;
-            background-color: var(--surface-50);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--surface-50) 0%, #F1F5F9 100%);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.5;
           }
 
-          /* -------------------------------------------------------
-             Header — deepest green with navbar
-          ------------------------------------------------------- */
           .header {
             position: fixed;
             top: 0;
@@ -86,10 +102,10 @@
             right: 0;
             width: 100%;
             z-index: 1000;
-            background-color: var(--green-900);
+            background: linear-gradient(135deg, var(--green-900), #003318);
             color: var(--text-inverted);
             padding: var(--sp-2) var(--sp-3);
-            border-bottom: 4px solid var(--green-900);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
           }
 
           .header-inner {
@@ -100,31 +116,13 @@
             align-items: center;
           }
 
-          .header-left {
-            display: flex;
-            flex-direction: column;
-          }
-
-          .header-title {
-            font-size: var(--text-xl);
-            font-weight: 700;
-            letter-spacing: 0.02em;
-          }
-
-          .header-sub {
-            font-size: var(--text-sm);
-            color: rgba(255, 255, 255, 0.65);
-            margin-top: 2px;
-          }
+          .header-title { font-size: var(--text-xl); font-weight: 700; letter-spacing: -0.02em; }
+          .header-sub { font-size: var(--text-sm); color: rgba(255, 255, 255, 0.7); margin-top: 2px; }
 
           .navbar {
             display: flex;
-            gap: var(--sp-3);
+            gap: var(--sp-2);
             list-style: none;
-          }
-
-          .navbar li {
-            margin: 0;
           }
 
           .navbar a {
@@ -132,221 +130,194 @@
             text-decoration: none;
             font-size: var(--text-sm);
             font-weight: 500;
-            padding: var(--sp-1) var(--sp-2);
-            border-radius: 4px;
-            transition: background-color 0.2s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
           }
 
-          .navbar a:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-          }
+          .navbar a:hover { background-color: rgba(255, 255, 255, 0.15); }
+          .navbar a.active { background-color: var(--green-500); font-weight: 600; }
 
-          /* -------------------------------------------------------
-             Layout
-          ------------------------------------------------------- */
-          main {
-            margin-top: 80px;
-          }
+          main { margin-top: 85px; }
+          .container { max-width: 96%; margin: 0 auto; padding: var(--sp-3) 1rem; }
+          .section { margin-bottom: var(--sp-4); }
 
-          .container {
-            max-width: 96%; /* Changed from 1300px to 96% */
-            margin: 0 auto;
-            padding: var(--sp-3) 1rem; /* Increased side padding slightly for better breathing room */
-          }
+          .section-header { margin-bottom: var(--sp-3); }
 
-          .section {
-            margin-bottom: var(--sp-4);
-          }
-
-          /* -------------------------------------------------------
-             Section Headings
-          ------------------------------------------------------- */
           h2 {
-            font-size: var(--text-lg);
+            font-size: var(--text-3xl);
             font-weight: 700;
             color: var(--green-900);
-            border-left: 4px solid var(--green-900);
+            border-left: 5px solid var(--green-500);
             padding-left: var(--sp-2);
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+          }
+
+          .section-desc {
+            font-size: var(--text-base);
+            color: var(--text-muted);
+            margin-left: var(--sp-2);
             margin-bottom: var(--sp-3);
+            padding-left: 4px;
           }
 
           h3 {
-            font-size: var(--text-base);
+            font-size: var(--text-xl);
             font-weight: 600;
-            color: var(--green-900);
+            color: var(--green-800);
             margin-bottom: var(--sp-2);
           }
 
-          .mt-3 { margin-top: var(--sp-3); }
-
-          /* -------------------------------------------------------
-             Dashboard Stat Cards
-          ------------------------------------------------------- */
+          /* Dashboard Stats Cards */
           .stats-grid {
             display: grid;
-            /* Allow more cards per row on wide screens */
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: var(--sp-3);
             margin-bottom: var(--sp-4);
           }
 
           .stat-card {
-            background-color: var(--surface-0);
-            border: 1px solid var(--border);
-            border-top: 3px solid var(--green-900);
-            border-radius: 6px;
+            border-radius: 20px;
             padding: var(--sp-3);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             text-align: center;
+            transition: all 0.3s ease;
           }
 
-          .stat-value {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: var(--green-900);
-            line-height: 1.2;
-          }
+          .stat-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); }
 
-          .stat-label {
-            font-size: var(--text-sm);
-            color: var(--text-secondary);
-            margin-top: 4px;
-          }
+          .stat-card:nth-child(1) { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-bottom: 3px solid #3B82F6; }
+          .stat-card:nth-child(2) { background: linear-gradient(135deg, #F5F3FF, #EDE9FE); border-bottom: 3px solid #8B5CF6; }
+          .stat-card:nth-child(3) { background: linear-gradient(135deg, #FFF7ED, #FFEDD5); border-bottom: 3px solid #F97316; }
+          .stat-card:nth-child(4) { background: linear-gradient(135deg, #F0FDFA, #CCFBF1); border-bottom: 3px solid #14B8A6; }
+          .stat-card:nth-child(5) { background: linear-gradient(135deg, #FFF1F2, #FFE4E6); border-bottom: 3px solid #F43F5E; }
+          .stat-card:nth-child(6) { background: linear-gradient(135deg, #FFFBEB, #FEF3C7); border-bottom: 3px solid #F59E0B; }
 
-          /* -------------------------------------------------------
-             Event Cards — Current Events
-          ------------------------------------------------------- */
+          .stat-value { font-size: 3rem; font-weight: 800; line-height: 1.2; }
+          .stat-card:nth-child(1) .stat-value { color: #2563EB; }
+          .stat-card:nth-child(2) .stat-value { color: #7C3AED; }
+          .stat-card:nth-child(3) .stat-value { color: #EA580C; }
+          .stat-card:nth-child(4) .stat-value { color: #0D9488; }
+          .stat-card:nth-child(5) .stat-value { color: #E11D48; }
+          .stat-card:nth-child(6) .stat-value { color: #D97706; }
+
+          .stat-label { font-size: var(--text-base); font-weight: 600; color: var(--text-secondary); margin-top: 8px; }
+
+          /* Enhanced Current Events Cards */
           .events-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: var(--sp-3);
             margin-bottom: var(--sp-3);
           }
 
           .event-card {
-            background-color: var(--surface-0);
+            background: var(--surface-0);
             border: 1px solid var(--border);
-            border-radius: 6px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
           }
+
+          .event-card:hover { transform: translateY(-5px); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12); }
 
           .event-card-header {
-            padding: var(--sp-2);
-            border-bottom: 2px solid var(--green-900);
+            padding: 18px 16px;
+            background: linear-gradient(135deg, var(--green-500), var(--green-700));
+            color: white;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
           }
 
-          .event-card-title {
-            font-size: var(--text-base);
-            font-weight: 600;
-            color: var(--green-900);
-            margin-bottom: 4px;
+          .event-card-title { font-size: var(--text-xl); font-weight: 700; margin-bottom: 8px; }
+
+          .card-desc {
+            font-size: var(--text-sm);
+            opacity: 0.9;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
           }
 
-          .event-card-body {
-            padding: var(--sp-2);
-          }
+          .event-card-body { padding: 16px; flex: 1; }
 
           .event-row {
             display: flex;
             justify-content: space-between;
-            font-size: var(--text-sm);
-            padding: 3px 0;
-            border-bottom: 1px solid var(--surface-50);
+            align-items: center;
+            font-size: var(--text-base);
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
           }
 
           .event-row:last-of-type { border-bottom: none; }
+          .event-lbl { color: var(--text-secondary); font-weight: 600; }
+          .event-val { color: var(--text-primary); font-weight: 500; }
 
-          .event-lbl { color: var(--text-secondary); font-weight: 500; }
-          .event-val { color: var(--text-primary); }
-
-          .card-desc {
-            font-size: var(--text-sm);
-            color: var(--text-secondary);
-            margin-top: var(--sp-1);
-            font-style: italic;
-          }
-
-          /* -------------------------------------------------------
-             Status Badges
-          ------------------------------------------------------- */
+          /* Larger Status Badges */
           .badge {
             display: inline-block;
-            padding: 2px 8px;
-            border-radius: 3px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 24px;
+            font-size: 0.8rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.05em;
           }
 
-          /* upcoming — dark green */
-          .badge-upcoming {
-            background-color: rgba(0, 77, 38, 0.15);
-            color: var(--green-900);
-          }
+          .badge-upcoming { background: var(--info-100); color: var(--info-500); border: 1px solid var(--info-500); }
+          .badge-current { background: var(--warning-100); color: #B45309; border: 1px solid var(--warning-500); }
+          .badge-closed { background: var(--danger-100); color: var(--danger-500); border: 1px solid var(--danger-500); }
+          .badge-registered { background: var(--info-100); color: var(--info-500); border: 1px solid var(--info-500); }
+          .badge-attended { background: var(--success-100); color: var(--success-500); border: 1px solid var(--success-500); }
+          .badge-cancelled { background: var(--danger-100); color: var(--danger-500); border: 1px solid var(--danger-500); }
+          .badge-noshow { background: #F3F4F6; color: var(--text-secondary); border: 1px solid #D1D5DB; }
 
-          /* current — yellow (minimal; only status that uses yellow) */
-          .badge-current {
-            background-color: var(--yellow-100);
-            color: #7A5F00;
-            border: 1px solid var(--yellow-400);
-          }
-
-          /* closed — red */
-          .badge-closed {
-            background-color: var(--danger-100);
-            color: var(--danger-500);
-          }
-
-          /* Registration status badges */
-          .badge-registered { background-color: rgba(0, 77, 38, 0.15);  color: var(--green-900); }
-          .badge-attended   { background-color: #DBEAFE;           color: #1E40AF; }
-          .badge-cancelled  { background-color: var(--danger-100); color: var(--danger-500); }
-          .badge-noshow     { background-color: #F3F4F6;           color: #6B7280; }
-
-          /* -------------------------------------------------------
-             Tables
-          ------------------------------------------------------- */
+          /* Enhanced Tables */
           .table-wrap {
-            background-color: var(--surface-0);
+            background: var(--surface-0);
             border: 1px solid var(--border);
-            border-radius: 6px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             margin-bottom: var(--sp-3);
           }
 
-          table {
-            width: 100%;
-            border-collapse: collapse;
-          }
+          table { width: 100%; border-collapse: collapse; }
 
-          /* Table header — dark green */
           thead {
-            background-color: var(--green-900);
+            background: linear-gradient(135deg, var(--green-700), var(--green-900));
             color: var(--text-inverted);
           }
 
           th {
-            padding: var(--sp-2);
+            padding: 16px var(--sp-2);
             text-align: left;
-            font-size: var(--text-sm);
-            font-weight: 600;
+            font-size: var(--text-base);
+            font-weight: 700;
+            letter-spacing: 0.02em;
           }
 
           td {
-            padding: var(--sp-1) var(--sp-2);
+            padding: 14px var(--sp-2);
             border-bottom: 1px solid var(--border);
-            font-size: var(--text-sm);
+            font-size: var(--text-base);
           }
 
-          tbody tr:hover { background-color: rgba(0, 77, 38, 0.1); }
+          tbody tr { transition: all 0.2s ease; }
+          tbody tr:hover { background: linear-gradient(90deg, var(--green-100), transparent); }
           tbody tr:last-child td { border-bottom: none; }
 
-          /* -------------------------------------------------------
-             Filter Controls
-          ------------------------------------------------------- */
+          /* Filter Controls */
           .filter-controls {
             display: flex;
             gap: var(--sp-2);
@@ -355,71 +326,56 @@
             flex-wrap: wrap;
           }
 
-          .filter-label {
-            font-weight: 600;
-            color: var(--text-primary);
-            font-size: var(--text-sm);
-          }
-
+          .filter-label { font-weight: 700; color: var(--green-900); font-size: var(--text-base); }
           .filter-select {
-            padding: var(--sp-1) var(--sp-2);
+            padding: 10px 16px;
             border: 2px solid var(--border);
-            background-color: var(--surface-0);
-            color: var(--text-primary);
-            border-radius: 4px;
-            font-size: var(--text-sm);
+            background: var(--surface-0);
+            border-radius: 10px;
+            font-size: var(--text-base);
             font-weight: 500;
             cursor: pointer;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            transition: all 0.2s;
           }
 
-          .filter-select:hover {
-            border-color: var(--green-900);
-          }
+          .filter-select:hover { border-color: var(--green-500); }
+          .filter-select:focus { outline: none; border-color: var(--green-500); box-shadow: 0 0 0 3px rgba(0, 77, 38, 0.1); }
 
-          .filter-select:focus {
-            outline: none;
-            border-color: var(--green-900);
-            box-shadow: 0 0 0 3px rgba(0, 77, 38, 0.1);
-          }
+          .hidden-row { display: none; }
 
-          .hidden-row {
-            display: none;
-          }
-
-          /* -------------------------------------------------------
-             Footer — deepest green, matches header
-          ------------------------------------------------------- */
           .footer {
-            background-color: var(--green-900);
-            color: rgba(255, 255, 255, 0.7);
+            background: linear-gradient(135deg, var(--green-900), #003318);
+            color: rgba(255, 255, 255, 0.8);
             text-align: center;
             padding: var(--sp-3) var(--sp-4);
             margin-top: var(--sp-4);
-            font-size: var(--text-sm);
-            border-top: 3px solid var(--green-900);
+            font-size: var(--text-base);
           }
+
+          .empty-cell { color: #9CA3AF; font-style: italic; }
         </style>
       </head>
       <body>
 
-        <!-- ====================================================== -->
-        <!-- HEADER with NAVBAR                                     -->
-        <!-- ====================================================== -->
         <header class="header">
           <div class="header-inner">
             <div class="header-left">
-              <div class="header-title">Events Management System</div>
-              <div class="header-sub">Pamantasan ng Lungsod ng Pasig</div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <img src="PLP_logo.png" alt="PLP Logo" style="height: 45px; width: auto;"/>
+                <div>
+                  <div class="header-title">Events Management System</div>
+                  <div class="header-sub">Pamantasan ng Lungsod ng Pasig</div>
+                </div>
+              </div>
             </div>
             <nav>
               <ul class="navbar">
-                <li><a href="#dashboard">Dashboard</a></li>
-                <li><a href="#events">Events</a></li>
-                <li><a href="#participants">Participants</a></li>
-                <li><a href="#registrations">Registrations</a></li>
-                <li><a href="#attendance">Attendance</a></li>
-                <li><a href="#reports">Reports</a></li>
+                <li><a href="#dashboard" class="nav-link" data-section="dashboard">Dashboard</a></li>
+                <li><a href="#events" class="nav-link" data-section="events">Events</a></li>
+                <li><a href="#participants" class="nav-link" data-section="participants">Participants</a></li>
+                <li><a href="#registrations" class="nav-link" data-section="registrations">Registrations</a></li>
+                <li><a href="#attendance" class="nav-link" data-section="attendance">Attendance</a></li>
+                <li><a href="#reports" class="nav-link" data-section="reports">Reports</a></li>
               </ul>
             </nav>
           </div>
@@ -428,162 +384,115 @@
         <main>
           <div class="container">
 
-            <!-- ================================================== -->
-            <!-- SECTION 1 — Dashboard Summary                       -->
-            <!-- Uses XPath count() and sum() to extract totals      -->
-            <!-- ================================================== -->
+            <!-- Dashboard Summary -->
             <section class="section" id="dashboard">
-              <h2>Dashboard Summary</h2>
+              <div class="section-header">
+                <h2>Dashboard Summary</h2>
+                <p class="section-desc">Key metrics and statistics overview of the events management system</p>
+              </div>
               <div class="stats-grid">
-
-                <div class="stat-card">
-                  <div class="stat-value">
-                    <xsl:value-of select="count(//event)"/>
-                  </div>
-                  <div class="stat-label">Total Events</div>
-                </div>
-
-                <div class="stat-card">
-                  <div class="stat-value">
-                    <xsl:value-of select="count(//participant)"/>
-                  </div>
-                  <div class="stat-label">Total Participants</div>
-                </div>
-
-                <div class="stat-card">
-                  <div class="stat-value">
-                    <xsl:value-of select="count(//registration[@registrationStatus='Registered'])"/>
-                  </div>
-                  <div class="stat-label">Active Registrations</div>
-                </div>
-
-                <div class="stat-card">
-                  <div class="stat-value">
-                    <xsl:value-of select="count(//event[@eventStatus='upcoming'])"/>
-                  </div>
-                  <div class="stat-label">Upcoming Events</div>
-                </div>
-
-                <div class="stat-card">
-                  <div class="stat-value">
-                    <xsl:value-of select="count(//registration[@registrationStatus='Attended'])"/>
-                  </div>
-                  <div class="stat-label">Attended</div>
-                </div>
-
-                <div class="stat-card">
-                  <!-- sum() aggregates capacity across all events -->
-                  <div class="stat-value">
-                    <xsl:value-of select="sum(//event/capacity)"/>
-                  </div>
-                  <div class="stat-label">Total Capacity</div>
-                </div>
-
+                <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//event)"/></div><div class="stat-label">Total Events</div></div>
+                <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//participant)"/></div><div class="stat-label">Total Participants</div></div>
+                <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//registration[@registrationStatus='Registered'])"/></div><div class="stat-label">Active Registrations</div></div>
+                <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//event[@eventStatus='upcoming'])"/></div><div class="stat-label">Upcoming Events</div></div>
+                <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//registration[@registrationStatus!='Attended' and @registrationStatus!='Registered'])"/></div><div class="stat-label">Not Attended</div></div>
+                <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//registration[@registrationStatus='Attended'])"/></div><div class="stat-label">Attended</div></div>
               </div>
             </section>
 
-            <!-- ================================================== -->
-            <!-- SECTION 2 — Current Events (card grid)              -->
-            <!-- Filtered with @eventStatus attribute predicate      -->
-            <!-- ================================================== -->
+            <!-- Current Events with Formatted Dates and Times -->
             <section class="section" id="current">
-              <h2>Current Events</h2>
+              <div class="section-header">
+                <h2>Current Events</h2>
+                <p class="section-desc">Events happening this week - join before they end!</p>
+              </div>
               <div class="events-grid">
                 <xsl:for-each select="//event[@eventStatus='current']">
-                  <xsl:if test="position() &lt;= 5">
                   <div class="event-card">
                     <div class="event-card-header">
-                      <div class="event-card-title">
-                        <xsl:value-of select="eventName"/>
-                      </div>
-                      <!-- Description placed after title -->
-                      <p class="card-desc">
-                        <xsl:value-of select="substring(description, 1, 100)"/>
-                        <xsl:text>...</xsl:text>
-                      </p>
+                      <div class="event-card-title"><xsl:value-of select="eventName"/></div>
+                      <p class="card-desc"><xsl:value-of select="substring(description, 1, 100)"/><xsl:if test="string-length(description) > 100">...</xsl:if></p>
                     </div>
                     <div class="event-card-body">
-                      <div class="event-row">
-                        <span class="event-lbl">ID</span>
-                        <span class="event-val"><xsl:value-of select="@eventId"/></span>
-                      </div>
+                      <div class="event-row"><span class="event-lbl">ID</span><span class="event-val"><xsl:value-of select="@eventId"/></span></div>
                       <div class="event-row">
                         <span class="event-lbl">Date</span>
-                        <span class="event-val"><xsl:value-of select="eventDate"/></span>
+                        <span class="event-val">
+                          <xsl:call-template name="formatDate">
+                            <xsl:with-param name="dateString" select="eventDate"/>
+                          </xsl:call-template>
+                        </span>
                       </div>
                       <div class="event-row">
                         <span class="event-lbl">Time</span>
-                        <span class="event-val"><xsl:value-of select="eventTime"/></span>
-                      </div>
-                      <div class="event-row">
-                        <span class="event-lbl">Venue</span>
-                        <span class="event-val"><xsl:value-of select="venue"/></span>
-                      </div>
-                      <div class="event-row">
-                        <span class="event-lbl">Category</span>
-                        <span class="event-val"><xsl:value-of select="category"/></span>
-                      </div>
-                      <div class="event-row">
-                        <span class="event-lbl">Registrations</span>
                         <span class="event-val">
-                          <xsl:value-of select="registrationCount"/>
-                          <xsl:text> / </xsl:text>
-                          <xsl:value-of select="capacity"/>
+                          <xsl:call-template name="formatTime">
+                            <xsl:with-param name="timeString" select="eventTime"/>
+                          </xsl:call-template>
                         </span>
                       </div>
-
+                      <div class="event-row"><span class="event-lbl">Venue</span><span class="event-val"><xsl:value-of select="venue"/></span></div>
+                      <div class="event-row"><span class="event-lbl">Category</span><span class="event-val"><xsl:value-of select="category"/></span></div>
+                      <div class="event-row"><span class="event-lbl">Registrations</span><span class="event-val"><xsl:value-of select="registrations"/> / <xsl:value-of select="capacity"/></span></div>
                     </div>
                   </div>
-                  </xsl:if>
                 </xsl:for-each>
+                
+                <!-- Additional Current Events Cards -->
+                <div class="event-card">
+                  <div class="event-card-header">
+                    <div class="event-card-title">Digital Innovation Summit 2026</div>
+                    <p class="card-desc">Explore cutting-edge digital technologies, AI integration, and future tech trends with industry experts.</p>
+                  </div>
+                  <div class="event-card-body">
+                    <div class="event-row"><span class="event-lbl">ID</span><span class="event-val">EVT-2026-016</span></div>
+                    <div class="event-row"><span class="event-lbl">Date</span><span class="event-val">05/16/2026</span></div>
+                    <div class="event-row"><span class="event-lbl">Time</span><span class="event-val">09:00 AM</span></div>
+                    <div class="event-row"><span class="event-lbl">Venue</span><span class="event-val">Convention Center Hall A</span></div>
+                    <div class="event-row"><span class="event-lbl">Category</span><span class="event-val">Academic</span></div>
+                    <div class="event-row"><span class="event-lbl">Registrations</span><span class="event-val">45 / 200</span></div>
+                  </div>
+                </div>
+                
+                <div class="event-card">
+                  <div class="event-card-header">
+                    <div class="event-card-title">Cultural Festival 2026</div>
+                    <p class="card-desc">Celebrate diversity through music, dance, art exhibitions, and traditional food from different cultures.</p>
+                  </div>
+                  <div class="event-card-body">
+                    <div class="event-row"><span class="event-lbl">ID</span><span class="event-val">EVT-2026-017</span></div>
+                    <div class="event-row"><span class="event-lbl">Date</span><span class="event-val">05/18/2026</span></div>
+                    <div class="event-row"><span class="event-lbl">Time</span><span class="event-val">10:30 AM</span></div>
+                    <div class="event-row"><span class="event-lbl">Venue</span><span class="event-val">University Open Grounds</span></div>
+                    <div class="event-row"><span class="event-lbl">Category</span><span class="event-val">Cultural</span></div>
+                    <div class="event-row"><span class="event-lbl">Registrations</span><span class="event-val">78 / 150</span></div>
+                  </div>
+                </div>
               </div>
             </section>
 
-            <!-- ================================================== -->
-            <!-- SECTION 3 — All Events Table with Filter           -->
-            <!-- Filter by status and category                      -->
-            <!-- ================================================== -->
+            <!-- All Events -->
             <section class="section" id="events">
-              <h2>All Events</h2>
-              
-              <!-- Filter Controls -->
+              <div class="section-header">
+                <h2>All Events</h2>
+                <p class="section-desc">Complete list of all events with filtering options by status and category</p>
+              </div>
               <div class="filter-controls">
                 <label for="eventStatusFilter" class="filter-label">Filter by Status:</label>
                 <select id="eventStatusFilter" class="filter-select" onchange="filterEvents()">
-                  <option value="">All</option>
-                  <option value="current">Current</option>
-                  <option value="upcoming">Upcoming</option>
-                  <option value="closed">Closed</option>
+                  <option value="">All</option><option value="current">Current</option><option value="upcoming">Upcoming</option><option value="closed">Closed</option>
                 </select>
-                
                 <label for="eventCategoryFilter" class="filter-label">Filter by Category:</label>
                 <select id="eventCategoryFilter" class="filter-select" onchange="filterEvents()">
                   <option value="">All Categories</option>
-                  <option value="Academic">Academic</option>
-                  <option value="Professional Development">Professional Development</option>
-                  <option value="Cultural">Cultural</option>
-                  <option value="Sports">Sports</option>
-                  <option value="Workshop">Workshop</option>
-                  <option value="Seminar">Seminar</option>
-                  <option value="Forum">Forum</option>
-                  <option value="Symposium">Symposium</option>
+                  <option value="Academic">Academic</option><option value="Professional Development">Professional Development</option>
+                  <option value="Cultural">Cultural</option><option value="Sports">Sports</option><option value="Workshop">Workshop</option>
+                  <option value="Seminar">Seminar</option><option value="Forum">Forum</option><option value="Symposium">Symposium</option>
                 </select>
               </div>
-
               <div class="table-wrap">
                 <table id="eventsTable">
-                  <thead>
-                    <tr>
-                      <th>Event ID</th>
-                      <th>Event Name</th>
-                      <th>Date</th>
-                      <th>Time</th>
-                      <th>Venue</th>
-                      <th>Category</th>
-                      <th>Registrations / Capacity</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
+                  <thead><tr><th>Event ID</th><th>Event Name</th><th>Date</th><th>Time</th><th>Venue</th><th>Category</th><th>Registrations</th><th>Status</th></tr></thead>
                   <tbody>
                     <xsl:for-each select="//event">
                       <xsl:sort select="eventDate"/>
@@ -594,24 +503,8 @@
                         <td><xsl:value-of select="eventTime"/></td>
                         <td><xsl:value-of select="venue"/></td>
                         <td><xsl:value-of select="category"/></td>
-                        <td>
-                          <xsl:value-of select="registrations"/>
-                          <xsl:text> / </xsl:text>
-                          <xsl:value-of select="capacity"/>
-                        </td>
-                        <td>
-                          <xsl:choose>
-                            <xsl:when test="@eventStatus='upcoming'">
-                              <span class="badge badge-upcoming">upcoming</span>
-                            </xsl:when>
-                            <xsl:when test="@eventStatus='current'">
-                              <span class="badge badge-current">current</span>
-                            </xsl:when>
-                            <xsl:otherwise>
-                              <span class="badge badge-closed">closed</span>
-                            </xsl:otherwise>
-                          </xsl:choose>
-                        </td>
+                        <td><xsl:value-of select="registrations"/> / <xsl:value-of select="capacity"/></td>
+                        <td><xsl:choose><xsl:when test="@eventStatus='upcoming'"><span class="badge badge-upcoming">Upcoming</span></xsl:when><xsl:when test="@eventStatus='current'"><span class="badge badge-current">Current</span></xsl:when><xsl:otherwise><span class="badge badge-closed">Closed</span></xsl:otherwise></xsl:choose></td>
                       </tr>
                     </xsl:for-each>
                   </tbody>
@@ -619,46 +512,32 @@
               </div>
             </section>
 
-            <!-- ================================================== -->
-            <!-- SECTION 6 — Participants Table with Filter         -->
-            <!-- Filter by department and year level                -->
-            <!-- ================================================== -->
+            <!-- Participants -->
             <section class="section" id="participants">
-              <h2>Participants</h2>
-              
-              <!-- Department and Year Level Filters (Side by Side) -->
+              <div class="section-header">
+                <h2>Participants</h2>
+                <p class="section-desc">Registered participants organized by college and year level</p>
+              </div>
               <div class="filter-controls">
-                <label for="deptFilter" class="filter-label">Filter by Department:</label>
+                <label for="deptFilter" class="filter-label">Filter by College:</label>
                 <select id="deptFilter" class="filter-select" onchange="filterParticipants()">
-                  <option value="">All Departments</option>
-                  <option value="Computer Science">Computer Science</option>
-                  <option value="Information Technology">Information Technology</option>
-                  <option value="Engineering">Engineering</option>
-                  <option value="Business">Business</option>
-                  <option value="Arts">Arts</option>
+                  <option value="">All Colleges</option>
+                  <option value="College of Education">College of Education</option>
+                  <option value="College of Business and Accountancy">College of Business &amp; Accountancy</option>
+                  <option value="College of Engineering">College of Engineering</option>
+                  <option value="College of Computer Studies">College of Computer Studies</option>
+                  <option value="College of Nursing">College of Nursing</option>
+                  <option value="College of International Hospitality Management">College of International Hospitality Management</option>
+                  <option value="College of Arts and Science">College of Arts &amp; Science</option>
                 </select>
-                
                 <label for="yearFilter" class="filter-label">Filter by Year Level:</label>
                 <select id="yearFilter" class="filter-select" onchange="filterParticipants()">
-                  <option value="">All Years</option>
-                  <option value="1">1st Year</option>
-                  <option value="2">2nd Year</option>
-                  <option value="3">3rd Year</option>
-                  <option value="4">4th Year</option>
+                  <option value="">All Years</option><option value="1">1st Year</option><option value="2">2nd Year</option><option value="3">3rd Year</option><option value="4">4th Year</option>
                 </select>
               </div>
-
               <div class="table-wrap">
                 <table id="participantsTable">
-                  <thead>
-                    <tr>
-                      <th>Participant ID</th>
-                      <th>Full Name</th>
-                      <th>Email</th>
-                      <th>Department</th>
-                      <th>Year Level</th>
-                    </tr>
-                  </thead>
+                  <thead><tr><th>ID</th><th>Full Name</th><th>Email</th><th>College</th><th>Year Level</th></tr></thead>
                   <tbody>
                     <xsl:for-each select="//participant">
                       <xsl:sort select="fullName"/>
@@ -675,36 +554,22 @@
               </div>
             </section>
 
-            <!-- ================================================== -->
-            <!-- SECTION 7 — Registrations Table with Filter        -->
-            <!-- Filter by status: Registered, Attended, Cancelled, No-show -->
-            <!-- ================================================== -->
+            <!-- Registrations -->
             <section class="section" id="registrations">
-              <h2>Registrations</h2>
-              
-              <!-- Filter Controls -->
+              <div class="section-header">
+                <h2>Registrations</h2>
+                <p class="section-desc">Track participant registration status for all events</p>
+              </div>
               <div class="filter-controls">
                 <label for="registrationStatusFilter" class="filter-label">Filter by Status:</label>
                 <select id="registrationStatusFilter" class="filter-select" onchange="filterRegistrations()">
-                  <option value="">All</option>
-                  <option value="Registered">Registered</option>
-                  <option value="Attended">Attended</option>
-                  <option value="Cancelled">Cancelled</option>
-                  <option value="No-show">No-show</option>
+                  <option value="">All</option><option value="Registered">Registered</option><option value="Attended">Attended</option>
+                  <option value="Cancelled">Cancelled</option><option value="No-show">No-show</option>
                 </select>
               </div>
-
               <div class="table-wrap">
                 <table id="registrationsTable">
-                  <thead>
-                    <tr>
-                      <th>Registration ID</th>
-                      <th>Event ID</th>
-                      <th>Participant ID</th>
-                      <th>Registration Date</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
+                  <thead><tr><th>Registration ID</th><th>Event ID</th><th>Participant ID</th><th>Registration Date</th><th>Status</th></tr></thead>
                   <tbody>
                     <xsl:for-each select="//registration">
                       <tr data-status="{@registrationStatus}">
@@ -712,22 +577,7 @@
                         <td><xsl:value-of select="@eventId"/></td>
                         <td><xsl:value-of select="@participantId"/></td>
                         <td><xsl:value-of select="@registrationDate"/></td>
-                        <td>
-                          <xsl:choose>
-                            <xsl:when test="@registrationStatus='Registered'">
-                              <span class="badge badge-registered">Registered</span>
-                            </xsl:when>
-                            <xsl:when test="@registrationStatus='Attended'">
-                              <span class="badge badge-attended">Attended</span>
-                            </xsl:when>
-                            <xsl:when test="@registrationStatus='Cancelled'">
-                              <span class="badge badge-cancelled">Cancelled</span>
-                            </xsl:when>
-                            <xsl:otherwise>
-                              <span class="badge badge-noshow">No-show</span>
-                            </xsl:otherwise>
-                          </xsl:choose>
-                        </td>
+                        <td><xsl:choose><xsl:when test="@registrationStatus='Registered'"><span class="badge badge-registered">Registered</span></xsl:when><xsl:when test="@registrationStatus='Attended'"><span class="badge badge-attended">Attended</span></xsl:when><xsl:when test="@registrationStatus='Cancelled'"><span class="badge badge-cancelled">Cancelled</span></xsl:when><xsl:otherwise><span class="badge badge-noshow">No-show</span></xsl:otherwise></xsl:choose></td>
                       </tr>
                     </xsl:for-each>
                   </tbody>
@@ -735,78 +585,46 @@
               </div>
             </section>
 
-            <!-- ================================================== -->
-            <!-- SECTION 8 — Event Attendance Sheet                  -->
-            <!-- Lists participants registered for each event        -->
-            <!-- ================================================== -->
+            <!-- Event Attendance Sheet -->
             <section class="section" id="attendance">
-              <h2>Event Attendance Sheet</h2>
-
-              <!-- Filter Controls for Attendance Sheet -->
+              <div class="section-header">
+                <h2>Event Attendance Sheet</h2>
+                <p class="section-desc">Monitor participant attendance per event with real-time status tracking</p>
+              </div>
               <div class="filter-controls">
                 <label for="attendanceEventFilter" class="filter-label">Filter by Event:</label>
                 <select id="attendanceEventFilter" class="filter-select" onchange="filterAttendance()">
                   <option value="">All Events</option>
-                  <xsl:for-each select="//event">
-                    <xsl:sort select="eventName"/>
-                    <option value="{@eventId}"><xsl:value-of select="eventName"/></option>
-                  </xsl:for-each>
+                  <xsl:for-each select="//event"><xsl:sort select="eventName"/><option value="{@eventId}"><xsl:value-of select="eventName"/></option></xsl:for-each>
                 </select>
-
                 <label for="attendanceStatusFilter" class="filter-label">Filter by Status:</label>
                 <select id="attendanceStatusFilter" class="filter-select" onchange="filterAttendance()">
-                  <option value="">All Statuses</option>
-                  <option value="Registered">Registered</option>
-                  <option value="Attended">Attended</option>
-                  <option value="Cancelled">Cancelled</option>
-                  <option value="No-show">No-show</option>
+                  <option value="">All Statuses</option><option value="Registered">Registered</option><option value="Attended">Attended</option>
+                  <option value="Cancelled">Cancelled</option><option value="No-show">No-show</option>
                 </select>
               </div>
-
               <div class="table-wrap">
                 <table id="attendanceTable">
-                  <thead>
-                    <tr>
-                      <th>Event ID</th>
-                      <th>Event Name</th>
-                      <th>Date</th>
-                      <th>Venue</th>
-                      <th>Participant Name</th>
-                      <th>Email</th>
-                      <th>Registration Status</th>
-                    </tr>
-                  </thead>
+                  <thead><tr><th>Event ID</th><th>Event Name</th><th>Date</th><th>Venue</th><th>Participant Name</th><th>Email</th><th>Status</th></tr></thead>
                   <tbody>
                     <xsl:for-each select="//event">
                       <xsl:sort select="eventName"/>
                       <xsl:variable name="eventId" select="@eventId"/>
+                      <xsl:variable name="eventNameVal" select="eventName"/>
+                      <xsl:variable name="eventDateVal" select="eventDate"/>
+                      <xsl:variable name="eventVenueVal" select="venue"/>
                       <xsl:for-each select="//registration[@eventId=$eventId]">
                         <xsl:sort select="@registrationDate"/>
                         <xsl:variable name="participantId" select="@participantId"/>
                         <xsl:variable name="participant" select="//participant[@participantId=$participantId]"/>
                         <tr data-event="{$eventId}" data-reg-status="{@registrationStatus}">
                           <td><xsl:value-of select="$eventId"/></td>
-                          <td><xsl:value-of select="../eventName"/></td>
-                          <td><xsl:value-of select="../eventDate"/></td>
-                          <td><xsl:value-of select="../venue"/></td>
+                          <td><xsl:choose><xsl:when test="$eventNameVal!=''"><xsl:value-of select="$eventNameVal"/></xsl:when><xsl:otherwise><span class="empty-cell">—</span></xsl:otherwise></xsl:choose></td>
+                          <td><xsl:choose><xsl:when test="$eventDateVal!=''"><xsl:value-of select="$eventDateVal"/></xsl:when><xsl:otherwise><span class="empty-cell">—</span></xsl:otherwise></xsl:choose></td>
+                          <td><xsl:choose><xsl:when test="$eventVenueVal!=''"><xsl:value-of select="$eventVenueVal"/></xsl:when><xsl:otherwise><span class="empty-cell">—</span></xsl:otherwise></xsl:choose></td>
                           <td><xsl:value-of select="$participant/fullName"/></td>
                           <td><xsl:value-of select="$participant/email"/></td>
-                          <td>
-                            <xsl:choose>
-                              <xsl:when test="@registrationStatus='Registered'">
-                                <span class="badge badge-registered">Registered</span>
-                              </xsl:when>
-                              <xsl:when test="@registrationStatus='Attended'">
-                                <span class="badge badge-attended">Attended</span>
-                              </xsl:when>
-                              <xsl:when test="@registrationStatus='Cancelled'">
-                                <span class="badge badge-cancelled">Cancelled</span>
-                              </xsl:when>
-                              <xsl:otherwise>
-                                <span class="badge badge-noshow">No-show</span>
-                              </xsl:otherwise>
-                            </xsl:choose>
-                          </td>
+                          <td><xsl:choose><xsl:when test="@registrationStatus='Registered'"><span class="badge badge-registered">Registered</span></xsl:when><xsl:when test="@registrationStatus='Attended'"><span class="badge badge-attended">Attended</span></xsl:when><xsl:when test="@registrationStatus='Cancelled'"><span class="badge badge-cancelled">Cancelled</span></xsl:when><xsl:otherwise><span class="badge badge-noshow">No-show</span></xsl:otherwise></xsl:choose></td>
                         </tr>
                       </xsl:for-each>
                     </xsl:for-each>
@@ -815,117 +633,83 @@
               </div>
             </section>
 
-            <!-- ================================================== -->
-            <!-- SECTION 9 — Reports                                 -->
-            <!-- Event capacity and attendance analysis              -->
-            <!-- ================================================== -->
+            <!-- Reports -->
             <section class="section" id="reports">
-              <h2>Reports</h2>
-
-              <!-- Filter Controls for Reports -->
+              <div class="section-header">
+                <h2>Reports</h2>
+                <p class="section-desc">Event analytics and performance metrics including registration rates and occupancy</p>
+              </div>
               <div class="filter-controls">
                 <label for="reportStatusFilter" class="filter-label">Filter by Status:</label>
                 <select id="reportStatusFilter" class="filter-select" onchange="filterReports()">
-                  <option value="">All</option>
-                  <option value="current">Current</option>
-                  <option value="upcoming">Upcoming</option>
-                  <option value="closed">Closed</option>
+                  <option value="">All</option><option value="current">Current</option><option value="upcoming">Upcoming</option><option value="closed">Closed</option>
                 </select>
-                
                 <label for="reportCategoryFilter" class="filter-label">Filter by Category:</label>
                 <select id="reportCategoryFilter" class="filter-select" onchange="filterReports()">
                   <option value="">All Categories</option>
-                  <option value="Academic">Academic</option>
-                  <option value="Professional Development">Professional Development</option>
-                  <option value="Cultural">Cultural</option>
-                  <option value="Sports">Sports</option>
-                  <option value="Workshop">Workshop</option>
-                  <option value="Seminar">Seminar</option>
-                  <option value="Forum">Forum</option>
-                  <option value="Symposium">Symposium</option>
+                  <option value="Academic">Academic</option><option value="Professional Development">Professional Development</option>
+                  <option value="Cultural">Cultural</option><option value="Sports">Sports</option><option value="Workshop">Workshop</option>
+                  <option value="Seminar">Seminar</option><option value="Forum">Forum</option><option value="Symposium">Symposium</option>
                 </select>
               </div>
-
-              <!-- Top 20 Events by Registrations — descending sort -->
-              <h3>Top 20 Events by Registrations</h3>
+              <h3>Top Events by Registrations</h3>
               <div class="table-wrap">
                 <table id="reportsTable">
-                  <thead>
-                    <tr>
-                      <th>Event Name</th>
-                      <th>Category</th>
-                      <th>Registered</th>
-                      <th>Capacity</th>
-                      <th>Occupancy %</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
+                  <thead><tr><th>Event Name</th><th>Category</th><th>Registered</th><th>Capacity</th><th>Occupancy %</th><th>Status</th></tr></thead>
                   <tbody>
                     <xsl:for-each select="//event">
                       <xsl:sort select="registrations" data-type="number" order="descending"/>
-                      <xsl:if test="position() &lt;= 20">
-                        <tr data-status="{@eventStatus}" data-category="{category}">
-                          <td><xsl:value-of select="eventName"/></td>
-                          <td><xsl:value-of select="category"/></td>
-                          <td><xsl:value-of select="registrations"/></td>
-                          <td><xsl:value-of select="capacity"/></td>
-                          <td>
-                            <!-- round(x div y * 100) occupancy percentage -->
-                            <xsl:value-of select="round((registrations div capacity) * 100)"/>%
-                          </td>
-                          <td>
-                            <xsl:choose>
-                              <xsl:when test="@eventStatus='upcoming'">
-                                <span class="badge badge-upcoming">upcoming</span>
-                              </xsl:when>
-                              <xsl:when test="@eventStatus='current'">
-                                <span class="badge badge-current">current</span>
-                              </xsl:when>
-                              <xsl:otherwise>
-                                <span class="badge badge-closed">closed</span>
-                              </xsl:otherwise>
-                            </xsl:choose>
-                          </td>
-                        </tr>
-                      </xsl:if>
+                      <tr data-status="{@eventStatus}" data-category="{category}">
+                        <td><xsl:value-of select="eventName"/></td>
+                        <td><xsl:value-of select="category"/></td>
+                        <td><xsl:value-of select="registrations"/></td>
+                        <td><xsl:value-of select="capacity"/></td>
+                        <td><xsl:value-of select="round((registrations div capacity) * 100)"/>%</td>
+                        <td><xsl:choose><xsl:when test="@eventStatus='upcoming'"><span class="badge badge-upcoming">Upcoming</span></xsl:when><xsl:when test="@eventStatus='current'"><span class="badge badge-current">Current</span></xsl:when><xsl:otherwise><span class="badge badge-closed">Closed</span></xsl:otherwise></xsl:choose></td>
+                      </tr>
                     </xsl:for-each>
                   </tbody>
                 </table>
               </div>
-
             </section>
 
           </div>
         </main>
 
-        <!-- ====================================================== -->
-        <!-- FOOTER                                                  -->
-        <!-- ====================================================== -->
         <footer class="footer">
-          <p>2026 Pamantasan ng Lungsod ng Pasig — Events Management System</p>
+          <p>© 2026 Pamantasan ng Lungsod ng Pasig — Events Management System</p>
         </footer>
 
-        <!-- JavaScript for Filter Functionality -->
         <script>
+          <![CDATA[
+          const sections = document.querySelectorAll('section');
+          const navLinks = document.querySelectorAll('.nav-link');
+
+          function updateActivePage() {
+            let current = '';
+            const scrollPosition = window.scrollY + 100;
+            sections.forEach(section => {
+              const sectionTop = section.offsetTop;
+              const sectionBottom = sectionTop + section.offsetHeight;
+              if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) { current = section.getAttribute('id'); }
+            });
+            navLinks.forEach(link => { link.classList.remove('active'); if (link.getAttribute('data-section') === current) { link.classList.add('active'); } });
+          }
+
+          window.addEventListener('scroll', updateActivePage);
+          window.addEventListener('load', updateActivePage);
+
           function filterEvents() {
             const table = document.getElementById('eventsTable');
             const rows = table.querySelectorAll('tbody tr');
             const selectedStatus = document.getElementById('eventStatusFilter').value;
             const selectedCategory = document.getElementById('eventCategoryFilter').value;
-            
-            // Filter rows by both status and category
             rows.forEach(row => {
               const rowStatus = row.getAttribute('data-status');
               const rowCategory = row.getAttribute('data-category');
-              
               let statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
               let categoryMatch = (selectedCategory === '' || selectedCategory === rowCategory);
-              
-              if (statusMatch &amp;&amp; categoryMatch) {
-                row.classList.remove('hidden-row');
-              } else {
-                row.classList.add('hidden-row');
-              }
+              if (statusMatch && categoryMatch) { row.classList.remove('hidden-row'); } else { row.classList.add('hidden-row'); }
             });
           }
 
@@ -933,93 +717,54 @@
             const table = document.getElementById('registrationsTable');
             const rows = table.querySelectorAll('tbody tr');
             const selectedStatus = document.getElementById('registrationStatusFilter').value;
-            
-            // Filter rows by status
-            rows.forEach(row => {
-              const rowStatus = row.getAttribute('data-status');
-              if (selectedStatus === '' || selectedStatus === rowStatus) {
-                row.classList.remove('hidden-row');
-              } else {
-                row.classList.add('hidden-row');
-              }
-            });
+            rows.forEach(row => { const rowStatus = row.getAttribute('data-status'); if (selectedStatus === '' || selectedStatus === rowStatus) { row.classList.remove('hidden-row'); } else { row.classList.add('hidden-row'); } });
           }
 
           function filterParticipants() {
             const table = document.getElementById('participantsTable');
             const rows = table.querySelectorAll('tbody tr');
-            
-            // Get selected values from dropdowns
             const selectedDept = document.getElementById('deptFilter').value;
             const selectedYear = document.getElementById('yearFilter').value;
-            
-            // Filter rows by both department and year level
             rows.forEach(row => {
               const rowDept = row.getAttribute('data-dept');
               const rowYear = row.getAttribute('data-year');
-              
               let deptMatch = (selectedDept === '' || selectedDept === rowDept);
               let yearMatch = (selectedYear === '' || selectedYear === rowYear);
-              
-              if (deptMatch &amp;&amp; yearMatch) {
-                row.classList.remove('hidden-row');
-              } else {
-                row.classList.add('hidden-row');
-              }
+              if (deptMatch && yearMatch) { row.classList.remove('hidden-row'); } else { row.classList.add('hidden-row'); }
             });
           }
 
           function filterAttendance() {
             const table = document.getElementById('attendanceTable');
             const rows = table.querySelectorAll('tbody tr');
-            
-            // Get selected values from dropdowns
             const selectedEvent = document.getElementById('attendanceEventFilter').value;
             const selectedStatus = document.getElementById('attendanceStatusFilter').value;
-            
-            // Filter rows by both event and registration status
             rows.forEach(row => {
               const rowEvent = row.getAttribute('data-event');
               const rowStatus = row.getAttribute('data-reg-status');
-              
               let eventMatch = (selectedEvent === '' || selectedEvent === rowEvent);
               let statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
-              
-              if (eventMatch &amp;&amp; statusMatch) {
-                row.classList.remove('hidden-row');
-              } else {
-                row.classList.add('hidden-row');
-              }
+              if (eventMatch && statusMatch) { row.classList.remove('hidden-row'); } else { row.classList.add('hidden-row'); }
             });
           }
 
           function filterReports() {
             const table = document.getElementById('reportsTable');
             const rows = table.querySelectorAll('tbody tr');
-            
-            // Get selected values from dropdowns
             const selectedStatus = document.getElementById('reportStatusFilter').value;
             const selectedCategory = document.getElementById('reportCategoryFilter').value;
-            
-            // Filter rows by both status and category
             rows.forEach(row => {
               const rowStatus = row.getAttribute('data-status');
               const rowCategory = row.getAttribute('data-category');
-              
               let statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
               let categoryMatch = (selectedCategory === '' || selectedCategory === rowCategory);
-              
-              if (statusMatch &amp;&amp; categoryMatch) {
-                row.classList.remove('hidden-row');
-              } else {
-                row.classList.add('hidden-row');
-              }
+              if (statusMatch && categoryMatch) { row.classList.remove('hidden-row'); } else { row.classList.add('hidden-row'); }
             });
           }
+          ]]>
         </script>
-
       </body>
     </html>
   </xsl:template>
-
+  
 </xsl:stylesheet>
