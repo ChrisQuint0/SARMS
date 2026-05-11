@@ -1,0 +1,79 @@
+<!-- 
+  Events Management System - Document Type Definition (DTD)
+  Defines the structure and validation rules for events-data.xml
+  
+  Structure:
+  - eventManagementSystem (root)
+    - events (collection of event records)
+      - event (individual event)
+    - participants (collection of participant records)
+      - participant (individual participant)
+    - registrations (collection of registration records)
+      - registration (individual registration)
+-->
+
+<!-- Root Element: eventManagementSystem contains all data -->
+<!ELEMENT eventManagementSystem (events, participants, registrations)>
+
+<!-- ============================
+     EVENTS SECTION
+     ============================ -->
+<!ELEMENT events (event+)>
+
+<!-- Event Record with eventId attribute (required) -->
+<!ELEMENT event (eventName, eventDate, venue, eventDescription?)>
+<!ATTLIST event eventId ID #REQUIRED>
+
+<!-- Event Name: text content -->
+<!ELEMENT eventName (#PCDATA)>
+
+<!-- Event Date: date in YYYY-MM-DD format -->
+<!ELEMENT eventDate (#PCDATA)>
+
+<!-- Venue: location of the event -->
+<!ELEMENT venue (#PCDATA)>
+
+<!-- Event Description: optional description -->
+<!ELEMENT eventDescription (#PCDATA)>
+
+<!-- ============================
+     PARTICIPANTS SECTION
+     ============================ -->
+<!ELEMENT participants (participant+)>
+
+<!-- Participant Record with participantId attribute (required, unique) -->
+<!ELEMENT participant (fullName, email, department, studentId)>
+<!ATTLIST participant participantId ID #REQUIRED>
+
+<!-- Full Name of participant -->
+<!ELEMENT fullName (#PCDATA)>
+
+<!-- Email address -->
+<!ELEMENT email (#PCDATA)>
+
+<!-- Department affiliation -->
+<!ELEMENT department (#PCDATA)>
+
+<!-- Student ID -->
+<!ELEMENT studentId (#PCDATA)>
+
+<!-- ============================
+     REGISTRATIONS SECTION
+     ============================ -->
+<!ELEMENT registrations (registration+)>
+
+<!-- Registration Record linking participant to event -->
+<!ELEMENT registration (participantId, eventId, registrationDate, registrationStatus)>
+<!ATTLIST registration registrationId ID #REQUIRED>
+
+<!-- Participant ID reference (matches participant) -->
+<!ELEMENT participantId (#PCDATA)>
+
+<!-- Event ID reference (matches event) -->
+<!ELEMENT eventId (#PCDATA)>
+
+<!-- Registration Date: date when participant registered -->
+<!ELEMENT registrationDate (#PCDATA)>
+
+<!-- Registration Status: "Registered" or "Pending" -->
+<!ELEMENT registrationStatus (#PCDATA)>

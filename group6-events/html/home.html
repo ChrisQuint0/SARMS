@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Management System - Home</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        main.main {
+            padding-top: 0;
+        }
+
+        .landing-hero {
+            background: linear-gradient(135deg, #004D26 0%, #006B35 50%, #008A45 100%);
+            color: #FFFFFF;
+            min-height: 100vh; 
+            display: flex;
+            align-items: center; 
+            position: relative;
+            overflow: hidden;
+        }
+
+        .landing-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .landing-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -20%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .landing-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .landing-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            color: #FFFFFF;
+        }
+
+        .landing-hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.6;
+        }
+
+        .landing-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .landing-btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .landing-btn-primary {
+            background-color: #FFFFFF;
+            color: #006B35;
+        }
+
+        .landing-btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .landing-btn-secondary {
+            background-color: transparent;
+            color: #FFFFFF;
+            border: 2px solid #FFFFFF;
+        }
+
+        .landing-btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .landing-features {
+            padding: 4rem 0;
+        }
+
+        .landing-features h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #111827;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: #FFFFFF;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border: 1px solid #E5E7EB;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+            border-color: #008A45;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #006B35;
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: #4B5563;
+            line-height: 1.6;
+        }
+
+        .landing-stats {
+            background: #F8FAFC;
+            padding: 4rem 0;
+            border-top: 1px solid #E5E7EB;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .landing-stats h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #111827;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #008A45;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item .label {
+            color: #4B5563;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .landing-cta-section {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .landing-cta-section h2 {
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: #111827;
+        }
+
+        .landing-cta-section p {
+            font-size: 1.1rem;
+            color: #4B5563;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .landing-hero {
+                padding: 4rem 0;
+            }
+
+            .landing-hero h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .landing-hero p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .landing-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .landing-features h2,
+            .landing-stats h2,
+            .landing-cta-section h2 {
+                font-size: 1.75rem;
+            }
+
+            .landing-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .landing-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER / NAVIGATION -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Events Management</div>
+                <nav class="nav">
+                    <a href="home.html" class="active">Home</a>
+                    <a href="index.html">Dashboard</a>
+                    <a href="events.html">Events</a>
+                    <a href="participants.html">Participants</a>
+                    <a href="reports.html">Reports</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+        <!-- HERO SECTION -->
+        <section class="landing-hero">
+            <div class="container">
+                <div class="landing-hero-content">
+                    <h1>Smart Event Management for Universities</h1>
+                    <p>Streamline your event operations with real-time data, participant tracking, and advanced analytics to make every event a success.</p>
+                    <div class="landing-cta">
+                        <a href="index.html" class="landing-btn landing-btn-primary">Go to Dashboard</a>
+                        <a href="events.html" class="landing-btn landing-btn-secondary">Browse Events</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES SECTION -->
+        <section class="landing-features">
+            <div class="container">
+                <h2>Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Real-Time Dashboard</h3>
+                        <p>Monitor all events and registrations with live statistics and instant insights into event performance.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>Participant Tracking</h3>
+                        <p>Comprehensive directory of all participants with registration status, department information, and event history.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3>Advanced Analytics</h3>
+                        <p>Generate detailed reports, attendance sheets, and statistical analysis to optimize event planning and execution.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Event Management</h3>
+                        <p>Browse and manage all university events with detailed venue information, dates, and registration metrics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATISTICS SECTION -->
+        <section class="landing-stats">
+            <div class="container">
+                <h2>By The Numbers</h2>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="number">50</div>
+                        <div class="label">Total Events</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">125</div>
+                        <div class="label">Registered Participants</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">200</div>
+                        <div class="label">Total Registrations</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">80%</div>
+                        <div class="label">Confirmation Rate</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="landing-cta-section">
+            <div class="container">
+                <h2>Ready to Manage Events Smarter?</h2>
+                <p>Access comprehensive event data and analytics to optimize your university's event strategy.</p>
+                <a href="index.html" class="landing-btn landing-btn-primary">View Dashboard</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 University Events Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

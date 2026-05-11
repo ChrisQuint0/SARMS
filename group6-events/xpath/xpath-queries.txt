@@ -1,0 +1,194 @@
+<!-- 
+  Events Management System - XPath Queries
+  Collection of XPath expressions for querying and filtering XML data
+  
+  XPath is used to extract, filter, and navigate XML data
+  All queries tested against events-data.xml structure
+-->
+
+=== BASIC QUERIES ===
+
+1. List all events (50 total)
+   XPath: //event
+   Purpose: Retrieve all event records from the system
+   Example Result: 50 event elements with eventId attributes (EVT-001 through EVT-050)
+
+2. List all participants (125 total)
+   XPath: //participant
+   Purpose: Retrieve all participant records
+   Example Result: 125 participant elements with participantId attributes (PAR-001 through PAR-125)
+
+3. Count total participants
+   XPath: count(//participant)
+   Purpose: Get total number of participants
+   Expected Result: 125
+
+4. Count total events
+   XPath: count(//event)
+   Purpose: Get total number of events
+   Expected Result: 50
+
+5. Count total registrations
+   XPath: count(//registration)
+   Purpose: Get total number of registrations
+   Expected Result: 200
+
+
+=== FILTERING AND SELECTION QUERIES ===
+
+6. List registered participants only
+   XPath: //participant[//registration[registrationStatus='Registered' and participantId=current()/@participantId]]
+   Alternative Simple: //registration[registrationStatus='Registered']/participantId
+   Purpose: Filter participants with "Registered" status
+   Expected Result: Approximately 160 registrations with Registered status
+
+7. List pending registrations only
+   XPath: //registration[registrationStatus='Pending']
+   Purpose: Filter registrations with "Pending" status
+   Expected Result: Approximately 40 registrations with Pending status
+
+8. List participants in Computer Science department
+   XPath: //participant[department='Computer Science']
+   Purpose: Filter participants by department
+   Expected Result: 25 Computer Science students (PAR-001 to PAR-010, PAR-051 to PAR-060, PAR-101, PAR-102, PAR-111, PAR-112, PAR-121)
+
+9. List participants in Engineering department
+   XPath: //participant[department='Engineering']
+   Purpose: Filter participants by department
+   Expected Result: 25 Engineering students
+
+10. List participants in Business department
+    XPath: //participant[department='Business']
+    Purpose: Filter participants by department
+    Expected Result: 25 Business students
+
+
+=== DATE-BASED QUERIES ===
+
+11. List upcoming events (after current date: 2026-05-11)
+    XPath: //event[eventDate > '2026-05-11']
+    Purpose: Filter events scheduled for future dates
+    Example Result: Events from 2026-05-25 onwards
+
+12. List events in June 2026
+    XPath: //event[starts-with(eventDate, '2026-06')]
+    Purpose: Filter events by specific month
+    Expected Result: Multiple June events (EVT-001, EVT-003, EVT-005, EVT-008, EVT-010, EVT-013, EVT-014, EVT-015, EVT-017, etc.)
+
+13. List events in July 2026
+    XPath: //event[starts-with(eventDate, '2026-07')]
+    Purpose: Filter events in July
+    Expected Result: July events (EVT-004, EVT-006, EVT-009, EVT-012, EVT-016, EVT-019, EVT-020, EVT-040, EVT-043, EVT-047, EVT-049, EVT-050)
+
+
+=== VENUE-BASED QUERIES ===
+
+14. List all events in Main Auditorium
+    XPath: //event[venue='Main Auditorium']
+    Purpose: Filter events by specific venue
+    Expected Result: EVT-001 and EVT-006
+
+15. List events at Engineering Building
+    XPath: //event[contains(venue, 'Engineering Building')]
+    Purpose: Filter events at Engineering Building
+    Expected Result: EVT-002, EVT-005
+
+16. List all unique venues
+    XPath: //venue
+    Purpose: Extract all venue locations
+    Expected Result: 25+ unique venues
+
+17. Count events per venue
+    XPath: //event[venue='Main Auditorium']
+    Purpose: Count events at a specific venue
+    Expected Result: 2 events (EVT-001, EVT-006)
+
+
+=== REGISTRATION QUERIES ===
+
+18. List participants registered for event EVT-001
+    XPath: //registration[eventId='EVT-001']/participantId
+    Purpose: Find participants for a specific event
+    Expected Result: 5 participants (PAR-001, PAR-002, PAR-003, PAR-004, PAR-005)
+
+19. List events registered by participant PAR-001
+    XPath: //registration[participantId='PAR-001']/eventId
+    Purpose: Find events attended by a participant
+    Expected Result: EVT-001, EVT-005
+
+20. Count registrations for event EVT-001
+    XPath: count(//registration[eventId='EVT-001'])
+    Purpose: Get registration count for specific event
+    Expected Result: 5
+
+21. List events with pending registrations
+    XPath: //registration[registrationStatus='Pending']/eventId
+    Purpose: Find events with pending registrations
+    Expected Result: Multiple events (EVT-001, EVT-002, EVT-003, etc.)
+
+22. Count pending registrations per event
+    XPath: count(//registration[eventId='EVT-001' and registrationStatus='Pending'])
+    Purpose: Count pending for specific event
+    Expected Result: 1 pending registration for EVT-001 (PAR-004)
+
+
+=== COMPLEX QUERIES ===
+
+23. Find participants with registrations in multiple events
+    XPath: //participant[count(//registration[participantId=current()/@participantId]) > 1]
+    Purpose: Identify active participants registered for multiple events
+    Example Result: Several participants with 2+ registrations
+
+24. List Tech-related events (containing 'Tech' in name)
+    XPath: //event[contains(eventName, 'Tech') or contains(eventName, 'AI') or contains(eventName, 'Cloud')]
+    Purpose: Filter technology-focused events
+    Expected Result: EVT-001, EVT-002, EVT-003, EVT-004, EVT-005, EVT-007, EVT-008, EVT-009
+
+25. Find registrations older than May 20, 2026
+    XPath: //registration[registrationDate < '2026-05-20']
+    Purpose: Filter registrations by date
+    Expected Result: REG-001 through REG-005, REG-006, REG-007, REG-009, REG-010, etc.
+
+26. Count distinct participants per department
+    XPath: count(//participant[department='Computer Science'])
+    Purpose: Statistics by department
+    Expected Result: 25 per department (CS, Eng, Bus, Sci, Hum)
+
+27. Find participants NOT yet registered for any event
+    XPath: //participant[not(//registration[participantId=current()/@participantId])]
+    Purpose: Identify inactive participants
+    Expected Result: Participants PAR-101 through PAR-125 (25 participants) have limited registrations
+
+28. List all registrations sorted by participant
+    XPath: //registration[participantId > 'PAR-050']
+    Purpose: Get registrations for specific participant range
+    Expected Result: Registrations for participants PAR-051 onwards
+
+29. Find registrations within date range (May 15 to June 15)
+    XPath: //registration[registrationDate >= '2026-05-15' and registrationDate <= '2026-06-15']
+    Purpose: Filter registrations by date range
+    Expected Result: Many registrations during this period
+
+30. List event names and dates for all upcoming events
+    XPath: //event[eventDate > '2026-05-11']/concat(eventName, ' - ', eventDate)
+    Purpose: Get formatted list of upcoming events
+    Expected Result: Event names with dates in readable format
+
+
+=== STATISTICAL QUERIES ===
+
+31. Count registered vs pending registrations ratio
+    XPath: Registered: count(//registration[registrationStatus='Registered']), Pending: count(//registration[registrationStatus='Pending'])
+    Purpose: Get registration status breakdown
+    Expected Result: ~160 Registered, ~40 Pending
+
+32. Average registrations per event
+    XPath: count(//registration) div count(//event)
+    Purpose: Calculate average participants per event
+    Expected Result: ~4 registrations per event
+
+33. Most popular event (highest registrations)
+    XPath: //event[count(//registration[eventId=current()/@eventId]) = max(//event/count(//registration[eventId=current()/@eventId]))]
+    Purpose: Find most attended event
+    Expected Result: Event with 5 registrations
+

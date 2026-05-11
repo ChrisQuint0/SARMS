@@ -1,0 +1,2695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Events Management System - Unified XML Data File
+  Contains: Events, Participants, and Registrations
+  Last Updated: 2026-05-11
+  Record Count: 50 Events, 125 Participants, 200 Registrations
+-->
+
+<eventManagementSystem>
+  
+  <!-- ======================================
+       EVENTS SECTION (50 Records)
+       Includes past, current, and future events
+       ====================================== -->
+  <events>
+    <!-- Event 1-10: Tech and Innovation Series -->
+    <event eventId="EVT-001">
+      <eventName>University Tech Expo 2026</eventName>
+      <eventDate>2026-06-20</eventDate>
+      <venue>Main Auditorium</venue>
+      <eventDescription>Annual technology showcase featuring student projects and industry partnerships</eventDescription>
+    </event>
+    
+    <event eventId="EVT-002">
+      <eventName>AI and Machine Learning Workshop</eventName>
+      <eventDate>2026-05-25</eventDate>
+      <venue>Engineering Building Room 301</venue>
+      <eventDescription>Hands-on workshop on AI/ML fundamentals and applications</eventDescription>
+    </event>
+    
+    <event eventId="EVT-003">
+      <eventName>Cloud Computing Seminar</eventName>
+      <eventDate>2026-06-15</eventDate>
+      <venue>Conference Hall B</venue>
+      <eventDescription>Industry experts discussing cloud infrastructure and deployment strategies</eventDescription>
+    </event>
+    
+    <event eventId="EVT-004">
+      <eventName>Cybersecurity Bootcamp</eventName>
+      <eventDate>2026-07-10</eventDate>
+      <venue>Computer Lab 5</venue>
+      <eventDescription>Intensive cybersecurity training and penetration testing exercises</eventDescription>
+    </event>
+    
+    <event eventId="EVT-005">
+      <eventName>Web Development Masterclass</eventName>
+      <eventDate>2026-05-30</eventDate>
+      <venue>Engineering Building Room 205</venue>
+      <eventDescription>Advanced techniques in modern web development frameworks</eventDescription>
+    </event>
+    
+    <event eventId="EVT-006">
+      <eventName>Data Science Conference 2026</eventName>
+      <eventDate>2026-07-05</eventDate>
+      <venue>Main Auditorium</venue>
+      <eventDescription>Conference featuring keynote speakers from leading tech companies</eventDescription>
+    </event>
+    
+    <event eventId="EVT-007">
+      <eventName>Mobile App Development Summit</eventName>
+      <eventDate>2026-06-28</eventDate>
+      <venue>Convention Center Hall A</venue>
+      <eventDescription>Exploring iOS and Android development best practices</eventDescription>
+    </event>
+    
+    <event eventId="EVT-008">
+      <eventName>DevOps and Containerization Workshop</eventName>
+      <eventDate>2026-06-08</eventDate>
+      <venue>Computer Lab 3</venue>
+      <eventDescription>Docker, Kubernetes, and modern deployment practices</eventDescription>
+    </event>
+    
+    <event eventId="EVT-009">
+      <eventName>Blockchain Technology Forum</eventName>
+      <eventDate>2026-07-15</eventDate>
+      <venue>Conference Hall A</venue>
+      <eventDescription>Understanding blockchain, cryptocurrencies, and decentralized applications</eventDescription>
+    </event>
+    
+    <event eventId="EVT-010">
+      <eventName>IoT Solutions Expo</eventName>
+      <eventDate>2026-06-22</eventDate>
+      <venue>Innovation Center</venue>
+      <eventDescription>Showcase of Internet of Things projects and smart device integration</eventDescription>
+    </event>
+    
+    <!-- Event 11-20: Business and Leadership -->
+    <event eventId="EVT-011">
+      <eventName>Entrepreneurship Workshop</eventName>
+      <eventDate>2026-05-28</eventDate>
+      <venue>Business School Room 101</venue>
+      <eventDescription>From idea to startup: practical guide for young entrepreneurs</eventDescription>
+    </event>
+    
+    <event eventId="EVT-012">
+      <eventName>Leadership Development Summit</eventName>
+      <eventDate>2026-07-02</eventDate>
+      <venue>Executive Conference Room</venue>
+      <eventDescription>Building effective leadership skills in the digital age</eventDescription>
+    </event>
+    
+    <event eventId="EVT-013">
+      <eventName>Business Analytics Symposium</eventName>
+      <eventDate>2026-06-18</eventDate>
+      <venue>Business School Auditorium</venue>
+      <eventDescription>Data-driven decision making and business intelligence</eventDescription>
+    </event>
+    
+    <event eventId="EVT-014">
+      <eventName>Innovation and Startup Pitching</eventName>
+      <eventDate>2026-07-08</eventDate>
+      <venue>Innovation Hub</venue>
+      <eventDescription>Students and entrepreneurs pitch innovative business ideas to investors</eventDescription>
+    </event>
+    
+    <event eventId="EVT-015">
+      <eventName>Corporate Recruitment Drive</eventName>
+      <eventDate>2026-06-12</eventDate>
+      <venue>Student Center Grand Hall</venue>
+      <eventDescription>Leading companies recruiting for internships and full-time positions</eventDescription>
+    </event>
+    
+    <event eventId="EVT-016">
+      <eventName>Finance and Investment Masterclass</eventName>
+      <eventDate>2026-07-01</eventDate>
+      <venue>Business School Room 202</venue>
+      <eventDescription>Understanding financial markets, investing, and personal finance</eventDescription>
+    </event>
+    
+    <event eventId="EVT-017">
+      <eventName>Marketing and Brand Strategy Workshop</eventName>
+      <eventDate>2026-06-24</eventDate>
+      <venue>Business School Room 301</venue>
+      <eventDescription>Digital marketing, social media strategy, and brand building</eventDescription>
+    </event>
+    
+    <event eventId="EVT-018">
+      <eventName>Project Management Excellence</eventName>
+      <eventDate>2026-06-29</eventDate>
+      <venue>Conference Hall C</venue>
+      <eventDescription>Agile, Scrum, and traditional project management methodologies</eventDescription>
+    </event>
+    
+    <event eventId="EVT-019">
+      <eventName>HR and Talent Management Forum</eventName>
+      <eventDate>2026-07-12</eventDate>
+      <venue>Business School Room 401</venue>
+      <eventDescription>Human resources best practices and organizational development</eventDescription>
+    </event>
+    
+    <event eventId="EVT-020">
+      <eventName>Supply Chain and Logistics Conference</eventName>
+      <eventDate>2026-07-20</eventDate>
+      <venue>Convention Center Hall B</venue>
+      <eventDescription>Modern logistics, supply chain optimization, and procurement strategies</eventDescription>
+    </event>
+    
+    <!-- Event 21-30: Science and Research -->
+    <event eventId="EVT-021">
+      <eventName>Biotechnology Research Symposium</eventName>
+      <eventDate>2026-06-10</eventDate>
+      <venue>Science Building Room 501</venue>
+      <eventDescription>Recent advances in genetic engineering and biotechnology applications</eventDescription>
+    </event>
+    
+    <event eventId="EVT-022">
+      <eventName>Environmental Science Seminar</eventName>
+      <eventDate>2026-05-29</eventDate>
+      <venue>Science Building Room 302</venue>
+      <eventDescription>Climate change, sustainability, and environmental conservation efforts</eventDescription>
+    </event>
+    
+    <event eventId="EVT-023">
+      <eventName>Nanotechnology Research Forum</eventName>
+      <eventDate>2026-07-03</eventDate>
+      <venue>Research Center Building</venue>
+      <eventDescription>Cutting-edge research in nanotechnology and material sciences</eventDescription>
+    </event>
+    
+    <event eventId="EVT-024">
+      <eventName>Physics and Quantum Computing Workshop</eventName>
+      <eventDate>2026-06-30</eventDate>
+      <venue>Science Building Room 401</venue>
+      <eventDescription>Understanding quantum mechanics and quantum computing applications</eventDescription>
+    </event>
+    
+    <event eventId="EVT-025">
+      <eventName>Chemistry Research Exposition</eventName>
+      <eventDate>2026-07-09</eventDate>
+      <venue>Chemistry Building Lab Wing</venue>
+      <eventDescription>Student research projects and chemical engineering innovations</eventDescription>
+    </event>
+    
+    <event eventId="EVT-026">
+      <eventName>Mathematics and Computer Science Symposium</eventName>
+      <eventDate>2026-06-25</eventDate>
+      <venue>Science Building Room 601</venue>
+      <eventDescription>Advanced mathematical theories and computational sciences</eventDescription>
+    </event>
+    
+    <event eventId="EVT-027">
+      <eventName>Medical and Healthcare Technology Summit</eventName>
+      <eventDate>2026-07-14</eventDate>
+      <venue>Medical Research Building</venue>
+      <eventDescription>Healthcare IT, telemedicine, and medical device innovations</eventDescription>
+    </event>
+    
+    <event eventId="EVT-028">
+      <eventName>Pharmaceutical Research Conference</eventName>
+      <eventDate>2026-07-18</eventDate>
+      <venue>Research Center Building</venue>
+      <eventDescription>Drug development, clinical trials, and pharmaceutical innovations</eventDescription>
+    </event>
+    
+    <event eventId="EVT-029">
+      <eventName>Agricultural Technology Forum</eventName>
+      <eventDate>2026-06-19</eventDate>
+      <venue>Agricultural Center</venue>
+      <eventDescription>Modern farming techniques, sustainability, and agricultural innovation</eventDescription>
+    </event>
+    
+    <event eventId="EVT-030">
+      <eventName>Space Exploration and Astronomy Lecture</eventName>
+      <eventDate>2026-07-11</eventDate>
+      <venue>Observatory Building</venue>
+      <eventDescription>Recent space missions, astronomy discoveries, and future space exploration</eventDescription>
+    </event>
+    
+    <!-- Event 31-40: Arts and Social Sciences -->
+    <event eventId="EVT-031">
+      <eventName>Digital Arts and Design Showcase</eventName>
+      <eventDate>2026-06-14</eventDate>
+      <venue>Art Gallery and Design Center</venue>
+      <eventDescription>Student artwork, digital design projects, and creative exhibitions</eventDescription>
+    </event>
+    
+    <event eventId="EVT-032">
+      <eventName>Philosophy and Critical Thinking Forum</eventName>
+      <eventDate>2026-05-26</eventDate>
+      <venue>Humanities Building Room 201</venue>
+      <eventDescription>Discussion on ethics, logic, and contemporary philosophical issues</eventDescription>
+    </event>
+    
+    <event eventId="EVT-033">
+      <eventName>Literature and Creative Writing Workshop</eventName>
+      <eventDate>2026-07-06</eventDate>
+      <venue>Humanities Building Room 301</venue>
+      <eventDescription>Writing techniques, publishing, and contemporary literature analysis</eventDescription>
+    </event>
+    
+    <event eventId="EVT-034">
+      <eventName>Linguistics and Language Studies Seminar</eventName>
+      <eventDate>2026-06-23</eventDate>
+      <venue>Humanities Building Room 401</venue>
+      <eventDescription>Language acquisition, computational linguistics, and multilingual communication</eventDescription>
+    </event>
+    
+    <event eventId="EVT-035">
+      <eventName>History and Cultural Heritage Forum</eventName>
+      <eventDate>2026-06-16</eventDate>
+      <venue>Humanities Building Auditorium</venue>
+      <eventDescription>Historical research, cultural preservation, and global heritage</eventDescription>
+    </event>
+    
+    <event eventId="EVT-036">
+      <eventName>Psychology and Behavioral Studies Conference</eventName>
+      <eventDate>2026-07-04</eventDate>
+      <venue>Social Sciences Building Room 301</venue>
+      <eventDescription>Mental health, cognitive psychology, and behavioral science research</eventDescription>
+    </event>
+    
+    <event eventId="EVT-037">
+      <eventName>Sociology and Social Change Symposium</eventName>
+      <eventDate>2026-07-17</eventDate>
+      <venue>Social Sciences Building Room 401</venue>
+      <eventDescription>Social movements, community development, and societal transformation</eventDescription>
+    </event>
+    
+    <event eventId="EVT-038">
+      <eventName>Political Science and Governance Forum</eventName>
+      <eventDate>2026-06-27</eventDate>
+      <venue>Social Sciences Building Room 501</venue>
+      <eventDescription>Democracy, governance structures, and international relations</eventDescription>
+    </event>
+    
+    <event eventId="EVT-039">
+      <eventName>Anthropology and Ethnography Lecture</eventName>
+      <eventDate>2026-07-13</eventDate>
+      <venue>Humanities Building Room 501</venue>
+      <eventDescription>Cultural diversity, ethnographic research, and anthropological discoveries</eventDescription>
+    </event>
+    
+    <event eventId="EVT-040">
+      <eventName>Music and Performing Arts Festival</eventName>
+      <eventDate>2026-07-21</eventDate>
+      <venue>University Theater</venue>
+      <eventDescription>Live performances, concerts, and cultural entertainment</eventDescription>
+    </event>
+    
+    <!-- Event 41-50: Professional Development and Special Events -->
+    <event eventId="EVT-041">
+      <eventName>Career Development and Resume Workshop</eventName>
+      <eventDate>2026-05-27</eventDate>
+      <venue>Career Services Center</venue>
+      <eventDescription>Resume building, interview preparation, and career planning strategies</eventDescription>
+    </event>
+    
+    <event eventId="EVT-042">
+      <eventName>Professional Certification Programs</eventName>
+      <eventDate>2026-06-26</eventDate>
+      <venue>Professional Development Center</venue>
+      <eventDescription>Information on industry certifications and continuing education opportunities</eventDescription>
+    </event>
+    
+    <event eventId="EVT-043">
+      <eventName>Alumni Networking and Mentorship Event</eventName>
+      <eventDate>2026-07-19</eventDate>
+      <venue>Student Center Grand Hall</venue>
+      <eventDescription>Alumni sharing experiences and mentoring current students</eventDescription>
+    </event>
+    
+    <event eventId="EVT-044">
+      <eventName>International Students Cultural Exchange</eventName>
+      <eventDate>2026-06-11</eventDate>
+      <venue>Cultural Center</venue>
+      <eventDescription>Celebrating global diversity and cross-cultural understanding</eventDescription>
+    </event>
+    
+    <event eventId="EVT-045">
+      <eventName>Volunteering and Community Service Forum</eventName>
+      <eventDate>2026-06-13</eventDate>
+      <venue>Community Engagement Office</venue>
+      <eventDescription>Opportunities for students to engage in social responsibility</eventDescription>
+    </event>
+    
+    <event eventId="EVT-046">
+      <eventName>Wellness and Mental Health Awareness</eventName>
+      <eventDate>2026-05-31</eventDate>
+      <venue>Health and Wellness Center</venue>
+      <eventDescription>Mental health resources, fitness programs, and wellbeing initiatives</eventDescription>
+    </event>
+    
+    <event eventId="EVT-047">
+      <eventName>Academic Excellence Awards Ceremony</eventName>
+      <eventDate>2026-07-22</eventDate>
+      <venue>Main Auditorium</venue>
+      <eventDescription>Recognition of outstanding academic achievements and student accomplishments</eventDescription>
+    </event>
+    
+    <event eventId="EVT-048">
+      <eventName>Research and Innovation Poster Session</eventName>
+      <eventDate>2026-06-09</eventDate>
+      <venue>Convention Center</venue>
+      <eventDescription>Students presenting their research projects and innovations</eventDescription>
+    </event>
+    
+    <event eventId="EVT-049">
+      <eventName>Entrepreneurial Pitch Competition</eventName>
+      <eventDate>2026-07-16</eventDate>
+      <venue>Innovation Hub</venue>
+      <eventDescription>Student entrepreneurs competing for funding and business development support</eventDescription>
+    </event>
+    
+    <event eventId="EVT-050">
+      <eventName>Graduation and Commencement Ceremony</eventName>
+      <eventDate>2026-07-25</eventDate>
+      <venue>University Stadium</venue>
+      <eventDescription>Annual graduation ceremony celebrating student achievements</eventDescription>
+    </event>
+  </events>
+
+  <!-- ======================================
+       PARTICIPANTS SECTION (125 Records)
+       Diverse student and staff population
+       ====================================== -->
+  <participants>
+    <!-- Computer Science Students -->
+    <participant participantId="PAR-001">
+      <fullName>Juan Dela Cruz</fullName>
+      <email>juan.delacruz@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-001</studentId>
+    </participant>
+    
+    <participant participantId="PAR-002">
+      <fullName>Maria Santos</fullName>
+      <email>maria.santos@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-002</studentId>
+    </participant>
+    
+    <participant participantId="PAR-003">
+      <fullName>Carlos Reyes</fullName>
+      <email>carlos.reyes@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-003</studentId>
+    </participant>
+    
+    <participant participantId="PAR-004">
+      <fullName>Ana Garcia</fullName>
+      <email>ana.garcia@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-004</studentId>
+    </participant>
+    
+    <participant participantId="PAR-005">
+      <fullName>Miguel Rodriguez</fullName>
+      <email>miguel.rodriguez@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-005</studentId>
+    </participant>
+    
+    <participant participantId="PAR-006">
+      <fullName>Isabel Martinez</fullName>
+      <email>isabel.martinez@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-006</studentId>
+    </participant>
+    
+    <participant participantId="PAR-007">
+      <fullName>Diego Lopez</fullName>
+      <email>diego.lopez@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-007</studentId>
+    </participant>
+    
+    <participant participantId="PAR-008">
+      <fullName>Sofia Fernandez</fullName>
+      <email>sofia.fernandez@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-008</studentId>
+    </participant>
+    
+    <participant participantId="PAR-009">
+      <fullName>Jose Gutierrez</fullName>
+      <email>jose.gutierrez@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-009</studentId>
+    </participant>
+    
+    <participant participantId="PAR-010">
+      <fullName>Laura Morales</fullName>
+      <email>laura.morales@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-010</studentId>
+    </participant>
+    
+    <!-- Engineering Students -->
+    <participant participantId="PAR-011">
+      <fullName>Roberto Soto</fullName>
+      <email>roberto.soto@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-001</studentId>
+    </participant>
+    
+    <participant participantId="PAR-012">
+      <fullName>Lucia Hernandez</fullName>
+      <email>lucia.hernandez@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-002</studentId>
+    </participant>
+    
+    <participant participantId="PAR-013">
+      <fullName>Fernando Romero</fullName>
+      <email>fernando.romero@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-003</studentId>
+    </participant>
+    
+    <participant participantId="PAR-014">
+      <fullName>Alejandra Castillo</fullName>
+      <email>alejandra.castillo@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-004</studentId>
+    </participant>
+    
+    <participant participantId="PAR-015">
+      <fullName>Manuel Jimenez</fullName>
+      <email>manuel.jimenez@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-005</studentId>
+    </participant>
+    
+    <participant participantId="PAR-016">
+      <fullName>Catalina Ortiz</fullName>
+      <email>catalina.ortiz@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-006</studentId>
+    </participant>
+    
+    <participant participantId="PAR-017">
+      <fullName>Pablo Vargas</fullName>
+      <email>pablo.vargas@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-007</studentId>
+    </participant>
+    
+    <participant participantId="PAR-018">
+      <fullName>Elena Ruiz</fullName>
+      <email>elena.ruiz@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-008</studentId>
+    </participant>
+    
+    <participant participantId="PAR-019">
+      <fullName>Hector Navarro</fullName>
+      <email>hector.navarro@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-009</studentId>
+    </participant>
+    
+    <participant participantId="PAR-020">
+      <fullName>Valentina Bravo</fullName>
+      <email>valentina.bravo@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-010</studentId>
+    </participant>
+    
+    <!-- Business School Students -->
+    <participant participantId="PAR-021">
+      <fullName>Ricardo Pena</fullName>
+      <email>ricardo.pena@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-001</studentId>
+    </participant>
+    
+    <participant participantId="PAR-022">
+      <fullName>Gabriela Acosta</fullName>
+      <email>gabriela.acosta@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-002</studentId>
+    </participant>
+    
+    <participant participantId="PAR-023">
+      <fullName>Adrian Dominguez</fullName>
+      <email>adrian.dominguez@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-003</studentId>
+    </participant>
+    
+    <participant participantId="PAR-024">
+      <fullName>Mariana Flores</fullName>
+      <email>mariana.flores@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-004</studentId>
+    </participant>
+    
+    <participant participantId="PAR-025">
+      <fullName>Sergio Campos</fullName>
+      <email>sergio.campos@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-005</studentId>
+    </participant>
+    
+    <participant participantId="PAR-026">
+      <fullName>Daniela Rios</fullName>
+      <email>daniela.rios@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-006</studentId>
+    </participant>
+    
+    <participant participantId="PAR-027">
+      <fullName>Oscar Moreno</fullName>
+      <email>oscar.moreno@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-007</studentId>
+    </participant>
+    
+    <participant participantId="PAR-028">
+      <fullName>Priscila Mora</fullName>
+      <email>priscila.mora@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-008</studentId>
+    </participant>
+    
+    <participant participantId="PAR-029">
+      <fullName>Andres Velasco</fullName>
+      <email>andres.velasco@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-009</studentId>
+    </participant>
+    
+    <participant participantId="PAR-030">
+      <fullName>Cecilia Fuentes</fullName>
+      <email>cecilia.fuentes@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-010</studentId>
+    </participant>
+    
+    <!-- Science Students -->
+    <participant participantId="PAR-031">
+      <fullName>Eduardo Sanz</fullName>
+      <email>eduardo.sanz@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-001</studentId>
+    </participant>
+    
+    <participant participantId="PAR-032">
+      <fullName>Natalia Vega</fullName>
+      <email>natalia.vega@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-002</studentId>
+    </participant>
+    
+    <participant participantId="PAR-033">
+      <fullName>Felipe Herrera</fullName>
+      <email>felipe.herrera@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-003</studentId>
+    </participant>
+    
+    <participant participantId="PAR-034">
+      <fullName>Rocio Espinoza</fullName>
+      <email>rocio.espinoza@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-004</studentId>
+    </participant>
+    
+    <participant participantId="PAR-035">
+      <fullName>Guillermo Avila</fullName>
+      <email>guillermo.avila@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-005</studentId>
+    </participant>
+    
+    <participant participantId="PAR-036">
+      <fullName>Veronica Nunez</fullName>
+      <email>veronica.nunez@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-006</studentId>
+    </participant>
+    
+    <participant participantId="PAR-037">
+      <fullName>Raul Correa</fullName>
+      <email>raul.correa@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-007</studentId>
+    </participant>
+    
+    <participant participantId="PAR-038">
+      <fullName>Teresa Diaz</fullName>
+      <email>teresa.diaz@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-008</studentId>
+    </participant>
+    
+    <participant participantId="PAR-039">
+      <fullName>Angel Munoz</fullName>
+      <email>angel.munoz@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-009</studentId>
+    </participant>
+    
+    <participant participantId="PAR-040">
+      <fullName>Silvia Gonzalez</fullName>
+      <email>silvia.gonzalez@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-010</studentId>
+    </participant>
+    
+    <!-- Humanities Students -->
+    <participant participantId="PAR-041">
+      <fullName>Arturo Suarez</fullName>
+      <email>arturo.suarez@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-001</studentId>
+    </participant>
+    
+    <participant participantId="PAR-042">
+      <fullName>Milagros Burgos</fullName>
+      <email>milagros.burgos@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-002</studentId>
+    </participant>
+    
+    <participant participantId="PAR-043">
+      <fullName>Javier Quintero</fullName>
+      <email>javier.quintero@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-003</studentId>
+    </participant>
+    
+    <participant participantId="PAR-044">
+      <fullName>Ines Medina</fullName>
+      <email>ines.medina@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-004</studentId>
+    </participant>
+    
+    <participant participantId="PAR-045">
+      <fullName>Lucas Carrasco</fullName>
+      <email>lucas.carrasco@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-005</studentId>
+    </participant>
+    
+    <participant participantId="PAR-046">
+      <fullName>Aurora Jimenez</fullName>
+      <email>aurora.jimenez@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-006</studentId>
+    </participant>
+    
+    <participant participantId="PAR-047">
+      <fullName>Rafael Salas</fullName>
+      <email>rafael.salas@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-007</studentId>
+    </participant>
+    
+    <participant participantId="PAR-048">
+      <fullName>Dolores Aguilar</fullName>
+      <email>dolores.aguilar@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-008</studentId>
+    </participant>
+    
+    <participant participantId="PAR-049">
+      <fullName>Emilio Palma</fullName>
+      <email>emilio.palma@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-009</studentId>
+    </participant>
+    
+    <participant participantId="PAR-050">
+      <fullName>Francesca Soto</fullName>
+      <email>francesca.soto@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-010</studentId>
+    </participant>
+    
+    <!-- More Computer Science Students (11-20) -->
+    <participant participantId="PAR-051">
+      <fullName>Gabriel Nunez</fullName>
+      <email>gabriel.nunez@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-011</studentId>
+    </participant>
+    
+    <participant participantId="PAR-052">
+      <fullName>Natasha Perez</fullName>
+      <email>natasha.perez@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-012</studentId>
+    </participant>
+    
+    <participant participantId="PAR-053">
+      <fullName>Ignacio Vazquez</fullName>
+      <email>ignacio.vazquez@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-013</studentId>
+    </participant>
+    
+    <participant participantId="PAR-054">
+      <fullName>Olivia Alonso</fullName>
+      <email>olivia.alonso@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-014</studentId>
+    </participant>
+    
+    <participant participantId="PAR-055">
+      <fullName>Ramon Cortez</fullName>
+      <email>ramon.cortez@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-015</studentId>
+    </participant>
+    
+    <participant participantId="PAR-056">
+      <fullName>Beatriz Salazar</fullName>
+      <email>beatriz.salazar@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-016</studentId>
+    </participant>
+    
+    <participant participantId="PAR-057">
+      <fullName>Tomas Chavez</fullName>
+      <email>tomas.chavez@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-017</studentId>
+    </participant>
+    
+    <participant participantId="PAR-058">
+      <fullName>Raquel Santos</fullName>
+      <email>raquel.santos@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-018</studentId>
+    </participant>
+    
+    <participant participantId="PAR-059">
+      <fullName>Victor Campos</fullName>
+      <email>victor.campos@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-019</studentId>
+    </participant>
+    
+    <participant participantId="PAR-060">
+      <fullName>Monica Robles</fullName>
+      <email>monica.robles@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-020</studentId>
+    </participant>
+    
+    <!-- More Engineering Students (11-20) -->
+    <participant participantId="PAR-061">
+      <fullName>Sergio Guzman</fullName>
+      <email>sergio.guzman@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-011</studentId>
+    </participant>
+    
+    <participant participantId="PAR-062">
+      <fullName>Elvira Molina</fullName>
+      <email>elvira.molina@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-012</studentId>
+    </participant>
+    
+    <participant participantId="PAR-063">
+      <fullName>Emilio Torres</fullName>
+      <email>emilio.torres@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-013</studentId>
+    </participant>
+    
+    <participant participantId="PAR-064">
+      <fullName>Yolanda Reyes</fullName>
+      <email>yolanda.reyes@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-014</studentId>
+    </participant>
+    
+    <participant participantId="PAR-065">
+      <fullName>Leandro Salgado</fullName>
+      <email>leandro.salgado@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-015</studentId>
+    </participant>
+    
+    <participant participantId="PAR-066">
+      <fullName>Griselda Fuentes</fullName>
+      <email>griselda.fuentes@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-016</studentId>
+    </participant>
+    
+    <participant participantId="PAR-067">
+      <fullName>Martin Delgado</fullName>
+      <email>martin.delgado@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-017</studentId>
+    </participant>
+    
+    <participant participantId="PAR-068">
+      <fullName>Irene Conejo</fullName>
+      <email>irene.conejo@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-018</studentId>
+    </participant>
+    
+    <participant participantId="PAR-069">
+      <fullName>Enrique Sousa</fullName>
+      <email>enrique.sousa@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-019</studentId>
+    </participant>
+    
+    <participant participantId="PAR-070">
+      <fullName>Constanza Arevalo</fullName>
+      <email>constanza.arevalo@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-020</studentId>
+    </participant>
+    
+    <!-- More Business Students (11-20) -->
+    <participant participantId="PAR-071">
+      <fullName>Humberto Bravo</fullName>
+      <email>humberto.bravo@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-011</studentId>
+    </participant>
+    
+    <participant participantId="PAR-072">
+      <fullName>Leticia Alvarado</fullName>
+      <email>leticia.alvarado@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-012</studentId>
+    </participant>
+    
+    <participant participantId="PAR-073">
+      <fullName>Benito Varela</fullName>
+      <email>benito.varela@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-013</studentId>
+    </participant>
+    
+    <participant participantId="PAR-074">
+      <fullName>Roxana Ochoa</fullName>
+      <email>roxana.ochoa@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-014</studentId>
+    </participant>
+    
+    <participant participantId="PAR-075">
+      <fullName>Claudio Navarrete</fullName>
+      <email>claudio.navarrete@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-015</studentId>
+    </participant>
+    
+    <participant participantId="PAR-076">
+      <fullName>Magdalena Gutierrez</fullName>
+      <email>magdalena.gutierrez@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-016</studentId>
+    </participant>
+    
+    <participant participantId="PAR-077">
+      <fullName>Gustavo Soto</fullName>
+      <email>gustavo.soto@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-017</studentId>
+    </participant>
+    
+    <participant participantId="PAR-078">
+      <fullName>Evangelina Quintana</fullName>
+      <email>evangelina.quintana@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-018</studentId>
+    </participant>
+    
+    <participant participantId="PAR-079">
+      <fullName>Pascual Ramos</fullName>
+      <email>pascual.ramos@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-019</studentId>
+    </participant>
+    
+    <participant participantId="PAR-080">
+      <fullName>Herminia Rocha</fullName>
+      <email>herminia.rocha@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-020</studentId>
+    </participant>
+    
+    <!-- More Science Students (11-20) -->
+    <participant participantId="PAR-081">
+      <fullName>Leopoldo Sosa</fullName>
+      <email>leopoldo.sosa@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-011</studentId>
+    </participant>
+    
+    <participant participantId="PAR-082">
+      <fullName>Margarita Chavez</fullName>
+      <email>margarita.chavez@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-012</studentId>
+    </participant>
+    
+    <participant participantId="PAR-083">
+      <fullName>Aurelio Molina</fullName>
+      <email>aurelio.molina@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-013</studentId>
+    </participant>
+    
+    <participant participantId="PAR-084">
+      <fullName>Estela Miranda</fullName>
+      <email>estela.miranda@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-014</studentId>
+    </participant>
+    
+    <participant participantId="PAR-085">
+      <fullName>Isidro Romero</fullName>
+      <email>isidro.romero@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-015</studentId>
+    </participant>
+    
+    <participant participantId="PAR-086">
+      <fullName>Josefina Barrera</fullName>
+      <email>josefina.barrera@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-016</studentId>
+    </participant>
+    
+    <participant participantId="PAR-087">
+      <fullName>Prudencio Vargas</fullName>
+      <email>prudencio.vargas@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-017</studentId>
+    </participant>
+    
+    <participant participantId="PAR-088">
+      <fullName>Zoila Rivera</fullName>
+      <email>zoila.rivera@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-018</studentId>
+    </participant>
+    
+    <participant participantId="PAR-089">
+      <fullName>Serafin Acevedo</fullName>
+      <email>serafin.acevedo@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-019</studentId>
+    </participant>
+    
+    <participant participantId="PAR-090">
+      <fullName>Ursula Valenzuela</fullName>
+      <email>ursula.valenzuela@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-020</studentId>
+    </participant>
+    
+    <!-- More Humanities Students (11-20) -->
+    <participant participantId="PAR-091">
+      <fullName>Casimiro Iglesias</fullName>
+      <email>casimiro.iglesias@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-011</studentId>
+    </participant>
+    
+    <participant participantId="PAR-092">
+      <fullName>Wendolyn Mena</fullName>
+      <email>wendolyn.mena@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-012</studentId>
+    </participant>
+    
+    <participant participantId="PAR-093">
+      <fullName>Wilfrido Pozo</fullName>
+      <email>wilfrido.pozo@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-013</studentId>
+    </participant>
+    
+    <participant participantId="PAR-094">
+      <fullName>Xenia Vidal</fullName>
+      <email>xenia.vidal@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-014</studentId>
+    </participant>
+    
+    <participant participantId="PAR-095">
+      <fullName>Zacarias Araya</fullName>
+      <email>zacarias.araya@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-015</studentId>
+    </participant>
+    
+    <participant participantId="PAR-096">
+      <fullName>Brigida Esparza</fullName>
+      <email>brigida.esparza@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-016</studentId>
+    </participant>
+    
+    <participant participantId="PAR-097">
+      <fullName>Cristobal Lozano</fullName>
+      <email>cristobal.lozano@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-017</studentId>
+    </participant>
+    
+    <participant participantId="PAR-098">
+      <fullName>Daysi Villanueva</fullName>
+      <email>daysi.villanueva@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-018</studentId>
+    </participant>
+    
+    <participant participantId="PAR-099">
+      <fullName>Esteban Sanchez</fullName>
+      <email>esteban.sanchez@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-019</studentId>
+    </participant>
+    
+    <participant participantId="PAR-100">
+      <fullName>Fabiola Osorno</fullName>
+      <email>fabiola.osorno@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-020</studentId>
+    </participant>
+    
+    <!-- Final 25 Participants (101-125) -->
+    <participant participantId="PAR-101">
+      <fullName>Graciano Zambrano</fullName>
+      <email>graciano.zambrano@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-021</studentId>
+    </participant>
+    
+    <participant participantId="PAR-102">
+      <fullName>Hermosa Hidalgo</fullName>
+      <email>hermosa.hidalgo@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-022</studentId>
+    </participant>
+    
+    <participant participantId="PAR-103">
+      <fullName>Imelda Jimenez</fullName>
+      <email>imelda.jimenez@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-021</studentId>
+    </participant>
+    
+    <participant participantId="PAR-104">
+      <fullName>Julio Santibañez</fullName>
+      <email>julio.santibanez@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-022</studentId>
+    </participant>
+    
+    <participant participantId="PAR-105">
+      <fullName>Karla Velazquez</fullName>
+      <email>karla.velazquez@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-021</studentId>
+    </participant>
+    
+    <participant participantId="PAR-106">
+      <fullName>Lamberto Villarroel</fullName>
+      <email>lamberto.villarroel@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-022</studentId>
+    </participant>
+    
+    <participant participantId="PAR-107">
+      <fullName>Marivel Zamorano</fullName>
+      <email>marivel.zamorano@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-021</studentId>
+    </participant>
+    
+    <participant participantId="PAR-108">
+      <fullName>Narciso Zamora</fullName>
+      <email>narciso.zamora@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-022</studentId>
+    </participant>
+    
+    <participant participantId="PAR-109">
+      <fullName>Olimpia Zetina</fullName>
+      <email>olimpia.zetina@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-021</studentId>
+    </participant>
+    
+    <participant participantId="PAR-110">
+      <fullName>Paulina Zuniga</fullName>
+      <email>paulina.zuniga@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-022</studentId>
+    </participant>
+    
+    <participant participantId="PAR-111">
+      <fullName>Querubin Saenz</fullName>
+      <email>querubin.saenz@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-023</studentId>
+    </participant>
+    
+    <participant participantId="PAR-112">
+      <fullName>Rosario Telles</fullName>
+      <email>rosario.telles@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-024</studentId>
+    </participant>
+    
+    <participant participantId="PAR-113">
+      <fullName>Sixto Tirado</fullName>
+      <email>sixto.tirado@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-023</studentId>
+    </participant>
+    
+    <participant participantId="PAR-114">
+      <fullName>Teodora Ugarte</fullName>
+      <email>teodora.ugarte@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-024</studentId>
+    </participant>
+    
+    <participant participantId="PAR-115">
+      <fullName>Urbano Urquiza</fullName>
+      <email>urbano.urquiza@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-023</studentId>
+    </participant>
+    
+    <participant participantId="PAR-116">
+      <fullName>Ventura Valcarcel</fullName>
+      <email>ventura.valcarcel@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-024</studentId>
+    </participant>
+    
+    <participant participantId="PAR-117">
+      <fullName>Wilma Varela</fullName>
+      <email>wilma.varela@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-023</studentId>
+    </participant>
+    
+    <participant participantId="PAR-118">
+      <fullName>Xochitl Vargas</fullName>
+      <email>xochitl.vargas@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-024</studentId>
+    </participant>
+    
+    <participant participantId="PAR-119">
+      <fullName>Yasmin Vazquez</fullName>
+      <email>yasmin.vazquez@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-023</studentId>
+    </participant>
+    
+    <participant participantId="PAR-120">
+      <fullName>Zoe Vega</fullName>
+      <email>zoe.vega@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-024</studentId>
+    </participant>
+    
+    <participant participantId="PAR-121">
+      <fullName>Abner Velasco</fullName>
+      <email>abner.velasco@university.edu</email>
+      <department>Computer Science</department>
+      <studentId>CS-2024-025</studentId>
+    </participant>
+    
+    <participant participantId="PAR-122">
+      <fullName>Bertha Villa</fullName>
+      <email>bertha.villa@university.edu</email>
+      <department>Engineering</department>
+      <studentId>ENG-2024-025</studentId>
+    </participant>
+    
+    <participant participantId="PAR-123">
+      <fullName>Cornelio Villarreal</fullName>
+      <email>cornelio.villarreal@university.edu</email>
+      <department>Business</department>
+      <studentId>BUS-2024-025</studentId>
+    </participant>
+    
+    <participant participantId="PAR-124">
+      <fullName>Dionisia Villegas</fullName>
+      <email>dionisia.villegas@university.edu</email>
+      <department>Science</department>
+      <studentId>SCI-2024-025</studentId>
+    </participant>
+    
+    <participant participantId="PAR-125">
+      <fullName>Estanislao Villegas</fullName>
+      <email>estanislao.villegas@university.edu</email>
+      <department>Humanities</department>
+      <studentId>HUM-2024-025</studentId>
+    </participant>
+  </participants>
+
+  <!-- ======================================
+       REGISTRATIONS SECTION (200 Records)
+       Links participants to events
+       ====================================== -->
+  <registrations>
+    <!-- Tech Expo Registrations (EVT-001) -->
+    <registration registrationId="REG-001">
+      <participantId>PAR-001</participantId>
+      <eventId>EVT-001</eventId>
+      <registrationDate>2026-05-15</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-002">
+      <participantId>PAR-002</participantId>
+      <eventId>EVT-001</eventId>
+      <registrationDate>2026-05-10</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-003">
+      <participantId>PAR-003</participantId>
+      <eventId>EVT-001</eventId>
+      <registrationDate>2026-05-16</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-004">
+      <participantId>PAR-004</participantId>
+      <eventId>EVT-001</eventId>
+      <registrationDate>2026-05-11</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-005">
+      <participantId>PAR-005</participantId>
+      <eventId>EVT-001</eventId>
+      <registrationDate>2026-05-14</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- AI/ML Workshop Registrations (EVT-002) -->
+    <registration registrationId="REG-006">
+      <participantId>PAR-006</participantId>
+      <eventId>EVT-002</eventId>
+      <registrationDate>2026-05-12</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-007">
+      <participantId>PAR-007</participantId>
+      <eventId>EVT-002</eventId>
+      <registrationDate>2026-05-13</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-008">
+      <participantId>PAR-008</participantId>
+      <eventId>EVT-002</eventId>
+      <registrationDate>2026-05-11</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-009">
+      <participantId>PAR-009</participantId>
+      <eventId>EVT-002</eventId>
+      <registrationDate>2026-05-12</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-010">
+      <participantId>PAR-010</participantId>
+      <eventId>EVT-002</eventId>
+      <registrationDate>2026-05-11</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- Cloud Computing Seminar (EVT-003) -->
+    <registration registrationId="REG-011">
+      <participantId>PAR-011</participantId>
+      <eventId>EVT-003</eventId>
+      <registrationDate>2026-05-20</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-012">
+      <participantId>PAR-012</participantId>
+      <eventId>EVT-003</eventId>
+      <registrationDate>2026-05-18</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-013">
+      <participantId>PAR-013</participantId>
+      <eventId>EVT-003</eventId>
+      <registrationDate>2026-05-19</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-014">
+      <participantId>PAR-014</participantId>
+      <eventId>EVT-003</eventId>
+      <registrationDate>2026-05-17</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-015">
+      <participantId>PAR-015</participantId>
+      <eventId>EVT-003</eventId>
+      <registrationDate>2026-05-20</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- Cybersecurity Bootcamp (EVT-004) -->
+    <registration registrationId="REG-016">
+      <participantId>PAR-016</participantId>
+      <eventId>EVT-004</eventId>
+      <registrationDate>2026-06-05</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-017">
+      <participantId>PAR-017</participantId>
+      <eventId>EVT-004</eventId>
+      <registrationDate>2026-06-01</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-018">
+      <participantId>PAR-018</participantId>
+      <eventId>EVT-004</eventId>
+      <registrationDate>2026-06-03</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-019">
+      <participantId>PAR-019</participantId>
+      <eventId>EVT-004</eventId>
+      <registrationDate>2026-06-04</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-020">
+      <participantId>PAR-020</participantId>
+      <eventId>EVT-004</eventId>
+      <registrationDate>2026-06-02</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- Web Development Masterclass (EVT-005) - 20 registrations -->
+    <registration registrationId="REG-021">
+      <participantId>PAR-021</participantId>
+      <eventId>EVT-005</eventId>
+      <registrationDate>2026-05-20</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-022">
+      <participantId>PAR-022</participantId>
+      <eventId>EVT-005</eventId>
+      <registrationDate>2026-05-18</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-023">
+      <participantId>PAR-023</participantId>
+      <eventId>EVT-005</eventId>
+      <registrationDate>2026-05-19</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-024">
+      <participantId>PAR-024</participantId>
+      <eventId>EVT-005</eventId>
+      <registrationDate>2026-05-17</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-025">
+      <participantId>PAR-025</participantId>
+      <eventId>EVT-005</eventId>
+      <registrationDate>2026-05-20</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- Data Science Conference (EVT-006) -->
+    <registration registrationId="REG-026">
+      <participantId>PAR-026</participantId>
+      <eventId>EVT-006</eventId>
+      <registrationDate>2026-06-20</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-027">
+      <participantId>PAR-027</participantId>
+      <eventId>EVT-006</eventId>
+      <registrationDate>2026-06-18</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-028">
+      <participantId>PAR-028</participantId>
+      <eventId>EVT-006</eventId>
+      <registrationDate>2026-06-19</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-029">
+      <participantId>PAR-029</participantId>
+      <eventId>EVT-006</eventId>
+      <registrationDate>2026-06-17</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-030">
+      <participantId>PAR-030</participantId>
+      <eventId>EVT-006</eventId>
+      <registrationDate>2026-06-20</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- Mobile App Development Summit (EVT-007) -->
+    <registration registrationId="REG-031">
+      <participantId>PAR-031</participantId>
+      <eventId>EVT-007</eventId>
+      <registrationDate>2026-06-10</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-032">
+      <participantId>PAR-032</participantId>
+      <eventId>EVT-007</eventId>
+      <registrationDate>2026-06-12</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-033">
+      <participantId>PAR-033</participantId>
+      <eventId>EVT-007</eventId>
+      <registrationDate>2026-06-11</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-034">
+      <participantId>PAR-034</participantId>
+      <eventId>EVT-007</eventId>
+      <registrationDate>2026-06-09</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-035">
+      <participantId>PAR-035</participantId>
+      <eventId>EVT-007</eventId>
+      <registrationDate>2026-06-13</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- DevOps Workshop (EVT-008) -->
+    <registration registrationId="REG-036">
+      <participantId>PAR-036</participantId>
+      <eventId>EVT-008</eventId>
+      <registrationDate>2026-05-25</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-037">
+      <participantId>PAR-037</participantId>
+      <eventId>EVT-008</eventId>
+      <registrationDate>2026-05-23</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-038">
+      <participantId>PAR-038</participantId>
+      <eventId>EVT-008</eventId>
+      <registrationDate>2026-05-24</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-039">
+      <participantId>PAR-039</participantId>
+      <eventId>EVT-008</eventId>
+      <registrationDate>2026-05-22</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-040">
+      <participantId>PAR-040</participantId>
+      <eventId>EVT-008</eventId>
+      <registrationDate>2026-05-26</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- Blockchain Forum (EVT-009) -->
+    <registration registrationId="REG-041">
+      <participantId>PAR-041</participantId>
+      <eventId>EVT-009</eventId>
+      <registrationDate>2026-06-30</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-042">
+      <participantId>PAR-042</participantId>
+      <eventId>EVT-009</eventId>
+      <registrationDate>2026-06-28</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-043">
+      <participantId>PAR-043</participantId>
+      <eventId>EVT-009</eventId>
+      <registrationDate>2026-06-29</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-044">
+      <participantId>PAR-044</participantId>
+      <eventId>EVT-009</eventId>
+      <registrationDate>2026-06-27</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-045">
+      <participantId>PAR-045</participantId>
+      <eventId>EVT-009</eventId>
+      <registrationDate>2026-07-01</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- IoT Solutions Expo (EVT-010) -->
+    <registration registrationId="REG-046">
+      <participantId>PAR-046</participantId>
+      <eventId>EVT-010</eventId>
+      <registrationDate>2026-06-10</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-047">
+      <participantId>PAR-047</participantId>
+      <eventId>EVT-010</eventId>
+      <registrationDate>2026-06-12</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-048">
+      <participantId>PAR-048</participantId>
+      <eventId>EVT-010</eventId>
+      <registrationDate>2026-06-11</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-049">
+      <participantId>PAR-049</participantId>
+      <eventId>EVT-010</eventId>
+      <registrationDate>2026-06-09</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-050">
+      <participantId>PAR-050</participantId>
+      <eventId>EVT-010</eventId>
+      <registrationDate>2026-06-13</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- Entrepreneurship Workshop (EVT-011) -->
+    <registration registrationId="REG-051">
+      <participantId>PAR-051</participantId>
+      <eventId>EVT-011</eventId>
+      <registrationDate>2026-05-18</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-052">
+      <participantId>PAR-052</participantId>
+      <eventId>EVT-011</eventId>
+      <registrationDate>2026-05-16</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-053">
+      <participantId>PAR-053</participantId>
+      <eventId>EVT-011</eventId>
+      <registrationDate>2026-05-17</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-054">
+      <participantId>PAR-054</participantId>
+      <eventId>EVT-011</eventId>
+      <registrationDate>2026-05-15</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-055">
+      <participantId>PAR-055</participantId>
+      <eventId>EVT-011</eventId>
+      <registrationDate>2026-05-19</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- Leadership Summit (EVT-012) -->
+    <registration registrationId="REG-056">
+      <participantId>PAR-056</participantId>
+      <eventId>EVT-012</eventId>
+      <registrationDate>2026-06-18</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-057">
+      <participantId>PAR-057</participantId>
+      <eventId>EVT-012</eventId>
+      <registrationDate>2026-06-16</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-058">
+      <participantId>PAR-058</participantId>
+      <eventId>EVT-012</eventId>
+      <registrationDate>2026-06-17</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-059">
+      <participantId>PAR-059</participantId>
+      <eventId>EVT-012</eventId>
+      <registrationDate>2026-06-15</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-060">
+      <participantId>PAR-060</participantId>
+      <eventId>EVT-012</eventId>
+      <registrationDate>2026-06-19</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- Business Analytics Symposium (EVT-013) -->
+    <registration registrationId="REG-061">
+      <participantId>PAR-061</participantId>
+      <eventId>EVT-013</eventId>
+      <registrationDate>2026-06-05</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-062">
+      <participantId>PAR-062</participantId>
+      <eventId>EVT-013</eventId>
+      <registrationDate>2026-06-03</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-063">
+      <participantId>PAR-063</participantId>
+      <eventId>EVT-013</eventId>
+      <registrationDate>2026-06-04</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-064">
+      <participantId>PAR-064</participantId>
+      <eventId>EVT-013</eventId>
+      <registrationDate>2026-06-02</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-065">
+      <participantId>PAR-065</participantId>
+      <eventId>EVT-013</eventId>
+      <registrationDate>2026-06-06</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- Innovation Pitching (EVT-014) -->
+    <registration registrationId="REG-066">
+      <participantId>PAR-066</participantId>
+      <eventId>EVT-014</eventId>
+      <registrationDate>2026-06-25</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-067">
+      <participantId>PAR-067</participantId>
+      <eventId>EVT-014</eventId>
+      <registrationDate>2026-06-23</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-068">
+      <participantId>PAR-068</participantId>
+      <eventId>EVT-014</eventId>
+      <registrationDate>2026-06-24</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-069">
+      <participantId>PAR-069</participantId>
+      <eventId>EVT-014</eventId>
+      <registrationDate>2026-06-22</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-070">
+      <participantId>PAR-070</participantId>
+      <eventId>EVT-014</eventId>
+      <registrationDate>2026-06-26</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- Corporate Recruitment Drive (EVT-015) -->
+    <registration registrationId="REG-071">
+      <participantId>PAR-071</participantId>
+      <eventId>EVT-015</eventId>
+      <registrationDate>2026-05-28</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-072">
+      <participantId>PAR-072</participantId>
+      <eventId>EVT-015</eventId>
+      <registrationDate>2026-05-26</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-073">
+      <participantId>PAR-073</participantId>
+      <eventId>EVT-015</eventId>
+      <registrationDate>2026-05-27</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-074">
+      <participantId>PAR-074</participantId>
+      <eventId>EVT-015</eventId>
+      <registrationDate>2026-05-25</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-075">
+      <participantId>PAR-075</participantId>
+      <eventId>EVT-015</eventId>
+      <registrationDate>2026-05-29</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- Finance and Investment Masterclass (EVT-016) -->
+    <registration registrationId="REG-076">
+      <participantId>PAR-076</participantId>
+      <eventId>EVT-016</eventId>
+      <registrationDate>2026-06-15</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-077">
+      <participantId>PAR-077</participantId>
+      <eventId>EVT-016</eventId>
+      <registrationDate>2026-06-13</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-078">
+      <participantId>PAR-078</participantId>
+      <eventId>EVT-016</eventId>
+      <registrationDate>2026-06-14</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-079">
+      <participantId>PAR-079</participantId>
+      <eventId>EVT-016</eventId>
+      <registrationDate>2026-06-12</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-080">
+      <participantId>PAR-080</participantId>
+      <eventId>EVT-016</eventId>
+      <registrationDate>2026-06-16</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- Marketing and Brand Strategy (EVT-017) -->
+    <registration registrationId="REG-081">
+      <participantId>PAR-081</participantId>
+      <eventId>EVT-017</eventId>
+      <registrationDate>2026-06-10</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-082">
+      <participantId>PAR-082</participantId>
+      <eventId>EVT-017</eventId>
+      <registrationDate>2026-06-08</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-083">
+      <participantId>PAR-083</participantId>
+      <eventId>EVT-017</eventId>
+      <registrationDate>2026-06-09</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-084">
+      <participantId>PAR-084</participantId>
+      <eventId>EVT-017</eventId>
+      <registrationDate>2026-06-07</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-085">
+      <participantId>PAR-085</participantId>
+      <eventId>EVT-017</eventId>
+      <registrationDate>2026-06-11</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- Project Management (EVT-018) -->
+    <registration registrationId="REG-086">
+      <participantId>PAR-086</participantId>
+      <eventId>EVT-018</eventId>
+      <registrationDate>2026-06-15</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-087">
+      <participantId>PAR-087</participantId>
+      <eventId>EVT-018</eventId>
+      <registrationDate>2026-06-13</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-088">
+      <participantId>PAR-088</participantId>
+      <eventId>EVT-018</eventId>
+      <registrationDate>2026-06-14</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-089">
+      <participantId>PAR-089</participantId>
+      <eventId>EVT-018</eventId>
+      <registrationDate>2026-06-12</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-090">
+      <participantId>PAR-090</participantId>
+      <eventId>EVT-018</eventId>
+      <registrationDate>2026-06-16</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- HR and Talent Management (EVT-019) -->
+    <registration registrationId="REG-091">
+      <participantId>PAR-091</participantId>
+      <eventId>EVT-019</eventId>
+      <registrationDate>2026-06-28</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-092">
+      <participantId>PAR-092</participantId>
+      <eventId>EVT-019</eventId>
+      <registrationDate>2026-06-26</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-093">
+      <participantId>PAR-093</participantId>
+      <eventId>EVT-019</eventId>
+      <registrationDate>2026-06-27</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-094">
+      <participantId>PAR-094</participantId>
+      <eventId>EVT-019</eventId>
+      <registrationDate>2026-06-25</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-095">
+      <participantId>PAR-095</participantId>
+      <eventId>EVT-019</eventId>
+      <registrationDate>2026-06-29</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- Supply Chain and Logistics (EVT-020) -->
+    <registration registrationId="REG-096">
+      <participantId>PAR-096</participantId>
+      <eventId>EVT-020</eventId>
+      <registrationDate>2027-07-01</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-097">
+      <participantId>PAR-097</participantId>
+      <eventId>EVT-020</eventId>
+      <registrationDate>2026-06-30</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-098">
+      <participantId>PAR-098</participantId>
+      <eventId>EVT-020</eventId>
+      <registrationDate>2026-07-01</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-099">
+      <participantId>PAR-099</participantId>
+      <eventId>EVT-020</eventId>
+      <registrationDate>2026-06-29</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-100">
+      <participantId>PAR-100</participantId>
+      <eventId>EVT-020</eventId>
+      <registrationDate>2026-07-02</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- Additional registrations for complete coverage (REG-101 through REG-200) -->
+    <!-- Participants registering for multiple events -->
+    
+    <!-- REG-101 to REG-150: Cross-event registrations -->
+    <registration registrationId="REG-101">
+      <participantId>PAR-001</participantId>
+      <eventId>EVT-005</eventId>
+      <registrationDate>2026-05-18</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-102">
+      <participantId>PAR-002</participantId>
+      <eventId>EVT-006</eventId>
+      <registrationDate>2026-06-15</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-103">
+      <participantId>PAR-003</participantId>
+      <eventId>EVT-008</eventId>
+      <registrationDate>2026-05-30</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-104">
+      <participantId>PAR-004</participantId>
+      <eventId>EVT-010</eventId>
+      <registrationDate>2026-06-08</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-105">
+      <participantId>PAR-005</participantId>
+      <eventId>EVT-012</eventId>
+      <registrationDate>2026-06-20</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-106">
+      <participantId>PAR-006</participantId>
+      <eventId>EVT-003</eventId>
+      <registrationDate>2026-06-05</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-107">
+      <participantId>PAR-007</participantId>
+      <eventId>EVT-015</eventId>
+      <registrationDate>2026-06-02</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-108">
+      <participantId>PAR-008</participantId>
+      <eventId>EVT-021</eventId>
+      <registrationDate>2026-05-28</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-109">
+      <participantId>PAR-009</participantId>
+      <eventId>EVT-023</eventId>
+      <registrationDate>2026-06-22</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-110">
+      <participantId>PAR-010</participantId>
+      <eventId>EVT-025</eventId>
+      <registrationDate>2026-07-01</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-111">
+      <participantId>PAR-011</participantId>
+      <eventId>EVT-031</eventId>
+      <registrationDate>2026-05-25</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-112">
+      <participantId>PAR-012</participantId>
+      <eventId>EVT-033</eventId>
+      <registrationDate>2026-06-18</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-113">
+      <participantId>PAR-013</participantId>
+      <eventId>EVT-035</eventId>
+      <registrationDate>2026-06-02</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-114">
+      <participantId>PAR-014</participantId>
+      <eventId>EVT-041</eventId>
+      <registrationDate>2026-05-12</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-115">
+      <participantId>PAR-015</participantId>
+      <eventId>EVT-043</eventId>
+      <registrationDate>2026-07-08</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-116">
+      <participantId>PAR-016</participantId>
+      <eventId>EVT-044</eventId>
+      <registrationDate>2026-05-30</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-117">
+      <participantId>PAR-017</participantId>
+      <eventId>EVT-045</eventId>
+      <registrationDate>2026-05-28</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-118">
+      <participantId>PAR-018</participantId>
+      <eventId>EVT-046</eventId>
+      <registrationDate>2026-05-18</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-119">
+      <participantId>PAR-019</participantId>
+      <eventId>EVT-048</eventId>
+      <registrationDate>2026-05-29</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-120">
+      <participantId>PAR-020</participantId>
+      <eventId>EVT-050</eventId>
+      <registrationDate>2026-07-10</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-121">
+      <participantId>PAR-021</participantId>
+      <eventId>EVT-002</eventId>
+      <registrationDate>2026-05-20</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-122">
+      <participantId>PAR-022</participantId>
+      <eventId>EVT-004</eventId>
+      <registrationDate>2026-06-05</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-123">
+      <participantId>PAR-023</participantId>
+      <eventId>EVT-007</eventId>
+      <registrationDate>2026-06-15</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-124">
+      <participantId>PAR-024</participantId>
+      <eventId>EVT-009</eventId>
+      <registrationDate>2026-07-05</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-125">
+      <participantId>PAR-025</participantId>
+      <eventId>EVT-011</eventId>
+      <registrationDate>2026-05-22</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-126">
+      <participantId>PAR-026</participantId>
+      <eventId>EVT-013</eventId>
+      <registrationDate>2026-06-08</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-127">
+      <participantId>PAR-027</participantId>
+      <eventId>EVT-014</eventId>
+      <registrationDate>2026-06-28</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-128">
+      <participantId>PAR-028</participantId>
+      <eventId>EVT-016</eventId>
+      <registrationDate>2026-06-10</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-129">
+      <participantId>PAR-029</participantId>
+      <eventId>EVT-018</eventId>
+      <registrationDate>2026-06-18</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-130">
+      <participantId>PAR-030</participantId>
+      <eventId>EVT-020</eventId>
+      <registrationDate>2026-07-05</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-131">
+      <participantId>PAR-031</participantId>
+      <eventId>EVT-022</eventId>
+      <registrationDate>2026-05-19</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-132">
+      <participantId>PAR-032</participantId>
+      <eventId>EVT-024</eventId>
+      <registrationDate>2026-06-20</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-133">
+      <participantId>PAR-033</participantId>
+      <eventId>EVT-026</eventId>
+      <registrationDate>2026-06-10</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-134">
+      <participantId>PAR-034</participantId>
+      <eventId>EVT-027</eventId>
+      <registrationDate>2026-06-28</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-135">
+      <participantId>PAR-035</participantId>
+      <eventId>EVT-029</eventId>
+      <registrationDate>2026-06-05</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-136">
+      <participantId>PAR-036</participantId>
+      <eventId>EVT-030</eventId>
+      <registrationDate>2026-07-01</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-137">
+      <participantId>PAR-037</participantId>
+      <eventId>EVT-032</eventId>
+      <registrationDate>2026-05-15</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-138">
+      <participantId>PAR-038</participantId>
+      <eventId>EVT-034</eventId>
+      <registrationDate>2026-06-10</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-139">
+      <participantId>PAR-039</participantId>
+      <eventId>EVT-036</eventId>
+      <registrationDate>2026-06-18</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-140">
+      <participantId>PAR-040</participantId>
+      <eventId>EVT-037</eventId>
+      <registrationDate>2026-07-05</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <!-- REG-141 through REG-200: Final group of registrations -->
+    <registration registrationId="REG-141">
+      <participantId>PAR-041</participantId>
+      <eventId>EVT-038</eventId>
+      <registrationDate>2026-06-15</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-142">
+      <participantId>PAR-042</participantId>
+      <eventId>EVT-039</eventId>
+      <registrationDate>2026-07-02</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-143">
+      <participantId>PAR-043</participantId>
+      <eventId>EVT-040</eventId>
+      <registrationDate>2026-07-10</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-144">
+      <participantId>PAR-044</participantId>
+      <eventId>EVT-042</eventId>
+      <registrationDate>2026-06-15</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-145">
+      <participantId>PAR-045</participantId>
+      <eventId>EVT-047</eventId>
+      <registrationDate>2026-07-10</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-146">
+      <participantId>PAR-046</participantId>
+      <eventId>EVT-049</eventId>
+      <registrationDate>2026-07-10</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-147">
+      <participantId>PAR-047</participantId>
+      <eventId>EVT-001</eventId>
+      <registrationDate>2026-06-10</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-148">
+      <participantId>PAR-048</participantId>
+      <eventId>EVT-002</eventId>
+      <registrationDate>2026-05-22</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-149">
+      <participantId>PAR-049</participantId>
+      <eventId>EVT-003</eventId>
+      <registrationDate>2026-06-10</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-150">
+      <participantId>PAR-050</participantId>
+      <eventId>EVT-004</eventId>
+      <registrationDate>2026-06-15</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-151">
+      <participantId>PAR-051</participantId>
+      <eventId>EVT-005</eventId>
+      <registrationDate>2026-05-28</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-152">
+      <participantId>PAR-052</participantId>
+      <eventId>EVT-006</eventId>
+      <registrationDate>2026-06-18</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-153">
+      <participantId>PAR-053</participantId>
+      <eventId>EVT-007</eventId>
+      <registrationDate>2026-06-20</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-154">
+      <participantId>PAR-054</participantId>
+      <eventId>EVT-008</eventId>
+      <registrationDate>2026-05-31</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-155">
+      <participantId>PAR-055</participantId>
+      <eventId>EVT-009</eventId>
+      <registrationDate>2026-07-08</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-156">
+      <participantId>PAR-056</participantId>
+      <eventId>EVT-010</eventId>
+      <registrationDate>2026-06-12</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-157">
+      <participantId>PAR-057</participantId>
+      <eventId>EVT-011</eventId>
+      <registrationDate>2026-05-25</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-158">
+      <participantId>PAR-058</participantId>
+      <eventId>EVT-012</eventId>
+      <registrationDate>2026-06-25</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-159">
+      <participantId>PAR-059</participantId>
+      <eventId>EVT-013</eventId>
+      <registrationDate>2026-06-10</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-160">
+      <participantId>PAR-060</participantId>
+      <eventId>EVT-014</eventId>
+      <registrationDate>2026-07-02</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-161">
+      <participantId>PAR-061</participantId>
+      <eventId>EVT-015</eventId>
+      <registrationDate>2026-06-05</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-162">
+      <participantId>PAR-062</participantId>
+      <eventId>EVT-016</eventId>
+      <registrationDate>2026-06-18</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-163">
+      <participantId>PAR-063</participantId>
+      <eventId>EVT-017</eventId>
+      <registrationDate>2026-06-12</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-164">
+      <participantId>PAR-064</participantId>
+      <eventId>EVT-018</eventId>
+      <registrationDate>2026-06-20</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-165">
+      <participantId>PAR-065</participantId>
+      <eventId>EVT-019</eventId>
+      <registrationDate>2026-07-05</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-166">
+      <participantId>PAR-066</participantId>
+      <eventId>EVT-020</eventId>
+      <registrationDate>2026-07-08</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-167">
+      <participantId>PAR-067</participantId>
+      <eventId>EVT-021</eventId>
+      <registrationDate>2026-06-02</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-168">
+      <participantId>PAR-068</participantId>
+      <eventId>EVT-023</eventId>
+      <registrationDate>2026-06-25</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-169">
+      <participantId>PAR-069</participantId>
+      <eventId>EVT-024</eventId>
+      <registrationDate>2026-06-20</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-170">
+      <participantId>PAR-070</participantId>
+      <eventId>EVT-025</eventId>
+      <registrationDate>2026-07-02</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-171">
+      <participantId>PAR-071</participantId>
+      <eventId>EVT-026</eventId>
+      <registrationDate>2026-06-15</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-172">
+      <participantId>PAR-072</participantId>
+      <eventId>EVT-027</eventId>
+      <registrationDate>2026-07-02</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-173">
+      <participantId>PAR-073</participantId>
+      <eventId>EVT-028</eventId>
+      <registrationDate>2026-07-08</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-174">
+      <participantId>PAR-074</participantId>
+      <eventId>EVT-029</eventId>
+      <registrationDate>2026-06-10</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-175">
+      <participantId>PAR-075</participantId>
+      <eventId>EVT-030</eventId>
+      <registrationDate>2026-07-05</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-176">
+      <participantId>PAR-076</participantId>
+      <eventId>EVT-031</eventId>
+      <registrationDate>2026-06-02</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-177">
+      <participantId>PAR-077</participantId>
+      <eventId>EVT-032</eventId>
+      <registrationDate>2026-05-20</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-178">
+      <participantId>PAR-078</participantId>
+      <eventId>EVT-033</eventId>
+      <registrationDate>2026-06-25</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-179">
+      <participantId>PAR-079</participantId>
+      <eventId>EVT-034</eventId>
+      <registrationDate>2026-06-15</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-180">
+      <participantId>PAR-080</participantId>
+      <eventId>EVT-035</eventId>
+      <registrationDate>2026-06-05</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-181">
+      <participantId>PAR-081</participantId>
+      <eventId>EVT-036</eventId>
+      <registrationDate>2026-06-22</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-182">
+      <participantId>PAR-082</participantId>
+      <eventId>EVT-037</eventId>
+      <registrationDate>2026-07-10</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-183">
+      <participantId>PAR-083</participantId>
+      <eventId>EVT-038</eventId>
+      <registrationDate>2026-06-18</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-184">
+      <participantId>PAR-084</participantId>
+      <eventId>EVT-039</eventId>
+      <registrationDate>2026-07-08</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-185">
+      <participantId>PAR-085</participantId>
+      <eventId>EVT-040</eventId>
+      <registrationDate>2026-07-15</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-186">
+      <participantId>PAR-086</participantId>
+      <eventId>EVT-041</eventId>
+      <registrationDate>2026-05-15</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-187">
+      <participantId>PAR-087</participantId>
+      <eventId>EVT-042</eventId>
+      <registrationDate>2026-06-20</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-188">
+      <participantId>PAR-088</participantId>
+      <eventId>EVT-043</eventId>
+      <registrationDate>2026-07-12</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-189">
+      <participantId>PAR-089</participantId>
+      <eventId>EVT-044</eventId>
+      <registrationDate>2026-06-02</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-190">
+      <participantId>PAR-090</participantId>
+      <eventId>EVT-045</eventId>
+      <registrationDate>2026-06-02</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-191">
+      <participantId>PAR-091</participantId>
+      <eventId>EVT-046</eventId>
+      <registrationDate>2026-05-18</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-192">
+      <participantId>PAR-092</participantId>
+      <eventId>EVT-047</eventId>
+      <registrationDate>2026-07-15</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-193">
+      <participantId>PAR-093</participantId>
+      <eventId>EVT-048</eventId>
+      <registrationDate>2026-06-02</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-194">
+      <participantId>PAR-094</participantId>
+      <eventId>EVT-049</eventId>
+      <registrationDate>2026-07-12</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-195">
+      <participantId>PAR-095</participantId>
+      <eventId>EVT-050</eventId>
+      <registrationDate>2026-07-18</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-196">
+      <participantId>PAR-096</participantId>
+      <eventId>EVT-001</eventId>
+      <registrationDate>2026-06-12</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-197">
+      <participantId>PAR-097</participantId>
+      <eventId>EVT-002</eventId>
+      <registrationDate>2026-05-20</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-198">
+      <participantId>PAR-098</participantId>
+      <eventId>EVT-003</eventId>
+      <registrationDate>2026-06-08</registrationDate>
+      <registrationStatus>Pending</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-199">
+      <participantId>PAR-099</participantId>
+      <eventId>EVT-004</eventId>
+      <registrationDate>2026-06-20</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+    
+    <registration registrationId="REG-200">
+      <participantId>PAR-100</participantId>
+      <eventId>EVT-005</eventId>
+      <registrationDate>2026-05-22</registrationDate>
+      <registrationStatus>Registered</registrationStatus>
+    </registration>
+  </registrations>
+
+</eventManagementSystem>
