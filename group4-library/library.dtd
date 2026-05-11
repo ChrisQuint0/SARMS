@@ -1,0 +1,59 @@
+<!-- Root element contains two main sections -->
+<!ELEMENT library (books, borrowingRecords)>
+
+<!-- ===================== BOOKS SECTION ===================== -->
+
+<!-- books must contain one or more book elements -->
+<!ELEMENT books (book+)>
+
+<!-- Each book has a required bookId attribute (unique ID) -->
+<!ELEMENT book (title, author, category, isbn, copies)>
+<!ATTLIST book
+  bookId ID #REQUIRED
+>
+
+<!-- Book child elements -->
+<!ELEMENT title    (#PCDATA)>
+<!ELEMENT author   (#PCDATA)>
+<!ELEMENT category (#PCDATA)>
+<!ELEMENT isbn     (#PCDATA)>
+<!ELEMENT copies   (#PCDATA)>
+<!-- Note: copies is validated as positiveInteger in XSD -->
+
+<!-- ===================== BORROWING RECORDS SECTION ===================== -->
+
+<!-- borrowingRecords must contain one or more record elements -->
+<!ELEMENT borrowingRecords (record+)>
+
+<!-- Each record has a required recordId attribute (unique ID) -->
+<!ELEMENT record (bookId, borrower, borrowDate, dueDate, returnDate, status)>
+<!ATTLIST record
+  recordId ID #REQUIRED
+>
+
+<!-- bookId inside record references the borrowed book -->
+<!ELEMENT bookId (#PCDATA)>
+
+<!-- Borrower block contains all borrower details -->
+<!ELEMENT borrower (borrowerId, borrowerName, borrowerType, course, contactNo)>
+<!ELEMENT borrowerId   (#PCDATA)>
+<!ELEMENT borrowerName (#PCDATA)>
+
+<!-- borrowerType allowed values: Student | Faculty               -->
+<!-- DTD cannot restrict to enum values; XSD enforces this rule   -->
+<!ELEMENT borrowerType (#PCDATA)>
+
+<!ELEMENT course    (#PCDATA)>
+<!ELEMENT contactNo (#PCDATA)>
+
+<!-- All dates stored in YYYY-MM-DD format                        -->
+<!-- XSD enforces xs:date type; DTD accepts any text              -->
+<!ELEMENT borrowDate  (#PCDATA)>
+<!ELEMENT dueDate     (#PCDATA)>
+
+<!-- returnDate may be empty when the book has not been returned   -->
+<!ELEMENT returnDate  (#PCDATA)>
+
+<!-- status allowed values: Active | Returned | Overdue | Returned Late -->
+<!-- DTD cannot restrict to enum; XSD enforces enumeration         -->
+<!ELEMENT status (#PCDATA)>
