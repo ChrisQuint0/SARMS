@@ -5,6 +5,188 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events Management System - Reports & Statistics</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Additional styles for reports page */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-6);
+        }
+
+        .stat-card {
+            background-color: var(--surface-0);
+            border: 1px solid var(--border-200);
+            border-left: 5px solid var(--primary-600);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-6);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+            border-color: var(--primary-500);
+        }
+
+        .stat-label {
+            font-size: var(--font-size-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--neutral-600);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .stat-value {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            color: var(--primary-600);
+            line-height: 1;
+            margin-bottom: var(--spacing-2);
+        }
+
+        .stat-unit {
+            font-size: var(--font-size-sm);
+            color: var(--neutral-600);
+            font-weight: 500;
+        }
+
+        .generate-btn-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: var(--spacing-6);
+        }
+
+        .btn-generate {
+            background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-500) 100%);
+            color: var(--surface-0);
+            padding: var(--spacing-3) var(--spacing-6);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-generate:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Table Styles */
+        .table-container {
+            overflow-x: auto;
+            border-radius: var(--radius-lg);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--surface-0);
+            border: 1px solid var(--border-200);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-500) 100%);
+        }
+
+        th {
+            padding: var(--spacing-4);
+            text-align: left;
+            font-weight: 700;
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--surface-0);
+        }
+
+        td {
+            padding: var(--spacing-4);
+            border-bottom: 1px solid var(--border-200);
+            color: var(--neutral-900);
+        }
+
+        tbody tr:hover {
+            background-color: var(--primary-200);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge-success {
+            background-color: #DCFCE7;
+            color: var(--success-500);
+            border: 1px solid var(--success-500);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .badge-pending {
+            background-color: #FEF3C7;
+            color: #B45309;
+            border: 1px solid #FCD34D;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .badge-primary {
+            background-color: var(--primary-200);
+            color: var(--primary-600);
+            border: 1px solid var(--primary-500);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        /* Chart container styles */
+        .chart-container {
+            background: var(--surface-0);
+            border: 1px solid var(--border-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-6);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .chart-container h3 {
+            margin-bottom: var(--spacing-6);
+            color: var(--neutral-700);
+            font-weight: 600;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+            width: 100%;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-6);
+        }
+
+        .page-header h2 {
+            margin-bottom: 0;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
     <!-- HEADER / NAVIGATION -->
@@ -25,11 +207,9 @@
 
     <!-- MAIN CONTENT -->
     <main class="main">
-
-
         <div class="container">
             
-            <!-- ATTENDANCE PROJECTION SECTION -->
+            <!-- ATTENDANCE PROJECTION SECTION with Total Colleges card -->
             <section class="section">
                 <h2>Attendance Projection Summary</h2>
                 <div class="stats-grid">
@@ -53,150 +233,32 @@
                         <div class="stat-value">80%</div>
                         <div class="stat-unit">Expected attendance</div>
                     </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Total Colleges</div>
+                        <div class="stat-value">7</div>
+                        <div class="stat-unit">Academic departments</div>
+                    </div>
                 </div>
             </section>
 
-            <!-- ATTENDANCE SHEET BY EVENT -->
+            <!-- ATTENDANCE STATISTICS CHART SECTION - Based on Closed Events -->
             <section class="section">
-                <h2>Detailed Attendance Sheet (Top 15 Events)</h2>
-                
-                <div class="card">
-                    <div class="card-title">EVT-001 - University Tech Expo 2026 <span style="color: #4B5563; font-size: 0.875rem;">(June 20, 2026)</span></div>
-                    <div class="card-content">
-                        <p><strong>Venue:</strong> Main Auditorium</p>
-                        <p><strong>Total Registrations:</strong> 5</p>
-                        <p><strong>Confirmed:</strong> 4 | <strong>Pending:</strong> 1</p>
+                <div class="page-header">
+                    <h2>Event Attendance Statistics</h2>
+                    <div class="generate-btn-container" style="margin-bottom: 0;">
+                        <button class="btn-generate" id="openGenerateModal">Generate Event Attendance Sheet</button>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-title">EVT-002 - AI and Machine Learning Workshop <span style="color: #4B5563; font-size: 0.875rem;">(May 25, 2026)</span></div>
-                    <div class="card-content">
-                        <p><strong>Venue:</strong> Engineering Building Room 301</p>
-                        <p><strong>Total Registrations:</strong> 5</p>
-                        <p><strong>Confirmed:</strong> 4 | <strong>Pending:</strong> 1</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">EVT-003 - Cloud Computing Seminar <span style="color: #4B5563; font-size: 0.875rem;">(June 15, 2026)</span></div>
-                    <div class="card-content">
-                        <p><strong>Venue:</strong> Conference Hall B</p>
-                        <p><strong>Total Registrations:</strong> 5</p>
-                        <p><strong>Confirmed:</strong> 4 | <strong>Pending:</strong> 1</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">EVT-004 - Cybersecurity Bootcamp <span style="color: #4B5563; font-size: 0.875rem;">(July 10, 2026)</span></div>
-                    <div class="card-content">
-                        <p><strong>Venue:</strong> Computer Lab 5</p>
-                        <p><strong>Total Registrations:</strong> 5</p>
-                        <p><strong>Confirmed:</strong> 4 | <strong>Pending:</strong> 1</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">EVT-005 - Web Development Masterclass <span style="color: #4B5563; font-size: 0.875rem;">(May 30, 2026)</span></div>
-                    <div class="card-content">
-                        <p><strong>Venue:</strong> Engineering Building Room 205</p>
-                        <p><strong>Total Registrations:</strong> 5</p>
-                        <p><strong>Confirmed:</strong> 4 | <strong>Pending:</strong> 1</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">EVT-006 - Data Science Conference 2026 <span style="color: #4B5563; font-size: 0.875rem;">(July 05, 2026)</span></div>
-                    <div class="card-content">
-                        <p><strong>Venue:</strong> Main Auditorium</p>
-                        <p><strong>Total Registrations:</strong> 5</p>
-                        <p><strong>Confirmed:</strong> 4 | <strong>Pending:</strong> 1</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">EVT-007 - Mobile App Development Summit <span style="color: #4B5563; font-size: 0.875rem;">(June 28, 2026)</span></div>
-                    <div class="card-content">
-                        <p><strong>Venue:</strong> Convention Center Hall A</p>
-                        <p><strong>Total Registrations:</strong> 5</p>
-                        <p><strong>Confirmed:</strong> 4 | <strong>Pending:</strong> 1</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">EVT-008 - DevOps and Containerization Workshop <span style="color: #4B5563; font-size: 0.875rem;">(June 08, 2026)</span></div>
-                    <div class="card-content">
-                        <p><strong>Venue:</strong> Computer Lab 3</p>
-                        <p><strong>Total Registrations:</strong> 5</p>
-                        <p><strong>Confirmed:</strong> 4 | <strong>Pending:</strong> 1</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">EVT-009 - Blockchain Technology Forum <span style="color: #4B5563; font-size: 0.875rem;">(July 15, 2026)</span></div>
-                    <div class="card-content">
-                        <p><strong>Venue:</strong> Conference Hall A</p>
-                        <p><strong>Total Registrations:</strong> 5</p>
-                        <p><strong>Confirmed:</strong> 4 | <strong>Pending:</strong> 1</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">EVT-010 - IoT Solutions Expo <span style="color: #4B5563; font-size: 0.875rem;">(June 22, 2026)</span></div>
-                    <div class="card-content">
-                        <p><strong>Venue:</strong> Innovation Center</p>
-                        <p><strong>Total Registrations:</strong> 5</p>
-                        <p><strong>Confirmed:</strong> 4 | <strong>Pending:</strong> 1</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">EVT-011 - Entrepreneurship Workshop <span style="color: #4B5563; font-size: 0.875rem;">(May 28, 2026)</span></div>
-                    <div class="card-content">
-                        <p><strong>Venue:</strong> Business School Room 101</p>
-                        <p><strong>Total Registrations:</strong> 5</p>
-                        <p><strong>Confirmed:</strong> 4 | <strong>Pending:</strong> 1</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">EVT-012 - Leadership Development Summit <span style="color: #4B5563; font-size: 0.875rem;">(July 02, 2026)</span></div>
-                    <div class="card-content">
-                        <p><strong>Venue:</strong> Executive Conference Room</p>
-                        <p><strong>Total Registrations:</strong> 5</p>
-                        <p><strong>Confirmed:</strong> 4 | <strong>Pending:</strong> 1</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">EVT-013 - Business Analytics Symposium <span style="color: #4B5563; font-size: 0.875rem;">(June 18, 2026)</span></div>
-                    <div class="card-content">
-                        <p><strong>Venue:</strong> Business School Auditorium</p>
-                        <p><strong>Total Registrations:</strong> 5</p>
-                        <p><strong>Confirmed:</strong> 4 | <strong>Pending:</strong> 1</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">EVT-014 - Innovation and Startup Pitching <span style="color: #4B5563; font-size: 0.875rem;">(July 08, 2026)</span></div>
-                    <div class="card-content">
-                        <p><strong>Venue:</strong> Innovation Hub</p>
-                        <p><strong>Total Registrations:</strong> 5</p>
-                        <p><strong>Confirmed:</strong> 4 | <strong>Pending:</strong> 1</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">EVT-015 - Corporate Recruitment Drive <span style="color: #4B5563; font-size: 0.875rem;">(June 12, 2026)</span></div>
-                    <div class="card-content">
-                        <p><strong>Venue:</strong> Student Center Grand Hall</p>
-                        <p><strong>Total Registrations:</strong> 5</p>
-                        <p><strong>Confirmed:</strong> 4 | <strong>Pending:</strong> 1</p>
+                <div class="chart-container">
+                    <h3>Closed Events Attendance Analysis</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="attendanceChart"></canvas>
                     </div>
                 </div>
             </section>
 
-            <!-- REGISTRATION SUMMARY TABLE -->
+            <!-- REGISTRATION STATUS SUMMARY TABLE -->
             <section class="section">
                 <h2>Registration Status Summary</h2>
                 <div class="table-container">
@@ -206,7 +268,7 @@
                                 <th>Status</th>
                                 <th>Count</th>
                                 <th>Percentage</th>
-                                <th>Status Indicator</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -214,94 +276,233 @@
                                 <td>Registered (Confirmed)</td>
                                 <td><strong>160</strong></td>
                                 <td><strong>80%</strong></td>
-                                <td><span class="badge badge-success">Confirmed</span></td>
+                                <td><span class="badge-success">CONFIRMED</span></td>
                             </tr>
                             <tr>
                                 <td>Pending (Awaiting Approval)</td>
                                 <td><strong>40</strong></td>
                                 <td><strong>20%</strong></td>
-                                <td><span class="badge badge-pending">Pending</span></td>
+                                <td><span class="badge-pending">PENDING</span></td>
                             </tr>
                             <tr style="background-color: #F8FAFC; font-weight: bold;">
                                 <td>Total Registrations</td>
                                 <td><strong>200</strong></td>
                                 <td><strong>100%</strong></td>
-                                <td><span class="badge badge-primary">All</span></td>
+                                <td><span class="badge-primary">ALL</span></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </section>
-
-            <!-- KEY INSIGHTS SECTION -->
-            <section class="section">
-                <h2>Key Insights & Metrics</h2>
-                <div class="grid grid-cols-2">
-                    <div class="card">
-                        <div class="card-title">Registration Distribution</div>
-                        <div class="card-content">
-                            <p><strong>Average registrations per event:</strong> 4.0</p>
-                            <p><strong>Events with 5+ registrations:</strong> 10</p>
-                            <p><strong>Events with 1-4 registrations:</strong> 40</p>
-                            <p><strong>Distribution Pattern:</strong> Tech events attract more registrations (5 per event), while specialized departments have lower interest (1 per event)</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-title">Department Engagement</div>
-                        <div class="card-content">
-                            <p><strong>Computer Science:</strong> 42 registrations (25 participants)</p>
-                            <p><strong>Engineering:</strong> 40 registrations (25 participants)</p>
-                            <p><strong>Business:</strong> 40 registrations (25 participants)</p>
-                            <p><strong>Science:</strong> 39 registrations (25 participants)</p>
-                            <p><strong>Humanities:</strong> 39 registrations (25 participants)</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-title">Event Category Performance</div>
-                        <div class="card-content">
-                            <p><strong>Technology Events (EVT-001 to EVT-010):</strong> 50 total registrations</p>
-                            <p><strong>Business Events (EVT-011 to EVT-020):</strong> 50 total registrations</p>
-                            <p><strong>Science Events (EVT-021 to EVT-030):</strong> 10 total registrations</p>
-                            <p><strong>Arts/Humanities Events (EVT-031 to EVT-040):</strong> 10 total registrations</p>
-                            <p><strong>Professional Development (EVT-041 to EVT-050):</strong> 80 total registrations</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-title">Confirmation Analysis</div>
-                        <div class="card-content">
-                            <p><strong>Overall Confirmation Rate:</strong> 80%</p>
-                            <p><strong>Confirmed Registrations:</strong> 160</p>
-                            <p><strong>Pending Approvals:</strong> 40</p>
-                            <p><strong>Follow-up Required:</strong> For 40 pending participants to improve attendance rate</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- RECOMMENDATIONS SECTION -->
-            <section class="section">
-                <h2>Recommendations for Event Managers</h2>
-                <div class="card">
-                    <div class="card-title">Action Items</div>
-                    <div class="card-content">
-                        <ul style="list-style-type: disc; padding-left: 20px;">
-                            <li><strong>Pending Approvals:</strong> Follow up with 40 pending registrations to increase confirmation rate beyond 80%</li>
-                            <li><strong>Science Events:</strong> Promote science-related events to increase engagement (currently 10 registrations for 10 events)</li>
-                            <li><strong>Arts/Humanities Promotion:</strong> Similar engagement challenge as science events - focus on marketing strategy</li>
-                            <li><strong>Tech Events Success:</strong> Tech and Professional Development events are popular - consider expanding these categories</li>
-                            <li><strong>Cross-Department Participation:</strong> Encourage students to register for events outside their department for broader perspectives</li>
-                            <li><strong>Capacity Planning:</strong> Majority of events have 1-5 registrations; adjust venue sizes accordingly for cost efficiency</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
         </div>
     </main>
 
+    <!-- GENERATE ATTENDANCE SHEET MODAL -->
+    <div class="modal-overlay" id="generateModal" role="dialog" aria-modal="true">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Generate Event Attendance Sheet</h3>
+                <button class="modal-close" id="closeGenerateModal" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="eventSelect">Select Event</label>
+                    <select id="eventSelect">
+                        <option value="" disabled selected>Choose an event</option>
+                        <option value="EVT-2026-001">AI and Machine Learning Workshop</option>
+                        <option value="EVT-2026-002">Philosophy and Critical Thinking Forum</option>
+                        <option value="EVT-2026-003">Career Development and Resume Workshop</option>
+                        <option value="EVT-2026-004">Entrepreneurship Workshop</option>
+                        <option value="EVT-2026-005">Cybersecurity Awareness Forum</option>
+                        <option value="EVT-2026-006">Entrepreneurship Workshop (Closed)</option>
+                        <option value="EVT-2026-010">Data Science Bootcamp</option>
+                        <option value="EVT-2026-011">Leadership and Communication Seminar</option>
+                        <option value="EVT-2026-012">Digital Photography Workshop</option>
+                        <option value="EVT-2026-013">Public Speaking and Debate Training</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dateRange">Date Range</label>
+                    <input type="text" id="dateRange" placeholder="e.g., May 2026 - July 2026">
+                </div>
+                <div class="form-group">
+                    <label for="formatSelect">Export Format</label>
+                    <select id="formatSelect">
+                        <option value="pdf">PDF Document</option>
+                        <option value="excel">Excel Spreadsheet</option>
+                        <option value="csv">CSV File</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelGenerateModal">Cancel</button>
+                <button class="btn btn-primary">Generate Report</button>
+            </div>
+        </div>
+    </div>
+
     <!-- FOOTER -->
     <footer class="footer">
-        <p>&copy; 2026 University Events Management System. All rights reserved.</p>
+        <p>&copy; 2026 Pamantasan ng Lungsod ng Pasig Events Management System. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Chart.js Line Graph for Event Attendance Statistics - Based on Closed Events from events.html
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('attendanceChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['EVT-2026-005', 'EVT-2026-006'],
+                    datasets: [
+                        {
+                            label: 'Registered Participants',
+                            data: [20, 5],
+                            borderColor: '#008A45',
+                            backgroundColor: 'rgba(0, 138, 69, 0.1)',
+                            borderWidth: 3,
+                            pointRadius: 8,
+                            pointHoverRadius: 10,
+                            pointBackgroundColor: '#008A45',
+                            pointBorderColor: '#FFFFFF',
+                            pointBorderWidth: 2,
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: 'Maximum Capacity',
+                            data: [50, 100],
+                            borderColor: '#DC2626',
+                            backgroundColor: 'rgba(220, 38, 38, 0.05)',
+                            borderWidth: 2,
+                            borderDash: [8, 6],
+                            pointRadius: 5,
+                            pointHoverRadius: 7,
+                            pointBackgroundColor: '#DC2626',
+                            pointBorderColor: '#FFFFFF',
+                            pointBorderWidth: 1.5,
+                            tension: 0.3,
+                            fill: false
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    plugins: {
+                        tooltip: {
+                            backgroundColor: '#FFFFFF',
+                            titleColor: '#111827',
+                            bodyColor: '#4B5563',
+                            borderColor: '#E5E7EB',
+                            borderWidth: 1,
+                            padding: 10,
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    let value = context.raw;
+                                    return label + ': ' + value + ' registrations';
+                                }
+                            }
+                        },
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                usePointStyle: true,
+                                boxWidth: 10,
+                                font: {
+                                    size: 12,
+                                    weight: '600'
+                                },
+                                color: '#374151'
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Event ID',
+                                color: '#6B7280',
+                                font: {
+                                    size: 12,
+                                    weight: '600'
+                                }
+                            },
+                            ticks: {
+                                color: '#4B5563',
+                                maxRotation: 0,
+                                minRotation: 0
+                            },
+                            grid: {
+                                display: false
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Number of Registrations',
+                                color: '#6B7280',
+                                font: {
+                                    size: 12,
+                                    weight: '600'
+                                }
+                            },
+                            ticks: {
+                                color: '#4B5563',
+                                stepSize: 20
+                            },
+                            grid: {
+                                color: '#E5E7EB',
+                                drawBorder: true
+                            },
+                            min: 0,
+                            max: 120
+                        }
+                    },
+                    elements: {
+                        line: {
+                            borderJoin: 'round'
+                        }
+                    }
+                }
+            });
+        });
+
+        // Modal functionality for Generate button
+        const generateModal = document.getElementById('generateModal');
+        const openGenerateBtn = document.getElementById('openGenerateModal');
+        const closeGenerateBtn = document.getElementById('closeGenerateModal');
+        const cancelGenerateBtn = document.getElementById('cancelGenerateModal');
+
+        function openGenerateModalFunc() {
+            generateModal.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGenerateModalFunc() {
+            generateModal.classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+
+        if (openGenerateBtn) openGenerateBtn.addEventListener('click', openGenerateModalFunc);
+        if (closeGenerateBtn) closeGenerateBtn.addEventListener('click', closeGenerateModalFunc);
+        if (cancelGenerateBtn) cancelGenerateBtn.addEventListener('click', closeGenerateModalFunc);
+
+        // Close when clicking the backdrop
+        generateModal.addEventListener('click', function(e) {
+            if (e.target === generateModal) closeGenerateModalFunc();
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && generateModal.classList.contains('is-open')) closeGenerateModalFunc();
+        });
+    </script>
 </body>
 </html>
