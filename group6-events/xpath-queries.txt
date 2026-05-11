@@ -142,7 +142,7 @@
 //registration[@participantId='PAR-001']
 
 # Get registrations for specific event
-//registration[@eventId='EVT-001']
+//registration[@eventId='EVT-0001']
 
 # Get early registrations (before May 10)
 //registration[@registrationDate < '2026-05-10']
@@ -210,14 +210,14 @@ sum(//event/capacity)
 # PARENT-CHILD RELATIONSHIP QUERIES
 # ============================================
 
-# Get participants who registered for EVT-001
-//participant[@participantId=//registration[@eventId='EVT-001']/@participantId]
+# Get participants who registered for EVT-0001
+//participant[@participantId=//registration[@eventId='EVT-0001']/@participantId]
 
 # Get event details for participant PAR-001's registrations
 //event[@eventId=//registration[@participantId='PAR-001']/@eventId]
 
-# Get participants in event EVT-007
-//registration[@eventId='EVT-007']/@participantId
+# Get participants in event EVT-0007
+//registration[@eventId='EVT-0007']/@participantId
 
 # Get events attended by participant PAR-015
 //event[@eventId=//registration[@participantId='PAR-015' and @registrationStatus='Attended']/@eventId]

@@ -450,37 +450,7 @@
                     </div>
                   </div>
                 </xsl:for-each>
-                
-                <!-- Additional Current Events Cards -->
-                <div class="event-card">
-                  <div class="event-card-header">
-                    <div class="event-card-title">Digital Innovation Summit 2026</div>
-                    <p class="card-desc">Explore cutting-edge digital technologies, AI integration, and future tech trends with industry experts.</p>
-                  </div>
-                  <div class="event-card-body">
-                    <div class="event-row"><span class="event-lbl">ID</span><span class="event-val">EVT-2026-016</span></div>
-                    <div class="event-row"><span class="event-lbl">Date</span><span class="event-val">05/16/2026</span></div>
-                    <div class="event-row"><span class="event-lbl">Time</span><span class="event-val">09:00 AM</span></div>
-                    <div class="event-row"><span class="event-lbl">Venue</span><span class="event-val">Convention Center Hall A</span></div>
-                    <div class="event-row"><span class="event-lbl">Category</span><span class="event-val">Academic</span></div>
-                    <div class="event-row"><span class="event-lbl">Registrations</span><span class="event-val">45 / 200</span></div>
-                  </div>
-                </div>
-                
-                <div class="event-card">
-                  <div class="event-card-header">
-                    <div class="event-card-title">Cultural Festival 2026</div>
-                    <p class="card-desc">Celebrate diversity through music, dance, art exhibitions, and traditional food from different cultures.</p>
-                  </div>
-                  <div class="event-card-body">
-                    <div class="event-row"><span class="event-lbl">ID</span><span class="event-val">EVT-2026-017</span></div>
-                    <div class="event-row"><span class="event-lbl">Date</span><span class="event-val">05/18/2026</span></div>
-                    <div class="event-row"><span class="event-lbl">Time</span><span class="event-val">10:30 AM</span></div>
-                    <div class="event-row"><span class="event-lbl">Venue</span><span class="event-val">University Open Grounds</span></div>
-                    <div class="event-row"><span class="event-lbl">Category</span><span class="event-val">Cultural</span></div>
-                    <div class="event-row"><span class="event-lbl">Registrations</span><span class="event-val">78 / 150</span></div>
-                  </div>
-                </div>
+    
               </div>
             </section>
 
