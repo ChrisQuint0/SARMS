@@ -1,0 +1,281 @@
+====================================================================
+SARMS - Smart Academic Records Management System
+Group 5: Student Billing System
+XPath Queries (Minimum 5 Required)
+====================================================================
+
+The following XPath expressions are designed to extract and filter
+data from billing.xml. Each query corresponds to the specific items
+found in the provided XPath-Query document.  
+
+Context document: billing.xml
+
+--------------------------------------------------------------------
+QUERY 1: Retrieve students with unpaid balances (Required by Case Study)
+--------------------------------------------------------------------
+
+Expression:
+/billing/record [balance > 0]
+
+Explanation:
+Filters records to identify students who have any remaining
+debt higher than zero.
+
+--------------------------------------------------------------------
+QUERY 2: Retrieve all student names
+--------------------------------------------------------------------
+
+Expression:
+/billing/record/name
+
+Explanation:
+Navigates to the name child element for all records to list
+enrolled students.  
+
+--------------------------------------------------------------------
+QUERY 3: Retrieve all student IDs
+--------------------------------------------------------------------
+
+Expression:
+/billing/record/studentId   
+
+Explanation:
+Selects all unique student identification numbers from the
+billing records.  
+
+--------------------------------------------------------------------
+QUERY 4: Retrieve all tuition fees
+--------------------------------------------------------------------
+
+Expression:
+/billing/record/tuitionFee   
+
+Explanation:
+Retrieves the total tuition fee amount for every student
+entry.  
+
+--------------------------------------------------------------------
+QUERY 5: Retrieve all balances
+--------------------------------------------------------------------
+
+Expression:
+/billing/record/balance   
+
+Explanation:
+Extracts the current balance values for all student accounts.  
+
+--------------------------------------------------------------------
+QUERY 6: Retrieve all billing records
+--------------------------------------------------------------------
+
+Expression:
+/billing/record   
+
+Explanation:
+Selects every billing record entry available in the system.
+  
+--------------------------------------------------------------------
+QUERY 7: Retrieve students with balance greater than 20,000
+--------------------------------------------------------------------
+
+Expression:
+/billing/record [balance > 20000]   
+
+Explanation:
+Identifies students with high outstanding balances exceeding
+20,000.  
+
+-------------------------------------------------------------------- 
+QUERY 8: Retrieve students with balance less than 5,000
+--------------------------------------------------------------------
+
+Expression:
+/billing/record [balance < 5000]   
+
+Explanation:
+Selects students who have almost cleared their accounts with a
+remaining balance under 5,000.  
+
+-------------------------------------------------------------------- 
+QUERY 9: Retrieve students who paid more than 30,000
+-------------------------------------------------------------------- 
+
+Expression:
+/billing/record [paymentsMade > 30000]   
+ 
+Explanation:
+Filters for students whose total payments made exceed
+30,000.  
+
+-------------------------------------------------------------------- 
+QUERY 10: Retrieve students with tuition fee above 45,000
+-------------------------------------------------------------------- 
+
+Expression:
+/billing/record [tuition Fee > 45000]   
+
+Explanation:
+Selects records where the total tuition assessment is higher
+than 45,000.  
+
+-------------------------------------------------------------------- 
+QUERY 11: Retrieve students whose payment is greater than their balance
+-------------------------------------------------------------------- 
+
+Expression:
+/billing/record [paymentsMade > balance]   
+
+Explanation:
+Identifies students who have paid more than their current
+outstanding balance.  
+
+-------------------------------------------------------------------- 
+QUERY 12: Retrieve students whose balance is greater than payments made
+-------------------------------------------------------------------- 
+
+Expression:
+/billing/record [balance > paymentsMade]   
+
+Explanation:
+Identifies students whose remaining debt is currently higher
+than the amount they have paid.  
+
+-------------------------------------------------------------------- 
+QUERY 13: Retrieve students whose balance is more than half of the tuition fee
+-------------------------------------------------------------------- 
+
+Expression:
+/billing/record [balance > tuitionFee div 2]   
+
+Explanation:
+Uses mathematical division to find students who still owe
+more than 50% of their total tuition.  
+
+-------------------------------------------------------------------- 
+QUERY 14: Retrieve records where tuition fee equals payments made plus balance
+-------------------------------------------------------------------- 
+
+Expression:
+/billing/record [tuitionFee = paymentsMade + balance]   
+
+Explanation:
+Used for data validation to ensure the total fee matches the
+sum of the payment and the debt.  
+
+-------------------------------------------------------------------- 
+QUERY 15: Retrieve the first billing record
+-------------------------------------------------------------------- 
+
+Expression:
+/billing/record [1]   
+
+Explanation:
+Selects only the very first record entry in the XML
+structure.  
+
+-------------------------------------------------------------------- 
+QUERY 16: Retrieve the last billing record
+-------------------------------------------------------------------- 
+
+Expression:
+/billing/record [last()]   
+
+Explanation:
+Uses the last() function to retrieve the final entry in the
+billing file.  
+
+-------------------------------------------------------------------- 
+QUERY 17: Count the total number of billing records
+-------------------------------------------------------------------- 
+
+Expression:
+count(/billing/record)   
+
+Explanation:
+Calculates the total quantity of records currently in the
+system.  
+
+-------------------------------------------------------------------- 
+QUERY 18: Count students with unpaid balances above 20,000
+-------------------------------------------------------------------- 
+
+Expression:
+count(/billing/record [balance > 20000])   
+
+Explanation:
+Provides a numerical count of students holding a high
+debt status.  
+
+-------------------------------------------------------------------- 
+QUERY 19: Retrieve students whose names contain "Garcia"
+-------------------------------------------------------------------- 
+
+Expression:
+/billing/record [contains (name, 'Garcia')]   
+
+Explanation:
+A string search that returns records for any student with
+"Garcia" in their name.  
+
+-------------------------------------------------------------------- 
+QUERY 20: Retrieve students whose names start with "Emma"
+-------------------------------------------------------------------- 
+
+Expression:
+/billing/record [starts-with(name, 'Emma')]   
+
+Explanation:
+Filters records where the name begins exactly with "Emma".  
+
+-------------------------------------------------------------------- 
+QUERY 21: Retrieve students whose names end with "Smith"
+-------------------------------------------------------------------- 
+Expression:
+/billing/record [substring(name, string-length (name)-4, 5) = 'Smith']   
+
+Explanation:
+A string manipulation that isolates the end of the name
+to match "Smith".  
+
+-------------------------------------------------------------------- 
+QUERY 22: Retrieve duplicate student names
+-------------------------------------------------------------------- 
+Expression:
+/billing/record [name = preceding::record/name]   
+
+Explanation:
+Checks previous records to find entries with identical
+names.  
+
+-------------------------------------------------------------------- 
+QUERY 23: Retrieve students with exact balance of 15,875
+-------------------------------------------------------------------- 
+Expression:
+/billing/record [balance = 15875]   
+
+Explanation:
+Performs an exact numerical match for a specific balance
+amount.  
+
+-------------------------------------------------------------------- 
+QUERY 24: Retrieve students whose names have more than 12 characters
+-------------------------------------------------------------------- 
+Expression:
+/billing/record [string-length (name) > 12]   
+
+Explanation:
+Filters students based on the total character count of
+their full name.  
+
+-------------------------------------------------------------------- 
+QUERY 25: Retrieve names and balances together
+-------------------------------------------------------------------- 
+Expression:
+/billing/record/name | /billing/record/balance   
+
+Explanation:
+Uses the union operator to combine two node sets for a summary
+view.  
+
+====================================================================
+END OF XPATH QUERIES
