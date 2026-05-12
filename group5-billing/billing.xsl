@@ -547,41 +547,41 @@
         <p>Select a module to view detailed information</p>
     </div>
     <div class="module-grid">
-        <a href="../sarms-dashboard.html" target="_blank" class="module-card">
-            <i class="fas fa-chart-line card-icon"></i>
+        <a href="../sarms.xml" class="module-card">
+            <i class="fas fa-th card-icon"></i>
             <h3>Dashboard</h3>
             <p>Unified view with statistics and charts</p>
-            <span class="view-link"><i class="fas fa-external-link-alt"></i> View Module →</span>
+            <span class="view-link"><i class="fas fa-arrow-right" style="font-size: 10px;"></i> View Module</span>
         </a>
-        <a href="../group1-enrollment/students.xml" target="_blank" class="module-card">
+        <a href="../group1-enrollment/students.xml" class="module-card">
             <i class="fas fa-user-graduate card-icon"></i>
             <h3>Student Enrollment</h3>
             <p>Manage student records, enrollments, and academic performance</p>
-            <span class="view-link"><i class="fas fa-external-link-alt"></i> View Module →</span>
+            <span class="view-link"><i class="fas fa-arrow-right" style="font-size: 10px;"></i> View Module</span>
         </a>
-        <a href="../group3-faculty/faculty.xml" target="_blank" class="module-card">
+        <a href="../group3-faculty/faculty.xml" class="module-card">
             <i class="fas fa-chalkboard-teacher card-icon"></i>
             <h3>Faculty Workload</h3>
             <p>Track faculty assignments, teaching hours, and workload distribution</p>
-            <span class="view-link"><i class="fas fa-external-link-alt"></i> View Module →</span>
+            <span class="view-link"><i class="fas fa-arrow-right" style="font-size: 10px;"></i> View Module</span>
         </a>
-        <a href="../group4-library/library.xml" target="_blank" class="module-card">
+        <a href="../group4-library/library.xml" class="module-card">
             <i class="fas fa-book card-icon"></i>
             <h3>Library Management</h3>
             <p>Manage books, borrowing records, and library resources</p>
-            <span class="view-link"><i class="fas fa-external-link-alt"></i> View Module →</span>
+            <span class="view-link"><i class="fas fa-arrow-right" style="font-size: 10px;"></i> View Module</span>
         </a>
-        <a href="../group5-billing/billing.xml" target="_blank" class="module-card" style="border-color: #008A45;">
+        <a href="../group5-billing/billing.xml" class="module-card" style="border-color: #008A45; background: #f0fdf4;">
             <i class="fas fa-file-invoice-dollar card-icon"></i>
             <h3>Student Billing</h3>
-            <p>Track tuition fees, payments, and outstanding balances</p>
-            <span class="view-link"><i class="fas fa-external-link-alt"></i> View Module →</span>
+            <p>Track tuition fees, payments, and outstanding balances (Current Page)</p>
+            <span class="view-link">✓ Current Module</span>
         </a>
-        <a href="../group6-events/events.xml" target="_blank" class="module-card">
+        <a href="../group6-events/events.xml" class="module-card">
             <i class="fas fa-calendar-alt card-icon"></i>
             <h3>Event Management</h3>
             <p>Organize university events, registrations, and attendance</p>
-            <span class="view-link"><i class="fas fa-external-link-alt"></i> View Module →</span>
+            <span class="view-link"><i class="fas fa-arrow-right" style="font-size: 10px;"></i> View Module</span>
         </a>
     </div>
 </div>

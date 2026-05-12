@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" 
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xi="http://www.w3.org/2001/XInclude">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     
-<xsl:output method="html" encoding="UTF-8" indent="yes" 
-    doctype-system="about:legacy-compat"/>
+<xsl:output method="html" encoding="UTF-8" indent="yes" doctype-system="about:legacy-compat"/>
+
+<!-- Variables to load external XML documents -->
+<xsl:variable name="studentsDoc" select="document('group1-enrollment/students.xml')"/>
+<xsl:variable name="facultyDoc" select="document('group3-faculty/faculty.xml')"/>
+<xsl:variable name="libraryDoc" select="document('group4-library/library.xml')"/>
+<xsl:variable name="billingDoc" select="document('group5-billing/billing.xml')"/>
+<xsl:variable name="eventsDoc" select="document('group6-events/events.xml')"/>
 
 <xsl:template match="/">
 <html lang="en">
@@ -70,9 +74,10 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            z-index: 1000;
+            z-index: 1100;
             box-shadow: 0 4px 12px rgba(0, 138, 69, 0.3);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
         }
         
         .menu-button:hover {
@@ -158,13 +163,17 @@
         }
         
         .module-card {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            background: white;
+            border: 2px solid var(--border);
             border-radius: 16px;
-            padding: 28px;
+            padding: 24px;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
         
         .module-card::before {
@@ -174,47 +183,257 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(255, 255, 255, 0);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            opacity: 0;
             transition: all 0.3s ease;
         }
         
         .module-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 138, 69, 0.3);
+            box-shadow: 0 12px 24px rgba(0, 138, 69, 0.15);
+            border-color: var(--primary-color);
         }
         
         .module-card:hover::before {
-            background: rgba(255, 255, 255, 0.1);
+            opacity: 0.03;
         }
         
         .module-card i {
             font-size: 36px;
-            color: white;
+            color: var(--primary-color);
             margin-bottom: 16px;
             display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .module-card:hover i {
+            transform: scale(1.1);
         }
         
         .module-card h3 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
-            color: white;
+            color: var(--text-primary);
             margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
         }
         
         .module-card p {
             font-size: 14px;
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--text-secondary);
             line-height: 1.5;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .module-card .view-link {
+            font-size: 13px;
+            color: var(--primary-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            position: relative;
+            z-index: 1;
+            transition: gap 0.2s ease;
+        }
+        
+        .module-card:hover .view-link {
+            gap: 8px;
+        }
+        
+        /* ==================== CIRCULAR MENU ==================== */
+        .menu-button {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            width: 56px;
+            height: 56px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 138, 69, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+        }
+        
+        .menu-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 138, 69, 0.4);
+        }
+        
+        .menu-button i {
+            color: white;
+            font-size: 22px;
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-button.active i {
+            transform: rotate(90deg);
+        }
+        
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .module-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            z-index: 1001;
+            max-width: 900px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+        
+        .module-modal.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        .modal-header {
+            margin-bottom: 32px;
+        }
+        
+        .modal-header h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+        
+        .modal-header p {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+        
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        
+        .module-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 138, 69, 0.15);
+            border-color: var(--primary-color);
+        }
+        
+        .module-card:hover::before {
+            opacity: 0.03;
+        }
+        
+        .module-card i {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .module-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .module-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .module-card .view-link {
+            font-size: 13px;
+            color: var(--primary-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            position: relative;
+            z-index: 1;
+            transition: gap 0.2s ease;
+        }
+        
+        .module-card:hover .view-link {
+            gap: 8px;
         }
         
         /* ==================== HEADER ==================== */
         .header {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
-            padding: 48px 24px 64px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            padding: 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow: visible;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
         
         .header::before {
@@ -231,63 +450,71 @@
         .header-content {
             position: relative;
             z-index: 1;
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 0 auto;
+            margin-left: 90px;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 32px;
+        }
+        
+        .header-logo {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .header-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .header-text {
+            flex: 1;
         }
         
         .header h1 {
-            font-size: 48px;
-            font-weight: 900;
-            margin-bottom: 12px;
-            letter-spacing: -1px;
-        }
-        
-        .header .subtitle {
-            font-size: 20px;
-            font-weight: 400;
-            opacity: 0.95;
-            margin-bottom: 8px;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 2px;
+            letter-spacing: -0.5px;
         }
         
         .header .tagline {
-            font-size: 16px;
-            opacity: 0.85;
+            font-size: 14px;
+            opacity: 0.9;
         }
         
         /* ==================== MAIN CONTAINER ==================== */
         .container {
-            max-width: 1400px;
-            margin: -40px auto 60px;
-            padding: 0 24px;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 32px 24px 60px;
             position: relative;
             z-index: 2;
         }
         
         /* ==================== TABS ==================== */
         .tabs-container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px var(--shadow-lg);
-            overflow: hidden;
+            background: transparent;
         }
         
         .tabs-header {
             display: flex;
-            background: var(--surface-hover);
-            padding: 8px;
             gap: 8px;
-            overflow-x: auto;
-            border-bottom: 1px solid var(--border);
+            flex-wrap: nowrap;
         }
         
         .tab-button {
-            flex: 1;
-            min-width: 140px;
-            padding: 16px 24px;
-            border: none;
-            background: transparent;
-            color: var(--text-secondary);
-            font-size: 15px;
+            padding: 12px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 13px;
             font-weight: 600;
             cursor: pointer;
             border-radius: 12px;
@@ -296,27 +523,30 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+            white-space: nowrap;
         }
         
         .tab-button i {
-            font-size: 18px;
+            font-size: 16px;
         }
         
         .tab-button:hover {
-            background: rgba(0, 138, 69, 0.08);
-            color: var(--primary-color);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
         }
         
         .tab-button.active {
-            background: var(--primary-color);
-            color: white;
-            box-shadow: 0 2px 8px rgba(0, 138, 69, 0.3);
+            background: white;
+            color: var(--primary-color);
+            border-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
         
         .tab-content {
             display: none;
-            padding: 40px;
             animation: fadeIn 0.4s ease;
         }
         
@@ -338,7 +568,7 @@
         /* ==================== STATISTICS CARDS ==================== */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
             margin-bottom: 40px;
         }
@@ -421,8 +651,8 @@
         /* ==================== CHARTS ==================== */
         .charts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 28px;
             margin-bottom: 40px;
         }
         
@@ -452,99 +682,18 @@
         
         .chart-container {
             position: relative;
-            height: 300px;
+            height: 350px;
         }
         
-        /* ==================== DATA TABLES ==================== */
-        .table-container {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            overflow: hidden;
-            margin-bottom: 24px;
-        }
-        
-        .table-header {
-            padding: 24px;
-            background: var(--surface-hover);
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .table-title {
-            font-size: 18px;
-            font-weight: 700;
+        /* ==================== SECTION TITLE ==================== */
+        .section-title {
+            font-size: 26px;
+            font-weight: 800;
             color: var(--text-primary);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        thead {
-            background: var(--surface-hover);
-        }
-        
-        th {
-            padding: 16px 24px;
-            text-align: left;
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-bottom: 2px solid var(--border);
-        }
-        
-        td {
-            padding: 16px 24px;
-            font-size: 14px;
-            color: var(--text-primary);
-            border-bottom: 1px solid var(--border);
-        }
-        
-        tr:hover {
-            background: var(--surface-hover);
-        }
-        
-        tr:last-child td {
-            border-bottom: none;
-        }
-        
-        /* ==================== BADGES ==================== */
-        .badge {
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid var(--primary-color);
             display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .badge-success {
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--success);
-        }
-        
-        .badge-warning {
-            background: rgba(245, 158, 11, 0.1);
-            color: var(--warning);
-        }
-        
-        .badge-error {
-            background: rgba(239, 68, 68, 0.1);
-            color: var(--error);
-        }
-        
-        .badge-info {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--info);
-        }
-        
-        .badge-primary {
-            background: rgba(0, 138, 69, 0.1);
-            color: var(--primary-color);
         }
         
         /* ==================== RESPONSIVE ==================== */
@@ -581,61 +730,20 @@
             .module-grid {
                 grid-template-columns: 1fr;
             }
-            
-            table {
-                font-size: 12px;
-            }
-            
-            th, td {
-                padding: 12px 16px;
-            }
         }
         
-        /* ==================== UTILITIES ==================== */
-        .text-center {
-            text-align: center;
-        }
-        
-        .mb-4 {
-            margin-bottom: 24px;
-        }
-        
-        .section-title {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-        }
-        
-        /* ==================== SCROLLBAR ==================== */
-        ::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: var(--surface-hover);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-color);
-            border-radius: 5px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-dark);
-        }
+        /* Scrollbar styles removed - using browser default */
     </style>
 </head>
 <body>
     <!-- Circular Menu Button -->
-    <div class="menu-button" onclick="toggleModal()">
+    <button class="menu-button" onclick="toggleModal()">
         <i class="fas fa-th"></i>
-    </div>
-    
+    </button>
+
     <!-- Modal Overlay -->
     <div class="modal-overlay" id="modalOverlay" onclick="toggleModal()"></div>
-    
+
     <!-- Module Navigation Modal -->
     <div class="module-modal" id="moduleModal">
         <div class="modal-header">
@@ -643,47 +751,68 @@
             <p>Select a module to view detailed information</p>
         </div>
         <div class="module-grid">
-            <div class="module-card" onclick="alert('Navigate to Student Enrollment Module')">
+            <a href="sarms.xml" class="module-card" style="border-color: #008a45; background: #f0fdf4;">
+                <i class="fas fa-th"></i>
+                <h3>Dashboard</h3>
+                <p>Unified view with statistics and charts (Current Page)</p>
+                <span class="view-link">
+                    ✓ Current Module
+                </span>
+            </a>
+            <a href="group1-enrollment/students.xml" class="module-card">
                 <i class="fas fa-user-graduate"></i>
                 <h3>Student Enrollment</h3>
                 <p>Manage student records, enrollments, and academic performance</p>
-            </div>
-            <div class="module-card" onclick="alert('Navigate to Faculty Module')">
+                <span class="view-link">
+                    <i class="fas fa-arrow-right" style="font-size: 10px;"></i> View Module
+                </span>
+            </a>
+            <a href="group3-faculty/faculty.xml" class="module-card">
                 <i class="fas fa-chalkboard-teacher"></i>
                 <h3>Faculty Workload</h3>
                 <p>Track faculty assignments, teaching hours, and workload distribution</p>
-            </div>
-            <div class="module-card" onclick="alert('Navigate to Library Module')">
+                <span class="view-link">
+                    <i class="fas fa-arrow-right" style="font-size: 10px;"></i> View Module
+                </span>
+            </a>
+            <a href="group4-library/library.xml" class="module-card">
                 <i class="fas fa-book"></i>
                 <h3>Library Management</h3>
                 <p>Manage books, borrowing records, and library resources</p>
-            </div>
-            <div class="module-card" onclick="alert('Navigate to Billing Module')">
+                <span class="view-link">
+                    <i class="fas fa-arrow-right" style="font-size: 10px;"></i> View Module
+                </span>
+            </a>
+            <a href="group5-billing/billing.xml" class="module-card">
                 <i class="fas fa-file-invoice-dollar"></i>
                 <h3>Student Billing</h3>
                 <p>Track tuition fees, payments, and outstanding balances</p>
-            </div>
-            <div class="module-card" onclick="alert('Navigate to Events Module')">
+                <span class="view-link">
+                    <i class="fas fa-arrow-right" style="font-size: 10px;"></i> View Module
+                </span>
+            </a>
+            <a href="group6-events/events.xml" class="module-card">
                 <i class="fas fa-calendar-alt"></i>
                 <h3>Event Management</h3>
                 <p>Organize university events, registrations, and attendance</p>
-            </div>
+                <span class="view-link">
+                    <i class="fas fa-arrow-right" style="font-size: 10px;"></i> View Module
+                </span>
+            </a>
         </div>
     </div>
-    
+
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <h1>SARMS Dashboard</h1>
-            <div class="subtitle">Smart Academic Records Management System</div>
-            <div class="tagline">Pamantasan ng Lungsod ng Pasig</div>
-        </div>
-    </header>
-    
-    <!-- Main Container -->
-    <main class="container">
-        <div class="tabs-container">
-            <!-- Tabs Header -->
+            <div class="header-logo">
+                <img src="group6-events/PLP_logo.png" alt="PLP Logo"/>
+            </div>
+            <div class="header-text">
+                <h1>SARMS Dashboard</h1>
+                <div class="tagline">Pamantasan ng Lungsod ng Pasig</div>
+            </div>
+            <!-- Tabs in Header -->
             <div class="tabs-header">
                 <button class="tab-button active" onclick="switchTab('enrollment')">
                     <i class="fas fa-user-graduate"></i>
@@ -706,11 +835,17 @@
                     <span>Events</span>
                 </button>
             </div>
-            
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        <div class="tabs-container">
+
             <!-- ENROLLMENT TAB -->
             <div id="enrollment-tab" class="tab-content active">
                 <h2 class="section-title">Student Enrollment Overview</h2>
-                
+
                 <!-- Statistics Cards -->
                 <div class="stats-grid">
                     <div class="stat-card">
@@ -720,25 +855,21 @@
                             </div>
                         </div>
                         <div class="stat-label">Total Students</div>
-                        <div class="stat-value" id="total-students">
-                            <xsl:value-of select="count(//students/student)"/>
-                        </div>
+                        <div class="stat-value"><xsl:value-of select="count($studentsDoc//student)"/></div>
                         <div class="stat-description">Enrolled students</div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-header">
                             <div class="stat-icon success">
-                                <i class="fas fa-award"></i>
+                                <i class="fas fa-star"></i>
                             </div>
                         </div>
                         <div class="stat-label">High Achievers</div>
-                        <div class="stat-value">
-                            <xsl:value-of select="count(//students/student[gpa &lt; 2.0])"/>
-                        </div>
+                        <div class="stat-value"><xsl:value-of select="count($studentsDoc//student[gpa &lt; 2.0])"/></div>
                         <div class="stat-description">GPA below 2.0</div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-header">
                             <div class="stat-icon info">
@@ -746,12 +877,10 @@
                             </div>
                         </div>
                         <div class="stat-label">Total Subjects</div>
-                        <div class="stat-value">
-                            <xsl:value-of select="count(//students/student/enrolledSubjects/subject)"/>
-                        </div>
+                        <div class="stat-value"><xsl:value-of select="count($studentsDoc//student/enrolledSubjects/subject)"/></div>
                         <div class="stat-description">Subject enrollments</div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-header">
                             <div class="stat-icon warning">
@@ -759,85 +888,53 @@
                             </div>
                         </div>
                         <div class="stat-label">Average GPA</div>
-                        <div class="stat-value" id="avg-gpa">
-                            <xsl:value-of select="format-number(sum(//students/student/gpa) div count(//students/student), '0.00')"/>
+                        <div class="stat-value">
+                            <xsl:variable name="total" select="sum($studentsDoc//student/gpa)"/>
+                            <xsl:variable name="count" select="count($studentsDoc//student/gpa)"/>
+                            <xsl:value-of select="format-number($total div $count, '0.00')"/>
                         </div>
                         <div class="stat-description">Overall performance</div>
                     </div>
                 </div>
-                
+
                 <!-- Charts -->
                 <div class="charts-grid">
                     <div class="chart-card">
                         <div class="chart-header">
-                            <div class="chart-title">Students by Course</div>
+                            <div class="chart-title">Students by Program</div>
                             <div class="chart-subtitle">Distribution across programs</div>
                         </div>
                         <div class="chart-container">
-                            <canvas id="courseChart"></canvas>
+                            <canvas id="programChart"></canvas>
                         </div>
                     </div>
-                    
+
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">Students by Year Level</div>
-                            <div class="chart-subtitle">Academic level distribution</div>
+                            <div class="chart-subtitle">Enrollment distribution</div>
                         </div>
                         <div class="chart-container">
                             <canvas id="yearLevelChart"></canvas>
                         </div>
                     </div>
-                    
+
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">GPA Distribution</div>
-                            <div class="chart-subtitle">Student performance ranges</div>
+                            <div class="chart-subtitle">Academic performance ranges</div>
                         </div>
                         <div class="chart-container">
                             <canvas id="gpaChart"></canvas>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Top Performers Table -->
-                <div class="table-container">
-                    <div class="table-header">
-                        <div class="table-title">Top Performing Students (GPA &lt; 2.0)</div>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Student ID</th>
-                                <th>Name</th>
-                                <th>Course</th>
-                                <th>Year Level</th>
-                                <th>GPA</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <xsl:for-each select="//students/student[gpa &lt; 2.0]">
-                                <xsl:sort select="gpa" data-type="number"/>
-                                <tr>
-                                    <td><xsl:value-of select="@studentId"/></td>
-                                    <td><xsl:value-of select="concat(firstName, ' ', lastName)"/></td>
-                                    <td><xsl:value-of select="course"/></td>
-                                    <td><xsl:value-of select="yearLevel"/></td>
-                                    <td><strong><xsl:value-of select="gpa"/></strong></td>
-                                    <td>
-                                        <span class="badge badge-success">Excellent</span>
-                                    </td>
-                                </tr>
-                            </xsl:for-each>
-                        </tbody>
-                    </table>
-                </div>
             </div>
-            
+
             <!-- FACULTY TAB -->
             <div id="faculty-tab" class="tab-content">
                 <h2 class="section-title">Faculty Workload Overview</h2>
-                
+
                 <!-- Statistics Cards -->
                 <div class="stats-grid">
                     <div class="stat-card">
@@ -847,25 +944,21 @@
                             </div>
                         </div>
                         <div class="stat-label">Total Faculty</div>
-                        <div class="stat-value">
-                            <xsl:value-of select="count(//faculty/facultyMember)"/>
-                        </div>
+                        <div class="stat-value"><xsl:value-of select="count($facultyDoc//facultyMember)"/></div>
                         <div class="stat-description">Active faculty members</div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-header">
-                            <div class="stat-icon warning">
+                            <div class="stat-icon error">
                                 <i class="fas fa-exclamation-triangle"></i>
                             </div>
                         </div>
                         <div class="stat-label">Overloaded</div>
-                        <div class="stat-value">
-                            <xsl:value-of select="count(//faculty/facultyMember[totalHours &gt; 24])"/>
-                        </div>
+                        <div class="stat-value"><xsl:value-of select="count($facultyDoc//facultyMember[totalHours &gt; 24])"/></div>
                         <div class="stat-description">Faculty with high workload</div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-header">
                             <div class="stat-icon success">
@@ -873,12 +966,10 @@
                             </div>
                         </div>
                         <div class="stat-label">Optimal Load</div>
-                        <div class="stat-value">
-                            <xsl:value-of select="count(//faculty/facultyMember[totalHours &lt;= 24])"/>
-                        </div>
+                        <div class="stat-value"><xsl:value-of select="count($facultyDoc//facultyMember[totalHours &lt;= 24])"/></div>
                         <div class="stat-description">Within recommended hours</div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-header">
                             <div class="stat-icon info">
@@ -887,12 +978,14 @@
                         </div>
                         <div class="stat-label">Avg. Hours</div>
                         <div class="stat-value">
-                            <xsl:value-of select="format-number(sum(//faculty/facultyMember/totalHours) div count(//faculty/facultyMember), '0.0')"/>
+                            <xsl:variable name="total" select="sum($facultyDoc//facultyMember/totalHours)"/>
+                            <xsl:variable name="count" select="count($facultyDoc//facultyMember)"/>
+                            <xsl:value-of select="format-number($total div $count, '0.0')"/>
                         </div>
                         <div class="stat-description">Per faculty member</div>
                     </div>
                 </div>
-                
+
                 <!-- Charts -->
                 <div class="charts-grid">
                     <div class="chart-card">
@@ -904,7 +997,7 @@
                             <canvas id="departmentChart"></canvas>
                         </div>
                     </div>
-                    
+
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">Workload Distribution</div>
@@ -915,52 +1008,12 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Faculty Table -->
-                <div class="table-container">
-                    <div class="table-header">
-                        <div class="table-title">Faculty Workload Details</div>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Faculty ID</th>
-                                <th>Name</th>
-                                <th>Department</th>
-                                <th>Subjects</th>
-                                <th>Total Hours</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <xsl:for-each select="//faculty/facultyMember">
-                                <tr>
-                                    <td><xsl:value-of select="id"/></td>
-                                    <td><xsl:value-of select="name"/></td>
-                                    <td><xsl:value-of select="department"/></td>
-                                    <td><xsl:value-of select="count(subjects/subject)"/> subjects</td>
-                                    <td><strong><xsl:value-of select="totalHours"/> hrs</strong></td>
-                                    <td>
-                                        <xsl:choose>
-                                            <xsl:when test="totalHours &gt; 24">
-                                                <span class="badge badge-warning">Overloaded</span>
-                                            </xsl:when>
-                                            <xsl:otherwise>
-                                                <span class="badge badge-success">Optimal</span>
-                                            </xsl:otherwise>
-                                        </xsl:choose>
-                                    </td>
-                                </tr>
-                            </xsl:for-each>
-                        </tbody>
-                    </table>
-                </div>
             </div>
-            
+
             <!-- LIBRARY TAB -->
             <div id="library-tab" class="tab-content">
                 <h2 class="section-title">Library Management Overview</h2>
-                
+
                 <!-- Statistics Cards -->
                 <div class="stats-grid">
                     <div class="stat-card">
@@ -970,38 +1023,32 @@
                             </div>
                         </div>
                         <div class="stat-label">Total Books</div>
-                        <div class="stat-value">
-                            <xsl:value-of select="count(//library/books/book)"/>
-                        </div>
+                        <div class="stat-value"><xsl:value-of select="count($libraryDoc//books/book)"/></div>
                         <div class="stat-description">Books in collection</div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-header">
                             <div class="stat-icon info">
-                                <i class="fas fa-bookmark"></i>
+                                <i class="fas fa-layer-group"></i>
                             </div>
                         </div>
                         <div class="stat-label">Total Copies</div>
-                        <div class="stat-value">
-                            <xsl:value-of select="sum(//library/books/book/copies)"/>
-                        </div>
+                        <div class="stat-value"><xsl:value-of select="sum($libraryDoc//books/book/copies)"/></div>
                         <div class="stat-description">Physical copies available</div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-header">
                             <div class="stat-icon success">
-                                <i class="fas fa-hand-holding-heart"></i>
+                                <i class="fas fa-hand-holding"></i>
                             </div>
                         </div>
                         <div class="stat-label">Active Loans</div>
-                        <div class="stat-value">
-                            <xsl:value-of select="count(//library/borrowingRecords/record[status='Active'])"/>
-                        </div>
+                        <div class="stat-value"><xsl:value-of select="count($libraryDoc//borrowingRecords/record[status='Borrowed'])"/></div>
                         <div class="stat-description">Currently borrowed</div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-header">
                             <div class="stat-icon error">
@@ -1009,13 +1056,11 @@
                             </div>
                         </div>
                         <div class="stat-label">Overdue</div>
-                        <div class="stat-value">
-                            <xsl:value-of select="count(//library/borrowingRecords/record[status='Overdue'])"/>
-                        </div>
+                        <div class="stat-value"><xsl:value-of select="count($libraryDoc//borrowingRecords/record[status='Overdue'])"/></div>
                         <div class="stat-description">Books past due date</div>
                     </div>
                 </div>
-                
+
                 <!-- Charts -->
                 <div class="charts-grid">
                     <div class="chart-card">
@@ -1027,198 +1072,111 @@
                             <canvas id="categoryChart"></canvas>
                         </div>
                     </div>
-                    
+
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">Borrowing Status</div>
-                            <div class="chart-subtitle">Current circulation status</div>
+                            <div class="chart-subtitle">Current loan status</div>
                         </div>
                         <div class="chart-container">
                             <canvas id="borrowingStatusChart"></canvas>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Overdue Books Table -->
-                <div class="table-container">
-                    <div class="table-header">
-                        <div class="table-title">Overdue Books</div>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Record ID</th>
-                                <th>Book ID</th>
-                                <th>Borrower</th>
-                                <th>Borrow Date</th>
-                                <th>Due Date</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <xsl:for-each select="//library/borrowingRecords/record[status='Overdue']">
-                                <tr>
-                                    <td><xsl:value-of select="@recordId"/></td>
-                                    <td><xsl:value-of select="bookId"/></td>
-                                    <td><xsl:value-of select="borrower/borrowerName"/></td>
-                                    <td><xsl:value-of select="borrowDate"/></td>
-                                    <td><xsl:value-of select="dueDate"/></td>
-                                    <td>
-                                        <span class="badge badge-error">Overdue</span>
-                                    </td>
-                                </tr>
-                            </xsl:for-each>
-                        </tbody>
-                    </table>
-                </div>
             </div>
-            
+
             <!-- BILLING TAB -->
             <div id="billing-tab" class="tab-content">
                 <h2 class="section-title">Student Billing Overview</h2>
-                
+
                 <!-- Statistics Cards -->
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-header">
                             <div class="stat-icon primary">
-                                <i class="fas fa-users"></i>
+                                <i class="fas fa-file-invoice"></i>
                             </div>
                         </div>
                         <div class="stat-label">Total Students</div>
-                        <div class="stat-value">
-                            <xsl:value-of select="count(//billing/record)"/>
-                        </div>
+                        <div class="stat-value"><xsl:value-of select="count($billingDoc//record)"/></div>
                         <div class="stat-description">Billing records</div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-header">
                             <div class="stat-icon info">
-                                <i class="fas fa-money-bill-wave"></i>
+                                <i class="fas fa-dollar-sign"></i>
                             </div>
                         </div>
                         <div class="stat-label">Total Revenue</div>
-                        <div class="stat-value">
-                            ₱<xsl:value-of select="format-number(sum(//billing/record/tuitionFee), '#,###')"/>
-                        </div>
+                        <div class="stat-value">₱<xsl:value-of select="format-number(sum($billingDoc//record/tuitionFee), '#,##0')"/></div>
                         <div class="stat-description">Expected tuition</div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-header">
                             <div class="stat-icon success">
-                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-check-double"></i>
                             </div>
                         </div>
                         <div class="stat-label">Collected</div>
-                        <div class="stat-value">
-                            ₱<xsl:value-of select="format-number(sum(//billing/record/paymentsMade), '#,###')"/>
-                        </div>
+                        <div class="stat-value">₱<xsl:value-of select="format-number(sum($billingDoc//record/paymentsMade), '#,##0')"/></div>
                         <div class="stat-description">Total payments received</div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-header">
                             <div class="stat-icon warning">
-                                <i class="fas fa-exclamation-triangle"></i>
+                                <i class="fas fa-exclamation"></i>
                             </div>
                         </div>
                         <div class="stat-label">Outstanding</div>
-                        <div class="stat-value">
-                            ₱<xsl:value-of select="format-number(sum(//billing/record/balance), '#,###')"/>
-                        </div>
+                        <div class="stat-value">₱<xsl:value-of select="format-number(sum($billingDoc//record/balance), '#,##0')"/></div>
                         <div class="stat-description">Unpaid balances</div>
                     </div>
                 </div>
-                
+
                 <!-- Charts -->
                 <div class="charts-grid">
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">Payment Status</div>
-                            <div class="chart-subtitle">Revenue collection overview</div>
+                            <div class="chart-subtitle">Collection overview</div>
                         </div>
                         <div class="chart-container">
                             <canvas id="paymentStatusChart"></canvas>
                         </div>
                     </div>
-                    
+
                     <div class="chart-card">
                         <div class="chart-header">
-                            <div class="chart-title">Balance Distribution</div>
-                            <div class="chart-subtitle">Students by outstanding amount</div>
+                            <div class="chart-title">Top 10 Balances</div>
+                            <div class="chart-subtitle">Highest outstanding amounts</div>
                         </div>
                         <div class="chart-container">
-                            <canvas id="balanceDistChart"></canvas>
+                            <canvas id="balanceChart"></canvas>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Unpaid Balances Table -->
-                <div class="table-container">
-                    <div class="table-header">
-                        <div class="table-title">Students with Outstanding Balances</div>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Student ID</th>
-                                <th>Name</th>
-                                <th>Tuition Fee</th>
-                                <th>Payments Made</th>
-                                <th>Balance</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <xsl:for-each select="//billing/record[balance &gt; 0]">
-                                <xsl:sort select="balance" data-type="number" order="descending"/>
-                                <tr>
-                                    <td><xsl:value-of select="studentId"/></td>
-                                    <td><xsl:value-of select="name"/></td>
-                                    <td>₱<xsl:value-of select="format-number(tuitionFee, '#,###.00')"/></td>
-                                    <td>₱<xsl:value-of select="format-number(paymentsMade, '#,###.00')"/></td>
-                                    <td><strong>₱<xsl:value-of select="format-number(balance, '#,###.00')"/></strong></td>
-                                    <td>
-                                        <xsl:choose>
-                                            <xsl:when test="balance &gt; 20000">
-                                                <span class="badge badge-error">High</span>
-                                            </xsl:when>
-                                            <xsl:when test="balance &gt; 10000">
-                                                <span class="badge badge-warning">Medium</span>
-                                            </xsl:when>
-                                            <xsl:otherwise>
-                                                <span class="badge badge-info">Low</span>
-                                            </xsl:otherwise>
-                                        </xsl:choose>
-                                    </td>
-                                </tr>
-                            </xsl:for-each>
-                        </tbody>
-                    </table>
-                </div>
             </div>
-            
+
             <!-- EVENTS TAB -->
             <div id="events-tab" class="tab-content">
                 <h2 class="section-title">Event Management Overview</h2>
-                
+
                 <!-- Statistics Cards -->
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-header">
                             <div class="stat-icon primary">
-                                <i class="fas fa-calendar-alt"></i>
+                                <i class="fas fa-calendar"></i>
                             </div>
                         </div>
                         <div class="stat-label">Total Events</div>
-                        <div class="stat-value">
-                            <xsl:value-of select="count(//events/event)"/>
-                        </div>
+                        <div class="stat-value"><xsl:value-of select="count($eventsDoc//event)"/></div>
                         <div class="stat-description">All events</div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-header">
                             <div class="stat-icon info">
@@ -1226,12 +1184,10 @@
                             </div>
                         </div>
                         <div class="stat-label">Upcoming</div>
-                        <div class="stat-value">
-                            <xsl:value-of select="count(//events/event[@eventStatus='upcoming'])"/>
-                        </div>
+                        <div class="stat-value"><xsl:value-of select="count($eventsDoc//event[@eventStatus='upcoming'])"/></div>
                         <div class="stat-description">Future events</div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-header">
                             <div class="stat-icon success">
@@ -1239,12 +1195,10 @@
                             </div>
                         </div>
                         <div class="stat-label">Current</div>
-                        <div class="stat-value">
-                            <xsl:value-of select="count(//events/event[@eventStatus='current'])"/>
-                        </div>
+                        <div class="stat-value"><xsl:value-of select="count($eventsDoc//event[@eventStatus='current'])"/></div>
                         <div class="stat-description">Ongoing events</div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-header">
                             <div class="stat-icon warning">
@@ -1252,25 +1206,13 @@
                             </div>
                         </div>
                         <div class="stat-label">Total Participants</div>
-                        <div class="stat-value">
-                            <xsl:value-of select="sum(//events/event/registrationCount)"/>
-                        </div>
+                        <div class="stat-value"><xsl:value-of select="count($eventsDoc//participant)"/></div>
                         <div class="stat-description">Registered attendees</div>
                     </div>
                 </div>
-                
+
                 <!-- Charts -->
                 <div class="charts-grid">
-                    <div class="chart-card">
-                        <div class="chart-header">
-                            <div class="chart-title">Events by Status</div>
-                            <div class="chart-subtitle">Timeline distribution</div>
-                        </div>
-                        <div class="chart-container">
-                            <canvas id="eventStatusChart"></canvas>
-                        </div>
-                    </div>
-                    
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">Events by Category</div>
@@ -1280,69 +1222,128 @@
                             <canvas id="eventCategoryChart"></canvas>
                         </div>
                     </div>
-                    
+
                     <div class="chart-card">
                         <div class="chart-header">
-                            <div class="chart-title">Registration Trends</div>
-                            <div class="chart-subtitle">Participants per event</div>
+                            <div class="chart-title">Event Registration</div>
+                            <div class="chart-subtitle">Top 10 events by attendance</div>
                         </div>
                         <div class="chart-container">
                             <canvas id="registrationChart"></canvas>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Upcoming Events Table -->
-                <div class="table-container">
-                    <div class="table-header">
-                        <div class="table-title">Upcoming Events</div>
+
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title">Event Status</div>
+                            <div class="chart-subtitle">Distribution by status</div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="eventStatusChart"></canvas>
+                        </div>
                     </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Event ID</th>
-                                <th>Event Name</th>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Venue</th>
-                                <th>Participants</th>
-                                <th>Capacity</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <xsl:for-each select="//events/event[@eventStatus='upcoming']">
-                                <tr>
-                                    <td><xsl:value-of select="@eventId"/></td>
-                                    <td><xsl:value-of select="eventName"/></td>
-                                    <td><xsl:value-of select="eventDate"/></td>
-                                    <td><xsl:value-of select="eventTime"/></td>
-                                    <td><xsl:value-of select="venue"/></td>
-                                    <td><xsl:value-of select="registrationCount"/></td>
-                                    <td><xsl:value-of select="capacity"/></td>
-                                    <td>
-                                        <xsl:choose>
-                                            <xsl:when test="registrationCount &gt;= capacity">
-                                                <span class="badge badge-error">Full</span>
-                                            </xsl:when>
-                                            <xsl:when test="registrationCount &gt;= capacity * 0.8">
-                                                <span class="badge badge-warning">Almost Full</span>
-                                            </xsl:when>
-                                            <xsl:otherwise>
-                                                <span class="badge badge-success">Available</span>
-                                            </xsl:otherwise>
-                                        </xsl:choose>
-                                    </td>
-                                </tr>
-                            </xsl:for-each>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>
     </main>
-    
+
     <script>
+        // ==================== DATA EMBEDDED BY XSLT ====================
+        const chartData = {
+            // ENROLLMENT DATA
+            programs: {
+                <xsl:for-each select="$studentsDoc//student/course[not(. = preceding::student/course)]">
+                    '<xsl:value-of select="."/>': <xsl:value-of select="count($studentsDoc//student[course = current()])"/><xsl:if test="position() != last()">,</xsl:if>
+                </xsl:for-each>
+            },
+            yearLevels: {
+                <xsl:for-each select="$studentsDoc//student/yearLevel[not(. = preceding::student/yearLevel)]">
+                    'Year <xsl:value-of select="."/>': <xsl:value-of select="count($studentsDoc//student[yearLevel = current()])"/><xsl:if test="position() != last()">,</xsl:if>
+                </xsl:for-each>
+            },
+            gpaRanges: {
+                '1.00-1.50 (Excellent)': <xsl:value-of select="count($studentsDoc//student[gpa &gt;= 1.0 and gpa &lt;= 1.50])"/>,
+                '1.51-2.00 (Very Good)': <xsl:value-of select="count($studentsDoc//student[gpa &gt; 1.50 and gpa &lt;= 2.00])"/>,
+                '2.01-2.50 (Good)': <xsl:value-of select="count($studentsDoc//student[gpa &gt; 2.00 and gpa &lt;= 2.50])"/>,
+                '2.51-3.00 (Fair)': <xsl:value-of select="count($studentsDoc//student[gpa &gt; 2.50 and gpa &lt;= 3.00])"/>,
+                '3.01-5.00 (Passing)': <xsl:value-of select="count($studentsDoc//student[gpa &gt; 3.00])"/>
+            },
+            
+            // FACULTY DATA
+            departments: {
+                <xsl:for-each select="$facultyDoc//facultyMember/department[not(. = preceding::facultyMember/department)]">
+                    '<xsl:value-of select="."/>': <xsl:value-of select="count($facultyDoc//facultyMember[department = current()])"/><xsl:if test="position() != last()">,</xsl:if>
+                </xsl:for-each>
+            },
+            facultyWorkload: [
+                <xsl:for-each select="$facultyDoc//facultyMember">
+                    {
+                        name: '<xsl:value-of select="substring-after(name, ' ')"/>',
+                        hours: <xsl:value-of select="totalHours"/>
+                    }<xsl:if test="position() != last()">,</xsl:if>
+                </xsl:for-each>
+            ],
+            
+            // LIBRARY DATA
+            bookCategories: {
+                <xsl:for-each select="$libraryDoc//books/book/category[not(. = preceding::book/category)]">
+                    '<xsl:value-of select="."/>': <xsl:value-of select="count($libraryDoc//books/book[category = current()])"/><xsl:if test="position() != last()">,</xsl:if>
+                </xsl:for-each>
+            },
+            borrowingStatus: {
+                'Borrowed': <xsl:value-of select="count($libraryDoc//borrowingRecords/record[status='Borrowed'])"/>,
+                'Returned': <xsl:value-of select="count($libraryDoc//borrowingRecords/record[status='Returned'])"/>,
+                'Overdue': <xsl:value-of select="count($libraryDoc//borrowingRecords/record[status='Overdue'])"/>
+            },
+            
+            // BILLING DATA
+            paymentStatus: {
+                'Paid': <xsl:value-of select="sum($billingDoc//record/paymentsMade)"/>,
+                'Outstanding': <xsl:value-of select="sum($billingDoc//record/balance)"/>
+            },
+            topBalances: [
+                <xsl:for-each select="$billingDoc//record">
+                    <xsl:sort select="balance" data-type="number" order="descending"/>
+                    <xsl:if test="position() &lt;= 10">
+                    {
+                        name: '<xsl:value-of select="substring(name, 1, 15)"/>',
+                        balance: <xsl:value-of select="balance"/>
+                    }<xsl:if test="position() != 10 and position() != last()">,</xsl:if>
+                    </xsl:if>
+                </xsl:for-each>
+            ],
+            
+            // EVENTS DATA
+            eventCategories: {
+                <xsl:for-each select="$eventsDoc//event/category[not(. = preceding::event/category)]">
+                    '<xsl:value-of select="."/>': <xsl:value-of select="count($eventsDoc//event[category = current()])"/><xsl:if test="position() != last()">,</xsl:if>
+                </xsl:for-each>
+            },
+            eventRegistrations: [
+                <xsl:for-each select="$eventsDoc//event">
+                    <xsl:sort select="registrationCount" data-type="number" order="descending"/>
+                    <xsl:if test="position() &lt;= 10">
+                    <xsl:variable name="eventId" select="@eventId"/>
+                    <xsl:variable name="regCount" select="count($eventsDoc//registration[@eventId=$eventId])"/>
+                    {
+                        name: '<xsl:value-of select="substring(eventName, 1, 20)"/>',
+                        eventId: '<xsl:value-of select="$eventId"/>',
+                        count: <xsl:value-of select="$regCount"/>,
+                        capacity: <xsl:choose>
+                            <xsl:when test="capacity"><xsl:value-of select="capacity"/></xsl:when>
+                            <xsl:otherwise>0</xsl:otherwise>
+                        </xsl:choose>
+                    }<xsl:if test="position() != 10 and position() != last()">,</xsl:if>
+                    </xsl:if>
+                </xsl:for-each>
+            ],
+            eventStatus: {
+                'Upcoming': <xsl:value-of select="count($eventsDoc//event[@eventStatus='upcoming'])"/>,
+                'Ongoing': <xsl:value-of select="count($eventsDoc//event[@eventStatus='current'])"/>,
+                'Completed': <xsl:value-of select="count($eventsDoc//event[@eventStatus='closed'])"/>
+            }
+        };
+
         // ==================== MODAL FUNCTIONS ====================
         function toggleModal() {
             const modal = document.getElementById('moduleModal');
@@ -1353,90 +1354,61 @@
             overlay.classList.toggle('active');
             button.classList.toggle('active');
         }
-        
-        // ==================== TAB SWITCHING ====================
+
+        // ==================== TAB FUNCTIONS ====================
         function switchTab(tabName) {
-            // Hide all tabs
             const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            
-            // Remove active class from all buttons
             const buttons = document.querySelectorAll('.tab-button');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
             buttons.forEach(btn => btn.classList.remove('active'));
             
-            // Show selected tab
             document.getElementById(tabName + '-tab').classList.add('active');
-            
-            // Add active class to clicked button
             event.target.closest('.tab-button').classList.add('active');
             
-            // Initialize charts for the selected tab
             initializeCharts(tabName);
         }
-        
+
         // ==================== CHART INITIALIZATION ====================
-        let chartsInitialized = {
-            enrollment: false,
-            faculty: false,
-            library: false,
-            billing: false,
-            events: false
-        };
-        
         function initializeCharts(tabName) {
-            if (chartsInitialized[tabName]) return;
-            
-            if (tabName === 'enrollment') {
-                createCourseChart();
-                createYearLevelChart();
-                createGPAChart();
-                chartsInitialized.enrollment = true;
-            } else if (tabName === 'faculty') {
-                createDepartmentChart();
-                createWorkloadChart();
-                chartsInitialized.faculty = true;
-            } else if (tabName === 'library') {
-                createCategoryChart();
-                createBorrowingStatusChart();
-                chartsInitialized.library = true;
-            } else if (tabName === 'billing') {
-                createPaymentStatusChart();
-                createBalanceDistChart();
-                chartsInitialized.billing = true;
-            } else if (tabName === 'events') {
-                createEventStatusChart();
-                createEventCategoryChart();
-                createRegistrationChart();
-                chartsInitialized.events = true;
+            switch(tabName) {
+                case 'enrollment':
+                    createProgramChart();
+                    createYearLevelChart();
+                    createGPAChart();
+                    break;
+                case 'faculty':
+                    createDepartmentChart();
+                    createWorkloadChart();
+                    break;
+                case 'library':
+                    createCategoryChart();
+                    createBorrowingStatusChart();
+                    break;
+                case 'billing':
+                    createPaymentStatusChart();
+                    createBalanceChart();
+                    break;
+                case 'events':
+                    createEventCategoryChart();
+                    createRegistrationChart();
+                    createEventStatusChart();
+                    break;
             }
         }
-        
+
         // ==================== ENROLLMENT CHARTS ====================
-        function createCourseChart() {
-            const ctx = document.getElementById('courseChart');
-            if (!ctx) return;
+        function createProgramChart() {
+            const ctx = document.getElementById('programChart');
+            if (!ctx || ctx.chart) return;
             
-            // Extract course data from XML
-            const students = Array.from(document.querySelectorAll('students > student'));
-            const courses = {};
-            students.forEach(student => {
-                const course = student.querySelector('course').textContent;
-                courses[course] = (courses[course] || 0) + 1;
-            });
-            
-            new Chart(ctx, {
+            ctx.chart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: Object.keys(courses),
+                    labels: Object.keys(chartData.programs),
                     datasets: [{
-                        data: Object.values(courses),
-                        backgroundColor: [
-                            '#008A45',
-                            '#00C76F',
-                            '#FFB800',
-                            '#3B82F6',
-                            '#F59E0B'
-                        ]
+                        data: Object.values(chartData.programs),
+                        backgroundColor: ['#008A45', '#00C76F', '#FFB800', '#3B82F6', '#F59E0B', '#EF4444', '#10B981']
                     }]
                 },
                 options: {
@@ -1450,25 +1422,18 @@
                 }
             });
         }
-        
+
         function createYearLevelChart() {
             const ctx = document.getElementById('yearLevelChart');
-            if (!ctx) return;
+            if (!ctx || ctx.chart) return;
             
-            const students = Array.from(document.querySelectorAll('students > student'));
-            const yearLevels = {1: 0, 2: 0, 3: 0, 4: 0};
-            students.forEach(student => {
-                const year = parseInt(student.querySelector('yearLevel').textContent);
-                yearLevels[year]++;
-            });
-            
-            new Chart(ctx, {
+            ctx.chart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['1st Year', '2nd Year', '3rd Year', '4th Year'],
+                    labels: Object.keys(chartData.yearLevels),
                     datasets: [{
                         label: 'Students',
-                        data: Object.values(yearLevels),
+                        data: Object.values(chartData.yearLevels),
                         backgroundColor: '#008A45'
                     }]
                 },
@@ -1479,47 +1444,28 @@
                         legend: {
                             display: false
                         }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
             });
         }
-        
+
         function createGPAChart() {
             const ctx = document.getElementById('gpaChart');
-            if (!ctx) return;
+            if (!ctx || ctx.chart) return;
             
-            const students = Array.from(document.querySelectorAll('students > student'));
-            const ranges = {
-                'Excellent (1.0-1.5)': 0,
-                'Very Good (1.6-2.0)': 0,
-                'Good (2.1-2.5)': 0,
-                'Fair (2.6-3.0)': 0,
-                'Passing (3.1-5.0)': 0
-            };
-            
-            students.forEach(student => {
-                const gpa = parseFloat(student.querySelector('gpa').textContent);
-                if (gpa <= 1.5) ranges['Excellent (1.0-1.5)']++;
-                else if (gpa <= 2.0) ranges['Very Good (1.6-2.0)']++;
-                else if (gpa <= 2.5) ranges['Good (2.1-2.5)']++;
-                else if (gpa <= 3.0) ranges['Fair (2.6-3.0)']++;
-                else ranges['Passing (3.1-5.0)']++;
-            });
-            
-            new Chart(ctx, {
+            ctx.chart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: Object.keys(ranges),
+                    labels: Object.keys(chartData.gpaRanges),
                     datasets: [{
                         label: 'Students',
-                        data: Object.values(ranges),
-                        backgroundColor: [
-                            '#10B981',
-                            '#00C76F',
-                            '#FFB800',
-                            '#F59E0B',
-                            '#EF4444'
-                        ]
+                        data: Object.values(chartData.gpaRanges),
+                        backgroundColor: ['#10B981', '#00C76F', '#FFB800', '#F59E0B', '#EF4444']
                     }]
                 },
                 options: {
@@ -1529,36 +1475,28 @@
                         legend: {
                             display: false
                         }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
             });
         }
-        
+
         // ==================== FACULTY CHARTS ====================
         function createDepartmentChart() {
             const ctx = document.getElementById('departmentChart');
-            if (!ctx) return;
+            if (!ctx || ctx.chart) return;
             
-            const faculty = Array.from(document.querySelectorAll('faculty > facultyMember'));
-            const departments = {};
-            faculty.forEach(member => {
-                const dept = member.querySelector('department').textContent;
-                departments[dept] = (departments[dept] || 0) + 1;
-            });
-            
-            new Chart(ctx, {
+            ctx.chart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: Object.keys(departments),
+                    labels: Object.keys(chartData.departments),
                     datasets: [{
-                        data: Object.values(departments),
-                        backgroundColor: [
-                            '#008A45',
-                            '#00C76F',
-                            '#FFB800',
-                            '#3B82F6',
-                            '#F59E0B'
-                        ]
+                        data: Object.values(chartData.departments),
+                        backgroundColor: ['#008A45', '#00C76F', '#FFB800', '#3B82F6', '#F59E0B', '#EF4444', '#10B981']
                     }]
                 },
                 options: {
@@ -1572,16 +1510,15 @@
                 }
             });
         }
-        
+
         function createWorkloadChart() {
             const ctx = document.getElementById('workloadChart');
-            if (!ctx) return;
+            if (!ctx || ctx.chart) return;
             
-            const faculty = Array.from(document.querySelectorAll('faculty > facultyMember'));
-            const names = faculty.map(m => m.querySelector('name').textContent.split(' ').slice(-1)[0]);
-            const hours = faculty.map(m => parseInt(m.querySelector('totalHours').textContent));
+            const names = chartData.facultyWorkload.map(f => f.name);
+            const hours = chartData.facultyWorkload.map(f => f.hours);
             
-            new Chart(ctx, {
+            ctx.chart = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: names,
@@ -1598,37 +1535,28 @@
                         legend: {
                             display: false
                         }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
             });
         }
-        
+
         // ==================== LIBRARY CHARTS ====================
         function createCategoryChart() {
             const ctx = document.getElementById('categoryChart');
-            if (!ctx) return;
+            if (!ctx || ctx.chart) return;
             
-            const books = Array.from(document.querySelectorAll('library > books > book'));
-            const categories = {};
-            books.forEach(book => {
-                const cat = book.querySelector('category').textContent;
-                categories[cat] = (categories[cat] || 0) + 1;
-            });
-            
-            new Chart(ctx, {
+            ctx.chart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: Object.keys(categories),
+                    labels: Object.keys(chartData.bookCategories),
                     datasets: [{
-                        data: Object.values(categories),
-                        backgroundColor: [
-                            '#008A45',
-                            '#00C76F',
-                            '#FFB800',
-                            '#3B82F6',
-                            '#F59E0B',
-                            '#EF4444'
-                        ]
+                        data: Object.values(chartData.bookCategories),
+                        backgroundColor: ['#008A45', '#00C76F', '#FFB800', '#3B82F6', '#F59E0B', '#EF4444', '#10B981']
                     }]
                 },
                 options: {
@@ -1642,29 +1570,18 @@
                 }
             });
         }
-        
+
         function createBorrowingStatusChart() {
             const ctx = document.getElementById('borrowingStatusChart');
-            if (!ctx) return;
+            if (!ctx || ctx.chart) return;
             
-            const records = Array.from(document.querySelectorAll('borrowingRecords > record'));
-            const statuses = {};
-            records.forEach(record => {
-                const status = record.querySelector('status').textContent;
-                statuses[status] = (statuses[status] || 0) + 1;
-            });
-            
-            new Chart(ctx, {
+            ctx.chart = new Chart(ctx, {
                 type: 'pie',
                 data: {
-                    labels: Object.keys(statuses),
+                    labels: Object.keys(chartData.borrowingStatus),
                     datasets: [{
-                        data: Object.values(statuses),
-                        backgroundColor: [
-                            '#10B981',
-                            '#FFB800',
-                            '#EF4444'
-                        ]
+                        data: Object.values(chartData.borrowingStatus),
+                        backgroundColor: ['#FFB800', '#10B981', '#EF4444']
                     }]
                 },
                 options: {
@@ -1678,30 +1595,19 @@
                 }
             });
         }
-        
+
         // ==================== BILLING CHARTS ====================
         function createPaymentStatusChart() {
             const ctx = document.getElementById('paymentStatusChart');
-            if (!ctx) return;
+            if (!ctx || ctx.chart) return;
             
-            const records = Array.from(document.querySelectorAll('billing > record'));
-            let totalFees = 0;
-            let totalPayments = 0;
-            let totalBalance = 0;
-            
-            records.forEach(record => {
-                totalFees += parseFloat(record.querySelector('tuitionFee').textContent);
-                totalPayments += parseFloat(record.querySelector('paymentsMade').textContent);
-                totalBalance += parseFloat(record.querySelector('balance').textContent);
-            });
-            
-            new Chart(ctx, {
+            ctx.chart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Collected', 'Outstanding'],
+                    labels: Object.keys(chartData.paymentStatus),
                     datasets: [{
-                        data: [totalPayments, totalBalance],
-                        backgroundColor: ['#10B981', '#FFB800']
+                        data: Object.values(chartData.paymentStatus),
+                        backgroundColor: ['#10B981', '#F59E0B']
                     }]
                 },
                 options: {
@@ -1715,40 +1621,19 @@
                 }
             });
         }
-        
-        function createBalanceDistChart() {
-            const ctx = document.getElementById('balanceDistChart');
-            if (!ctx) return;
+
+        function createBalanceChart() {
+            const ctx = document.getElementById('balanceChart');
+            if (!ctx || ctx.chart) return;
             
-            const records = Array.from(document.querySelectorAll('billing > record'));
-            const dist = {
-                'Fully Paid': 0,
-                'Low (< ₱10k)': 0,
-                'Medium (₱10k-20k)': 0,
-                'High (> ₱20k)': 0
-            };
-            
-            records.forEach(record => {
-                const balance = parseFloat(record.querySelector('balance').textContent);
-                if (balance === 0) dist['Fully Paid']++;
-                else if (balance < 10000) dist['Low (< ₱10k)']++;
-                else if (balance <= 20000) dist['Medium (₱10k-20k)']++;
-                else dist['High (> ₱20k)']++;
-            });
-            
-            new Chart(ctx, {
+            ctx.chart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: Object.keys(dist),
+                    labels: chartData.topBalances.map(b => b.name),
                     datasets: [{
-                        label: 'Students',
-                        data: Object.values(dist),
-                        backgroundColor: [
-                            '#10B981',
-                            '#3B82F6',
-                            '#FFB800',
-                            '#EF4444'
-                        ]
+                        label: 'Balance (₱)',
+                        data: chartData.topBalances.map(b => b.balance),
+                        backgroundColor: '#EF4444'
                     }]
                 },
                 options: {
@@ -1758,66 +1643,28 @@
                         legend: {
                             display: false
                         }
-                    }
-                }
-            });
-        }
-        
-        // ==================== EVENTS CHARTS ====================
-        function createEventStatusChart() {
-            const ctx = document.getElementById('eventStatusChart');
-            if (!ctx) return;
-            
-            const events = Array.from(document.querySelectorAll('events > event'));
-            const statuses = {};
-            events.forEach(event => {
-                const status = event.getAttribute('eventStatus');
-                statuses[status] = (statuses[status] || 0) + 1;
-            });
-            
-            new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: Object.keys(statuses).map(s => s.charAt(0).toUpperCase() + s.slice(1)),
-                    datasets: [{
-                        data: Object.values(statuses),
-                        backgroundColor: [
-                            '#3B82F6',
-                            '#10B981',
-                            '#6B7280'
-                        ]
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom'
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
                         }
                     }
                 }
             });
         }
-        
+
+        // ==================== EVENTS CHARTS ====================
         function createEventCategoryChart() {
             const ctx = document.getElementById('eventCategoryChart');
-            if (!ctx) return;
+            if (!ctx || ctx.chart) return;
             
-            const events = Array.from(document.querySelectorAll('events > event'));
-            const categories = {};
-            events.forEach(event => {
-                const cat = event.querySelector('category').textContent;
-                categories[cat] = (categories[cat] || 0) + 1;
-            });
-            
-            new Chart(ctx, {
+            ctx.chart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: Object.keys(categories),
+                    labels: Object.keys(chartData.eventCategories),
                     datasets: [{
                         label: 'Events',
-                        data: Object.values(categories),
+                        data: Object.values(chartData.eventCategories),
                         backgroundColor: '#008A45'
                     }]
                 },
@@ -1829,34 +1676,62 @@
                         legend: {
                             display: false
                         }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true
+                        }
                     }
                 }
             });
         }
-        
+
         function createRegistrationChart() {
             const ctx = document.getElementById('registrationChart');
-            if (!ctx) return;
+            if (!ctx || ctx.chart) return;
             
-            const events = Array.from(document.querySelectorAll('events > event'));
-            const data = events.slice(0, 10).map(event => ({
-                name: event.querySelector('eventName').textContent.substring(0, 20),
-                count: parseInt(event.querySelector('registrationCount').textContent),
-                capacity: parseInt(event.querySelector('capacity').textContent)
-            }));
-            
-            new Chart(ctx, {
+            ctx.chart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: data.map(d => d.name),
+                    labels: chartData.eventRegistrations.map(e => e.name),
                     datasets: [{
                         label: 'Registered',
-                        data: data.map(d => d.count),
+                        data: chartData.eventRegistrations.map(e => e.count),
                         backgroundColor: '#008A45'
                     }, {
                         label: 'Capacity',
-                        data: data.map(d => d.capacity),
+                        data: chartData.eventRegistrations.map(e => e.capacity),
                         backgroundColor: '#E5E7EB'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        function createEventStatusChart() {
+            const ctx = document.getElementById('eventStatusChart');
+            if (!ctx || ctx.chart) return;
+            
+            ctx.chart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(chartData.eventStatus),
+                    datasets: [{
+                        data: Object.values(chartData.eventStatus),
+                        backgroundColor: ['#3B82F6', '#FFB800', '#10B981']
                     }]
                 },
                 options: {
@@ -1870,7 +1745,7 @@
                 }
             });
         }
-        
+
         // Initialize enrollment charts on page load
         window.addEventListener('DOMContentLoaded', function() {
             initializeCharts('enrollment');
