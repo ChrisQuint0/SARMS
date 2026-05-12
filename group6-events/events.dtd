@@ -3,6 +3,10 @@
 <!-- Validates structural rules for event data -->
 
 <!ELEMENT eventManagementSystem (events, participants, registrations)>
+<!ATTLIST eventManagementSystem
+    xmlns:xsi CDATA #IMPLIED
+    xsi:noNamespaceSchemaLocation CDATA #IMPLIED
+>
 
 <!-- Events Section -->
 <!ELEMENT events (event+)>

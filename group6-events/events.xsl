@@ -178,6 +178,31 @@
 
           .section-header { margin-bottom: var(--sp-3); }
 
+          .section-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--sp-2);
+            flex-wrap: wrap;
+          }
+
+          .see-all-btn {
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--green-500), var(--green-700));
+            color: var(--text-inverted);
+            text-decoration: none;
+            font-size: var(--text-sm);
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+          }
+
+          .see-all-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+          }
+
           h2 {
             font-size: var(--text-3xl);
             font-weight: 700;
@@ -439,15 +464,16 @@
                 <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//participant)"/></div><div class="stat-label">Total Participants</div></div>
                 <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//registration[@registrationStatus='Registered'])"/></div><div class="stat-label">Active Registrations</div></div>
                 <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//event[@eventStatus='upcoming'])"/></div><div class="stat-label">Upcoming Events</div></div>
-                <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//registration[@registrationStatus='Attended'])"/></div><div class="stat-label">Attended</div></div>
-                <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//registration[@registrationStatus='No-show'])"/></div><div class="stat-label">Not Attended</div></div>
               </div>
             </section>
 
             <!-- Current Events -->
             <section class="section" id="current">
               <div class="section-header">
-                <h2>Current Events</h2>
+                <div class="section-header-row">
+                  <h2>Current Events</h2>
+                  <a href="#events" class="see-all-btn">See All Events</a>
+                </div>
                 <p class="section-desc">Events happening this week - join before they end!</p>
               </div>
               <div class="events-grid">
@@ -503,6 +529,8 @@
                   <option value="Cultural">Cultural</option><option value="Sports">Sports</option><option value="Workshop">Workshop</option>
                   <option value="Seminar">Seminar</option><option value="Forum">Forum</option><option value="Symposium">Symposium</option>
                 </select>
+                <label for="eventSearchFilter" class="filter-label">Search:</label>
+                <input id="eventSearchFilter" class="filter-select" type="text" placeholder="Search by ID, name, venue, category" oninput="filterEvents()"/>
               </div>
               <div class="table-wrap">
                 <table id="eventsTable">
@@ -549,6 +577,8 @@
                 <select id="yearFilter" class="filter-select" onchange="filterParticipants()">
                   <option value="">All Years</option><option value="1">1st Year</option><option value="2">2nd Year</option><option value="3">3rd Year</option><option value="4">4th Year</option>
                 </select>
+                <label for="participantSearchFilter" class="filter-label">Search:</label>
+                <input id="participantSearchFilter" class="filter-select" type="text" placeholder="Search by ID, name, email, college" oninput="filterParticipants()"/>
               </div>
               <div class="table-wrap">
                 <table id="participantsTable">
@@ -582,6 +612,8 @@
                   <option value="">All</option><option value="Registered">Registered</option><option value="Attended">Attended</option>
                   <option value="Cancelled">Cancelled</option><option value="No-show">No-show</option>
                 </select>
+                <label for="registrationSearchFilter" class="filter-label">Search:</label>
+                <input id="registrationSearchFilter" class="filter-select" type="text" placeholder="Search by registration, event, participant" oninput="filterRegistrations()"/>
               </div>
               <div class="table-wrap">
                 <table id="registrationsTable">
@@ -614,6 +646,8 @@
                   <option value="">All</option><option value="Registered">Registered</option><option value="Attended">Attended</option>
                   <option value="Cancelled">Cancelled</option><option value="No-show">No-show</option>
                 </select>
+                <label for="attendanceSearchFilter" class="filter-label">Search:</label>
+                <input id="attendanceSearchFilter" class="filter-select" type="text" placeholder="Search by event, participant, email" oninput="filterAttendance()"/>
               </div>
               <xsl:call-template name="attendanceSheet"/>
               <div id="attendanceNoRecords" class="no-records" style="display: none;">No attendance records found matching your filters.</div>
@@ -637,8 +671,9 @@
                   <option value="Cultural">Cultural</option><option value="Sports">Sports</option><option value="Workshop">Workshop</option>
                   <option value="Seminar">Seminar</option><option value="Forum">Forum</option><option value="Symposium">Symposium</option>
                 </select>
+                <label for="reportSearchFilter" class="filter-label">Search:</label>
+                <input id="reportSearchFilter" class="filter-select" type="text" placeholder="Search by event or category" oninput="filterReports()"/>
               </div>
-              <h3>Top Events by Registrations</h3>
               <div class="table-wrap">
                 <table id="reportsTable">
                   <thead><tr><th>Event Name</th><th>Category</th><th>Registered</th><th>Capacity</th><th>Occupancy %</th><th>Status</th></tr></thead>
@@ -693,14 +728,18 @@
             const noRecords = document.getElementById('eventsNoRecords');
             const selectedStatus = document.getElementById('eventStatusFilter').value;
             const selectedCategory = document.getElementById('eventCategoryFilter').value;
+            const searchInput = document.getElementById('eventSearchFilter');
+            const searchTerm = searchInput.value.trim().toLowerCase();
             let visibleCount = 0;
             
             rows.forEach(row => {
               const rowStatus = row.getAttribute('data-status');
               const rowCategory = row.getAttribute('data-category');
+              const rowText = row.textContent.toLowerCase();
               let statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
               let categoryMatch = (selectedCategory === '' || selectedCategory === rowCategory);
-              if (statusMatch && categoryMatch) { 
+              let searchMatch = (searchTerm === '' || rowText.includes(searchTerm));
+              if (statusMatch && categoryMatch && searchMatch) { 
                 row.classList.remove('hidden-row'); 
                 visibleCount++;
               } else { 
@@ -723,11 +762,16 @@
             const rows = tbody.querySelectorAll('tr');
             const noRecords = document.getElementById('registrationsNoRecords');
             const selectedStatus = document.getElementById('registrationStatusFilter').value;
+            const searchInput = document.getElementById('registrationSearchFilter');
+            const searchTerm = searchInput.value.trim().toLowerCase();
             let visibleCount = 0;
             
             rows.forEach(row => { 
               const rowStatus = row.getAttribute('data-status'); 
-              if (selectedStatus === '' || selectedStatus === rowStatus) { 
+              const rowText = row.textContent.toLowerCase();
+              const statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
+              const searchMatch = (searchTerm === '' || rowText.includes(searchTerm));
+              if (statusMatch && searchMatch) { 
                 row.classList.remove('hidden-row'); 
                 visibleCount++;
               } else { 
@@ -751,14 +795,18 @@
             const noRecords = document.getElementById('participantsNoRecords');
             const selectedDept = document.getElementById('deptFilter').value;
             const selectedYear = document.getElementById('yearFilter').value;
+            const searchInput = document.getElementById('participantSearchFilter');
+            const searchTerm = searchInput.value.trim().toLowerCase();
             let visibleCount = 0;
             
             rows.forEach(row => {
               const rowDept = row.getAttribute('data-dept');
               const rowYear = row.getAttribute('data-year');
+              const rowText = row.textContent.toLowerCase();
               let deptMatch = (selectedDept === '' || selectedDept === rowDept);
               let yearMatch = (selectedYear === '' || selectedYear === rowYear);
-              if (deptMatch && yearMatch) { 
+              let searchMatch = (searchTerm === '' || rowText.includes(searchTerm));
+              if (deptMatch && yearMatch && searchMatch) { 
                 row.classList.remove('hidden-row'); 
                 visibleCount++;
               } else { 
@@ -781,12 +829,16 @@
             const rows = tbody.querySelectorAll('tr');
             const noRecords = document.getElementById('attendanceNoRecords');
             const selectedStatus = document.getElementById('attendanceStatusFilter').value;
+            const searchInput = document.getElementById('attendanceSearchFilter');
+            const searchTerm = searchInput.value.trim().toLowerCase();
             let visibleCount = 0;
             
             rows.forEach(row => {
               const rowStatus = row.getAttribute('data-reg-status');
+              const rowText = row.textContent.toLowerCase();
               let statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
-              if (statusMatch) { 
+              let searchMatch = (searchTerm === '' || rowText.includes(searchTerm));
+              if (statusMatch && searchMatch) { 
                 row.classList.remove('hidden-row'); 
                 visibleCount++;
               } else { 
@@ -810,14 +862,18 @@
             const noRecords = document.getElementById('reportsNoRecords');
             const selectedStatus = document.getElementById('reportStatusFilter').value;
             const selectedCategory = document.getElementById('reportCategoryFilter').value;
+            const searchInput = document.getElementById('reportSearchFilter');
+            const searchTerm = searchInput.value.trim().toLowerCase();
             let visibleCount = 0;
             
             rows.forEach(row => {
               const rowStatus = row.getAttribute('data-status');
               const rowCategory = row.getAttribute('data-category');
+              const rowText = row.textContent.toLowerCase();
               let statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
               let categoryMatch = (selectedCategory === '' || selectedCategory === rowCategory);
-              if (statusMatch && categoryMatch) { 
+              let searchMatch = (searchTerm === '' || rowText.includes(searchTerm));
+              if (statusMatch && categoryMatch && searchMatch) { 
                 row.classList.remove('hidden-row'); 
                 visibleCount++;
               } else { 

@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eventManagementSystem SYSTEM "events.dtd">
 <?xml-stylesheet type="text/xsl" href="events.xsl"?>
-<eventManagementSystem>
+<eventManagementSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="events.xsd">
   <!-- Events Management System - 100+ Records -->
   
   <events>

@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
-           vc:minVersion="1.1">
+           vc:minVersion="1.1"
+           version="1.1">
   <!-- XML Schema for Events Management System with Type Validation and Assertions -->
   
   <xs:element name="eventManagementSystem">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="events" minOccurs="1">
+        <xs:element name="events">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="event" maxOccurs="unbounded">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="eventName" type="xs:string" minOccurs="1"/>
-                    <xs:element name="eventDate" type="xs:date" minOccurs="1"/>
-                    <xs:element name="eventTime" type="xs:time" minOccurs="1"/>
-                    <xs:element name="venue" type="xs:string" minOccurs="1"/>
-                    <xs:element name="capacity" type="xs:positiveInteger" minOccurs="1"/>
-                    <xs:element name="registrationCount" type="xs:nonNegativeInteger" minOccurs="1"/>
-                    <xs:element name="category" type="eventCategoryType" minOccurs="1"/>
-                    <xs:element name="description" type="xs:string" minOccurs="1"/>
+                    <xs:element name="eventName" type="xs:string"/>
+                    <xs:element name="eventDate" type="xs:date"/>
+                    <xs:element name="eventTime" type="xs:time"/>
+                    <xs:element name="venue" type="xs:string"/>
+                    <xs:element name="capacity" type="xs:positiveInteger"/>
+                    <xs:element name="registrationCount" type="xs:positiveInteger"/>
+                    <xs:element name="category" type="eventCategoryType"/>
+                    <xs:element name="description" type="xs:string"/>
                   </xs:sequence>
                   <xs:attribute name="eventId" type="xs:ID" use="required"/>
                   <xs:attribute name="eventStatus" type="eventStatusType" use="required"/>
@@ -30,16 +31,16 @@
           </xs:complexType>
         </xs:element>
         
-        <xs:element name="participants" minOccurs="1">
+        <xs:element name="participants">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="participant" maxOccurs="unbounded">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="fullName" type="xs:string" minOccurs="1"/>
-                    <xs:element name="email" type="emailType" minOccurs="1"/>
-                    <xs:element name="department" type="departmentType" minOccurs="1"/>
-                    <xs:element name="yearLevel" type="yearLevelType" minOccurs="1"/>
+                    <xs:element name="fullName" type="xs:string"/>
+                    <xs:element name="email" type="emailType"/>
+                    <xs:element name="department" type="departmentType"/>
+                    <xs:element name="yearLevel" type="yearLevelType"/>
                   </xs:sequence>
                   <xs:attribute name="participantId" type="xs:ID" use="required"/>
                 </xs:complexType>
@@ -48,7 +49,7 @@
           </xs:complexType>
         </xs:element>
         
-        <xs:element name="registrations" minOccurs="1">
+        <xs:element name="registrations">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="registration" maxOccurs="unbounded">
@@ -69,7 +70,29 @@
       <xs:assert test="every $e in events/event[@eventStatus='upcoming' or @eventStatus='current'] satisfies xs:date($e/eventDate) ge current-date()"/>
       <!-- Assertion 2: registration date must be strictly before the corresponding event date. -->
       <xs:assert test="every $r in registrations/registration satisfies exists(events/event[@eventId = string($r/@eventId)]) and xs:date($r/@registrationDate) lt xs:date(events/event[@eventId = string($r/@eventId)][1]/eventDate)"/>
+      <!-- Assertion 3: registration count declared per event must not exceed event capacity. -->
+      <xs:assert test="every $e in events/event satisfies xs:integer($e/registrationCount) le xs:integer($e/capacity)"/>
+      <!-- Assertion 4: each event must have at least one participant registration. -->
+      <xs:assert test="every $e in events/event satisfies count(registrations/registration[@eventId = $e/@eventId]) ge 1"/>
+      <!-- Assertion 5: stored registrationCount must match actual registration records per event. -->
+      <xs:assert test="every $e in events/event satisfies xs:integer($e/registrationCount) = count(registrations/registration[@eventId = $e/@eventId])"/>
+      <!-- Assertion 6: two events cannot occupy the same venue at the same date and time. -->
+      <xs:assert test="every $e1 at $i in events/event satisfies every $e2 in events/event[position() gt $i] satisfies not($e1/venue = $e2/venue and $e1/eventDate = $e2/eventDate and $e1/eventTime = $e2/eventTime)"/>
+      <!-- Assertion 7: same event name is allowed only when both date and time differ. -->
+      <xs:assert test="every $e1 at $i in events/event satisfies every $e2 in events/event[position() gt $i] satisfies not($e1/eventName = $e2/eventName and ($e1/eventDate = $e2/eventDate or $e1/eventTime = $e2/eventTime))"/>
+      <!-- Assertion 8: a participant cannot be registered for two events with the same date and time. -->
+      <xs:assert test="every $p in participants/participant satisfies every $r1 at $i in registrations/registration[@participantId = $p/@participantId] satisfies every $r2 in registrations/registration[@participantId = $p/@participantId][position() gt $i] satisfies not(events/event[@eventId = string($r1/@eventId)][1]/eventDate = events/event[@eventId = string($r2/@eventId)][1]/eventDate and events/event[@eventId = string($r1/@eventId)][1]/eventTime = events/event[@eventId = string($r2/@eventId)][1]/eventTime)"/>
     </xs:complexType>
+
+    <xs:unique name="uniqueParticipantFullName">
+      <xs:selector xpath="participants/participant"/>
+      <xs:field xpath="fullName"/>
+    </xs:unique>
+
+    <xs:unique name="uniqueParticipantEmail">
+      <xs:selector xpath="participants/participant"/>
+      <xs:field xpath="email"/>
+    </xs:unique>
   </xs:element>
   
   <!-- Custom Type Definitions -->
