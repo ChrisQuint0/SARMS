@@ -329,9 +329,268 @@
             gap: 8px;
             box-shadow: 0 1px 2px rgba(0,0,0,0.1);
           }
+
+          /* ========== Navigation Menu ========== */
+          .menu-button {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            width: 56px;
+            height: 56px;
+            background: #008a45;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 138, 69, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+          }
+
+          .menu-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 138, 69, 0.4);
+          }
+
+          .menu-button i {
+            color: white;
+            font-size: 22px;
+            transition: transform 0.3s ease;
+          }
+
+          .menu-button.active i {
+            transform: rotate(90deg);
+          }
+
+          .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+          }
+
+          .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+          }
+
+          .module-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            z-index: 1001;
+            max-width: 900px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+          }
+
+          .module-modal.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+          }
+
+          .modal-header {
+            margin-bottom: 32px;
+          }
+
+          .modal-header h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #008a45;
+            margin-bottom: 8px;
+          }
+
+          .modal-header p {
+            font-size: 16px;
+            color: #6b7280;
+          }
+
+          .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+          }
+
+          .module-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+          }
+
+          .module-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #008a45, #00c76f);
+            opacity: 0;
+            transition: all 0.3s ease;
+          }
+
+          .module-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 138, 69, 0.15);
+            border-color: #008a45;
+          }
+
+          .module-card:hover::before {
+            opacity: 0.03;
+          }
+
+          .module-card i {
+            font-size: 28px;
+            color: #008a45;
+            margin-bottom: 12px;
+            display: block;
+            position: relative;
+            z-index: 1;
+          }
+
+          .module-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+          }
+
+          .module-card p {
+            font-size: 13px;
+            color: #6b7280;
+            line-height: 1.5;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+          }
+
+          .module-card .view-link {
+            font-size: 13px;
+            color: #008a45;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            position: relative;
+            z-index: 1;
+            transition: gap 0.2s ease;
+          }
+
+          .module-card:hover .view-link {
+            gap: 8px;
+          }
         </style>
       </head>
       <body>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+        <!-- Circular Menu Button -->
+        <button class="menu-button" onclick="toggleModal()">
+          <i class="fas fa-th"></i>
+        </button>
+
+        <!-- Modal Overlay -->
+        <div class="modal-overlay" id="modalOverlay" onclick="toggleModal()"></div>
+
+        <!-- Module Navigation Modal -->
+        <div class="module-modal" id="moduleModal">
+          <div class="modal-header">
+            <h2>Module Navigation</h2>
+            <p>Select a module to view detailed information</p>
+          </div>
+          <div class="module-grid">
+            <a href="../sarms-dashboard.html" class="module-card">
+              <i class="fas fa-th"></i>
+              <h3>Dashboard</h3>
+              <p>Unified view with statistics and charts</p>
+              <span class="view-link">
+                <i class="fas fa-arrow-right"></i> Go to Dashboard
+              </span>
+            </a>
+            <a href="../group1-enrollment/students.xml" target="_blank" class="module-card" style="border-color: #008a45; background: #f0fdf4;">
+              <i class="fas fa-user-graduate"></i>
+              <h3>Student Enrollment</h3>
+              <p>Student records and grades (Current Page)</p>
+              <span class="view-link">
+                ✓ Current Module
+              </span>
+            </a>
+            <a href="../group3-faculty/faculty.xml" target="_blank" class="module-card">
+              <i class="fas fa-chalkboard-teacher"></i>
+              <h3>Faculty Workload</h3>
+              <p>Track faculty assignments, teaching hours, and workload distribution</p>
+              <span class="view-link">
+                <i class="fas fa-external-link-alt"></i> View Module →
+              </span>
+            </a>
+            <a href="../group4-library/library.xml" target="_blank" class="module-card">
+              <i class="fas fa-book"></i>
+              <h3>Library Management</h3>
+              <p>Manage books, borrowing records, and library resources</p>
+              <span class="view-link">
+                <i class="fas fa-external-link-alt"></i> View Module →
+              </span>
+            </a>
+            <a href="../group5-billing/billing.xml" target="_blank" class="module-card">
+              <i class="fas fa-file-invoice-dollar"></i>
+              <h3>Student Billing</h3>
+              <p>Track tuition fees, payments, and outstanding balances</p>
+              <span class="view-link">
+                <i class="fas fa-external-link-alt"></i> View Module →
+              </span>
+            </a>
+            <a href="../group6-events/events.xml" target="_blank" class="module-card">
+              <i class="fas fa-calendar-alt"></i>
+              <h3>Event Management</h3>
+              <p>Organize university events, registrations, and attendance</p>
+              <span class="view-link">
+                <i class="fas fa-external-link-alt"></i> View Module →
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <script>
+          function toggleModal() {
+            const modal = document.getElementById('moduleModal');
+            const overlay = document.getElementById('modalOverlay');
+            const button = document.querySelector('.menu-button');
+            modal.classList.toggle('active');
+            overlay.classList.toggle('active');
+            button.classList.toggle('active');
+          }
+        </script>
 
         <!-- Page Header -->
         <div class="header">

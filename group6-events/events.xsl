@@ -397,9 +397,252 @@
           }
 
           .empty-cell { color: #9CA3AF; font-style: italic; }
+
+          /* ========== Navigation Menu ========== */
+          .nav-menu-button {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #008a45;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 138, 69, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+          }
+
+          .nav-menu-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 138, 69, 0.4);
+          }
+
+          .nav-menu-button svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+          }
+
+          .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+          }
+
+          .nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+          }
+
+          .nav-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+          }
+
+          .nav-modal.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+          }
+
+          .nav-modal h2 {
+            font-size: 28px;
+            color: #008a45;
+            margin-bottom: 8px;
+          }
+
+          .nav-modal p {
+            color: #64748b;
+            margin-bottom: 32px;
+          }
+
+          .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+          }
+
+          .nav-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+          }
+
+          .nav-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #008a45, #00c76f);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+          }
+
+          .nav-card:hover {
+            transform: translateY(-4px);
+            border-color: #008a45;
+            box-shadow: 0 8px 20px rgba(0, 138, 69, 0.15);
+          }
+
+          .nav-card:hover::before {
+            opacity: 0.03;
+          }
+
+          .nav-card svg {
+            width: 28px;
+            height: 28px;
+            color: #008a45;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+          }
+
+          .nav-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 6px;
+            position: relative;
+            z-index: 1;
+          }
+
+          .nav-card .nav-desc {
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+          }
+
+          .nav-card .nav-link-text {
+            font-size: 13px;
+            color: #008a45;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            position: relative;
+            z-index: 1;
+          }
+
+          .nav-card:hover .nav-link-text {
+            gap: 8px;
+          }
         </style>
       </head>
       <body>
+
+        <!-- Navigation Menu Button -->
+        <button class="nav-menu-button" onclick="toggleNav()">
+          <svg viewBox="0 0 24 24"><path d="M3 9h18v2H3V9zm0-4h18v2H3V5zm0 8h18v2H3v-2zm0 4h18v2H3v-2z"/></svg>
+        </button>
+
+        <!-- Navigation Overlay -->
+        <div class="nav-overlay" id="navOverlay" onclick="toggleNav()"></div>
+
+        <!-- Navigation Modal -->
+        <div class="nav-modal" id="navModal">
+          <h2>SARMS Navigation</h2>
+          <p>Navigate between modules and return to dashboard</p>
+          <div class="nav-grid">
+            <a href="../sarms-dashboard.html" class="nav-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              <h3>Dashboard</h3>
+              <div class="nav-desc">Unified view with statistics and charts</div>
+              <div class="nav-link-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                Go to Dashboard
+              </div>
+            </a>
+            <a href="../group1-enrollment/students.xml" class="nav-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <h3>Student Enrollment</h3>
+              <div class="nav-desc">Student records and grades</div>
+              <div class="nav-link-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                View Module
+              </div>
+            </a>
+            <a href="../group3-faculty/faculty.xml" class="nav-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <h3>Faculty Workload</h3>
+              <div class="nav-desc">Faculty assignments and teaching hours</div>
+              <div class="nav-link-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                View Module
+              </div>
+            </a>
+            <a href="../group4-library/library.xml" class="nav-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              <h3>Library Management</h3>
+              <div class="nav-desc">Books and borrowing records</div>
+              <div class="nav-link-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                View Module
+              </div>
+            </a>
+            <a href="../group5-billing/billing.xml" class="nav-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <h3>Student Billing</h3>
+              <div class="nav-desc">Tuition fees and payments</div>
+              <div class="nav-link-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                View Module
+              </div>
+            </a>
+            <a href="../group6-events/events.xml" class="nav-card" style="border-color: #008a45; background: #f0fdf4;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <h3>Event Management</h3>
+              <div class="nav-desc">University events and registrations (Current Page)</div>
+              <div class="nav-link-text">
+                ✓ Current Module
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <script>
+          function toggleNav() {
+            document.getElementById('navOverlay').classList.toggle('active');
+            document.getElementById('navModal').classList.toggle('active');
+          }
+        </script>
 
         <header class="header">
           <div class="header-inner">
