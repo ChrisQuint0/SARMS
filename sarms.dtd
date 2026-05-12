@@ -1,0 +1,88 @@
+<!-- ============================================================ -->
+<!-- SARMS DTD - Smart Academic Records Management System       -->
+<!-- Unified System DTD - Group 2                               -->
+<!-- Pamantasan ng Lungsod ng Pasig (PLP)                      -->
+<!-- ============================================================ -->
+
+<!-- Root Element -->
+<!ELEMENT sarms (students, faculty, library, billing, events)>
+
+<!-- ==================== STUDENTS MODULE ==================== -->
+<!ELEMENT students (student+)>
+<!ELEMENT student (firstName, lastName, course, yearLevel, enrolledSubjects, gpa)>
+<!ATTLIST student studentId ID #REQUIRED>
+
+<!ELEMENT firstName (#PCDATA)>
+<!ELEMENT lastName (#PCDATA)>
+<!ELEMENT course (#PCDATA)>
+<!ELEMENT yearLevel (#PCDATA)>
+<!ELEMENT gpa (#PCDATA)>
+
+<!ELEMENT enrolledSubjects (subject+)>
+<!ELEMENT subject (subjectName, units, grade)>
+<!ATTLIST subject subjectId CDATA #REQUIRED>
+
+<!ELEMENT subjectName (#PCDATA)>
+<!ELEMENT units (#PCDATA)>
+<!ELEMENT grade (#PCDATA)>
+
+<!-- ==================== FACULTY MODULE ==================== -->
+<!ELEMENT faculty (facultyMember+)>
+<!ELEMENT facultyMember (id, name, department, subjects, totalHours)>
+
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT department (#PCDATA)>
+<!ELEMENT subjects (subject+)>
+<!ELEMENT hours (#PCDATA)>
+<!ELEMENT totalHours (#PCDATA)>
+
+<!-- ==================== LIBRARY MODULE ==================== -->
+<!ELEMENT library (books, borrowingRecords)>
+
+<!ELEMENT books (book+)>
+<!ELEMENT book (title, author, category, isbn, copies)>
+<!ATTLIST book bookId ID #REQUIRED>
+
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT category (#PCDATA)>
+<!ELEMENT isbn (#PCDATA)>
+<!ELEMENT copies (#PCDATA)>
+
+<!ELEMENT borrowingRecords (record+)>
+<!ELEMENT record (bookId, borrower, borrowDate, dueDate, returnDate, status)>
+<!ATTLIST record recordId ID #REQUIRED>
+
+<!ELEMENT bookId (#PCDATA)>
+<!ELEMENT borrower (borrowerId, borrowerName, borrowerType, course, contactNo)>
+<!ELEMENT borrowerId (#PCDATA)>
+<!ELEMENT borrowerName (#PCDATA)>
+<!ELEMENT borrowerType (#PCDATA)>
+<!ELEMENT contactNo (#PCDATA)>
+<!ELEMENT borrowDate (#PCDATA)>
+<!ELEMENT dueDate (#PCDATA)>
+<!ELEMENT returnDate (#PCDATA)>
+<!ELEMENT status (#PCDATA)>
+
+<!-- ==================== BILLING MODULE ==================== -->
+<!ELEMENT billing (record+)>
+<!ELEMENT studentId (#PCDATA)>
+<!ELEMENT tuitionFee (#PCDATA)>
+<!ELEMENT paymentsMade (#PCDATA)>
+<!ELEMENT balance (#PCDATA)>
+
+<!-- ==================== EVENTS MODULE ==================== -->
+<!ELEMENT events (event+)>
+<!ELEMENT event (eventName, eventDate, eventTime, venue, capacity, registrationCount, category, description)>
+<!ATTLIST event 
+    eventId ID #REQUIRED
+    eventStatus CDATA #REQUIRED>
+
+<!ELEMENT eventName (#PCDATA)>
+<!ELEMENT eventDate (#PCDATA)>
+<!ELEMENT eventTime (#PCDATA)>
+<!ELEMENT venue (#PCDATA)>
+<!ELEMENT capacity (#PCDATA)>
+<!ELEMENT registrationCount (#PCDATA)>
+<!ELEMENT description (#PCDATA)>

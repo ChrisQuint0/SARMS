@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sarms SYSTEM "sarms.dtd">
+<?xml-stylesheet type="text/xsl" href="sarms.xsl"?>
+<sarms xmlns:xi="http://www.w3.org/2001/XInclude">
+    <!-- Smart Academic Records Management System (SARMS) -->
+    <!-- Unified Integration System - Group 2 -->
+    <!-- Pamantasan ng Lungsod ng Pasig (PLP) -->
+    
+    <!-- Student Enrollment Module - Group 1 -->
+    <students>
+        <xi:include href="group1-enrollment/students.xml" xpointer="xpointer(/students/student)"/>
+    </students>
+    
+    <!-- Faculty Workload Module - Group 3 -->
+    <faculty>
+        <xi:include href="group3-faculty/faculty.xml" xpointer="xpointer(/faculty/facultyMember)"/>
+    </faculty>
+    
+    <!-- Library Management Module - Group 4 -->
+    <library>
+        <xi:include href="group4-library/library.xml" xpointer="xpointer(/library/books)"/>
+        <xi:include href="group4-library/library.xml" xpointer="xpointer(/library/borrowingRecords)"/>
+    </library>
+    
+    <!-- Billing System Module - Group 5 -->
+    <billing>
+        <xi:include href="group5-billing/billing.xml" xpointer="xpointer(/billing/record)"/>
+    </billing>
+    
+    <!-- Event Management Module - Group 6 -->
+    <events>
+        <xi:include href="group6-events/events.xml" xpointer="xpointer(/eventManagementSystem/events/event)"/>
+    </events>
+</sarms>

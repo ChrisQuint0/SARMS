@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:xi="http://www.w3.org/2001/XInclude"
+           elementFormDefault="qualified">
+
+  <!-- ============================================================ -->
+  <!-- SARMS XSD - Smart Academic Records Management System         -->
+  <!-- Unified System Schema - Group 2                              -->
+  <!-- Pamantasan ng Lungsod ng Pasig (PLP)                        -->
+  <!-- ============================================================ -->
+
+  <!-- Root Element -->
+  <xs:element name="sarms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="students" type="studentsType"/>
+        <xs:element name="faculty" type="facultyType"/>
+        <xs:element name="library" type="libraryType"/>
+        <xs:element name="billing" type="billingType"/>
+        <xs:element name="events" type="eventsType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ==================== STUDENTS MODULE ==================== -->
+  <xs:complexType name="studentsType">
+    <xs:sequence>
+      <xs:element name="student" type="studentType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="studentType">
+    <xs:sequence>
+      <xs:element name="firstName" type="xs:string"/>
+      <xs:element name="lastName" type="xs:string"/>
+      <xs:element name="course" type="xs:string"/>
+      <xs:element name="yearLevel">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="enrolledSubjects">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="subject" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="subjectName" type="xs:string"/>
+                  <xs:element name="units">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"/>
+                        <xs:maxInclusive value="6"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="grade">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:decimal">
+                        <xs:minInclusive value="1.00"/>
+                        <xs:maxInclusive value="5.00"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="subjectId" type="xs:string" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="gpa">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="1.00"/>
+            <xs:maxInclusive value="5.00"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="studentId" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <!-- ==================== FACULTY MODULE ==================== -->
+  <xs:complexType name="facultyType">
+    <xs:sequence>
+      <xs:element name="facultyMember" type="facultyMemberType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="facultyMemberType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="department" type="xs:string"/>
+      <xs:element name="subjects">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="subject" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="subjectName" type="xs:string"/>
+                  <xs:element name="hours">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"/>
+                        <xs:maxInclusive value="10"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="totalHours">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="30"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ==================== LIBRARY MODULE ==================== -->
+  <xs:complexType name="libraryType">
+    <xs:sequence>
+      <xs:element name="books">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="book" type="bookType" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="borrowingRecords">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="record" type="borrowRecordType" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="bookType">
+    <xs:sequence>
+      <xs:element name="title" type="xs:string"/>
+      <xs:element name="author" type="xs:string"/>
+      <xs:element name="category" type="xs:string"/>
+      <xs:element name="isbn" type="xs:string"/>
+      <xs:element name="copies">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="bookId" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="borrowRecordType">
+    <xs:sequence>
+      <xs:element name="bookId" type="xs:string"/>
+      <xs:element name="borrower">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="borrowerId" type="xs:string"/>
+            <xs:element name="borrowerName" type="xs:string"/>
+            <xs:element name="borrowerType" type="xs:string"/>
+            <xs:element name="course" type="xs:string"/>
+            <xs:element name="contactNo" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="borrowDate" type="xs:date"/>
+      <xs:element name="dueDate" type="xs:date"/>
+      <xs:element name="returnDate" type="xs:string"/>
+      <xs:element name="status">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Active"/>
+            <xs:enumeration value="Returned"/>
+            <xs:enumeration value="Overdue"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="recordId" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <!-- ==================== BILLING MODULE ==================== -->
+  <xs:complexType name="billingType">
+    <xs:sequence>
+      <xs:element name="record" type="billingRecordType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="billingRecordType">
+    <xs:sequence>
+      <xs:element name="studentId" type="xs:string"/>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="tuitionFee">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="paymentsMade">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="balance">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ==================== EVENTS MODULE ==================== -->
+  <xs:complexType name="eventsType">
+    <xs:sequence>
+      <xs:element name="event" type="eventType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="eventType">
+    <xs:sequence>
+      <xs:element name="eventName" type="xs:string"/>
+      <xs:element name="eventDate" type="xs:date"/>
+      <xs:element name="eventTime" type="xs:time"/>
+      <xs:element name="venue" type="xs:string"/>
+      <xs:element name="capacity">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="registrationCount">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="category" type="xs:string"/>
+      <xs:element name="description" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="eventId" type="xs:string" use="required"/>
+    <xs:attribute name="eventStatus" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="upcoming"/>
+          <xs:enumeration value="current"/>
+          <xs:enumeration value="closed"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+
+</xs:schema>
