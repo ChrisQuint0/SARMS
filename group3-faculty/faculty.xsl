@@ -57,8 +57,21 @@
                     }
 
                     /* Toolbar */
-                    .toolbar{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 1.5rem 1rem;border-bottom:1px solid #e6f6ea;gap:1rem}
-                    .toolbar > div:first-child{flex:1}
+                    .toolbar{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 1.5rem 1.25rem;border-bottom:1px solid #e6f6ea;gap:1.5rem;flex-wrap:wrap}
+                    .toolbar-info{flex:1;min-width:200px}
+                    .toolbar-actions{display:flex;gap:1rem;align-items:center;flex:2;justify-content:flex-end;min-width:320px}
+                    
+                    .search-box{position:relative;flex:1;max-width:350px}
+                    .search-box i{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.85rem;pointer-events:none}
+                    .search-box input{width:100%;padding:.65rem 1rem .65rem 2.4rem;border-radius:10px;border:1.5px solid #edf2ef;font-family:inherit;font-size:.9rem;transition:all .2s ease;background:#fcfdfc}
+                    .search-box input:focus{outline:none;border-color:var(--fams-green);box-shadow:0 0 0 4px rgba(11,107,62,0.06);background:#fff}
+                    
+                    #deptFilter, #statusFilter{padding:.65rem 1rem;border-radius:10px;border:1.5px solid #edf2ef;font-family:inherit;font-size:.9rem;background:#fcfdfc;cursor:pointer;transition:all .2s ease;min-width:180px;color:var(--text-dark);font-weight:500}
+                    #deptFilter:focus, #statusFilter:focus{outline:none;border-color:var(--fams-green);background:#fff}
+
+                    .no-results{padding:4rem 2rem;text-align:center;color:var(--muted);display:none}
+                    .no-results i{font-size:3rem;margin-bottom:1.5rem;color:#e2e8f0;display:block}
+                    .no-results h3{margin:0;color:var(--text-dark);font-size:1.25rem}
 
                     table{width:100%;border-collapse:collapse;font-size:.95rem;padding:0}
                     thead th{position:sticky;top:0;background:#f9fdf9;padding:1.4rem 2rem;text-align:left;font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid var(--border);font-weight:600}
@@ -347,6 +360,7 @@
                 </div>
 
                 <script>
+                    //<![CDATA[
                     function toggleModal() {
                         const modal = document.getElementById('moduleModal');
                         const overlay = document.getElementById('modalOverlay');
@@ -355,6 +369,56 @@
                         overlay.classList.toggle('active');
                         button.classList.toggle('active');
                     }
+
+                    function filterTable() {
+                        const searchValue = document.getElementById('searchInput').value.toLowerCase().trim();
+                        const deptValue = document.getElementById('deptFilter').value;
+                        const rows = document.querySelectorAll('tbody tr');
+                        let visibleCount = 0;
+
+                        rows.forEach(row => {
+                            const name = row.querySelector('.faculty-name').textContent.toLowerCase();
+                            const id = row.querySelector('.id').textContent.toLowerCase();
+                            const dept = row.querySelector('.faculty-dept').textContent;
+                            const subjects = Array.from(row.querySelectorAll('.subject-tag')).map(s => s.textContent.toLowerCase()).join(' ');
+                            
+                            const matchesSearch = name.includes(searchValue) || id.includes(searchValue) || subjects.includes(searchValue);
+                            const matchesDept = deptValue === 'all' || dept === deptValue;
+                            
+                            const isOverloaded = row.classList.contains('overloaded');
+                            const statusValue = document.getElementById('statusFilter').value;
+                            const matchesStatus = statusValue === 'all' || 
+                                               (statusValue === 'overloaded' && isOverloaded) || 
+                                               (statusValue === 'normal' && !isOverloaded);
+
+                            if (matchesSearch && matchesDept && matchesStatus) {
+                                row.style.display = '';
+                                visibleCount++;
+                            } else {
+                                row.style.display = 'none';
+                            }
+                        });
+
+                        document.getElementById('noResults').style.display = visibleCount === 0 ? 'block' : 'none';
+                        document.querySelector('table').style.display = visibleCount === 0 ? 'none' : 'table';
+                    }
+
+                    // Populate departments dropdown dynamically
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const depts = new Set();
+                        document.querySelectorAll('.faculty-dept').forEach(dept => {
+                            depts.add(dept.textContent.trim());
+                        });
+                        
+                        const filter = document.getElementById('deptFilter');
+                        Array.from(depts).sort().forEach(dept => {
+                            const option = document.createElement('option');
+                            option.value = dept;
+                            option.textContent = dept;
+                            filter.appendChild(option);
+                        });
+                    });
+                    //]]>
                 </script>
 
                 <header class="hero">
@@ -368,9 +432,23 @@
                     
                     <div class="card">
                         <div class="toolbar">
-                            <div>
+                            <div class="toolbar-info">
                                 <strong style="font-size:1.05rem;color:var(--text-dark)">Faculty Workload</strong>
                                 <div style="color:var(--muted);font-size:.92rem;margin-top:.25rem">Academic Resource Management — read-only</div>
+                            </div>
+                            <div class="toolbar-actions">
+                                <div class="search-box">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" id="searchInput" placeholder="Search name, ID, or subj..." onkeyup="filterTable()" />
+                                </div>
+                                <select id="deptFilter" onchange="filterTable()">
+                                    <option value="all">All Departments</option>
+                                </select>
+                                <select id="statusFilter" onchange="filterTable()">
+                                    <option value="all">All Status</option>
+                                    <option value="normal">Normal Load</option>
+                                    <option value="overloaded">Overloaded</option>
+                                </select>
                             </div>
                         </div>
 
@@ -419,6 +497,11 @@
                                 </xsl:for-each>
                             </tbody>
                         </table>
+                        <div id="noResults" class="no-results">
+                            <i class="fas fa-search"></i>
+                            <h3>No faculty members found</h3>
+                            <p>Try adjusting your search or filter to find what you're looking for.</p>
+                        </div>
                     </div>
                 </div>
             </body>
