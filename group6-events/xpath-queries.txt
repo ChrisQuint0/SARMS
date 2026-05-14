@@ -1,0 +1,335 @@
+# XPath Queries for Events Management System
+# These queries extract and filter event data
+
+# ============================================
+# BASIC EVENT QUERIES
+# ============================================
+
+# List all events
+//event
+
+# List all event IDs
+//event/@eventId
+
+# Get event names
+//event/eventName
+
+# Get all events with status
+//event/@eventStatus
+
+
+# ============================================
+# EVENT FILTERING QUERIES
+# ============================================
+
+# List upcoming events
+//event[@eventStatus='upcoming']
+
+# List current events (this week)
+//event[@eventStatus='current']
+
+# List closed/completed events
+//event[@eventStatus='closed']
+
+# Get events in Academic category
+//event[category='Academic']
+
+# Get events in Professional Development
+//event[category='Professional Development']
+
+# Get events in Sports category
+//event[category='Sports']
+
+# Get events in Cultural category
+//event[category='Cultural']
+
+
+# ============================================
+# DATE-BASED QUERIES
+# ============================================
+
+# Get events on specific date (May 12, 2026)
+//event[eventDate='2026-05-12']
+
+# Get events after May 20, 2026
+//event[eventDate > '2026-05-20']
+
+# Get events before June 1, 2026
+//event[eventDate < '2026-06-01']
+
+# Get events between May 25 and June 15
+//event[eventDate >= '2026-05-25' and eventDate <= '2026-06-15']
+
+
+# ============================================
+# CAPACITY & REGISTRATION QUERIES
+# ============================================
+
+# Get events at full capacity (registrationCount = capacity)
+//event[registrationCount = capacity]
+
+# Get events with available spots (registrationCount < capacity)
+//event[registrationCount < capacity]
+
+# Get high-demand events (80%+ occupied)
+//event[registrationCount >= (capacity * 0.8)]
+
+# Get low-occupancy events (less than 25% occupied)
+//event[registrationCount < (capacity * 0.25)]
+
+# Get events with more than 20 registrations
+//event[registrationCount > 20]
+
+# Get events with less than 10 registrations
+//event[registrationCount < 10]
+
+
+# ============================================
+# PARTICIPANT QUERIES
+# ============================================
+
+# List all participants
+//participant
+
+# List participant names
+//participant/fullName
+
+# Get all participant IDs
+//participant/@participantId
+
+# Get participants from College of Computer Studies
+//participant[department='College of Computer Studies']
+
+# Get participants from Arts and Science
+//participant[department='College of Arts and Science']
+
+# Get participants from College of Business and Accountancy
+//participant[department='College of Business and Accountancy']
+
+# Get participants from College of Engineering
+//participant[department='College of Engineering']
+
+# Get first-year students
+//participant[yearLevel='1']
+
+# Get fourth-year students
+//participant[yearLevel='4']
+
+# Get senior students (year 3 and 4)
+//participant[yearLevel >= 3]
+
+
+# ============================================
+# REGISTRATION QUERIES
+# ============================================
+
+# List all registrations
+//registration
+
+# Get registered participants
+//registration[@registrationStatus='Registered']
+
+# Get attendees (attended events)
+//registration[@registrationStatus='Attended']
+
+# Get cancelled registrations
+//registration[@registrationStatus='Cancelled']
+
+# Get no-shows
+//registration[@registrationStatus='No-show']
+
+# Get registrations from specific participant
+//registration[@participantId='PAR-001']
+
+# Get registrations for specific event
+//registration[@eventId='EVT-0001']
+
+# Get early registrations (before May 10)
+//registration[@registrationDate < '2026-05-10']
+
+
+# ============================================
+# COUNTING QUERIES
+# ============================================
+
+# Count total events
+count(//event)
+
+# Count upcoming events
+count(//event[@eventStatus='upcoming'])
+
+# Count current events
+count(//event[@eventStatus='current'])
+
+# Count closed events
+count(//event[@eventStatus='closed'])
+
+# Count total participants
+count(//participant)
+
+# Count total registrations
+count(//registration)
+
+# Count registered participants
+count(//registration[@registrationStatus='Registered'])
+
+# Count attended registrations
+count(//registration[@registrationStatus='Attended'])
+
+# Count Academic events
+count(//event[category='Academic'])
+
+# Count Professional Development events
+count(//event[category='Professional Development'])
+
+# Count College of Computer Studies students
+count(//participant[department='College of Computer Studies'])
+
+
+# ============================================
+# AGGREGATION QUERIES
+# ============================================
+
+# Sum all registrations
+sum(//event/registrationCount)
+
+# Average capacity
+sum(//event/capacity) div count(//event)
+
+# Maximum registrations
+max(//event/registrationCount)
+
+# Minimum registrations
+min(//event/registrationCount)
+
+# Total capacity across all events
+sum(//event/capacity)
+
+
+# ============================================
+# PARENT-CHILD RELATIONSHIP QUERIES
+# ============================================
+
+# Get participants who registered for EVT-0001
+//participant[@participantId=//registration[@eventId='EVT-0001']/@participantId]
+
+# Get event details for participant PAR-001's registrations
+//event[@eventId=//registration[@participantId='PAR-001']/@eventId]
+
+# Get participants in event EVT-0007
+//registration[@eventId='EVT-0007']/@participantId
+
+# Get events attended by participant PAR-015
+//event[@eventId=//registration[@participantId='PAR-015' and @registrationStatus='Attended']/@eventId]
+
+
+# ============================================
+# TEXT MATCHING QUERIES
+# ============================================
+
+# Get events with "Workshop" in name
+//event[contains(eventName, 'Workshop')]
+
+# Get events with "Academy" in name
+//event[contains(eventName, 'Academy')]
+
+# Get events with "Seminar" in name
+//event[contains(eventName, 'Seminar')]
+
+# Get events with "Forum" in name
+//event[contains(eventName, 'Forum')]
+
+# Get participants with "Juan" in full name
+//participant[contains(fullName, 'Juan')]
+
+# Get events in rooms starting with "Computer"
+//event[starts-with(venue, 'Computer')]
+
+# Get venues containing "Building"
+//event[contains(venue, 'Building')]
+
+# Get departments ending with "Engineering"
+//participant[ends-with(department, 'Engineering')]
+
+
+# ============================================
+# POSITION-BASED QUERIES
+# ============================================
+
+# Get first event
+//event[1]
+
+# Get last event
+//event[last()]
+
+# Get first 5 events
+//event[position() <= 5]
+
+# Get events 6-10
+//event[position() >= 6 and position() <= 10]
+
+# Get first upcoming event
+(//event[@eventStatus='upcoming'])[1]
+
+# Get most recent registration
+(//registration)[last()]
+
+
+# ============================================
+# COMPLEX LOGIC QUERIES
+# ============================================
+
+# Get upcoming Academic events
+//event[@eventStatus='upcoming' and category='Academic']
+
+# Get current events that are not full
+//event[@eventStatus='current' and registrationCount < capacity]
+
+# Get closed Professional Development events with high attendance
+//event[@eventStatus='closed' and category='Professional Development' and registrationCount >= 30]
+
+# Get events in specific venue with upcoming status
+//event[@eventStatus='upcoming' and contains(venue, 'Computer Lab')]
+
+# Get third-year College of Business and Accountancy students
+//participant[yearLevel='3' and department='College of Business and Accountancy']
+
+# Get new registrations (after May 15) that are confirmed
+//registration[@registrationDate > '2026-05-15' and @registrationStatus='Registered']
+
+
+# ============================================
+# SORTING & ORDERING (XPath 1.0 limitation)
+# ============================================
+
+# Note: XPath 1.0 doesn't directly support sorting
+# Use XSLT for sorting. However, you can use these patterns:
+
+# Events sorted by ID (simulated - requires XSLT)
+//event[@eventId]
+
+# Participants sorted by name (simulated - requires XSLT)
+//participant/fullName
+
+# Registrations with specific status
+//registration[@registrationStatus='Attended']
+
+
+# ============================================
+# ADVANCED FILTERING
+# ============================================
+
+# Events with registration rate between 30-70%
+//event[(registrationCount >= (capacity * 0.3)) and (registrationCount <= (capacity * 0.7))]
+
+# Participants from top 2 colleges
+//participant[department='College of Computer Studies' or department='College of Arts and Science']
+
+# Recent registrations for upcoming events
+//registration[@eventId=//event[@eventStatus='upcoming']/@eventId and @registrationDate > '2026-05-10']
+
+# High-capacity events with low registration
+//event[capacity >= 100 and registrationCount < 20]
+
+# Small-capacity events that are full
+//event[capacity &lt; 50 and registrationCount = capacity]

@@ -1,0 +1,158 @@
+====================================================================
+SARMS - Smart Academic Records Management System
+Group 3: Faculty Workload System
+XPath Queries (Minimum 5 Required)
+====================================================================
+
+The following XPath expressions are designed to extract and filter
+data from faculty.xml. Each query includes an explanation
+
+Context document: faculty.xml
+
+--------------------------------------------------------------------
+QUERY 1 (REQUIRED): Retrieve faculty teaching more than 3 subjects
+--------------------------------------------------------------------
+
+Expression:
+//facultyMember[count(subjects/subject) > 3]
+
+Explanation:
+This query selects all <facultyMember> elements where the
+number of <subject> entries inside the <subjects> block
+is greater than 3. This identifies faculty members handling
+multiple subject preparations or heavier teaching loads.
+
+
+--------------------------------------------------------------------
+QUERY 2: List all faculty members from the College of Engineering
+--------------------------------------------------------------------
+
+Expression:
+
+//facultyMember[department = 'College of Engineering']
+
+Explanation:
+Selects all <facultyMember> elements whose <department>
+child element matches exactly "College of Engineering".
+Useful for department-based faculty reports.
+
+
+--------------------------------------------------------------------
+QUERY 3: Get the names of faculty members with totalHours > 20
+--------------------------------------------------------------------
+
+Expression:
+//facultyMember[totalHours > 20]/name
+
+Explanation:
+Retrieves the <name> elements of faculty members whose
+<totalHours> value exceeds 20. This helps identify
+faculty with heavier workloads.
+
+
+--------------------------------------------------------------------
+QUERY 4: Find all subjects with 5 teaching hours
+--------------------------------------------------------------------
+
+Expression:
+//subject[hours = 5]/subjectName
+
+Explanation:
+Selects the <subjectName> of every <subject> where
+the <hours> value equals 5. In this dataset, subjects
+with 5 hours typically represent major or mathematically
+intensive courses.
+
+
+--------------------------------------------------------------------
+QUERY 5: Count total number of faculty members
+--------------------------------------------------------------------
+
+Expression:
+count(//facultyMember)
+
+Explanation:
+Uses the count() function to return the total number of
+<facultyMember> elements in the document. Useful for
+faculty statistics and workload summaries.
+
+
+--------------------------------------------------------------------
+QUERY 6: Retrieve faculty members teaching “Machine Learning”
+--------------------------------------------------------------------
+
+Expression:
+
+//facultyMember[
+    subjects/subject/subjectName = 'Machine Learning'
+]
+
+Explanation:
+Selects all <facultyMember> elements where at least one
+assigned subject matches "Machine Learning". Useful for
+finding subject specialists.
+
+
+--------------------------------------------------------------------
+QUERY 7: Get the faculty ID and totalHours of faculty with workloads above 24 hours
+--------------------------------------------------------------------
+
+Expression:
+
+//facultyMember[totalHours > 24]/id |
+ //facultyMember[totalHours > 24]/totalHours
+
+Explanation:
+Uses the union operator (|) to retrieve both the faculty
+ID and total teaching hours of faculty members whose
+workload exceeds 24 hours.
+
+
+--------------------------------------------------------------------
+QUERY 8: List all subject names handled by FAC-021
+--------------------------------------------------------------------
+
+Expression:
+//facultyMember[id = 'FAC-021']
+    /subjects/subject/subjectName
+
+Explanation:
+Navigates to a specific faculty member using the <id>
+element, then retrieves all assigned subject names.
+Demonstrates precise filtering and path traversal.
+
+
+--------------------------------------------------------------------
+QUERY 9: Calculate the total teaching hours of all faculty
+--------------------------------------------------------------------
+
+Expression:
+sum(//facultyMember/totalHours)
+
+Explanation:
+Uses the sum() function to aggregate all <totalHours>
+values across the document. Useful for institutional
+workload and scheduling analysis.
+
+
+--------------------------------------------------------------------
+QUERY 10: Retrieve faculty members from the College of
+Computer Studies teaching “Cloud Computing”
+(Complex XPath with multiple predicates)
+--------------------------------------------------------------------
+
+Expression:
+//facultyMember[
+    department = 'College of Computer Studies'
+    and
+    subjects/subject/subjectName = 'Cloud Computing'
+]
+
+Explanation:
+Combines two predicates using the logical "and" operator
+to filter faculty members by both department and assigned
+subject simultaneously. Demonstrates compound filtering
+using multiple conditions.
+
+====================================================================
+END OF XPATH QUERIES
