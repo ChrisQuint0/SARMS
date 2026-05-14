@@ -8,7 +8,7 @@
   <events>
     <event eventId="EVT-0001" eventStatus="upcoming">
       <eventName>AI and Machine Learning Workshop</eventName>
-      <eventDate>2026-05-25</eventDate>
+      <eventDate>2026-06-25</eventDate>
       <eventTime>09:00:00</eventTime>
       <venue>PLP Testing Room</venue>
       <capacity>100</capacity>
@@ -19,7 +19,7 @@
     </event>
     <event eventId="EVT-0002" eventStatus="upcoming">
       <eventName>Philosophy and Critical Thinking Forum</eventName>
-      <eventDate>2026-05-26</eventDate>
+      <eventDate>2026-06-26</eventDate>
       <eventTime>10:00:00</eventTime>
       <venue>PLP Audio Visual Room</venue>
       <capacity>50</capacity>
@@ -30,7 +30,7 @@
     </event>
     <event eventId="EVT-0003" eventStatus="upcoming">
       <eventName>Career Development and Resume Workshop</eventName>
-      <eventDate>2026-05-27</eventDate>
+      <eventDate>2026-06-27</eventDate>
       <eventTime>14:00:00</eventTime>
       <venue>Auditorium</venue>
       <capacity>50</capacity>
@@ -41,7 +41,7 @@
     </event>
     <event eventId="EVT-0004" eventStatus="upcoming">
       <eventName>Entrepreneurship Workshop</eventName>
-      <eventDate>2026-05-28</eventDate>
+      <eventDate>2026-06-28</eventDate>
       <eventTime>15:00:00</eventTime>
       <venue>PLP Quadrangle</venue>
       <capacity>100</capacity>
@@ -74,7 +74,7 @@
     </event>
     <event eventId="EVT-0007" eventStatus="current">
       <eventName>Data Science Bootcamp</eventName>
-      <eventDate>2026-05-12</eventDate>
+      <eventDate>2026-06-12</eventDate>
       <eventTime>09:00:00</eventTime>
       <venue>Auditorium</venue>
       <capacity>100</capacity>
@@ -85,7 +85,7 @@
     </event>
     <event eventId="EVT-0008" eventStatus="current">
       <eventName>Leadership and Communication Seminar</eventName>
-      <eventDate>2026-05-12</eventDate>
+      <eventDate>2026-06-12</eventDate>
       <eventTime>10:00:00</eventTime>
       <venue>Facade</venue>
       <capacity>150</capacity>
@@ -96,7 +96,7 @@
     </event>
     <event eventId="EVT-0009" eventStatus="current">
       <eventName>Digital Photography Workshop</eventName>
-      <eventDate>2026-05-13</eventDate>
+      <eventDate>2026-06-13</eventDate>
       <eventTime>14:00:00</eventTime>
       <venue>Banquet Hall</venue>
       <capacity>50</capacity>
@@ -107,7 +107,7 @@
     </event>
     <event eventId="EVT-0010" eventStatus="current">
       <eventName>Public Speaking and Debate Training</eventName>
-      <eventDate>2026-05-14</eventDate>
+      <eventDate>2026-06-14</eventDate>
       <eventTime>15:00:00</eventTime>
       <venue>PLP Quadrangle</venue>
       <capacity>100</capacity>
@@ -118,7 +118,7 @@
     </event>
     <event eventId="EVT-0011" eventStatus="upcoming">
       <eventName>Information Systems Planning Seminar</eventName>
-      <eventDate>2026-05-15</eventDate>
+      <eventDate>2026-06-15</eventDate>
       <eventTime>09:00:00</eventTime>
       <venue>Function Hall</venue>
       <capacity>80</capacity>
@@ -129,7 +129,7 @@
     </event>
     <event eventId="EVT-0012" eventStatus="upcoming">
       <eventName>Cloud Computing Essentials</eventName>
-      <eventDate>2026-06-01</eventDate>
+      <eventDate>2026-07-01</eventDate>
       <eventTime>09:00:00</eventTime>
       <venue>PLP Testing Room</venue>
       <capacity>80</capacity>
@@ -140,7 +140,7 @@
     </event>
     <event eventId="EVT-0013" eventStatus="upcoming">
       <eventName>Mobile App Development Bootcamp</eventName>
-      <eventDate>2026-06-02</eventDate>
+      <eventDate>2026-07-02</eventDate>
       <eventTime>10:00:00</eventTime>
       <venue>Gymnasium</venue>
       <capacity>60</capacity>
@@ -151,7 +151,7 @@
     </event>
     <event eventId="EVT-0014" eventStatus="upcoming">
       <eventName>Web Design and UX Workshop</eventName>
-      <eventDate>2026-06-03</eventDate>
+      <eventDate>2026-07-03</eventDate>
       <eventTime>14:00:00</eventTime>
       <venue>Sports Development Office</venue>
       <capacity>40</capacity>
@@ -162,7 +162,7 @@
     </event>
     <event eventId="EVT-0015" eventStatus="upcoming">
       <eventName>Database Design and SQL Mastery</eventName>
-      <eventDate>2026-06-04</eventDate>
+      <eventDate>2026-07-04</eventDate>
       <eventTime>11:00:00</eventTime>
       <venue>Facade</venue>
       <capacity>50</capacity>
@@ -173,7 +173,7 @@
     </event>
     <event eventId="EVT-0016" eventStatus="upcoming">
       <eventName>DevOps and CI/CD Pipeline</eventName>
-      <eventDate>2026-06-05</eventDate>
+      <eventDate>2026-07-05</eventDate>
       <eventTime>13:00:00</eventTime>
       <venue>Function Hall</venue>
       <capacity>35</capacity>
@@ -184,7 +184,7 @@
     </event>
     <event eventId="EVT-0017" eventStatus="upcoming">
       <eventName>Data Privacy and Ethics Seminar</eventName>
-      <eventDate>2026-06-06</eventDate>
+      <eventDate>2026-07-06</eventDate>
       <eventTime>09:00:00</eventTime>
       <venue>PLP Testing Room</venue>
       <capacity>60</capacity>
@@ -195,7 +195,7 @@
     </event>
     <event eventId="EVT-0018" eventStatus="upcoming">
       <eventName>Software Documentation Workshop</eventName>
-      <eventDate>2026-06-07</eventDate>
+      <eventDate>2026-07-07</eventDate>
       <eventTime>10:00:00</eventTime>
       <venue>PLP Audio Visual Room</venue>
       <capacity>45</capacity>
@@ -206,7 +206,7 @@
     </event>
     <event eventId="EVT-0019" eventStatus="upcoming">
       <eventName>Capstone Proposal Colloquium</eventName>
-      <eventDate>2026-06-08</eventDate>
+      <eventDate>2026-07-08</eventDate>
       <eventTime>14:00:00</eventTime>
       <venue>PLP Audio Visual Room</venue>
       <capacity>70</capacity>
@@ -217,7 +217,7 @@
     </event>
     <event eventId="EVT-0020" eventStatus="upcoming">
       <eventName>Research Data Management Forum</eventName>
-      <eventDate>2026-06-09</eventDate>
+      <eventDate>2026-07-09</eventDate>
       <eventTime>15:00:00</eventTime>
       <venue>Auditorium</venue>
       <capacity>80</capacity>
@@ -228,7 +228,7 @@
     </event>
     <event eventId="EVT-0021" eventStatus="upcoming">
       <eventName>Time Management and Productivity</eventName>
-      <eventDate>2026-06-06</eventDate>
+      <eventDate>2026-07-06</eventDate>
       <eventTime>10:00:00</eventTime>
       <venue>Banquet Hall</venue>
       <capacity>120</capacity>
@@ -239,7 +239,7 @@
     </event>
     <event eventId="EVT-0022" eventStatus="upcoming">
       <eventName>Emotional Intelligence Training</eventName>
-      <eventDate>2026-06-07</eventDate>
+      <eventDate>2026-07-07</eventDate>
       <eventTime>09:00:00</eventTime>
       <venue>Gymnasium</venue>
       <capacity>100</capacity>
@@ -250,7 +250,7 @@
     </event>
     <event eventId="EVT-0023" eventStatus="upcoming">
       <eventName>Negotiation Skills Workshop</eventName>
-      <eventDate>2026-06-08</eventDate>
+      <eventDate>2026-07-08</eventDate>
       <eventTime>14:00:00</eventTime>
       <venue>Auditorium</venue>
       <capacity>45</capacity>
@@ -261,7 +261,7 @@
     </event>
     <event eventId="EVT-0024" eventStatus="upcoming">
       <eventName>Team Building and Collaboration</eventName>
-      <eventDate>2026-06-09</eventDate>
+      <eventDate>2026-07-09</eventDate>
       <eventTime>11:00:00</eventTime>
       <venue>Facade</venue>
       <capacity>150</capacity>
@@ -272,7 +272,7 @@
     </event>
     <event eventId="EVT-0025" eventStatus="upcoming">
       <eventName>Conflict Resolution Training</eventName>
-      <eventDate>2026-06-10</eventDate>
+      <eventDate>2026-07-10</eventDate>
       <eventTime>13:00:00</eventTime>
       <venue>Gymnasium</venue>
       <capacity>60</capacity>
@@ -338,7 +338,7 @@
     </event>
     <event eventId="EVT-0031" eventStatus="upcoming">
       <eventName>Machine Learning Applications</eventName>
-      <eventDate>2026-06-11</eventDate>
+      <eventDate>2026-07-11</eventDate>
       <eventTime>09:00:00</eventTime>
       <venue>Facade</venue>
       <capacity>45</capacity>
@@ -349,7 +349,7 @@
     </event>
     <event eventId="EVT-0032" eventStatus="upcoming">
       <eventName>Cybersecurity Advanced Topics</eventName>
-      <eventDate>2026-06-12</eventDate>
+      <eventDate>2026-07-12</eventDate>
       <eventTime>10:00:00</eventTime>
       <venue>Function Hall</venue>
       <capacity>40</capacity>
@@ -360,7 +360,7 @@
     </event>
     <event eventId="EVT-0033" eventStatus="upcoming">
       <eventName>Big Data Analytics Workshop</eventName>
-      <eventDate>2026-06-13</eventDate>
+      <eventDate>2026-07-13</eventDate>
       <eventTime>14:00:00</eventTime>
       <venue>Auditorium</venue>
       <capacity>50</capacity>
@@ -371,7 +371,7 @@
     </event>
     <event eventId="EVT-0034" eventStatus="upcoming">
       <eventName>Internet of Things (IoT)</eventName>
-      <eventDate>2026-06-14</eventDate>
+      <eventDate>2026-07-14</eventDate>
       <eventTime>11:00:00</eventTime>
       <venue>PLP Audio Visual Room</venue>
       <capacity>35</capacity>
@@ -382,7 +382,7 @@
     </event>
     <event eventId="EVT-0035" eventStatus="upcoming">
       <eventName>Blockchain Technology Basics</eventName>
-      <eventDate>2026-06-15</eventDate>
+      <eventDate>2026-07-15</eventDate>
       <eventTime>13:00:00</eventTime>
       <venue>Banquet Hall</venue>
       <capacity>60</capacity>
@@ -448,7 +448,7 @@
     </event>
     <event eventId="EVT-0041" eventStatus="upcoming">
       <eventName>Cultural Heritage Showcase</eventName>
-      <eventDate>2026-06-16</eventDate>
+      <eventDate>2026-07-16</eventDate>
       <eventTime>10:00:00</eventTime>
       <venue>Function Hall</venue>
       <capacity>300</capacity>
@@ -459,7 +459,7 @@
     </event>
     <event eventId="EVT-0042" eventStatus="upcoming">
       <eventName>Music and Arts Festival</eventName>
-      <eventDate>2026-06-17</eventDate>
+      <eventDate>2026-07-17</eventDate>
       <eventTime>14:00:00</eventTime>
       <venue>PLP Testing Room</venue>
       <capacity>500</capacity>
@@ -470,7 +470,7 @@
     </event>
     <event eventId="EVT-0043" eventStatus="upcoming">
       <eventName>Film Festival and Screening</eventName>
-      <eventDate>2026-06-18</eventDate>
+      <eventDate>2026-07-18</eventDate>
       <eventTime>18:00:00</eventTime>
       <venue>Sports Development Office</venue>
       <capacity>200</capacity>
@@ -481,7 +481,7 @@
     </event>
     <event eventId="EVT-0044" eventStatus="upcoming">
       <eventName>Sports Day and Athletics</eventName>
-      <eventDate>2026-06-19</eventDate>
+      <eventDate>2026-07-19</eventDate>
       <eventTime>07:00:00</eventTime>
       <venue>PLP Audio Visual Room</venue>
       <capacity>500</capacity>
@@ -492,7 +492,7 @@
     </event>
     <event eventId="EVT-0045" eventStatus="upcoming">
       <eventName>Basketball Tournament</eventName>
-      <eventDate>2026-06-20</eventDate>
+      <eventDate>2026-07-20</eventDate>
       <eventTime>09:00:00</eventTime>
       <venue>Sports Development Office</venue>
       <capacity>400</capacity>
@@ -558,7 +558,7 @@
     </event>
     <event eventId="EVT-0051" eventStatus="upcoming">
       <eventName>Environmental Sustainability Forum</eventName>
-      <eventDate>2026-06-21</eventDate>
+      <eventDate>2026-07-21</eventDate>
       <eventTime>09:00:00</eventTime>
       <venue>Banquet Hall</venue>
       <capacity>100</capacity>
@@ -569,7 +569,7 @@
     </event>
     <event eventId="EVT-0052" eventStatus="upcoming">
       <eventName>Health and Wellness Seminar</eventName>
-      <eventDate>2026-06-22</eventDate>
+      <eventDate>2026-07-22</eventDate>
       <eventTime>10:00:00</eventTime>
       <venue>Facade</venue>
       <capacity>120</capacity>
@@ -580,7 +580,7 @@
     </event>
     <event eventId="EVT-0053" eventStatus="upcoming">
       <eventName>Innovation and Entrepreneurship Summit</eventName>
-      <eventDate>2026-06-23</eventDate>
+      <eventDate>2026-07-23</eventDate>
       <eventTime>13:00:00</eventTime>
       <venue>Banquet Hall</venue>
       <capacity>150</capacity>
@@ -591,7 +591,7 @@
     </event>
     <event eventId="EVT-0054" eventStatus="upcoming">
       <eventName>Research Methodology Workshop</eventName>
-      <eventDate>2026-06-24</eventDate>
+      <eventDate>2026-07-24</eventDate>
       <eventTime>11:00:00</eventTime>
       <venue>PLP Quadrangle</venue>
       <capacity>60</capacity>
@@ -602,7 +602,7 @@
     </event>
     <event eventId="EVT-0055" eventStatus="upcoming">
       <eventName>International Relations Symposium</eventName>
-      <eventDate>2026-06-25</eventDate>
+      <eventDate>2026-07-25</eventDate>
       <eventTime>14:00:00</eventTime>
       <venue>Sports Development Office</venue>
       <capacity>250</capacity>
@@ -668,7 +668,7 @@
     </event>
     <event eventId="EVT-0061" eventStatus="upcoming">
       <eventName>Artificial Intelligence Ethics</eventName>
-      <eventDate>2026-06-26</eventDate>
+      <eventDate>2026-07-26</eventDate>
       <eventTime>09:00:00</eventTime>
       <venue>PLP Testing Room</venue>
       <capacity>50</capacity>
@@ -679,7 +679,7 @@
     </event>
     <event eventId="EVT-0062" eventStatus="upcoming">
       <eventName>Quantum Computing Basics</eventName>
-      <eventDate>2026-06-27</eventDate>
+      <eventDate>2026-07-27</eventDate>
       <eventTime>10:00:00</eventTime>
       <venue>PLP Audio Visual Room</venue>
       <capacity>40</capacity>
@@ -690,7 +690,7 @@
     </event>
     <event eventId="EVT-0063" eventStatus="upcoming">
       <eventName>Augmented and Virtual Reality</eventName>
-      <eventDate>2026-06-28</eventDate>
+      <eventDate>2026-07-28</eventDate>
       <eventTime>14:00:00</eventTime>
       <venue>Auditorium</venue>
       <capacity>45</capacity>
@@ -701,7 +701,7 @@
     </event>
     <event eventId="EVT-0064" eventStatus="upcoming">
       <eventName>Natural Language Processing</eventName>
-      <eventDate>2026-06-29</eventDate>
+      <eventDate>2026-07-29</eventDate>
       <eventTime>11:00:00</eventTime>
       <venue>Auditorium</venue>
       <capacity>50</capacity>
@@ -712,7 +712,7 @@
     </event>
     <event eventId="EVT-0065" eventStatus="upcoming">
       <eventName>Computer Vision Workshop</eventName>
-      <eventDate>2026-06-30</eventDate>
+      <eventDate>2026-07-30</eventDate>
       <eventTime>13:00:00</eventTime>
       <venue>Gymnasium</venue>
       <capacity>45</capacity>
@@ -778,7 +778,7 @@
     </event>
     <event eventId="EVT-0071" eventStatus="upcoming">
       <eventName>Robotics and Automation</eventName>
-      <eventDate>2026-07-01</eventDate>
+      <eventDate>2026-08-01</eventDate>
       <eventTime>09:00:00</eventTime>
       <venue>Banquet Hall</venue>
       <capacity>35</capacity>
@@ -789,7 +789,7 @@
     </event>
     <event eventId="EVT-0072" eventStatus="upcoming">
       <eventName>Advanced Statistics and Probability</eventName>
-      <eventDate>2026-07-02</eventDate>
+      <eventDate>2026-08-02</eventDate>
       <eventTime>10:00:00</eventTime>
       <venue>PLP Quadrangle</venue>
       <capacity>50</capacity>
@@ -800,7 +800,7 @@
     </event>
     <event eventId="EVT-0073" eventStatus="upcoming">
       <eventName>Algorithmic Problem Solving</eventName>
-      <eventDate>2026-07-03</eventDate>
+      <eventDate>2026-08-03</eventDate>
       <eventTime>14:00:00</eventTime>
       <venue>Facade</venue>
       <capacity>50</capacity>
@@ -811,7 +811,7 @@
     </event>
     <event eventId="EVT-0074" eventStatus="upcoming">
       <eventName>Systems Design and Architecture</eventName>
-      <eventDate>2026-07-04</eventDate>
+      <eventDate>2026-08-04</eventDate>
       <eventTime>11:00:00</eventTime>
       <venue>Function Hall</venue>
       <capacity>45</capacity>
@@ -822,7 +822,7 @@
     </event>
     <event eventId="EVT-0075" eventStatus="upcoming">
       <eventName>Distributed Systems Workshop</eventName>
-      <eventDate>2026-07-05</eventDate>
+      <eventDate>2026-08-05</eventDate>
       <eventTime>13:00:00</eventTime>
       <venue>Sports Development Office</venue>
       <capacity>50</capacity>
@@ -888,7 +888,7 @@
     </event>
     <event eventId="EVT-0081" eventStatus="upcoming">
       <eventName>Functional Programming Paradigm</eventName>
-      <eventDate>2026-07-06</eventDate>
+      <eventDate>2026-08-06</eventDate>
       <eventTime>10:00:00</eventTime>
       <venue>Gymnasium</venue>
       <capacity>45</capacity>
@@ -899,7 +899,7 @@
     </event>
     <event eventId="EVT-0082" eventStatus="upcoming">
       <eventName>Type Systems and Category Theory</eventName>
-      <eventDate>2026-07-07</eventDate>
+      <eventDate>2026-08-07</eventDate>
       <eventTime>14:00:00</eventTime>
       <venue>PLP Audio Visual Room</venue>
       <capacity>40</capacity>
@@ -910,7 +910,7 @@
     </event>
     <event eventId="EVT-0083" eventStatus="upcoming">
       <eventName>Software Architecture Patterns</eventName>
-      <eventDate>2026-07-08</eventDate>
+      <eventDate>2026-08-08</eventDate>
       <eventTime>11:00:00</eventTime>
       <venue>Auditorium</venue>
       <capacity>50</capacity>
@@ -921,7 +921,7 @@
     </event>
     <event eventId="EVT-0084" eventStatus="upcoming">
       <eventName>Testing and Debugging Techniques</eventName>
-      <eventDate>2026-07-09</eventDate>
+      <eventDate>2026-08-09</eventDate>
       <eventTime>09:00:00</eventTime>
       <venue>Facade</venue>
       <capacity>50</capacity>
@@ -932,7 +932,7 @@
     </event>
     <event eventId="EVT-0085" eventStatus="upcoming">
       <eventName>Open Source Contribution</eventName>
-      <eventDate>2026-07-10</eventDate>
+      <eventDate>2026-08-10</eventDate>
       <eventTime>13:00:00</eventTime>
       <venue>Gymnasium</venue>
       <capacity>60</capacity>
@@ -998,7 +998,7 @@
     </event>
     <event eventId="EVT-0091" eventStatus="upcoming">
       <eventName>Accessibility in Web Development</eventName>
-      <eventDate>2026-07-11</eventDate>
+      <eventDate>2026-08-11</eventDate>
       <eventTime>10:00:00</eventTime>
       <venue>Sports Development Office</venue>
       <capacity>50</capacity>
@@ -1009,7 +1009,7 @@
     </event>
     <event eventId="EVT-0092" eventStatus="upcoming">
       <eventName>Performance Optimization Techniques</eventName>
-      <eventDate>2026-07-12</eventDate>
+      <eventDate>2026-08-12</eventDate>
       <eventTime>14:00:00</eventTime>
       <venue>Gymnasium</venue>
       <capacity>45</capacity>
@@ -1020,7 +1020,7 @@
     </event>
     <event eventId="EVT-0093" eventStatus="upcoming">
       <eventName>Internationalization and Localization</eventName>
-      <eventDate>2026-07-13</eventDate>
+      <eventDate>2026-08-13</eventDate>
       <eventTime>11:00:00</eventTime>
       <venue>PLP Testing Room</venue>
       <capacity>40</capacity>
@@ -1031,7 +1031,7 @@
     </event>
     <event eventId="EVT-0094" eventStatus="upcoming">
       <eventName>Advanced Networking Workshop</eventName>
-      <eventDate>2026-07-14</eventDate>
+      <eventDate>2026-08-14</eventDate>
       <eventTime>09:00:00</eventTime>
       <venue>PLP Audio Visual Room</venue>
       <capacity>40</capacity>
@@ -1042,7 +1042,7 @@
     </event>
     <event eventId="EVT-0095" eventStatus="upcoming">
       <eventName>Embedded Systems Programming</eventName>
-      <eventDate>2026-07-15</eventDate>
+      <eventDate>2026-08-15</eventDate>
       <eventTime>13:00:00</eventTime>
       <venue>Auditorium</venue>
       <capacity>35</capacity>
