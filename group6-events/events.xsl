@@ -1,8 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" indent="yes"/>
+  
+  <!-- 
+    Event Management System XSLT Stylesheet
+    
+    PURPOSE: Transform XML event data into interactive HTML dashboard
+    OUTPUT: Single HTML file with styled event cards, statistics, and tables
+    
+    KEY FEATURES:
+    - Responsive design with Bootstrap-like styling
+    - Dashboard with 6 summary statistics
+    - Event cards with detailed information
+    - Attendance sheet table generation
+    - Module navigation modal
+    
+    TEMPLATES:
+    1. formatDate: Converts YYYY-MM-DD to MM/DD/YYYY
+    2. formatTime: Converts 24-hour time to 12-hour with AM/PM
+    3. attendanceSheet: Generates sortable attendance table
+    4. /: Main template rendering complete HTML document
+  -->
 
-  <!-- Date Formatting Template: YYYY-MM-DD to MM/DD/YYYY -->
+  <!-- 
+    TEMPLATE: formatDate
+    Converts date format from YYYY-MM-DD to MM/DD/YYYY
+    
+    PARAMETERS:
+    - dateString: input date in YYYY-MM-DD format
+    
+    LOGIC:
+    - Extract year (characters 1-4)
+    - Extract month (characters 6-7)
+    - Extract day (characters 9-10)
+    - Concatenate as MM/DD/YYYY
+    
+    USAGE: <xsl:call-template name="formatDate"><xsl:with-param name="dateString" select="eventDate"/></xsl:call-template>
+  -->
   <xsl:template name="formatDate">
     <xsl:param name="dateString"/>
     <xsl:choose>
@@ -18,7 +52,23 @@
     </xsl:choose>
   </xsl:template>
 
-  <!-- Time Formatting Template: 24-hour to 12-hour with AM/PM -->
+  <!-- 
+    TEMPLATE: formatTime
+    Converts time from 24-hour (HH:MM:SS) format to 12-hour with AM/PM
+    
+    PARAMETERS:
+    - timeString: input time in HH:MM:SS format
+    
+    LOGIC:
+    - Extract hour number
+    - Convert using conditional logic:
+      * 0 = 12:MM AM (midnight)
+      * 1-11 = H:MM AM
+      * 12 = 12:MM PM (noon)
+      * 13-23 = H:MM PM (subtract 12)
+    
+    USAGE: <xsl:call-template name="formatTime"><xsl:with-param name="timeString" select="eventTime"/></xsl:call-template>
+  -->
   <xsl:template name="formatTime">
     <xsl:param name="timeString"/>
     <xsl:choose>
@@ -46,6 +96,25 @@
     </xsl:choose>
   </xsl:template>
 
+  <!-- 
+    TEMPLATE: attendanceSheet
+    Generates an attendance tracking table for all events and registrations
+    
+    STRUCTURE:
+    - Table with columns: Event ID | Event Name | Date | Venue | Participant | Email | Status
+    - Rows populated for each event-participant registration
+    - Can be printed for physical attendance marking
+    
+    DATA SOURCE:
+    - Event information from //event
+    - Registration details from //registration
+    - Participant information from //participant
+    
+    USE CASE:
+    - Print for physical attendance tracking
+    - Export for spreadsheet analysis
+    - Email roster to instructors
+  -->
   <xsl:template name="attendanceSheet">
     <div class="table-wrap">
       <table id="attendanceTable">
@@ -77,6 +146,31 @@
     </div>
   </xsl:template>
 
+  <!-- 
+    MAIN TEMPLATE: Root HTML Template
+    Processes the root element and generates complete HTML document
+    
+    SECTIONS:
+    1. Header: Title, navigation, module selector
+    2. Main Content:
+       - Dashboard statistics (6 cards)
+       - Current events section
+       - Upcoming events section
+       - Attendance sheet (hidden, printable)
+    3. Footer: Copyright/attribution
+    4. Scripts: Interactivity and module navigation
+    
+    STYLING:
+    - CSS variables for consistent colors
+    - Responsive grid layout
+    - Hover effects and transitions
+    - Print-friendly styles
+    
+    INTERACTIVITY:
+    - Module selection via modal
+    - Tab switching for event categories
+    - Search/filter functionality
+  -->
   <xsl:template match="/">
     <html>
       <head>
@@ -141,10 +235,15 @@
           .header-inner {
             max-width: 96%;
             margin: 0 auto;
-            margin-left: 90px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+          }
+
+          .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
           }
 
           .header-title { font-size: var(--text-xl); font-weight: 700; letter-spacing: -0.02em; }
@@ -154,6 +253,12 @@
             display: flex;
             gap: var(--sp-2);
             list-style: none;
+            align-items: center;
+          }
+
+          .navbar li {
+            display: flex;
+            align-items: center;
           }
 
           .navbar a {
@@ -425,26 +530,26 @@
 
           /* ========== Navigation Menu ========== */
           .menu-button {
-            position: fixed;
-            top: 24px;
-            left: 24px;
-            width: 56px;
-            height: 56px;
-            background: #008a45;
-            border-radius: 50%;
+            position: relative;
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             z-index: 1100;
-            box-shadow: 0 4px 12px rgba(0, 138, 69, 0.3);
+            box-shadow: none;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
+            padding: 0;
+            margin: 0;
           }
 
           .menu-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 16px rgba(0, 138, 69, 0.4);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: none;
           }
 
           .menu-button i {
@@ -607,11 +712,6 @@
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-        <!-- Circular Menu Button -->
-        <button class="menu-button" onclick="toggleModal()">
-          <i class="fas fa-th"></i>
-        </button>
-
         <!-- Modal Overlay -->
         <div class="modal-overlay" id="modalOverlay" onclick="toggleModal()"></div>
 
@@ -687,6 +787,9 @@
         <header class="header">
           <div class="header-inner">
             <div class="header-left">
+              <button class="menu-button" onclick="toggleModal()">
+                <i class="fas fa-th"></i>
+              </button>
               <div style="display: flex; align-items: center; gap: 12px;">
                 <img src="PLP_logo.png" alt="PLP Logo" style="height: 45px; width: auto;"/>
                 <div>

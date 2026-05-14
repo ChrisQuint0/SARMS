@@ -3,7 +3,23 @@
            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
            vc:minVersion="1.1"
            version="1.1">
-  <!-- XML Schema for Events Management System with Type Validation and Assertions -->
+  <!-- 
+    XML Schema for Events Management System
+    Version: 1.1 (requires XSD 1.1 for assertions)
+    
+    VALIDATION COVERAGE:
+    1. Data Types: dates, times, integers, email patterns
+    2. Enumerations: event statuses, categories, departments, registration statuses
+    3. Constraints: unique values, numeric ranges, pattern matching
+    4. Assertions: 8 business rules for complex cross-element validation
+    5. Referential Integrity: ID/IDREF relationships between elements
+    
+    KEY FEATURES:
+    - 8 XSD 1.1 assertions enforce complex business rules
+    - Pattern validation for email addresses
+    - Unique constraints for participant names and emails
+    - Range constraints for year levels (1-4)
+  -->
   
   <xs:element name="eventManagementSystem">
     <xs:complexType>
@@ -21,6 +37,7 @@
                     <xs:element name="capacity" type="xs:positiveInteger"/>
                     <xs:element name="registrationCount" type="xs:positiveInteger"/>
                     <xs:element name="category" type="eventCategoryType"/>
+                    <xs:element name="organizer" type="xs:string"/>
                     <xs:element name="description" type="xs:string"/>
                   </xs:sequence>
                   <xs:attribute name="eventId" type="xs:ID" use="required"/>
@@ -65,37 +82,105 @@
           </xs:complexType>
         </xs:element>
       </xs:sequence>
-      <!-- Assertion 1: event date must not be in the past for upcoming/current events.
-           Closed events are excluded because they are intentionally past. -->
+      <!-- 
+        ASSERTION 1: Future Event Dates
+        Rule: Events with status 'upcoming' or 'current' must have dates >= today
+        Purpose: Prevents scheduling past events as future
+        Exception: 'closed' events are intentionally in the past, so excluded
+        Impact: Ensures data integrity for event scheduling
+      -->
       <xs:assert test="every $e in events/event[@eventStatus='upcoming' or @eventStatus='current'] satisfies xs:date($e/eventDate) ge current-date()"/>
-      <!-- Assertion 2: registration date must be strictly before the corresponding event date. -->
+      <!-- 
+        ASSERTION 2: Registration Before Event
+        Rule: Every registration date must occur BEFORE its corresponding event date
+        Purpose: Ensures registrations happen before events occur
+        Formula: registrationDate < eventDate
+        Impact: Prevents future registrations and maintains chronological integrity
+      -->
       <xs:assert test="every $r in registrations/registration satisfies exists(events/event[@eventId = string($r/@eventId)]) and xs:date($r/@registrationDate) lt xs:date(events/event[@eventId = string($r/@eventId)][1]/eventDate)"/>
-      <!-- Assertion 3: registration count declared per event must not exceed event capacity. -->
+      <!-- 
+        ASSERTION 3: Capacity Constraint
+        Rule: registrationCount element value must be <= capacity element value
+        Purpose: Prevents overbooking events
+        Formula: registrationCount ≤ capacity
+        Impact: Ensures all registered participants have a seat
+      -->
       <xs:assert test="every $e in events/event satisfies xs:integer($e/registrationCount) le xs:integer($e/capacity)"/>
-      <!-- Assertion 4: each event must have at least one participant registration. -->
+      <!-- 
+        ASSERTION 4: Event Participation Requirement
+        Rule: Every event must have at least 1 registration record
+        Purpose: Ensures no empty events in the system
+        Formula: count(registrations/registration[@eventId = $e/@eventId]) >= 1
+        Impact: Maintains data quality by requiring participation
+      -->
       <xs:assert test="every $e in events/event satisfies count(registrations/registration[@eventId = $e/@eventId]) ge 1"/>
-      <!-- Assertion 5: stored registrationCount must match actual registration records per event. -->
+      <!-- 
+        ASSERTION 5: Registration Count Accuracy
+        Rule: The registrationCount element must EXACTLY match count of registration records
+        Purpose: Ensures data consistency between events and registrations sections
+        Formula: registrationCount = count(registrations/registration[@eventId = $e/@eventId])
+        Impact: Critical for accurate event statistics and reporting
+      -->
       <xs:assert test="every $e in events/event satisfies xs:integer($e/registrationCount) = count(registrations/registration[@eventId = $e/@eventId])"/>
-      <!-- Assertion 6: two events cannot occupy the same venue at the same date and time. -->
+      <!-- 
+        ASSERTION 6: Venue Double-Booking Prevention
+        Rule: No two events can use the same venue on the same date and time
+        Purpose: Prevents scheduling conflicts in physical spaces
+        Formula: For any two events e1, e2: NOT(same venue AND same date AND same time)
+        Impact: Ensures venue availability and prevents resource conflicts
+      -->
       <xs:assert test="every $e1 at $i in events/event satisfies every $e2 in events/event[position() gt $i] satisfies not($e1/venue = $e2/venue and $e1/eventDate = $e2/eventDate and $e1/eventTime = $e2/eventTime)"/>
-      <!-- Assertion 7: same event name is allowed only when both date and time differ. -->
+      <!-- 
+        ASSERTION 7: Duplicate Event Name Differentiation
+        Rule: If two events have the same name, they must differ in BOTH date AND time
+        Purpose: Allows recurring events while preventing confusion
+        Formula: For events with same name: (date1 ≠ date2) AND (time1 ≠ time2)
+        Impact: Supports course offerings and recurring seminars with unique scheduling
+      -->
       <xs:assert test="every $e1 at $i in events/event satisfies every $e2 in events/event[position() gt $i] satisfies not($e1/eventName = $e2/eventName and ($e1/eventDate = $e2/eventDate or $e1/eventTime = $e2/eventTime))"/>
-      <!-- Assertion 8: a participant cannot be registered for two events with the same date and time. -->
+      <!-- 
+        ASSERTION 8: Participant Schedule Conflict Prevention
+        Rule: No participant can register for two events at the same date and time
+        Purpose: Prevents participant from attending conflicting events
+        Formula: For any participant and two registrations: NOT(same date AND same time)
+        Impact: Ensures students don't have schedule conflicts
+      -->
       <xs:assert test="every $p in participants/participant satisfies every $r1 at $i in registrations/registration[@participantId = $p/@participantId] satisfies every $r2 in registrations/registration[@participantId = $p/@participantId][position() gt $i] satisfies not(events/event[@eventId = string($r1/@eventId)][1]/eventDate = events/event[@eventId = string($r2/@eventId)][1]/eventDate and events/event[@eventId = string($r1/@eventId)][1]/eventTime = events/event[@eventId = string($r2/@eventId)][1]/eventTime)"/>
     </xs:complexType>
 
+    <!-- 
+      UNIQUE CONSTRAINTS: Enforce uniqueness on non-ID elements
+      These constraints ensure data integrity for participant identification
+    -->
+    
+    <!-- Constraint 1: Unique Participant Names -->
+    <!-- Purpose: No two participants can have identical full names -->
+    <!-- Selector: All participant elements -->
+    <!-- Field: fullName child element -->
     <xs:unique name="uniqueParticipantFullName">
       <xs:selector xpath="participants/participant"/>
       <xs:field xpath="fullName"/>
     </xs:unique>
 
+    <!-- Constraint 2: Unique Email Addresses -->
+    <!-- Purpose: Each participant must have a unique email for communication -->
+    <!-- Selector: All participant elements -->
+    <!-- Field: email child element -->
     <xs:unique name="uniqueParticipantEmail">
       <xs:selector xpath="participants/participant"/>
       <xs:field xpath="email"/>
     </xs:unique>
   </xs:element>
   
-  <!-- Custom Type Definitions -->
+  <!-- 
+    ===== CUSTOM TYPE DEFINITIONS =====
+    Simple types for validation of specific data patterns and enumerations
+    These types restrict values to valid options for the Event Management System
+  -->
+  <!-- Event Status Type: Restricts event status to 3 valid values -->
+  <!-- upcoming: Scheduled for the future -->
+  <!-- current: Currently in progress -->
+  <!-- closed: Completed or cancelled -->
   <xs:simpleType name="eventStatusType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="upcoming"/>
@@ -104,7 +189,13 @@
     </xs:restriction>
   </xs:simpleType>
   
-  <!-- eventCategoryType: matches the four categories used in events.xml -->
+  <!-- 
+    Event Category Type: Restricts events to 4 categories
+    Academic: Courses, seminars, lectures, educational workshops
+    Professional Development: Career, skills, business-focused events
+    Cultural: Arts, music, cultural events
+    Sports: Athletics, recreational, health-related activities
+  -->
   <xs:simpleType name="eventCategoryType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Academic"/>
@@ -114,6 +205,13 @@
     </xs:restriction>
   </xs:simpleType>
   
+  <!-- 
+    Registration Status Type: Tracks participant registration states
+    Registered: Participant signed up but hasn't attended
+    Attended: Participant confirmed attendance
+    Cancelled: Registration was cancelled by participant or admin
+    No-show: Participant registered but didn't attend
+  -->
   <xs:simpleType name="registrationStatusType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Registered"/>
@@ -123,12 +221,23 @@
     </xs:restriction>
   </xs:simpleType>
   
+  <!-- 
+    Email Type: Validates email format using regex pattern
+    Pattern: [letters/numbers/special chars]@[domain].[extension]
+    Examples: juan.delacruz@plp.edu.ph, maria.santos@plp.edu.ph
+    Note: Basic validation; accepts most common email formats
+  -->
   <xs:simpleType name="emailType">
     <xs:restriction base="xs:string">
       <xs:pattern value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"/>
     </xs:restriction>
   </xs:simpleType>
   
+  <!-- 
+    Department Type: Lists all 7 colleges/departments in the university
+    Used to categorize participants by their academic affiliation
+    Must match exactly for XSD validation
+  -->
   <xs:simpleType name="departmentType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="College of Computer Studies"/>
@@ -141,6 +250,13 @@
     </xs:restriction>
   </xs:simpleType>
   
+  <!-- 
+    Year Level Type: Restricts academic year to integers 1-4
+    1: First year (Freshman)
+    2: Second year (Sophomore)
+    3: Third year (Junior)
+    4: Fourth year (Senior)
+  -->
   <xs:simpleType name="yearLevelType">
     <xs:restriction base="xs:integer">
       <xs:minInclusive value="1"/>

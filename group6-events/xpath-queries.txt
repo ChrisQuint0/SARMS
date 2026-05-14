@@ -1,5 +1,33 @@
 # XPath Queries for Events Management System
-# These queries extract and filter event data
+# 
+# PURPOSE: Reference documentation containing 70+ XPath query examples
+# These queries extract, filter, and analyze event data from events.xml
+# 
+# USAGE:
+# - Copy any query and paste into an XPath evaluator or XML query tool
+# - BaseX, XML Spy, Oxygen XML, and most XML editors support XPath
+# - Queries follow XPath 3.1 syntax
+# 
+# QUERY PATTERNS DEMONSTRATED:
+# 1. Basic Selection: Getting specific elements (//event, //participant)
+# 2. Filtering: Using predicates to select by attribute (@eventStatus='upcoming')
+# 3. Aggregation: Counting, summing, finding min/max values
+# 4. Text Matching: Finding elements by content using contains(), starts-with()
+# 5. Sorting: Ordering results by one or more criteria
+# 6. Complex Logic: Combining multiple conditions with and/or operators
+# 7. Relationships: Following IDREF links to join related elements
+# 8. Calculations: Computing derived values like capacity-to-registration ratios
+# 
+# QUICK REFERENCE:
+# - Events can be filtered by: status (upcoming/current/closed), category, date, venue, capacity
+# - Participants can be filtered by: department, year level, email patterns
+# - Registrations can be filtered by: status, event, participant, registration date
+# 
+# PERFORMANCE TIPS:
+# - Use attribute predicates (@eventStatus='upcoming') for faster filtering
+# - Combine filters in single predicate: //event[@eventStatus='upcoming'][category='Academic']
+# - Use count() for aggregation rather than processing each element
+# - Limit results early with position() predicates when expecting large result sets
 
 # ============================================
 # BASIC EVENT QUERIES
