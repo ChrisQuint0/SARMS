@@ -85,7 +85,6 @@
         <title>Events Management System</title>
         <style>
           :root {
-            --green-900: #004D26;
             --green-700: #006B35;
             --green-500: #008A45;
             --green-100: #E6F4EC;
@@ -133,7 +132,7 @@
             right: 0;
             width: 100%;
             z-index: 1000;
-            background: linear-gradient(135deg, var(--green-900), #003318);
+            background: linear-gradient(135deg, var(--green-700), var(--green-500));
             color: var(--text-inverted);
             padding: var(--sp-2) var(--sp-3);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -206,7 +205,7 @@
           h2 {
             font-size: var(--text-3xl);
             font-weight: 700;
-            color: var(--green-900);
+            color: var(--green-700);
             border-left: 5px solid var(--green-500);
             padding-left: var(--sp-2);
             margin-bottom: 8px;
@@ -224,7 +223,7 @@
           h3 {
             font-size: var(--text-xl);
             font-weight: 600;
-            color: var(--green-800);
+            color: var(--green-700);
             margin-bottom: var(--sp-2);
           }
 
@@ -354,7 +353,7 @@
           table { width: 100%; border-collapse: collapse; }
 
           thead {
-            background: linear-gradient(135deg, var(--green-700), var(--green-900));
+            background: linear-gradient(135deg, var(--green-700), var(--green-500));
             color: var(--text-inverted);
           }
 
@@ -385,7 +384,7 @@
             flex-wrap: wrap;
           }
 
-          .filter-label { font-weight: 700; color: var(--green-900); font-size: var(--text-base); }
+          .filter-label { font-weight: 700; color: var(--green-700); font-size: var(--text-base); }
           .filter-select {
             padding: 10px 16px;
             border: 2px solid var(--border);
@@ -413,7 +412,7 @@
           }
 
           .footer {
-            background: linear-gradient(135deg, var(--green-900), #003318);
+            background: linear-gradient(135deg, var(--green-700), var(--green-500));
             color: rgba(255, 255, 255, 0.8);
             text-align: center;
             padding: var(--sp-3) var(--sp-4);
