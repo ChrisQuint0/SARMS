@@ -9,7 +9,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>SARMS - Student Enrollment Grade Report</title>
         <style>
-          /* ========== Global Styles ========== */
           * {
             margin: 0;
             padding: 0;
@@ -122,59 +121,75 @@
 
           /* ========== Student Card ========== */
           .student-card {
+            display: flex; /* Two-section layout */
             background-color: #ffffff;
-            border-radius: 12px;
-            margin-bottom: 32px;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             overflow: hidden;
-            border-left: 6px solid #008a45;
+            border-left: 8px solid #008a45;
+            transition: transform 0.2s ease;
           }
 
-          .student-header {
+          .student-card:hover {
+            transform: translateY(-4px);
+          }
+
+          .card-sidebar {
+            width: 320px;
+            background-color: #f8fafc;
+            border-right: 1px solid #e2e8f0;
+            padding: 32px 24px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 24px;
+            flex-shrink: 0;
             align-items: center;
-            padding: 24px 32px;
+          }
+
+          .card-main {
+            flex: 1;
             background-color: #ffffff;
-            border-bottom: 1px solid #e2e8f0;
-            flex-wrap: wrap;
-            gap: 16px;
+            display: flex;
+            flex-direction: column;
           }
 
           .student-info-wrapper {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 20px;
+            text-align: center;
+            gap: 16px;
           }
 
           .avatar {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
-            color: #475569;
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #008a45, #004d26);
+            color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 28px;
+            font-weight: 800;
             letter-spacing: 1px;
             flex-shrink: 0;
-            border: 2px solid #ffffff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 10px rgba(0, 77, 38, 0.2);
           }
 
           .student-info h2 {
-            font-size: 22px;
-            font-weight: 700;
+            font-size: 20px;
+            font-weight: 800;
             color: #1e293b;
-            margin-bottom: 4px;
+            line-height: 1.2;
           }
 
           .student-meta {
             display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
             font-size: 13px;
             color: #64748b;
           }
@@ -329,6 +344,50 @@
             gap: 8px;
             box-shadow: 0 1px 2px rgba(0,0,0,0.1);
           }
+
+          /* ========== Filter Controls ========== */
+          .filter-controls {
+            display: flex;
+            gap: 24px;
+            align-items: flex-end;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+          }
+
+          .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+            min-width: 200px;
+          }
+
+          .filter-label { 
+            font-weight: 700; 
+            color: #1e293b; 
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+          }
+
+          .filter-select {
+            padding: 10px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #334155;
+            background-color: #ffffff;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s ease;
+          }
+          .filter-select:hover { border-color: #94a3b8; }
+          .filter-select:focus { outline: none; border-color: #008a45; box-shadow: 0 0 0 3px rgba(0,138,69,0.1); }
 
           /* ========== Navigation Menu ========== */
           .menu-button {
@@ -652,6 +711,48 @@
             </div>
           </div>
 
+          <!-- Filter Controls (Implements XQuery logic interactively) -->
+          <div class="filter-controls">
+            <div class="filter-group">
+              <label for="courseFilter" class="filter-label">Filter by Course</label>
+              <select id="courseFilter" class="filter-select" onchange="filterStudents()">
+                <option value="">All Courses</option>
+                <option value="BSIT">BSIT</option>
+                <option value="BSCS">BSCS</option>
+                <option value="BSIS">BSIS</option>
+                <option value="BSEMC">BSEMC</option>
+              </select>
+            </div>
+            
+            <div class="filter-group">
+              <label for="yearFilter" class="filter-label">Filter by Year</label>
+              <select id="yearFilter" class="filter-select" onchange="filterStudents()">
+                <option value="">All Years</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="gpaFilter" class="filter-label">Academic Status</label>
+              <select id="gpaFilter" class="filter-select" onchange="filterStudents()">
+                <option value="">All Students</option>
+                <option value="intervention">Needs Intervention (GPA &gt; 2.0)</option>
+                <option value="deans">Dean's Listers (GPA &lt;= 1.75)</option>
+              </select>
+            </div>
+            
+            <div class="filter-group">
+              <label for="loadFilter" class="filter-label">Course Load</label>
+              <select id="loadFilter" class="filter-select" onchange="filterStudents()">
+                <option value="">All Loads</option>
+                <option value="heavy">Heavy Load (&gt; 3 Subjects)</option>
+              </select>
+            </div>
+          </div>
+
           <!-- Apply student template for each student record -->
           <xsl:apply-templates select="students/student"/>
 
@@ -663,6 +764,36 @@
           <p>Group 1: Student Enrollment System | Generated via XSLT Transformation</p>
         </div>
 
+        <script><![CDATA[
+          function filterStudents() {
+            const courseVal = document.getElementById('courseFilter').value;
+            const yearVal = document.getElementById('yearFilter').value;
+            const gpaVal = document.getElementById('gpaFilter').value;
+            const loadVal = document.getElementById('loadFilter').value;
+            
+            const students = document.querySelectorAll('.student-card');
+            
+            students.forEach(student => {
+              const course = student.getAttribute('data-course');
+              const year = student.getAttribute('data-year');
+              const gpa = parseFloat(student.getAttribute('data-gpa'));
+              const subjectsCount = parseInt(student.getAttribute('data-subjects'));
+              
+              let show = true;
+              
+              if (courseVal && course !== courseVal) show = false;
+              if (yearVal && year !== yearVal) show = false;
+              
+              if (gpaVal === 'intervention' && gpa <= 2.0) show = false;
+              if (gpaVal === 'deans' && gpa > 1.75) show = false;
+              
+              if (loadVal === 'heavy' && subjectsCount <= 3) show = false;
+              
+              student.style.display = show ? 'flex' : 'none';
+            });
+          }
+        ]]></script>
+
       </body>
     </html>
   </xsl:template>
@@ -671,10 +802,10 @@
   <!-- STUDENT TEMPLATE: Renders each student as a card              -->
   <!-- ============================================================ -->
   <xsl:template match="student">
-    <div class="student-card">
+    <div class="student-card" data-course="{course}" data-year="{yearLevel}" data-gpa="{gpa}" data-subjects="{count(enrolledSubjects/subject)}">
 
-      <!-- Student Header with Name, Meta Info, and GPA Badge -->
-      <div class="student-header">
+      <!-- Left Section: Student Profile Sidebar -->
+      <div class="card-sidebar">
         <div class="student-info-wrapper">
           <div class="avatar">
             <xsl:value-of select="substring(firstName, 1, 1)"/><xsl:value-of select="substring(lastName, 1, 1)"/>
@@ -683,29 +814,30 @@
             <h2>
               <xsl:value-of select="lastName"/>, <xsl:value-of select="firstName"/>
             </h2>
-            <div class="student-meta">
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10h2"/><path d="M16 14h2"/><path d="M6.17 15a3 3 0 0 1 5.66 0"/><circle cx="9" cy="11" r="2"/><rect x="2" y="5" width="20" height="14" rx="2"/></svg>
-                <xsl:value-of select="@studentId"/>
-              </span>
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                <xsl:value-of select="course"/>
-              </span>
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-                Year <xsl:value-of select="yearLevel"/>
-              </span>
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
-                <xsl:value-of select="count(enrolledSubjects/subject)"/> Subjects
-              </span>
-            </div>
           </div>
         </div>
 
-        <!-- GPA Badge with conditional color coding -->
-        <div>
+        <div class="student-meta">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10h2"/><path d="M16 14h2"/><path d="M6.17 15a3 3 0 0 1 5.66 0"/><circle cx="9" cy="11" r="2"/><rect x="2" y="5" width="20" height="14" rx="2"/></svg>
+            <xsl:value-of select="@studentId"/>
+          </span>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            <xsl:value-of select="course"/>
+          </span>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Year <xsl:value-of select="yearLevel"/>
+          </span>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
+            <xsl:value-of select="count(enrolledSubjects/subject)"/> Subjects
+          </span>
+        </div>
+
+        <!-- GPA Badge -->
+        <div style="width: 100%;">
           <xsl:attribute name="class">
             <xsl:text>gpa-badge </xsl:text>
             <xsl:choose>
@@ -719,20 +851,22 @@
         </div>
       </div>
 
-      <!-- Subject Grades Table -->
-      <table class="subjects-table">
-        <thead>
-          <tr>
-            <th>Subject ID</th>
-            <th>Subject Name</th>
-            <th style="text-align: center;">Units</th>
-            <th style="text-align: center;">Grade</th>
-          </tr>
-        </thead>
-        <tbody>
-          <xsl:apply-templates select="enrolledSubjects/subject"/>
-        </tbody>
-      </table>
+      <!-- Right Section: Enrolled Subjects Table -->
+      <div class="card-main">
+        <table class="subjects-table">
+          <thead>
+            <tr>
+              <th>Subject ID</th>
+              <th>Subject Name</th>
+              <th style="text-align: center;">Units</th>
+              <th style="text-align: center;">Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <xsl:apply-templates select="enrolledSubjects/subject"/>
+          </tbody>
+        </table>
+      </div>
 
     </div>
   </xsl:template>
