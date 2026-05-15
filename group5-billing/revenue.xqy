@@ -8,20 +8,24 @@ let $totalPayments := sum($records/paymentsMade)
 let $totalBalance := sum($records/balance)
 let $recordCount := count($records)
 
+let $fmtTuition := format-number($totalTuition, "#,##0.00")
+let $fmtPayments := format-number($totalPayments, "#,##0.00")
+let $fmtBalance := format-number($totalBalance, "#,##0.00")
+
 return
 <billingSummary>
     <title>SARMS Billing System - Financial Overview</title>
     <timestamp>{ current-dateTime() }</timestamp>
     <statistics>
         <totalStudents>{ $recordCount }</totalStudents>
-        <totalExpectedRevenue currency="PHP">{ $totalTuition }</totalExpectedRevenue>
-        <totalPaymentsCollected currency="PHP">{ $totalPayments }</totalPaymentsCollected>
-        <totalOutstandingBalance currency="PHP">{ $totalBalance }</totalOutstandingBalance>
+        <totalExpectedRevenue currency="PHP">{ $fmtTuition }</totalExpectedRevenue>
+        <totalPaymentsCollected currency="PHP">{ $fmtPayments }</totalPaymentsCollected>
+        <totalOutstandingBalance currency="PHP">{ $fmtBalance }</totalOutstandingBalance>
     </statistics>
     <status>
         {
             if ($totalBalance = 0) then "All accounts are fully settled."
-            else concat("There is a remaining balance of PHP ", $totalBalance, " to be collected.")
+            else concat("There is a remaining balance of PHP ", $fmtBalance, " to be collected.")
         }
     </status>
 </billingSummary>
