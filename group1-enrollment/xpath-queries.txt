@@ -26,11 +26,13 @@ Explanation:
   = lower performance), so this identifies students who may need
   academic intervention.
 
-Expected Result:
+Expected Result: (Showing first 5 matches)
   - 23-00003 (Jose Reyes, GPA: 2.63)
   - 23-00006 (Patricia Villanueva, GPA: 2.92)
   - 23-00008 (Angela Ramos, GPA: 2.42)
   - 23-00010 (Isabela Cruz, GPA: 3.25)
+  - 23-00013 (Diana Garcia, GPA: 2.15)
+  ... and others (Total: 40 students)
 
 
 --------------------------------------------------------------------
@@ -45,12 +47,13 @@ Explanation:
   matches exactly "BSIT". This is useful for generating
   course-specific reports or enrollment counts.
 
-Expected Result:
+Expected Result: (Showing first 5 matches)
   - 23-00001 (Juan Dela Cruz, Year 4)
   - 23-00003 (Jose Reyes, Year 2)
   - 23-00007 (Miguel Torres, Year 3)
   - 23-00008 (Angela Ramos, Year 1)
   - 23-00010 (Isabela Cruz, Year 4)
+  ... (Total: 34 BSIT students)
 
 
 --------------------------------------------------------------------
@@ -65,10 +68,13 @@ Explanation:
   <firstName> and <lastName> elements of students in year level 4.
   This can be used for graduation candidate lists.
 
-Expected Result:
+Expected Result: (Showing first 5 matches)
   - Juan Dela Cruz (23-00001)
   - Carlos Mendoza (23-00005)
   - Isabela Cruz (23-00010)
+  - Ferdinand Marcos (23-00015)
+  - Corazon Aquino (23-00020)
+  ... (Total: 25 students)
 
 
 --------------------------------------------------------------------
@@ -102,7 +108,7 @@ Explanation:
   statistics and summary reports.
 
 Expected Result:
-  10
+  100 (Full dataset)
 
 
 --------------------------------------------------------------------
@@ -117,12 +123,13 @@ Explanation:
   within <enrolledSubjects> exceeds 3. This identifies students
   with heavier course loads.
 
-Expected Result:
+Expected Result: (Showing first 5 matches)
   - 23-00001 (Juan Dela Cruz, 4 subjects)
   - 23-00003 (Jose Reyes, 4 subjects)
   - 23-00005 (Carlos Mendoza, 4 subjects)
   - 23-00007 (Miguel Torres, 4 subjects)
   - 23-00009 (Rafael Lim, 4 subjects)
+  ... (Total: 52 students with heavy loads)
 
 
 --------------------------------------------------------------------
@@ -138,12 +145,13 @@ Explanation:
   and gpa element of students whose GPA is 1.75 or below,
   qualifying them for Dean's List honors.
 
-Expected Result:
+Expected Result: (Showing first 5 matches)
   - 23-00001 (GPA: 1.63)
   - 23-00002 (GPA: 1.25)
   - 23-00005 (GPA: 1.50)
   - 23-00007 (GPA: 1.19)
   - 23-00009 (GPA: 1.75)
+  ... (Total: 38 Dean's Listers)
 
 
 --------------------------------------------------------------------
@@ -179,7 +187,7 @@ Explanation:
   institutional workload and resource planning.
 
 Expected Result:
-  105 (sum of all subject unit values)
+  1050 (Aggregate units for 100 students)
 
 
 --------------------------------------------------------------------

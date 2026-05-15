@@ -997,7 +997,6 @@
                 <option value="BSIT">BSIT</option>
                 <option value="BSCS">BSCS</option>
                 <option value="BSIS">BSIS</option>
-                <option value="BSEMC">BSEMC</option>
               </select>
             </div>
             
