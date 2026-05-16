@@ -66,8 +66,8 @@
                     .search-box input{width:100%;padding:.65rem 1rem .65rem 2.4rem;border-radius:10px;border:1.5px solid #edf2ef;font-family:inherit;font-size:.9rem;transition:all .2s ease;background:#fcfdfc}
                     .search-box input:focus{outline:none;border-color:var(--fams-green);box-shadow:0 0 0 4px rgba(11,107,62,0.06);background:#fff}
                     
-                    #deptFilter, #statusFilter{padding:.65rem 1rem;border-radius:10px;border:1.5px solid #edf2ef;font-family:inherit;font-size:.9rem;background:#fcfdfc;cursor:pointer;transition:all .2s ease;min-width:180px;color:var(--text-dark);font-weight:500}
-                    #deptFilter:focus, #statusFilter:focus{outline:none;border-color:var(--fams-green);background:#fff}
+                    #deptFilter, #statusFilter, #subjectFilter, #sortFilter{padding:.65rem 1rem;border-radius:10px;border:1.5px solid #edf2ef;font-family:inherit;font-size:.9rem;background:#fcfdfc;cursor:pointer;transition:all .2s ease;min-width:180px;color:var(--text-dark);font-weight:500}
+                    #deptFilter:focus, #statusFilter:focus, #subjectFilter:focus, #sortFilter:focus{outline:none;border-color:var(--fams-green);background:#fff}
 
                     .no-results{padding:4rem 2rem;text-align:center;color:var(--muted);display:none}
                     .no-results i{font-size:3rem;margin-bottom:1.5rem;color:#e2e8f0;display:block}
@@ -94,7 +94,9 @@
                     .progress{width:100%;max-width:220px;height:8px;background:#e6f6ea;border-radius:999px;overflow:hidden}
                     .progress-fill{height:100%;background:var(--fams-green-600);width:0%;transition:width .6s ease}
 
-                    /* overloaded */
+                    .normal-load .progress-fill{background:var(--fams-green-600)}
+                    .heavy-load td{background:#fffbea}
+                    .heavy-load .progress-fill{background:#d97706}
                     .overloaded td{background:var(--danger-bg)}
                     .overloaded .progress-fill{background:var(--danger)}
 
@@ -370,28 +372,64 @@
                         button.classList.toggle('active');
                     }
 
+                    function getLoadStatus(hours) {
+                        if (hours > 20) return 'overloaded';
+                        if (hours >= 15) return 'heavy';
+                        return 'normal';
+                    }
+
+                    function sortRows(rows, sortValue) {
+                        const sortedRows = [...rows];
+
+                        sortedRows.sort((a, b) => {
+                            if (sortValue === 'hours-desc') {
+                                return Number(b.dataset.hours) - Number(a.dataset.hours);
+                            }
+                            if (sortValue === 'hours-asc') {
+                                return Number(a.dataset.hours) - Number(b.dataset.hours);
+                            }
+                            if (sortValue === 'subjects-desc') {
+                                return Number(b.dataset.subjectCount) - Number(a.dataset.subjectCount);
+                            }
+                            if (sortValue === 'subjects-asc') {
+                                return Number(a.dataset.subjectCount) - Number(b.dataset.subjectCount);
+                            }
+                            if (sortValue === 'department') {
+                                return a.dataset.department.localeCompare(b.dataset.department) || a.dataset.name.localeCompare(b.dataset.name);
+                            }
+                            return a.dataset.name.localeCompare(b.dataset.name);
+                        });
+
+                        return sortedRows;
+                    }
+
                     function filterTable() {
                         const searchValue = document.getElementById('searchInput').value.toLowerCase().trim();
                         const deptValue = document.getElementById('deptFilter').value;
+                        const subjectValue = document.getElementById('subjectFilter').value;
+                        const statusValue = document.getElementById('statusFilter').value;
+                        const sortValue = document.getElementById('sortFilter').value;
+                        const tbody = document.querySelector('tbody');
                         const rows = document.querySelectorAll('tbody tr');
                         let visibleCount = 0;
 
-                        rows.forEach(row => {
-                            const name = row.querySelector('.faculty-name').textContent.toLowerCase();
-                            const id = row.querySelector('.id').textContent.toLowerCase();
-                            const dept = row.querySelector('.faculty-dept').textContent;
-                            const subjects = Array.from(row.querySelectorAll('.subject-tag')).map(s => s.textContent.toLowerCase()).join(' ');
+                        const sortedRows = sortRows(rows, sortValue);
+                        sortedRows.forEach(row => tbody.appendChild(row));
+
+                        sortedRows.forEach(row => {
+                            const name = row.dataset.name;
+                            const id = row.dataset.id;
+                            const dept = row.dataset.department;
+                            const subjects = row.dataset.subjects;
+                            const hours = Number(row.dataset.hours);
+                            const loadStatus = getLoadStatus(hours);
                             
                             const matchesSearch = name.includes(searchValue) || id.includes(searchValue) || subjects.includes(searchValue);
                             const matchesDept = deptValue === 'all' || dept === deptValue;
-                            
-                            const isOverloaded = row.classList.contains('overloaded');
-                            const statusValue = document.getElementById('statusFilter').value;
-                            const matchesStatus = statusValue === 'all' || 
-                                               (statusValue === 'overloaded' && isOverloaded) || 
-                                               (statusValue === 'normal' && !isOverloaded);
+                            const matchesSubject = subjectValue === 'all' || row.dataset.subjectList.split('|').includes(subjectValue);
+                            const matchesStatus = statusValue === 'all' || statusValue === loadStatus;
 
-                            if (matchesSearch && matchesDept && matchesStatus) {
+                            if (matchesSearch && matchesDept && matchesSubject && matchesStatus) {
                                 row.style.display = '';
                                 visibleCount++;
                             } else {
@@ -406,8 +444,13 @@
                     // Populate departments dropdown dynamically
                     document.addEventListener('DOMContentLoaded', function() {
                         const depts = new Set();
+                        const subjects = new Set();
                         document.querySelectorAll('.faculty-dept').forEach(dept => {
                             depts.add(dept.textContent.trim());
+                        });
+                        document.querySelectorAll('.subject-tag').forEach(subject => {
+                            const subjectName = subject.getAttribute('data-subject-name');
+                            if (subjectName) subjects.add(subjectName);
                         });
                         
                         const filter = document.getElementById('deptFilter');
@@ -417,6 +460,16 @@
                             option.textContent = dept;
                             filter.appendChild(option);
                         });
+
+                        const subjectFilter = document.getElementById('subjectFilter');
+                        Array.from(subjects).sort().forEach(subject => {
+                            const option = document.createElement('option');
+                            option.value = subject;
+                            option.textContent = subject;
+                            subjectFilter.appendChild(option);
+                        });
+
+                        filterTable();
                     });
                     //]]>
                 </script>
@@ -445,9 +498,21 @@
                                     <option value="all">All Departments</option>
                                 </select>
                                 <select id="statusFilter" onchange="filterTable()">
-                                    <option value="all">All Status</option>
+                                    <option value="all">All Load Status</option>
                                     <option value="normal">Normal Load</option>
+                                    <option value="heavy">Heavy Load</option>
                                     <option value="overloaded">Overloaded</option>
+                                </select>
+                                <select id="subjectFilter" onchange="filterTable()">
+                                    <option value="all">All Subjects</option>
+                                </select>
+                                <select id="sortFilter" onchange="filterTable()">
+                                    <option value="name">Sort: Name</option>
+                                    <option value="hours-desc">Sort: Hours High-Low</option>
+                                    <option value="hours-asc">Sort: Hours Low-High</option>
+                                    <option value="subjects-desc">Sort: Subjects High-Low</option>
+                                    <option value="subjects-asc">Sort: Subjects Low-High</option>
+                                    <option value="department">Sort: Department</option>
                                 </select>
                             </div>
                         </div>
@@ -464,10 +529,32 @@
                             <tbody>
                                 <xsl:for-each select="faculty/facultyMember">
                                     <xsl:variable name="pct" select="(number(totalHours) * 100) div 30"/>
+                                    <xsl:variable name="subjectCount" select="count(subjects/subject)"/>
                                     <tr>
-                                        <xsl:if test="number(totalHours) &gt;= 30">
-                                            <xsl:attribute name="class">overloaded</xsl:attribute>
-                                        </xsl:if>
+                                        <xsl:attribute name="class">
+                                            <xsl:choose>
+                                                <xsl:when test="number(totalHours) &gt; 20">overloaded</xsl:when>
+                                                <xsl:when test="number(totalHours) &gt;= 15">heavy-load</xsl:when>
+                                                <xsl:otherwise>normal-load</xsl:otherwise>
+                                            </xsl:choose>
+                                        </xsl:attribute>
+                                        <xsl:attribute name="data-id"><xsl:value-of select="translate(id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')"/></xsl:attribute>
+                                        <xsl:attribute name="data-name"><xsl:value-of select="translate(name, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')"/></xsl:attribute>
+                                        <xsl:attribute name="data-department"><xsl:value-of select="department"/></xsl:attribute>
+                                        <xsl:attribute name="data-hours"><xsl:value-of select="totalHours"/></xsl:attribute>
+                                        <xsl:attribute name="data-subject-count"><xsl:value-of select="$subjectCount"/></xsl:attribute>
+                                        <xsl:attribute name="data-subjects">
+                                            <xsl:for-each select="subjects/subject">
+                                                <xsl:if test="position() &gt; 1"><xsl:text> </xsl:text></xsl:if>
+                                                <xsl:value-of select="translate(subjectName, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')"/>
+                                            </xsl:for-each>
+                                        </xsl:attribute>
+                                        <xsl:attribute name="data-subject-list">
+                                            <xsl:for-each select="subjects/subject">
+                                                <xsl:if test="position() &gt; 1"><xsl:text>|</xsl:text></xsl:if>
+                                                <xsl:value-of select="subjectName"/>
+                                            </xsl:for-each>
+                                        </xsl:attribute>
                                         <td class="id"><xsl:value-of select="id"/></td>
                                         <td class="faculty-info">
                                             <span class="faculty-name"><xsl:value-of select="name"/></span>
@@ -476,7 +563,9 @@
                                         <td>
                                             <div class="load-list">
                                                 <xsl:for-each select="subjects/subject">
-                                                    <span class="subject-tag"><xsl:value-of select="subjectName"/>
+                                                    <span class="subject-tag">
+                                                        <xsl:attribute name="data-subject-name"><xsl:value-of select="subjectName"/></xsl:attribute>
+                                                        <xsl:value-of select="subjectName"/>
                                                         <xsl:text> </xsl:text>
                                                         <small style="color:var(--muted);font-weight:500;margin-left:.25rem">(<xsl:value-of select="hours"/>)</small>
                                                     </span>
