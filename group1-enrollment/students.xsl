@@ -996,7 +996,6 @@
                 <option value="">All Courses</option>
                 <option value="BSIT">BSIT</option>
                 <option value="BSCS">BSCS</option>
-                <option value="BSIS">BSIS</option>
               </select>
             </div>
             
