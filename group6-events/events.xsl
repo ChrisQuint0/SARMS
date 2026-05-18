@@ -1,8 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" indent="yes"/>
+  
+  <!-- 
+    Event Management System XSLT Stylesheet
+    
+    PURPOSE: Transform XML event data into interactive HTML dashboard
+    OUTPUT: Single HTML file with styled event cards, statistics, and tables
+    
+    KEY FEATURES:
+    - Responsive design with Bootstrap-like styling
+    - Dashboard with 6 summary statistics
+    - Event cards with detailed information
+    - Attendance sheet table generation
+    - Module navigation modal
+    
+    TEMPLATES:
+    1. formatDate: Converts YYYY-MM-DD to MM/DD/YYYY
+    2. formatTime: Converts 24-hour time to 12-hour with AM/PM
+    3. attendanceSheet: Generates sortable attendance table
+    4. /: Main template rendering complete HTML document
+  -->
 
-  <!-- Date Formatting Template: YYYY-MM-DD to MM/DD/YYYY -->
+  <!-- 
+    TEMPLATE: formatDate
+    Converts date format from YYYY-MM-DD to MM/DD/YYYY
+    
+    PARAMETERS:
+    - dateString: input date in YYYY-MM-DD format
+    
+    LOGIC:
+    - Extract year (characters 1-4)
+    - Extract month (characters 6-7)
+    - Extract day (characters 9-10)
+    - Concatenate as MM/DD/YYYY
+    
+    USAGE: <xsl:call-template name="formatDate"><xsl:with-param name="dateString" select="eventDate"/></xsl:call-template>
+  -->
   <xsl:template name="formatDate">
     <xsl:param name="dateString"/>
     <xsl:choose>
@@ -18,7 +52,23 @@
     </xsl:choose>
   </xsl:template>
 
-  <!-- Time Formatting Template: 24-hour to 12-hour with AM/PM -->
+  <!-- 
+    TEMPLATE: formatTime
+    Converts time from 24-hour (HH:MM:SS) format to 12-hour with AM/PM
+    
+    PARAMETERS:
+    - timeString: input time in HH:MM:SS format
+    
+    LOGIC:
+    - Extract hour number
+    - Convert using conditional logic:
+      * 0 = 12:MM AM (midnight)
+      * 1-11 = H:MM AM
+      * 12 = 12:MM PM (noon)
+      * 13-23 = H:MM PM (subtract 12)
+    
+    USAGE: <xsl:call-template name="formatTime"><xsl:with-param name="timeString" select="eventTime"/></xsl:call-template>
+  -->
   <xsl:template name="formatTime">
     <xsl:param name="timeString"/>
     <xsl:choose>
@@ -46,6 +96,25 @@
     </xsl:choose>
   </xsl:template>
 
+  <!-- 
+    TEMPLATE: attendanceSheet
+    Generates an attendance tracking table for all events and registrations
+    
+    STRUCTURE:
+    - Table with columns: Event ID | Event Name | Date | Venue | Participant | Email | Status
+    - Rows populated for each event-participant registration
+    - Can be printed for physical attendance marking
+    
+    DATA SOURCE:
+    - Event information from //event
+    - Registration details from //registration
+    - Participant information from //participant
+    
+    USE CASE:
+    - Print for physical attendance tracking
+    - Export for spreadsheet analysis
+    - Email roster to instructors
+  -->
   <xsl:template name="attendanceSheet">
     <div class="table-wrap">
       <table id="attendanceTable">
@@ -77,6 +146,31 @@
     </div>
   </xsl:template>
 
+  <!-- 
+    MAIN TEMPLATE: Root HTML Template
+    Processes the root element and generates complete HTML document
+    
+    SECTIONS:
+    1. Header: Title, navigation, module selector
+    2. Main Content:
+       - Dashboard statistics (6 cards)
+       - Current events section
+       - Upcoming events section
+       - Attendance sheet (hidden, printable)
+    3. Footer: Copyright/attribution
+    4. Scripts: Interactivity and module navigation
+    
+    STYLING:
+    - CSS variables for consistent colors
+    - Responsive grid layout
+    - Hover effects and transitions
+    - Print-friendly styles
+    
+    INTERACTIVITY:
+    - Module selection via modal
+    - Tab switching for event categories
+    - Search/filter functionality
+  -->
   <xsl:template match="/">
     <html>
       <head>
@@ -85,7 +179,6 @@
         <title>Events Management System</title>
         <style>
           :root {
-            --green-900: #004D26;
             --green-700: #006B35;
             --green-500: #008A45;
             --green-100: #E6F4EC;
@@ -133,7 +226,7 @@
             right: 0;
             width: 100%;
             z-index: 1000;
-            background: linear-gradient(135deg, var(--green-900), #003318);
+            background: linear-gradient(135deg, var(--green-700), var(--green-500));
             color: var(--text-inverted);
             padding: var(--sp-2) var(--sp-3);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -148,6 +241,12 @@
             align-items: center;
           }
 
+          .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+          }
+
           .header-title { font-size: var(--text-xl); font-weight: 700; letter-spacing: -0.02em; }
           .header-sub { font-size: var(--text-sm); color: rgba(255, 255, 255, 0.7); margin-top: 2px; }
 
@@ -155,6 +254,12 @@
             display: flex;
             gap: var(--sp-2);
             list-style: none;
+            align-items: center;
+          }
+
+          .navbar li {
+            display: flex;
+            align-items: center;
           }
 
           .navbar a {
@@ -179,10 +284,35 @@
 
           .section-header { margin-bottom: var(--sp-3); }
 
+          .section-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--sp-2);
+            flex-wrap: wrap;
+          }
+
+          .see-all-btn {
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--green-500), var(--green-700));
+            color: var(--text-inverted);
+            text-decoration: none;
+            font-size: var(--text-sm);
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+          }
+
+          .see-all-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+          }
+
           h2 {
             font-size: var(--text-3xl);
             font-weight: 700;
-            color: var(--green-900);
+            color: var(--green-700);
             border-left: 5px solid var(--green-500);
             padding-left: var(--sp-2);
             margin-bottom: 8px;
@@ -200,7 +330,7 @@
           h3 {
             font-size: var(--text-xl);
             font-weight: 600;
-            color: var(--green-800);
+            color: var(--green-700);
             margin-bottom: var(--sp-2);
           }
 
@@ -330,7 +460,7 @@
           table { width: 100%; border-collapse: collapse; }
 
           thead {
-            background: linear-gradient(135deg, var(--green-700), var(--green-900));
+            background: linear-gradient(135deg, var(--green-700), var(--green-500));
             color: var(--text-inverted);
           }
 
@@ -361,7 +491,7 @@
             flex-wrap: wrap;
           }
 
-          .filter-label { font-weight: 700; color: var(--green-900); font-size: var(--text-base); }
+          .filter-label { font-weight: 700; color: var(--green-700); font-size: var(--text-base); }
           .filter-select {
             padding: 10px 16px;
             border: 2px solid var(--border);
@@ -389,7 +519,7 @@
           }
 
           .footer {
-            background: linear-gradient(135deg, var(--green-900), #003318);
+            background: linear-gradient(135deg, var(--green-700), var(--green-500));
             color: rgba(255, 255, 255, 0.8);
             text-align: center;
             padding: var(--sp-3) var(--sp-4);
@@ -401,26 +531,26 @@
 
           /* ========== Navigation Menu ========== */
           .menu-button {
-            position: fixed;
-            top: 24px;
-            left: 24px;
-            width: 56px;
-            height: 56px;
-            background: #008a45;
-            border-radius: 50%;
+            position: relative;
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             z-index: 1100;
-            box-shadow: 0 4px 12px rgba(0, 138, 69, 0.3);
+            box-shadow: none;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
+            padding: 0;
+            margin: 0;
           }
 
           .menu-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 16px rgba(0, 138, 69, 0.4);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: none;
           }
 
           .menu-button i {
@@ -583,11 +713,6 @@
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-        <!-- Circular Menu Button -->
-        <button class="menu-button" onclick="toggleModal()">
-          <i class="fas fa-th"></i>
-        </button>
-
         <!-- Modal Overlay -->
         <div class="modal-overlay" id="modalOverlay" onclick="toggleModal()"></div>
 
@@ -663,6 +788,9 @@
         <header class="header">
           <div class="header-inner">
             <div class="header-left">
+              <button class="menu-button" onclick="toggleModal()">
+                <i class="fas fa-th"></i>
+              </button>
               <div style="display: flex; align-items: center; gap: 12px;">
                 <img src="PLP_logo.png" alt="PLP Logo" style="height: 45px; width: auto;"/>
                 <div>
@@ -698,15 +826,16 @@
                 <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//participant)"/></div><div class="stat-label">Total Participants</div></div>
                 <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//registration[@registrationStatus='Registered'])"/></div><div class="stat-label">Active Registrations</div></div>
                 <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//event[@eventStatus='upcoming'])"/></div><div class="stat-label">Upcoming Events</div></div>
-                <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//registration[@registrationStatus='Attended'])"/></div><div class="stat-label">Attended</div></div>
-                <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//registration[@registrationStatus='No-show'])"/></div><div class="stat-label">Not Attended</div></div>
               </div>
             </section>
 
             <!-- Current Events -->
             <section class="section" id="current">
               <div class="section-header">
-                <h2>Current Events</h2>
+                <div class="section-header-row">
+                  <h2>Current Events</h2>
+                  <a href="#events" class="see-all-btn">See All Events</a>
+                </div>
                 <p class="section-desc">Events happening this week - join before they end!</p>
               </div>
               <div class="events-grid">
@@ -762,6 +891,8 @@
                   <option value="Cultural">Cultural</option><option value="Sports">Sports</option><option value="Workshop">Workshop</option>
                   <option value="Seminar">Seminar</option><option value="Forum">Forum</option><option value="Symposium">Symposium</option>
                 </select>
+                <label for="eventSearchFilter" class="filter-label">Search:</label>
+                <input id="eventSearchFilter" class="filter-select" type="text" placeholder="Search by ID, name, venue, category" oninput="filterEvents()"/>
               </div>
               <div class="table-wrap">
                 <table id="eventsTable">
@@ -808,6 +939,8 @@
                 <select id="yearFilter" class="filter-select" onchange="filterParticipants()">
                   <option value="">All Years</option><option value="1">1st Year</option><option value="2">2nd Year</option><option value="3">3rd Year</option><option value="4">4th Year</option>
                 </select>
+                <label for="participantSearchFilter" class="filter-label">Search:</label>
+                <input id="participantSearchFilter" class="filter-select" type="text" placeholder="Search by ID, name, email, college" oninput="filterParticipants()"/>
               </div>
               <div class="table-wrap">
                 <table id="participantsTable">
@@ -841,6 +974,8 @@
                   <option value="">All</option><option value="Registered">Registered</option><option value="Attended">Attended</option>
                   <option value="Cancelled">Cancelled</option><option value="No-show">No-show</option>
                 </select>
+                <label for="registrationSearchFilter" class="filter-label">Search:</label>
+                <input id="registrationSearchFilter" class="filter-select" type="text" placeholder="Search by registration, event, participant" oninput="filterRegistrations()"/>
               </div>
               <div class="table-wrap">
                 <table id="registrationsTable">
@@ -873,6 +1008,8 @@
                   <option value="">All</option><option value="Registered">Registered</option><option value="Attended">Attended</option>
                   <option value="Cancelled">Cancelled</option><option value="No-show">No-show</option>
                 </select>
+                <label for="attendanceSearchFilter" class="filter-label">Search:</label>
+                <input id="attendanceSearchFilter" class="filter-select" type="text" placeholder="Search by event, participant, email" oninput="filterAttendance()"/>
               </div>
               <xsl:call-template name="attendanceSheet"/>
               <div id="attendanceNoRecords" class="no-records" style="display: none;">No attendance records found matching your filters.</div>
@@ -896,8 +1033,9 @@
                   <option value="Cultural">Cultural</option><option value="Sports">Sports</option><option value="Workshop">Workshop</option>
                   <option value="Seminar">Seminar</option><option value="Forum">Forum</option><option value="Symposium">Symposium</option>
                 </select>
+                <label for="reportSearchFilter" class="filter-label">Search:</label>
+                <input id="reportSearchFilter" class="filter-select" type="text" placeholder="Search by event or category" oninput="filterReports()"/>
               </div>
-              <h3>Top Events by Registrations</h3>
               <div class="table-wrap">
                 <table id="reportsTable">
                   <thead><tr><th>Event Name</th><th>Category</th><th>Registered</th><th>Capacity</th><th>Occupancy %</th><th>Status</th></tr></thead>
@@ -952,14 +1090,18 @@
             const noRecords = document.getElementById('eventsNoRecords');
             const selectedStatus = document.getElementById('eventStatusFilter').value;
             const selectedCategory = document.getElementById('eventCategoryFilter').value;
+            const searchInput = document.getElementById('eventSearchFilter');
+            const searchTerm = searchInput.value.trim().toLowerCase();
             let visibleCount = 0;
             
             rows.forEach(row => {
               const rowStatus = row.getAttribute('data-status');
               const rowCategory = row.getAttribute('data-category');
+              const rowText = row.textContent.toLowerCase();
               let statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
               let categoryMatch = (selectedCategory === '' || selectedCategory === rowCategory);
-              if (statusMatch && categoryMatch) { 
+              let searchMatch = (searchTerm === '' || rowText.includes(searchTerm));
+              if (statusMatch && categoryMatch && searchMatch) { 
                 row.classList.remove('hidden-row'); 
                 visibleCount++;
               } else { 
@@ -982,11 +1124,16 @@
             const rows = tbody.querySelectorAll('tr');
             const noRecords = document.getElementById('registrationsNoRecords');
             const selectedStatus = document.getElementById('registrationStatusFilter').value;
+            const searchInput = document.getElementById('registrationSearchFilter');
+            const searchTerm = searchInput.value.trim().toLowerCase();
             let visibleCount = 0;
             
             rows.forEach(row => { 
               const rowStatus = row.getAttribute('data-status'); 
-              if (selectedStatus === '' || selectedStatus === rowStatus) { 
+              const rowText = row.textContent.toLowerCase();
+              const statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
+              const searchMatch = (searchTerm === '' || rowText.includes(searchTerm));
+              if (statusMatch && searchMatch) { 
                 row.classList.remove('hidden-row'); 
                 visibleCount++;
               } else { 
@@ -1010,14 +1157,18 @@
             const noRecords = document.getElementById('participantsNoRecords');
             const selectedDept = document.getElementById('deptFilter').value;
             const selectedYear = document.getElementById('yearFilter').value;
+            const searchInput = document.getElementById('participantSearchFilter');
+            const searchTerm = searchInput.value.trim().toLowerCase();
             let visibleCount = 0;
             
             rows.forEach(row => {
               const rowDept = row.getAttribute('data-dept');
               const rowYear = row.getAttribute('data-year');
+              const rowText = row.textContent.toLowerCase();
               let deptMatch = (selectedDept === '' || selectedDept === rowDept);
               let yearMatch = (selectedYear === '' || selectedYear === rowYear);
-              if (deptMatch && yearMatch) { 
+              let searchMatch = (searchTerm === '' || rowText.includes(searchTerm));
+              if (deptMatch && yearMatch && searchMatch) { 
                 row.classList.remove('hidden-row'); 
                 visibleCount++;
               } else { 
@@ -1040,12 +1191,16 @@
             const rows = tbody.querySelectorAll('tr');
             const noRecords = document.getElementById('attendanceNoRecords');
             const selectedStatus = document.getElementById('attendanceStatusFilter').value;
+            const searchInput = document.getElementById('attendanceSearchFilter');
+            const searchTerm = searchInput.value.trim().toLowerCase();
             let visibleCount = 0;
             
             rows.forEach(row => {
               const rowStatus = row.getAttribute('data-reg-status');
+              const rowText = row.textContent.toLowerCase();
               let statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
-              if (statusMatch) { 
+              let searchMatch = (searchTerm === '' || rowText.includes(searchTerm));
+              if (statusMatch && searchMatch) { 
                 row.classList.remove('hidden-row'); 
                 visibleCount++;
               } else { 
@@ -1069,14 +1224,18 @@
             const noRecords = document.getElementById('reportsNoRecords');
             const selectedStatus = document.getElementById('reportStatusFilter').value;
             const selectedCategory = document.getElementById('reportCategoryFilter').value;
+            const searchInput = document.getElementById('reportSearchFilter');
+            const searchTerm = searchInput.value.trim().toLowerCase();
             let visibleCount = 0;
             
             rows.forEach(row => {
               const rowStatus = row.getAttribute('data-status');
               const rowCategory = row.getAttribute('data-category');
+              const rowText = row.textContent.toLowerCase();
               let statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
               let categoryMatch = (selectedCategory === '' || selectedCategory === rowCategory);
-              if (statusMatch && categoryMatch) { 
+              let searchMatch = (searchTerm === '' || rowText.includes(searchTerm));
+              if (statusMatch && categoryMatch && searchMatch) { 
                 row.classList.remove('hidden-row'); 
                 visibleCount++;
               } else { 

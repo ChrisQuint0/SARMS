@@ -1,1028 +1,1115 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE eventManagementSystem SYSTEM "events.dtd">
-<?xml-stylesheet type="text/xsl" href="events.xsl"?>
-<eventManagementSystem>
-  <!-- Events Management System - 100+ Records -->
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="events.xsl" type="text/xsl"?>
+<!-- Event Management System XML Data -->
+<!-- Contains 100 events, 109 participants, and 154+ registrations -->
+<eventManagementSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="events.xsd">
   
+  <!-- Events Section: University events with organizer information -->
   <events>
-    <!-- Academic Events -->
     <event eventId="EVT-0001" eventStatus="upcoming">
       <eventName>AI and Machine Learning Workshop</eventName>
-      <eventDate>2026-05-25</eventDate>
+      <eventDate>2026-06-25</eventDate>
       <eventTime>09:00:00</eventTime>
-      <venue>Engineering Building Room 301</venue>
+      <venue>PLP Testing Room</venue>
       <capacity>100</capacity>
       <registrationCount>3</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Ahmad Hassan</organizer>
       <description>A comprehensive workshop on artificial intelligence and machine learning concepts.</description>
     </event>
     <event eventId="EVT-0002" eventStatus="upcoming">
       <eventName>Philosophy and Critical Thinking Forum</eventName>
-      <eventDate>2026-05-26</eventDate>
+      <eventDate>2026-06-26</eventDate>
       <eventTime>10:00:00</eventTime>
-      <venue>Humanities Building Room 201</venue>
+      <venue>PLP Audio Visual Room</venue>
       <capacity>50</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Maria Santos</organizer>
       <description>A forum for discussing philosophical ideas and developing critical thinking skills.</description>
     </event>
     <event eventId="EVT-0003" eventStatus="upcoming">
       <eventName>Career Development and Resume Workshop</eventName>
-      <eventDate>2026-05-27</eventDate>
+      <eventDate>2026-06-27</eventDate>
       <eventTime>14:00:00</eventTime>
-      <venue>Career Services Center</venue>
+      <venue>Auditorium</venue>
       <capacity>50</capacity>
       <registrationCount>3</registrationCount>
       <category>Professional Development</category>
+      <organizer>Mr. James Wilson</organizer>
       <description>A workshop on career planning and resume writing.</description>
     </event>
     <event eventId="EVT-0004" eventStatus="upcoming">
       <eventName>Entrepreneurship Workshop</eventName>
-      <eventDate>2026-05-28</eventDate>
+      <eventDate>2026-06-28</eventDate>
       <eventTime>15:00:00</eventTime>
-      <venue>Business School Room 101</venue>
+      <venue>PLP Quadrangle</venue>
       <capacity>100</capacity>
       <registrationCount>2</registrationCount>
       <category>Professional Development</category>
+      <organizer>Ms. Patricia Brown</organizer>
       <description>A workshop on entrepreneurship and business planning.</description>
     </event>
     <event eventId="EVT-0005" eventStatus="closed">
       <eventName>Cybersecurity Awareness Forum</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>11:00:00</eventTime>
-      <venue>IT Building Auditorium</venue>
+      <venue>Gymnasium</venue>
       <capacity>50</capacity>
       <registrationCount>2</registrationCount>
       <category>Professional Development</category>
+      <organizer>Mr. Robert Johnson</organizer>
       <description>A forum on cybersecurity awareness and best practices.</description>
     </event>
     <event eventId="EVT-0006" eventStatus="closed">
       <eventName>Entrepreneurship Workshop</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>15:00:00</eventTime>
-      <venue>Business School Room 101</venue>
+      <eventTime>16:00:00</eventTime>
+      <venue>PLP Quadrangle</venue>
       <capacity>100</capacity>
       <registrationCount>2</registrationCount>
       <category>Professional Development</category>
+      <organizer>Ms. Jennifer Davis</organizer>
       <description>A workshop on entrepreneurship and business planning.</description>
     </event>
     <event eventId="EVT-0007" eventStatus="current">
       <eventName>Data Science Bootcamp</eventName>
-      <eventDate>2026-05-12</eventDate>
+      <eventDate>2026-06-12</eventDate>
       <eventTime>09:00:00</eventTime>
-      <venue>Computer Lab 1</venue>
+      <venue>Auditorium</venue>
       <capacity>100</capacity>
       <registrationCount>2</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Carlos Reyes</organizer>
       <description>A comprehensive workshop on data science fundamentals.</description>
     </event>
     <event eventId="EVT-0008" eventStatus="current">
       <eventName>Leadership and Communication Seminar</eventName>
-      <eventDate>2026-05-12</eventDate>
+      <eventDate>2026-06-12</eventDate>
       <eventTime>10:00:00</eventTime>
-      <venue>Function Hall A</venue>
+      <venue>Facade</venue>
       <capacity>150</capacity>
       <registrationCount>4</registrationCount>
       <category>Professional Development</category>
+      <organizer>Mr. Michael Miller</organizer>
       <description>A seminar on effective leadership and communication skills.</description>
     </event>
     <event eventId="EVT-0009" eventStatus="current">
       <eventName>Digital Photography Workshop</eventName>
-      <eventDate>2026-05-13</eventDate>
+      <eventDate>2026-06-13</eventDate>
       <eventTime>14:00:00</eventTime>
-      <venue>Arts and Media Center</venue>
+      <venue>Banquet Hall</venue>
       <capacity>50</capacity>
       <registrationCount>2</registrationCount>
       <category>Professional Development</category>
+      <organizer>Ms. Sarah Wilson</organizer>
       <description>A workshop on digital photography techniques and editing.</description>
     </event>
     <event eventId="EVT-0010" eventStatus="current">
       <eventName>Public Speaking and Debate Training</eventName>
-      <eventDate>2026-05-14</eventDate>
+      <eventDate>2026-06-14</eventDate>
       <eventTime>15:00:00</eventTime>
-      <venue>Speech Laboratory Room 2</venue>
+      <venue>PLP Quadrangle</venue>
       <capacity>100</capacity>
       <registrationCount>2</registrationCount>
       <category>Professional Development</category>
+      <organizer>Mr. David Lee</organizer>
       <description>A training session on public speaking and debate skills.</description>
     </event>
-
-    
     <event eventId="EVT-0011" eventStatus="upcoming">
       <eventName>Information Systems Planning Seminar</eventName>
-      <eventDate>2026-05-15</eventDate>
+      <eventDate>2026-06-15</eventDate>
       <eventTime>09:00:00</eventTime>
-      <venue>Tech Hub Room 104</venue>
+      <venue>Function Hall</venue>
       <capacity>80</capacity>
       <registrationCount>2</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Anna Garcia</organizer>
       <description>A seminar on planning and managing information systems projects.</description>
     </event>
     <event eventId="EVT-0012" eventStatus="upcoming">
       <eventName>Cloud Computing Essentials</eventName>
-      <eventDate>2026-06-01</eventDate>
+      <eventDate>2026-07-01</eventDate>
       <eventTime>09:00:00</eventTime>
-      <venue>Tech Hub Room 105</venue>
+      <venue>PLP Testing Room</venue>
       <capacity>80</capacity>
       <registrationCount>2</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Miguel Torres</organizer>
       <description>Learn cloud computing fundamentals and best practices.</description>
     </event>
     <event eventId="EVT-0013" eventStatus="upcoming">
       <eventName>Mobile App Development Bootcamp</eventName>
-      <eventDate>2026-06-02</eventDate>
+      <eventDate>2026-07-02</eventDate>
       <eventTime>10:00:00</eventTime>
-      <venue>Computer Lab 2</venue>
+      <venue>Gymnasium</venue>
       <capacity>60</capacity>
       <registrationCount>3</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Sofia Morales</organizer>
       <description>Hands-on mobile app development using modern frameworks.</description>
     </event>
     <event eventId="EVT-0014" eventStatus="upcoming">
       <eventName>Web Design and UX Workshop</eventName>
-      <eventDate>2026-06-03</eventDate>
+      <eventDate>2026-07-03</eventDate>
       <eventTime>14:00:00</eventTime>
-      <venue>Design Studio Room 202</venue>
+      <venue>Sports Development Office</venue>
       <capacity>40</capacity>
       <registrationCount>3</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Luis Fernandez</organizer>
       <description>Learn modern web design and user experience principles.</description>
     </event>
     <event eventId="EVT-0015" eventStatus="upcoming">
       <eventName>Database Design and SQL Mastery</eventName>
-      <eventDate>2026-06-04</eventDate>
+      <eventDate>2026-07-04</eventDate>
       <eventTime>11:00:00</eventTime>
-      <venue>Computer Lab 3</venue>
+      <venue>Facade</venue>
       <capacity>50</capacity>
       <registrationCount>2</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Rosa Jimenez</organizer>
       <description>Master database design patterns and advanced SQL techniques.</description>
     </event>
     <event eventId="EVT-0016" eventStatus="upcoming">
       <eventName>DevOps and CI/CD Pipeline</eventName>
-      <eventDate>2026-06-05</eventDate>
+      <eventDate>2026-07-05</eventDate>
       <eventTime>13:00:00</eventTime>
-      <venue>Tech Hub Room 110</venue>
+      <venue>Function Hall</venue>
       <capacity>35</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Pedro Sanchez</organizer>
       <description>Learn continuous integration and deployment best practices.</description>
     </event>
     <event eventId="EVT-0017" eventStatus="upcoming">
       <eventName>Data Privacy and Ethics Seminar</eventName>
-      <eventDate>2026-06-06</eventDate>
+      <eventDate>2026-07-06</eventDate>
       <eventTime>09:00:00</eventTime>
-      <venue>Tech Hub Room 111</venue>
+      <venue>PLP Testing Room</venue>
       <capacity>60</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Elena Rodriguez</organizer>
       <description>A seminar on data privacy principles, ethics, and responsible technology use.</description>
     </event>
     <event eventId="EVT-0018" eventStatus="upcoming">
       <eventName>Software Documentation Workshop</eventName>
-      <eventDate>2026-06-07</eventDate>
+      <eventDate>2026-07-07</eventDate>
       <eventTime>10:00:00</eventTime>
-      <venue>Computer Lab 4</venue>
+      <venue>PLP Audio Visual Room</venue>
       <capacity>45</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Ahmad Hassan</organizer>
       <description>Hands-on workshop for writing clear technical and user documentation.</description>
     </event>
     <event eventId="EVT-0019" eventStatus="upcoming">
       <eventName>Capstone Proposal Colloquium</eventName>
-      <eventDate>2026-06-08</eventDate>
+      <eventDate>2026-07-08</eventDate>
       <eventTime>14:00:00</eventTime>
-      <venue>Engineering Building Room 302</venue>
+      <venue>PLP Audio Visual Room</venue>
       <capacity>70</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Maria Santos</organizer>
       <description>Presentation and review of student capstone project proposals.</description>
     </event>
     <event eventId="EVT-0020" eventStatus="upcoming">
       <eventName>Research Data Management Forum</eventName>
-      <eventDate>2026-06-09</eventDate>
+      <eventDate>2026-07-09</eventDate>
       <eventTime>15:00:00</eventTime>
-      <venue>Library Conference Hall</venue>
+      <venue>Auditorium</venue>
       <capacity>80</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Carlos Reyes</organizer>
       <description>A forum on organizing, preserving, and sharing academic research data.</description>
     </event>
-    
-    <!-- Professional Development Events (21-40) -->
     <event eventId="EVT-0021" eventStatus="upcoming">
       <eventName>Time Management and Productivity</eventName>
-      <eventDate>2026-06-06</eventDate>
+      <eventDate>2026-07-06</eventDate>
       <eventTime>10:00:00</eventTime>
-      <venue>Conference Room A</venue>
+      <venue>Banquet Hall</venue>
       <capacity>120</capacity>
       <registrationCount>5</registrationCount>
       <category>Professional Development</category>
+      <organizer>Ms. Linda Martinez</organizer>
       <description>Strategies for effective time management and productivity.</description>
     </event>
     <event eventId="EVT-0022" eventStatus="upcoming">
       <eventName>Emotional Intelligence Training</eventName>
-      <eventDate>2026-06-07</eventDate>
+      <eventDate>2026-07-07</eventDate>
       <eventTime>09:00:00</eventTime>
-      <venue>Function Hall B</venue>
+      <venue>Gymnasium</venue>
       <capacity>100</capacity>
       <registrationCount>2</registrationCount>
       <category>Professional Development</category>
+      <organizer>Mr. Christopher Brown</organizer>
       <description>Develop emotional intelligence for better workplace relationships.</description>
     </event>
     <event eventId="EVT-0023" eventStatus="upcoming">
       <eventName>Negotiation Skills Workshop</eventName>
-      <eventDate>2026-06-08</eventDate>
+      <eventDate>2026-07-08</eventDate>
       <eventTime>14:00:00</eventTime>
-      <venue>Business School Room 102</venue>
+      <venue>Auditorium</venue>
       <capacity>45</capacity>
       <registrationCount>2</registrationCount>
       <category>Professional Development</category>
+      <organizer>Ms. Nicole Anderson</organizer>
       <description>Master effective negotiation techniques and strategies.</description>
     </event>
     <event eventId="EVT-0024" eventStatus="upcoming">
       <eventName>Team Building and Collaboration</eventName>
-      <eventDate>2026-06-09</eventDate>
+      <eventDate>2026-07-09</eventDate>
       <eventTime>11:00:00</eventTime>
-      <venue>Sports Complex</venue>
+      <venue>Facade</venue>
       <capacity>150</capacity>
       <registrationCount>4</registrationCount>
       <category>Professional Development</category>
+      <organizer>Mr. James Wilson</organizer>
       <description>Activities and strategies for building strong teams.</description>
     </event>
     <event eventId="EVT-0025" eventStatus="upcoming">
       <eventName>Conflict Resolution Training</eventName>
-      <eventDate>2026-06-10</eventDate>
+      <eventDate>2026-07-10</eventDate>
       <eventTime>13:00:00</eventTime>
-      <venue>Conference Room B</venue>
+      <venue>Gymnasium</venue>
       <capacity>60</capacity>
       <registrationCount>2</registrationCount>
       <category>Professional Development</category>
+      <organizer>Ms. Patricia Brown</organizer>
       <description>Learn to resolve conflicts effectively in the workplace.</description>
     </event>
     <event eventId="EVT-0026" eventStatus="closed">
       <eventName>Project Management Essentials</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>09:00:00</eventTime>
-      <venue>Business School Room 101</venue>
+      <venue>PLP Quadrangle</venue>
       <capacity>80</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Professional Development</category>
+      <organizer>Mr. Robert Johnson</organizer>
       <description>Introduction to project management methodologies.</description>
     </event>
     <event eventId="EVT-0027" eventStatus="closed">
       <eventName>Marketing Strategies in Digital Age</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>10:00:00</eventTime>
-      <venue>Marketing Hub Room 305</venue>
+      <venue>Banquet Hall</venue>
       <capacity>70</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Professional Development</category>
+      <organizer>Ms. Jennifer Davis</organizer>
       <description>Modern marketing strategies and digital campaigns.</description>
     </event>
     <event eventId="EVT-0028" eventStatus="closed">
       <eventName>Financial Planning and Investment</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>14:00:00</eventTime>
-      <venue>Business School Room 201</venue>
+      <venue>PLP Quadrangle</venue>
       <capacity>50</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Professional Development</category>
+      <organizer>Mr. Michael Miller</organizer>
       <description>Personal financial planning and investment strategies.</description>
     </event>
     <event eventId="EVT-0029" eventStatus="closed">
       <eventName>Business Ethics and Compliance</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>11:00:00</eventTime>
-      <venue>Conference Room A</venue>
+      <venue>Banquet Hall</venue>
       <capacity>100</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Professional Development</category>
+      <organizer>Ms. Sarah Wilson</organizer>
       <description>Ethics and compliance in modern business environments.</description>
     </event>
     <event eventId="EVT-0030" eventStatus="closed">
       <eventName>Strategic Planning Workshop</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>15:00:00</eventTime>
-      <venue>Business School Room 102</venue>
+      <venue>Auditorium</venue>
       <capacity>60</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Professional Development</category>
+      <organizer>Mr. David Lee</organizer>
       <description>Long-term strategic planning for organizations.</description>
     </event>
-    
-    <!-- More Events (31-60) -->
     <event eventId="EVT-0031" eventStatus="upcoming">
       <eventName>Machine Learning Applications</eventName>
-      <eventDate>2026-06-11</eventDate>
+      <eventDate>2026-07-11</eventDate>
       <eventTime>09:00:00</eventTime>
-      <venue>Tech Hub Room 115</venue>
+      <venue>Facade</venue>
       <capacity>45</capacity>
       <registrationCount>2</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Anna Garcia</organizer>
       <description>Real-world applications of machine learning in industry.</description>
     </event>
     <event eventId="EVT-0032" eventStatus="upcoming">
       <eventName>Cybersecurity Advanced Topics</eventName>
-      <eventDate>2026-06-12</eventDate>
+      <eventDate>2026-07-12</eventDate>
       <eventTime>10:00:00</eventTime>
-      <venue>IT Building Room 301</venue>
+      <venue>Function Hall</venue>
       <capacity>40</capacity>
       <registrationCount>2</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Miguel Torres</organizer>
       <description>Advanced cybersecurity topics and threat analysis.</description>
     </event>
     <event eventId="EVT-0033" eventStatus="upcoming">
       <eventName>Big Data Analytics Workshop</eventName>
-      <eventDate>2026-06-13</eventDate>
+      <eventDate>2026-07-13</eventDate>
       <eventTime>14:00:00</eventTime>
-      <venue>Computer Lab 1</venue>
+      <venue>Auditorium</venue>
       <capacity>50</capacity>
       <registrationCount>2</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Sofia Morales</organizer>
       <description>Analyze big data using modern tools and techniques.</description>
     </event>
     <event eventId="EVT-0034" eventStatus="upcoming">
       <eventName>Internet of Things (IoT)</eventName>
-      <eventDate>2026-06-14</eventDate>
+      <eventDate>2026-07-14</eventDate>
       <eventTime>11:00:00</eventTime>
-      <venue>Engineering Building Room 302</venue>
+      <venue>PLP Audio Visual Room</venue>
       <capacity>35</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Luis Fernandez</organizer>
       <description>Introduction to IoT devices and applications.</description>
     </event>
     <event eventId="EVT-0035" eventStatus="upcoming">
       <eventName>Blockchain Technology Basics</eventName>
-      <eventDate>2026-06-15</eventDate>
+      <eventDate>2026-07-15</eventDate>
       <eventTime>13:00:00</eventTime>
-      <venue>Tech Hub Room 120</venue>
+      <venue>Banquet Hall</venue>
       <capacity>60</capacity>
       <registrationCount>2</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Rosa Jimenez</organizer>
       <description>Understand blockchain technology and its applications.</description>
     </event>
     <event eventId="EVT-0036" eventStatus="closed">
       <eventName>Software Testing and QA</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>09:00:00</eventTime>
-      <venue>Computer Lab 2</venue>
+      <venue>Gymnasium</venue>
       <capacity>50</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Pedro Sanchez</organizer>
       <description>Software quality assurance and testing methodologies.</description>
     </event>
     <event eventId="EVT-0037" eventStatus="closed">
       <eventName>Agile Development Practices</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>10:00:00</eventTime>
-      <venue>Tech Hub Room 110</venue>
+      <venue>Function Hall</venue>
       <capacity>55</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Elena Rodriguez</organizer>
       <description>Learn agile and scrum methodologies for software development.</description>
     </event>
     <event eventId="EVT-0038" eventStatus="closed">
       <eventName>User Experience Design</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>14:00:00</eventTime>
-      <venue>Design Studio Room 201</venue>
+      <venue>Sports Development Office</venue>
       <capacity>40</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Ahmad Hassan</organizer>
       <description>Principles and practices of user experience design.</description>
     </event>
     <event eventId="EVT-0039" eventStatus="closed">
       <eventName>API Development and Integration</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>11:00:00</eventTime>
-      <venue>Computer Lab 3</venue>
+      <venue>Facade</venue>
       <capacity>45</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Maria Santos</organizer>
       <description>RESTful API design and third-party integration.</description>
     </event>
     <event eventId="EVT-0040" eventStatus="closed">
       <eventName>Microservices Architecture</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>15:00:00</eventTime>
-      <venue>Tech Hub Room 112</venue>
+      <eventTime>16:00:00</eventTime>
+      <venue>PLP Quadrangle</venue>
       <capacity>50</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Carlos Reyes</organizer>
       <description>Design and implement microservices-based systems.</description>
     </event>
-    
-    <!-- Cultural and Sports Events (41-60) -->
     <event eventId="EVT-0041" eventStatus="upcoming">
       <eventName>Cultural Heritage Showcase</eventName>
-      <eventDate>2026-06-16</eventDate>
+      <eventDate>2026-07-16</eventDate>
       <eventTime>10:00:00</eventTime>
-      <venue>Cultural Center Hall</venue>
+      <venue>Function Hall</venue>
       <capacity>300</capacity>
       <registrationCount>4</registrationCount>
       <category>Cultural</category>
+      <organizer>Ms. Regina Torres</organizer>
       <description>Celebrating diverse cultural traditions and heritage.</description>
     </event>
     <event eventId="EVT-0042" eventStatus="upcoming">
       <eventName>Music and Arts Festival</eventName>
-      <eventDate>2026-06-17</eventDate>
+      <eventDate>2026-07-17</eventDate>
       <eventTime>14:00:00</eventTime>
-      <venue>Open Air Amphitheater</venue>
+      <venue>PLP Testing Room</venue>
       <capacity>500</capacity>
       <registrationCount>5</registrationCount>
       <category>Cultural</category>
+      <organizer>Mr. Antonio Sanchez</organizer>
       <description>Showcase of student talents in music and performing arts.</description>
     </event>
     <event eventId="EVT-0043" eventStatus="upcoming">
       <eventName>Film Festival and Screening</eventName>
-      <eventDate>2026-06-18</eventDate>
+      <eventDate>2026-07-18</eventDate>
       <eventTime>18:00:00</eventTime>
-      <venue>Auditorium Theater</venue>
+      <venue>Sports Development Office</venue>
       <capacity>200</capacity>
       <registrationCount>3</registrationCount>
       <category>Cultural</category>
+      <organizer>Ms. Isabella Reyes</organizer>
       <description>International and independent film screening and discussion.</description>
     </event>
     <event eventId="EVT-0044" eventStatus="upcoming">
       <eventName>Sports Day and Athletics</eventName>
-      <eventDate>2026-06-19</eventDate>
+      <eventDate>2026-07-19</eventDate>
       <eventTime>07:00:00</eventTime>
-      <venue>Sports Complex Track</venue>
+      <venue>PLP Audio Visual Room</venue>
       <capacity>500</capacity>
       <registrationCount>3</registrationCount>
       <category>Sports</category>
+      <organizer>Prof. Anna Garcia</organizer>
       <description>University-wide sports competition and athletic events.</description>
     </event>
     <event eventId="EVT-0045" eventStatus="upcoming">
       <eventName>Basketball Tournament</eventName>
-      <eventDate>2026-06-20</eventDate>
+      <eventDate>2026-07-20</eventDate>
       <eventTime>09:00:00</eventTime>
-      <venue>Sports Complex Gym</venue>
+      <venue>Sports Development Office</venue>
       <capacity>400</capacity>
       <registrationCount>3</registrationCount>
       <category>Sports</category>
+      <organizer>Dr. Miguel Torres</organizer>
       <description>Inter-departmental basketball championship tournament.</description>
     </event>
     <event eventId="EVT-0046" eventStatus="closed">
       <eventName>Art Exhibition: Digital Revolution</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>10:00:00</eventTime>
-      <venue>Art Gallery Building</venue>
+      <venue>Auditorium</venue>
       <capacity>200</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Cultural</category>
+      <organizer>Mr. Fernando Garcia</organizer>
       <description>Exhibition of digital art and multimedia creations.</description>
     </event>
     <event eventId="EVT-0047" eventStatus="closed">
       <eventName>Poetry and Literature Night</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>19:00:00</eventTime>
-      <venue>Auditorium Theater</venue>
+      <venue>Sports Development Office</venue>
       <capacity>150</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Cultural</category>
+      <organizer>Ms. Regina Torres</organizer>
       <description>Reading and discussion of contemporary poetry and literature.</description>
     </event>
     <event eventId="EVT-0048" eventStatus="closed">
       <eventName>Football Championship Finals</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>14:00:00</eventTime>
-      <venue>Sports Complex Field</venue>
+      <venue>Gymnasium</venue>
       <capacity>500</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Sports</category>
+      <organizer>Prof. Sofia Morales</organizer>
       <description>Final matches of inter-university football championship.</description>
     </event>
     <event eventId="EVT-0049" eventStatus="closed">
       <eventName>Volleyball Tournament</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>10:00:00</eventTime>
-      <venue>Sports Complex Gym</venue>
+      <venue>Sports Development Office</venue>
       <capacity>300</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Sports</category>
+      <organizer>Dr. Luis Fernandez</organizer>
       <description>Women and men volleyball tournament.</description>
     </event>
     <event eventId="EVT-0050" eventStatus="closed">
       <eventName>Dance and Performance Recital</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>18:00:00</eventTime>
-      <venue>Cultural Center Hall</venue>
+      <venue>Function Hall</venue>
       <capacity>250</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Cultural</category>
+      <organizer>Mr. Antonio Sanchez</organizer>
       <description>Student dance performances and choreography showcase.</description>
     </event>
-    
-    <!-- Additional Events (51-80) -->
     <event eventId="EVT-0051" eventStatus="upcoming">
       <eventName>Environmental Sustainability Forum</eventName>
-      <eventDate>2026-06-21</eventDate>
+      <eventDate>2026-07-21</eventDate>
       <eventTime>09:00:00</eventTime>
-      <venue>Conference Room A</venue>
+      <venue>Banquet Hall</venue>
       <capacity>100</capacity>
       <registrationCount>2</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Rosa Jimenez</organizer>
       <description>Discussion on environmental sustainability and green initiatives.</description>
     </event>
     <event eventId="EVT-0052" eventStatus="upcoming">
       <eventName>Health and Wellness Seminar</eventName>
-      <eventDate>2026-06-22</eventDate>
+      <eventDate>2026-07-22</eventDate>
       <eventTime>10:00:00</eventTime>
-      <venue>Medical Building Hall</venue>
+      <venue>Facade</venue>
       <capacity>120</capacity>
       <registrationCount>3</registrationCount>
       <category>Professional Development</category>
+      <organizer>Ms. Linda Martinez</organizer>
       <description>Fitness, nutrition, and mental health awareness.</description>
     </event>
     <event eventId="EVT-0053" eventStatus="upcoming">
       <eventName>Innovation and Entrepreneurship Summit</eventName>
-      <eventDate>2026-06-23</eventDate>
+      <eventDate>2026-07-23</eventDate>
       <eventTime>13:00:00</eventTime>
-      <venue>Business School Room 103</venue>
+      <venue>Banquet Hall</venue>
       <capacity>150</capacity>
       <registrationCount>2</registrationCount>
       <category>Professional Development</category>
+      <organizer>Mr. Christopher Brown</organizer>
       <description>Forum for innovative ideas and startup opportunities.</description>
     </event>
     <event eventId="EVT-0054" eventStatus="upcoming">
       <eventName>Research Methodology Workshop</eventName>
-      <eventDate>2026-06-24</eventDate>
+      <eventDate>2026-07-24</eventDate>
       <eventTime>11:00:00</eventTime>
-      <venue>Library Building Room 301</venue>
+      <venue>PLP Quadrangle</venue>
       <capacity>60</capacity>
       <registrationCount>2</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Pedro Sanchez</organizer>
       <description>Learn research methodologies and academic writing.</description>
     </event>
     <event eventId="EVT-0055" eventStatus="upcoming">
       <eventName>International Relations Symposium</eventName>
-      <eventDate>2026-06-25</eventDate>
+      <eventDate>2026-07-25</eventDate>
       <eventTime>14:00:00</eventTime>
-      <venue>Auditorium Theater</venue>
+      <venue>Sports Development Office</venue>
       <capacity>250</capacity>
       <registrationCount>3</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Elena Rodriguez</organizer>
       <description>Discussion on global affairs and international cooperation.</description>
     </event>
     <event eventId="EVT-0056" eventStatus="closed">
       <eventName>Social Entrepreneurship Workshop</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>10:00:00</eventTime>
-      <venue>Business School Room 104</venue>
+      <eventTime>11:00:00</eventTime>
+      <venue>Function Hall</venue>
       <capacity>70</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Professional Development</category>
+      <organizer>Ms. Nicole Anderson</organizer>
       <description>Create positive social impact through business ventures.</description>
     </event>
     <event eventId="EVT-0057" eventStatus="closed">
       <eventName>Gender and Diversity Conference</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>09:00:00</eventTime>
-      <venue>Conference Room B</venue>
+      <eventTime>12:00:00</eventTime>
+      <venue>Gymnasium</venue>
       <capacity>100</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Professional Development</category>
+      <organizer>Mr. James Wilson</organizer>
       <description>Inclusion and diversity in the workplace and society.</description>
     </event>
     <event eventId="EVT-0058" eventStatus="closed">
       <eventName>Mental Health Awareness Campaign</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>10:00:00</eventTime>
-      <venue>Student Center Hall</venue>
+      <eventTime>11:00:00</eventTime>
+      <venue>Sports Development Office</venue>
       <capacity>150</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Professional Development</category>
+      <organizer>Ms. Patricia Brown</organizer>
       <description>Mental health support and wellness resources.</description>
     </event>
     <event eventId="EVT-0059" eventStatus="closed">
       <eventName>Climate Change and Sustainability</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>14:00:00</eventTime>
-      <venue>Conference Room A</venue>
+      <venue>Banquet Hall</venue>
       <capacity>120</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Ahmad Hassan</organizer>
       <description>Addressing climate change and sustainable development goals.</description>
     </event>
     <event eventId="EVT-0060" eventStatus="closed">
       <eventName>Tech Leadership Forum</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>11:00:00</eventTime>
-      <venue>Tech Hub Room 120</venue>
+      <eventTime>12:00:00</eventTime>
+      <venue>Banquet Hall</venue>
       <capacity>80</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Professional Development</category>
+      <organizer>Mr. Robert Johnson</organizer>
       <description>Leadership in the technology sector and industry trends.</description>
     </event>
-    
-    <!-- Tech Events (61-100) -->
     <event eventId="EVT-0061" eventStatus="upcoming">
       <eventName>Artificial Intelligence Ethics</eventName>
-      <eventDate>2026-06-26</eventDate>
+      <eventDate>2026-07-26</eventDate>
       <eventTime>09:00:00</eventTime>
-      <venue>Tech Hub Room 125</venue>
+      <venue>PLP Testing Room</venue>
       <capacity>50</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Maria Santos</organizer>
       <description>Ethics and responsible AI development practices.</description>
     </event>
     <event eventId="EVT-0062" eventStatus="upcoming">
       <eventName>Quantum Computing Basics</eventName>
-      <eventDate>2026-06-27</eventDate>
+      <eventDate>2026-07-27</eventDate>
       <eventTime>10:00:00</eventTime>
-      <venue>Physics Building Room 301</venue>
+      <venue>PLP Audio Visual Room</venue>
       <capacity>40</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Carlos Reyes</organizer>
       <description>Introduction to quantum computing concepts.</description>
     </event>
     <event eventId="EVT-0063" eventStatus="upcoming">
       <eventName>Augmented and Virtual Reality</eventName>
-      <eventDate>2026-06-28</eventDate>
+      <eventDate>2026-07-28</eventDate>
       <eventTime>14:00:00</eventTime>
-      <venue>Tech Hub Room 130</venue>
+      <venue>Auditorium</venue>
       <capacity>45</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Anna Garcia</organizer>
       <description>Explore AR and VR applications and development.</description>
     </event>
     <event eventId="EVT-0064" eventStatus="upcoming">
       <eventName>Natural Language Processing</eventName>
-      <eventDate>2026-06-29</eventDate>
+      <eventDate>2026-07-29</eventDate>
       <eventTime>11:00:00</eventTime>
-      <venue>Computer Lab 1</venue>
+      <venue>Auditorium</venue>
       <capacity>50</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Miguel Torres</organizer>
       <description>Learn NLP techniques and applications.</description>
     </event>
     <event eventId="EVT-0065" eventStatus="upcoming">
       <eventName>Computer Vision Workshop</eventName>
-      <eventDate>2026-06-30</eventDate>
+      <eventDate>2026-07-30</eventDate>
       <eventTime>13:00:00</eventTime>
-      <venue>Computer Lab 2</venue>
+      <venue>Gymnasium</venue>
       <capacity>45</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Sofia Morales</organizer>
       <description>Image processing and computer vision techniques.</description>
     </event>
     <event eventId="EVT-0066" eventStatus="closed">
       <eventName>Game Development Masterclass</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>10:00:00</eventTime>
-      <venue>Computer Lab 3</venue>
+      <eventTime>12:00:00</eventTime>
+      <venue>Facade</venue>
       <capacity>40</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Luis Fernandez</organizer>
       <description>Game development with Unity and Unreal engines.</description>
     </event>
     <event eventId="EVT-0067" eventStatus="closed">
       <eventName>3D Modeling and Animation</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>14:00:00</eventTime>
-      <venue>Design Studio Room 203</venue>
+      <eventTime>15:00:00</eventTime>
+      <venue>Gymnasium</venue>
       <capacity>30</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Rosa Jimenez</organizer>
       <description>3D modeling, rendering, and animation techniques.</description>
     </event>
     <event eventId="EVT-0068" eventStatus="closed">
       <eventName>Graphics Programming</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>11:00:00</eventTime>
-      <venue>Computer Lab 1</venue>
+      <venue>Auditorium</venue>
       <capacity>35</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Pedro Sanchez</organizer>
       <description>Advanced graphics programming with OpenGL and DirectX.</description>
     </event>
     <event eventId="EVT-0069" eventStatus="closed">
       <eventName>Parallel Computing and GPU</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>09:00:00</eventTime>
-      <venue>Tech Hub Room 115</venue>
+      <venue>Facade</venue>
       <capacity>40</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Elena Rodriguez</organizer>
       <description>CUDA programming and GPU computing.</description>
     </event>
     <event eventId="EVT-0070" eventStatus="closed">
       <eventName>Network Security and Penetration Testing</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>15:00:00</eventTime>
-      <venue>IT Building Room 302</venue>
+      <venue>Facade</venue>
       <capacity>35</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Ahmad Hassan</organizer>
       <description>Practical network security and ethical hacking.</description>
     </event>
     <event eventId="EVT-0071" eventStatus="upcoming">
       <eventName>Robotics and Automation</eventName>
-      <eventDate>2026-07-01</eventDate>
+      <eventDate>2026-08-01</eventDate>
       <eventTime>09:00:00</eventTime>
-      <venue>Engineering Building Room 303</venue>
+      <venue>Banquet Hall</venue>
       <capacity>35</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Maria Santos</organizer>
       <description>Robotics programming and industrial automation.</description>
     </event>
     <event eventId="EVT-0072" eventStatus="upcoming">
       <eventName>Advanced Statistics and Probability</eventName>
-      <eventDate>2026-07-02</eventDate>
+      <eventDate>2026-08-02</eventDate>
       <eventTime>10:00:00</eventTime>
-      <venue>Mathematics Building Room 201</venue>
+      <venue>PLP Quadrangle</venue>
       <capacity>50</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Carlos Reyes</organizer>
       <description>Advanced statistical methods and probability theory.</description>
     </event>
     <event eventId="EVT-0073" eventStatus="upcoming">
       <eventName>Algorithmic Problem Solving</eventName>
-      <eventDate>2026-07-03</eventDate>
+      <eventDate>2026-08-03</eventDate>
       <eventTime>14:00:00</eventTime>
-      <venue>Computer Lab 3</venue>
+      <venue>Facade</venue>
       <capacity>50</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Anna Garcia</organizer>
       <description>Master algorithmic techniques and competitive programming.</description>
     </event>
     <event eventId="EVT-0074" eventStatus="upcoming">
       <eventName>Systems Design and Architecture</eventName>
-      <eventDate>2026-07-04</eventDate>
+      <eventDate>2026-08-04</eventDate>
       <eventTime>11:00:00</eventTime>
-      <venue>Tech Hub Room 135</venue>
+      <venue>Function Hall</venue>
       <capacity>45</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Miguel Torres</organizer>
       <description>Design scalable and robust systems architecture.</description>
     </event>
     <event eventId="EVT-0075" eventStatus="upcoming">
       <eventName>Distributed Systems Workshop</eventName>
-      <eventDate>2026-07-05</eventDate>
+      <eventDate>2026-08-05</eventDate>
       <eventTime>13:00:00</eventTime>
-      <venue>Tech Hub Room 140</venue>
+      <venue>Sports Development Office</venue>
       <capacity>50</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Sofia Morales</organizer>
       <description>Design and implementation of distributed systems.</description>
     </event>
     <event eventId="EVT-0076" eventStatus="closed">
       <eventName>Data Structures Deep Dive</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>10:00:00</eventTime>
-      <venue>Computer Lab 2</venue>
+      <venue>Gymnasium</venue>
       <capacity>50</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Luis Fernandez</organizer>
       <description>In-depth study of data structures and algorithms.</description>
     </event>
     <event eventId="EVT-0077" eventStatus="closed">
       <eventName>Compiler Design and Construction</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>14:00:00</eventTime>
-      <venue>Tech Hub Room 110</venue>
+      <venue>Function Hall</venue>
       <capacity>40</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Rosa Jimenez</organizer>
       <description>Learn compiler design principles and techniques.</description>
     </event>
     <event eventId="EVT-0078" eventStatus="closed">
       <eventName>Operating Systems Fundamentals</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>11:00:00</eventTime>
-      <venue>Computer Lab 1</venue>
+      <eventTime>12:00:00</eventTime>
+      <venue>Auditorium</venue>
       <capacity>45</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Pedro Sanchez</organizer>
       <description>Core concepts of operating systems design.</description>
     </event>
     <event eventId="EVT-0079" eventStatus="closed">
       <eventName>Computer Networks in Depth</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>09:00:00</eventTime>
-      <venue>IT Building Room 303</venue>
+      <venue>PLP Testing Room</venue>
       <capacity>50</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Elena Rodriguez</organizer>
       <description>Deep understanding of computer networking protocols.</description>
     </event>
     <event eventId="EVT-0080" eventStatus="closed">
       <eventName>Formal Methods and Verification</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>15:00:00</eventTime>
-      <venue>Tech Hub Room 105</venue>
+      <venue>PLP Testing Room</venue>
       <capacity>35</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Ahmad Hassan</organizer>
       <description>Mathematical methods for software verification.</description>
     </event>
     <event eventId="EVT-0081" eventStatus="upcoming">
       <eventName>Functional Programming Paradigm</eventName>
-      <eventDate>2026-07-06</eventDate>
+      <eventDate>2026-08-06</eventDate>
       <eventTime>10:00:00</eventTime>
-      <venue>Computer Lab 2</venue>
+      <venue>Gymnasium</venue>
       <capacity>45</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Maria Santos</organizer>
       <description>Learn functional programming with Haskell and Lisp.</description>
     </event>
     <event eventId="EVT-0082" eventStatus="upcoming">
       <eventName>Type Systems and Category Theory</eventName>
-      <eventDate>2026-07-07</eventDate>
+      <eventDate>2026-08-07</eventDate>
       <eventTime>14:00:00</eventTime>
-      <venue>Mathematics Building Room 202</venue>
+      <venue>PLP Audio Visual Room</venue>
       <capacity>40</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Carlos Reyes</organizer>
       <description>Advanced type systems and mathematical foundations.</description>
     </event>
     <event eventId="EVT-0083" eventStatus="upcoming">
       <eventName>Software Architecture Patterns</eventName>
-      <eventDate>2026-07-08</eventDate>
+      <eventDate>2026-08-08</eventDate>
       <eventTime>11:00:00</eventTime>
-      <venue>Tech Hub Room 145</venue>
+      <venue>Auditorium</venue>
       <capacity>50</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Anna Garcia</organizer>
       <description>Design patterns and architectural best practices.</description>
     </event>
     <event eventId="EVT-0084" eventStatus="upcoming">
       <eventName>Testing and Debugging Techniques</eventName>
-      <eventDate>2026-07-09</eventDate>
+      <eventDate>2026-08-09</eventDate>
       <eventTime>09:00:00</eventTime>
-      <venue>Computer Lab 3</venue>
+      <venue>Facade</venue>
       <capacity>50</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Miguel Torres</organizer>
       <description>Advanced testing strategies and debugging tools.</description>
     </event>
     <event eventId="EVT-0085" eventStatus="upcoming">
       <eventName>Open Source Contribution</eventName>
-      <eventDate>2026-07-10</eventDate>
+      <eventDate>2026-08-10</eventDate>
       <eventTime>13:00:00</eventTime>
-      <venue>Tech Hub Room 150</venue>
+      <venue>Gymnasium</venue>
       <capacity>60</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Sofia Morales</organizer>
       <description>How to contribute to open source projects.</description>
     </event>
     <event eventId="EVT-0086" eventStatus="closed">
       <eventName>Web Security and OWASP</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>10:00:00</eventTime>
-      <venue>IT Building Room 304</venue>
+      <eventTime>13:00:00</eventTime>
+      <venue>Facade</venue>
       <capacity>40</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Luis Fernandez</organizer>
       <description>Web application security and OWASP standards.</description>
     </event>
     <event eventId="EVT-0087" eventStatus="closed">
       <eventName>Mobile Security Workshop</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>14:00:00</eventTime>
-      <venue>Computer Lab 1</venue>
+      <venue>Auditorium</venue>
       <capacity>35</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Rosa Jimenez</organizer>
       <description>Security vulnerabilities in mobile applications.</description>
     </event>
     <event eventId="EVT-0088" eventStatus="closed">
       <eventName>Cryptography Fundamentals</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>11:00:00</eventTime>
-      <venue>Math Building Room 301</venue>
+      <eventTime>13:00:00</eventTime>
+      <venue>Banquet Hall</venue>
       <capacity>50</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Pedro Sanchez</organizer>
       <description>Cryptographic algorithms and applications.</description>
     </event>
     <event eventId="EVT-0089" eventStatus="closed">
       <eventName>Biometric Systems and Authentication</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>09:00:00</eventTime>
-      <venue>IT Building Room 305</venue>
+      <eventTime>10:00:00</eventTime>
+      <venue>PLP Quadrangle</venue>
       <capacity>45</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Elena Rodriguez</organizer>
       <description>Biometric authentication systems and security.</description>
     </event>
     <event eventId="EVT-0090" eventStatus="closed">
       <eventName>Forensic Analysis and Incident Response</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>15:00:00</eventTime>
-      <venue>IT Building Room 306</venue>
+      <venue>Function Hall</venue>
       <capacity>35</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Ahmad Hassan</organizer>
       <description>Digital forensics and incident response procedures.</description>
     </event>
     <event eventId="EVT-0091" eventStatus="upcoming">
       <eventName>Accessibility in Web Development</eventName>
-      <eventDate>2026-07-11</eventDate>
+      <eventDate>2026-08-11</eventDate>
       <eventTime>10:00:00</eventTime>
-      <venue>Tech Hub Room 155</venue>
+      <venue>Sports Development Office</venue>
       <capacity>50</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Maria Santos</organizer>
       <description>Building accessible web applications for all users.</description>
     </event>
     <event eventId="EVT-0092" eventStatus="upcoming">
       <eventName>Performance Optimization Techniques</eventName>
-      <eventDate>2026-07-12</eventDate>
+      <eventDate>2026-08-12</eventDate>
       <eventTime>14:00:00</eventTime>
-      <venue>Computer Lab 2</venue>
+      <venue>Gymnasium</venue>
       <capacity>45</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Carlos Reyes</organizer>
       <description>Optimize application performance and user experience.</description>
     </event>
     <event eventId="EVT-0093" eventStatus="upcoming">
       <eventName>Internationalization and Localization</eventName>
-      <eventDate>2026-07-13</eventDate>
+      <eventDate>2026-08-13</eventDate>
       <eventTime>11:00:00</eventTime>
-      <venue>Design Studio Room 204</venue>
+      <venue>PLP Testing Room</venue>
       <capacity>40</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Anna Garcia</organizer>
       <description>Global software development and localization.</description>
     </event>
     <event eventId="EVT-0094" eventStatus="upcoming">
       <eventName>Advanced Networking Workshop</eventName>
-      <eventDate>2026-07-14</eventDate>
+      <eventDate>2026-08-14</eventDate>
       <eventTime>09:00:00</eventTime>
-      <venue>IT Building Room 307</venue>
+      <venue>PLP Audio Visual Room</venue>
       <capacity>40</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Miguel Torres</organizer>
       <description>Advanced networking protocols and technologies.</description>
     </event>
     <event eventId="EVT-0095" eventStatus="upcoming">
       <eventName>Embedded Systems Programming</eventName>
-      <eventDate>2026-07-15</eventDate>
+      <eventDate>2026-08-15</eventDate>
       <eventTime>13:00:00</eventTime>
-      <venue>Engineering Building Room 304</venue>
+      <venue>Auditorium</venue>
       <capacity>35</capacity>
       <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Sofia Morales</organizer>
       <description>Programming microcontrollers and embedded devices.</description>
     </event>
     <event eventId="EVT-0096" eventStatus="closed">
       <eventName>Visualization and Data Analytics</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>10:00:00</eventTime>
-      <venue>Computer Lab 3</venue>
+      <eventTime>13:00:00</eventTime>
+      <venue>Facade</venue>
       <capacity>50</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Luis Fernandez</organizer>
       <description>Data visualization tools and analytics frameworks.</description>
     </event>
     <event eventId="EVT-0097" eventStatus="closed">
       <eventName>Text Mining and NLP Advanced</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>14:00:00</eventTime>
-      <venue>Computer Lab 1</venue>
+      <eventTime>16:00:00</eventTime>
+      <venue>Auditorium</venue>
       <capacity>40</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Rosa Jimenez</organizer>
       <description>Advanced text mining and language processing.</description>
     </event>
     <event eventId="EVT-0098" eventStatus="closed">
       <eventName>Recommendation Systems</eventName>
       <eventDate>2026-05-12</eventDate>
       <eventTime>11:00:00</eventTime>
-      <venue>Tech Hub Room 112</venue>
+      <venue>PLP Quadrangle</venue>
       <capacity>45</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Pedro Sanchez</organizer>
       <description>Building recommendation engines and algorithms.</description>
     </event>
     <event eventId="EVT-0099" eventStatus="closed">
       <eventName>Time Series Analysis</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>09:00:00</eventTime>
-      <venue>Mathematics Building Room 203</venue>
+      <eventTime>13:00:00</eventTime>
+      <venue>Gymnasium</venue>
       <capacity>50</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Prof. Elena Rodriguez</organizer>
       <description>Time series forecasting and analysis techniques.</description>
     </event>
     <event eventId="EVT-0100" eventStatus="closed">
       <eventName>Advanced Machine Learning</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>15:00:00</eventTime>
-      <venue>Tech Hub Room 114</venue>
+      <eventTime>16:00:00</eventTime>
+      <venue>Facade</venue>
       <capacity>50</capacity>
-      <registrationCount>0</registrationCount>
+      <registrationCount>1</registrationCount>
       <category>Academic</category>
+      <organizer>Dr. Ahmad Hassan</organizer>
       <description>Deep learning and advanced ML algorithms.</description>
     </event>
   </events>
-  
-  <!-- Participants Section -->
+
+  <!-- Participants Section: Student/attendee records with contact information -->
   <participants>
-    <!-- Sample Participants (100+) -->
     <participant participantId="PAR-001">
       <fullName>Juan Dela Cruz</fullName>
       <email>juan.delacruz@plp.edu.ph</email>
@@ -1143,7 +1230,6 @@
       <department>College of Business and Accountancy</department>
       <yearLevel>4</yearLevel>
     </participant>
-    <!-- Additional Participants (21-100+) -->
     <participant participantId="PAR-021">
       <fullName>Raul Guerrero</fullName>
       <email>raul.guerrero@plp.edu.ph</email>
@@ -1324,7 +1410,6 @@
       <department>College of Computer Studies</department>
       <yearLevel>1</yearLevel>
     </participant>
-    <!-- Continue with more participants to reach 100+ -->
     <participant participantId="PAR-051">
       <fullName>Teodoro Huerta</fullName>
       <email>teodoro.huerta@plp.edu.ph</email>
@@ -1680,10 +1765,9 @@
       <yearLevel>4</yearLevel>
     </participant>
   </participants>
-  
-  <!-- Registrations Section -->
+
+  <!-- Registrations Section: Event registration records with status -->
   <registrations>
-    <!-- Event-Participant Registrations (100+) -->
     <registration registrationId="REG-001" eventId="EVT-0001" participantId="PAR-001" registrationStatus="Registered" registrationDate="2026-05-01" />
     <registration registrationId="REG-002" eventId="EVT-0001" participantId="PAR-002" registrationStatus="Registered" registrationDate="2026-05-02" />
     <registration registrationId="REG-003" eventId="EVT-0001" participantId="PAR-003" registrationStatus="Registered" registrationDate="2026-05-02" />
@@ -1793,5 +1877,50 @@
     <registration registrationId="REG-107" eventId="EVT-0042" participantId="PAR-107" registrationStatus="Registered" registrationDate="2026-05-25" />
     <registration registrationId="REG-108" eventId="EVT-0043" participantId="PAR-108" registrationStatus="Registered" registrationDate="2026-05-26" />
     <registration registrationId="REG-109" eventId="EVT-0021" participantId="PAR-109" registrationStatus="Registered" registrationDate="2026-05-20" />
+    <registration registrationId="REG-110" eventId="EVT-0016" participantId="PAR-001" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-111" eventId="EVT-0017" participantId="PAR-002" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-112" eventId="EVT-0018" participantId="PAR-003" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-113" eventId="EVT-0019" participantId="PAR-004" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-114" eventId="EVT-0020" participantId="PAR-005" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-115" eventId="EVT-0026" participantId="PAR-006" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-116" eventId="EVT-0027" participantId="PAR-007" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-117" eventId="EVT-0028" participantId="PAR-008" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-118" eventId="EVT-0029" participantId="PAR-009" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-119" eventId="EVT-0030" participantId="PAR-010" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-120" eventId="EVT-0036" participantId="PAR-011" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-121" eventId="EVT-0037" participantId="PAR-012" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-122" eventId="EVT-0038" participantId="PAR-013" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-123" eventId="EVT-0039" participantId="PAR-014" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-124" eventId="EVT-0040" participantId="PAR-015" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-125" eventId="EVT-0046" participantId="PAR-016" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-126" eventId="EVT-0047" participantId="PAR-017" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-127" eventId="EVT-0048" participantId="PAR-018" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-128" eventId="EVT-0049" participantId="PAR-019" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-129" eventId="EVT-0050" participantId="PAR-020" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-130" eventId="EVT-0056" participantId="PAR-021" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-131" eventId="EVT-0057" participantId="PAR-022" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-132" eventId="EVT-0058" participantId="PAR-023" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-133" eventId="EVT-0059" participantId="PAR-024" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-134" eventId="EVT-0060" participantId="PAR-025" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-135" eventId="EVT-0066" participantId="PAR-026" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-136" eventId="EVT-0067" participantId="PAR-027" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-137" eventId="EVT-0068" participantId="PAR-028" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-138" eventId="EVT-0069" participantId="PAR-029" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-139" eventId="EVT-0070" participantId="PAR-030" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-140" eventId="EVT-0076" participantId="PAR-031" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-141" eventId="EVT-0077" participantId="PAR-032" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-142" eventId="EVT-0078" participantId="PAR-033" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-143" eventId="EVT-0079" participantId="PAR-034" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-144" eventId="EVT-0080" participantId="PAR-035" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-145" eventId="EVT-0086" participantId="PAR-036" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-146" eventId="EVT-0087" participantId="PAR-037" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-147" eventId="EVT-0088" participantId="PAR-038" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-148" eventId="EVT-0089" participantId="PAR-039" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-149" eventId="EVT-0090" participantId="PAR-040" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-150" eventId="EVT-0096" participantId="PAR-041" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-151" eventId="EVT-0097" participantId="PAR-042" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-152" eventId="EVT-0098" participantId="PAR-043" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-153" eventId="EVT-0099" participantId="PAR-044" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-154" eventId="EVT-0100" participantId="PAR-045" registrationStatus="Registered" registrationDate="2026-05-14" />
   </registrations>
 </eventManagementSystem>

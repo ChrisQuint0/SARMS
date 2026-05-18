@@ -1,12 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Events Management System DTD -->
-<!-- Validates structural rules for event data -->
+<!-- 
+  Event Management System DTD
+  
+  PURPOSE: Validates XML structure for the Event Management System
+  - Ensures all required elements are present
+  - Enforces proper element nesting and hierarchy
+  - Validates ID uniqueness and IDREF references
+  
+  NOTE: DTD handles STRUCTURAL validation only
+  - Data type validation (dates, numbers, enumerations) handled by XSD
+  - Business rule assertions (constraints, cross-element validation) handled by XSD
+  - Email format validation handled by XSD
+  - Unique constraints on non-ID elements handled by XSD
+-->
 
 <!ELEMENT eventManagementSystem (events, participants, registrations)>
+<!ATTLIST eventManagementSystem
+    xmlns:xsi CDATA #IMPLIED
+    xsi:noNamespaceSchemaLocation CDATA #IMPLIED
+>
 
-<!-- Events Section -->
+<!-- 
+  ===== EVENTS SECTION =====
+  Contains all university events with core information
+  
+  STRUCTURE: <events> container with <event> children
+  - Each <event> MUST have: eventId (ID, unique) and eventStatus (upcoming|current|closed)
+  - Each <event> MUST contain 9 child elements in specific order
+  
+  VALIDATION RULES (by XSD):
+  - Dates must be YYYY-MM-DD format
+  - Times must be HH:MM:SS format (24-hour)
+  - registrationCount must not exceed capacity
+  - Dates for upcoming/current events must not be in the past
+-->
 <!ELEMENT events (event+)>
-<!ELEMENT event (eventName, eventDate, eventTime, venue, capacity, registrationCount, category, description)>
+<!ELEMENT event (eventName, eventDate, eventTime, venue, capacity, registrationCount, category, organizer, description)>
 <!ATTLIST event
     eventId ID #REQUIRED
     eventStatus (upcoming|current|closed) #REQUIRED
@@ -14,14 +43,34 @@
 
 <!ELEMENT eventName (#PCDATA)>
 <!ELEMENT eventDate (#PCDATA)>
+<!-- Date format: YYYY-MM-DD, validated by XSD; must not be in past -->
 <!ELEMENT eventTime (#PCDATA)>
+<!-- Time format: HH:MM:SS, validated by XSD -->
 <!ELEMENT venue (#PCDATA)>
 <!ELEMENT capacity (#PCDATA)>
+<!-- Numeric value; registration count must not exceed capacity (XSD assertion) -->
 <!ELEMENT registrationCount (#PCDATA)>
+<!-- Count of registrations; must match actual registration records -->
 <!ELEMENT category (#PCDATA)>
+<!-- Event category/type; enumerated values in XSD -->
+<!ELEMENT organizer (#PCDATA)>
+<!-- Event organizer/instructor name -->
 <!ELEMENT description (#PCDATA)>
 
-<!-- Participants Section -->
+<!-- 
+  ===== PARTICIPANTS SECTION =====
+  Contains all participant/student records
+  
+  STRUCTURE: <participants> container with <participant> children
+  - Each <participant> MUST have: participantId (ID, unique)
+  - Each <participant> MUST contain 4 child elements in specific order
+  
+  VALIDATION RULES (by XSD):
+  - fullName must be unique across all participants
+  - email must be unique and valid format (RFC 5322 style)
+  - department must be one of 7 enumerated college names
+  - yearLevel must be integer 1-4
+-->
 <!ELEMENT participants (participant+)>
 <!ELEMENT participant (fullName, email, department, yearLevel)>
 <!ATTLIST participant
@@ -29,12 +78,35 @@
 >
 
 <!ELEMENT fullName (#PCDATA)>
+<!-- Full name of participant; must be unique (XSD constraint) -->
 <!ELEMENT email (#PCDATA)>
+<!-- Email address; must be unique across all participants (XSD unique constraint) -->
 <!ELEMENT department (#PCDATA)>
+<!-- Department/college affiliation; enumerated values in XSD -->
 <!ELEMENT yearLevel (#PCDATA)>
+<!-- Academic year level (1-4) or equivalent -->
 
-<!-- Registrations Section -->
-<!-- Registration utilizes IDREF for relational mapping between events and participants -->
+<!-- 
+  ===== REGISTRATIONS SECTION =====
+  Registration records linking events and participants
+  
+  STRUCTURE: <registrations> container with empty <registration> elements
+  - Uses EMPTY content model (no child elements)
+  - All data stored as attributes
+  - IDREF attributes establish relationships to events and participants
+  
+  ATTRIBUTES (all required):
+  - registrationId: unique identifier (ID type)
+  - eventId: references an event (IDREF type) - must match an event/@eventId
+  - participantId: references a participant (IDREF type) - must match a participant/@participantId
+  - registrationStatus: one of (Registered|Attended|Cancelled|No-show)
+  - registrationDate: must be before the corresponding event date (XSD assertion)
+  
+  VALIDATION RULES (by XSD):
+  - Registration date must occur BEFORE the event date
+  - Both eventId and participantId must reference existing records
+  - Registration counts per event must match actual registration records
+-->
 <!ELEMENT registrations (registration+)>
 <!ELEMENT registration EMPTY>
 <!ATTLIST registration
@@ -44,3 +116,21 @@
     registrationStatus (Registered|Attended|Cancelled|No-show) #REQUIRED
     registrationDate CDATA #REQUIRED
 >
+<!-- registrationDate must occur before the event's eventDate (XSD assertion) -->
+
+<!-- ===== DTD LIMITATIONS ===== -->
+<!-- DTD validates:
+     - Required child elements
+     - Element nesting and hierarchy
+     - Allowed structure (event status values)
+     - ID uniqueness and IDREF references
+     
+     DTD does NOT validate (handled by XSD):
+     - Date format (YYYY-MM-DD)
+     - Time format (HH:MM:SS)
+     - Email address format
+     - Numeric constraints (capacity vs registration count)
+     - Cross-element assertions (registration date < event date)
+     - Enumeration constraints (departments, categories)
+     - Unique constraints on non-ID elements (emails, names)
+-->
