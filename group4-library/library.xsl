@@ -10,7 +10,7 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Library Management System</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
         <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -38,57 +38,90 @@ body {
   min-height: 100vh;
 }
 
+/* ==================== HEADER ==================== */
 .site-header {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: linear-gradient(90deg, var(--green-dark), var(--green));
-  box-shadow: 0 2px 16px rgba(0,102,51,0.18);
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: visible;
 }
-.header-top {
+
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 1;
+  pointer-events: none;
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1600px;
+  margin: 0 auto;
+  margin-left: 90px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 32px;
+  padding: 16px 24px;
+}
+
+.header-logo {
+  width: 64px;
+  height: 64px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 12px 32px 10px 32px;
-  border-bottom: 1px solid rgba(255,255,255,0.10);
-  margin-left: 72px;
+  justify-content: center;
+  flex-shrink: 0;
 }
-.header-title {
-  font-size: 18px;
+
+.header-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.header-text { flex: 1; }
+
+.header-text h1 {
+  font-size: 28px;
   font-weight: 700;
   color: #fff;
-  display: flex;
-  align-items: center;
-  gap: 9px;
+  margin-bottom: 2px;
+  letter-spacing: -0.5px;
 }
-.header-sub { font-size: 11px; color: #bbf7d0; margin-top: 1px; }
-.header-badge {
-  background: rgba(255,255,255,0.15);
-  color: #fff;
-  font-size: 11px; font-weight: 600;
-  padding: 4px 14px; border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.2);
+
+.header-text .tagline {
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
 }
 
 .header-stats {
   display: flex;
-  gap: 0;
-  padding: 10px 32px 12px 104px;
+  gap: 8px;
+  flex-wrap: nowrap;
   overflow-x: auto;
   scrollbar-width: none;
 }
 .header-stats::-webkit-scrollbar { display: none; }
+
 .hstat {
   display: flex; align-items: center; gap: 10px;
   background: rgba(255,255,255,0.10);
   border: 1px solid rgba(255,255,255,0.13);
-  border-radius: 8px; padding: 9px 18px;
-  margin-right: 8px; min-width: 130px; flex-shrink: 0;
+  border-radius: 12px; padding: 10px 16px;
+  flex-shrink: 0;
   transition: background 0.15s;
+  backdrop-filter: blur(10px);
 }
-.hstat:hover { background: rgba(255,255,255,0.18); }
+.hstat:hover { background: rgba(255,255,255,0.20); }
+
 .hstat-icon {
-  width: 32px; height: 32px; border-radius: 8px;
+  width: 36px; height: 36px; border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
   font-size: 10px; font-weight: 800; letter-spacing: 0.3px; flex-shrink: 0;
 }
@@ -98,14 +131,16 @@ body {
 .hstat-icon.returned { background: rgba(96,165,250,0.20);  color: #93c5fd; }
 .hstat-icon.overdue  { background: rgba(248,113,113,0.22); color: #fca5a5; }
 .hstat-icon.late     { background: rgba(251,191,36,0.22);  color: #fde68a; }
+
 .hstat-num { font-size: 22px; font-weight: 800; color: #fff; line-height: 1; }
 .hstat-num.green  { color: #34d399; }
 .hstat-num.blue   { color: #93c5fd; }
 .hstat-num.red    { color: #f87171; }
 .hstat-num.orange { color: #fbbf24; }
 .hstat-num.purple { color: #d1fae5; }
-.hstat-lbl { font-size: 10px; color: #bbf7d0; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; margin-top: 1px; }
+.hstat-lbl { font-size: 10px; color: #bbf7d0; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; margin-top: 2px; }
 
+/* ==================== MENU BUTTON ==================== */
 .menu-button {
   position: fixed; top: 24px; left: 24px;
   width: 56px; height: 56px;
@@ -120,6 +155,7 @@ body {
 .menu-button i { color: white; font-size: 22px; transition: transform 0.3s ease; }
 .menu-button.active i { transform: rotate(90deg); }
 
+/* ==================== NAV MODAL ==================== */
 .nav-modal-overlay {
   position: fixed; inset: 0;
   background: rgba(0,0,0,0.6);
@@ -176,9 +212,11 @@ body {
 }
 .module-card:hover .view-link { gap: 8px; }
 
-.page-body { padding-top: 140px; }
+/* ==================== PAGE BODY ==================== */
+.page-body { padding-top: 110px; }
 .container { max-width: 1300px; margin: 0 auto; padding: 32px 24px 60px; }
 
+/* ==================== SECTION TITLE ==================== */
 .section-title {
   font-size: 14px; font-weight: 700; color: var(--green-dark);
   text-transform: uppercase; letter-spacing: 1px;
@@ -194,6 +232,7 @@ body {
 }
 .section-count.red { background: #fee2e2; color: var(--danger); }
 
+/* ==================== CONTROLS ==================== */
 .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; align-items: center; }
 .search-wrap { flex: 1; min-width: 200px; position: relative; }
 .search-wrap input {
@@ -222,6 +261,7 @@ body {
   background: #fff; color: #475569; cursor: pointer; outline: none;
 }
 
+/* ==================== TABLE ==================== */
 .tbl-wrap { background: #fff; border-radius: 10px; border: 1px solid #e2e8f0; overflow: hidden; }
 .data-table { width: 100%; border-collapse: collapse; }
 .data-table thead { background: linear-gradient(90deg, var(--green-dark), var(--green)); }
@@ -247,6 +287,7 @@ body {
 .s-overdue  { background: #dc2626; }
 .s-late     { background: #d97706; }
 
+/* ==================== NOTICE CARDS ==================== */
 .notice-grid-wrap { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 14px; }
 .notice-mini {
   background: #fff; border-radius: 10px;
@@ -262,6 +303,7 @@ body {
 .notice-mini-tag   { position: absolute; top: 12px; right: 14px; background: #fee2e2; color: #dc2626; font-size: 9px; font-weight: 800; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.5px; }
 .notice-mini-footer{ margin-top: 10px; font-size: 11px; color: var(--green); font-weight: 600; display: flex; align-items: center; gap: 4px; }
 
+/* ==================== DETAIL MODAL ==================== */
 .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.55); z-index: 1200; align-items: center; justify-content: center; padding: 20px; }
 .modal-overlay.open { display: flex; }
 .modal { background: #fff; border-radius: 14px; width: 100%; max-width: 560px; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.22); animation: modalIn .2s ease; }
@@ -282,6 +324,7 @@ body {
 .mf-val.due { color: #dc2626; }
 .modal-warn { background: #fee2e2; border: 1px solid #fecaca; border-radius: 8px; padding: 12px 16px; font-size: 13px; font-weight: 600; color: #991b1b; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px; }
 
+/* ==================== PAGER ==================== */
 .pager { display: flex; align-items: center; gap: 4px; padding: 16px 0 4px; justify-content: center; flex-wrap: wrap; }
 .pager-info { font-size: 12px; color: #64748b; font-weight: 600; margin-right: 8px; }
 .pager-btn { min-width: 34px; height: 34px; padding: 0 8px; border-radius: 7px; border: 1.5px solid #e2e8f0; background: #fff; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: #475569; cursor: pointer; transition: all .15s; display: flex; align-items: center; justify-content: center; }
@@ -298,9 +341,12 @@ body {
 ::-webkit-scrollbar-thumb { background: var(--green-muted); border-radius: 4px; }
 
 @media (max-width: 768px) {
-  .header-top { padding: 10px 16px 10px 80px; }
-  .header-badge { display: none; }
-  .page-body { padding-top: 160px; }
+  .header-content { margin-left: 80px; gap: 16px; padding: 12px 16px; }
+  .header-logo { width: 48px; height: 48px; }
+  .header-text h1 { font-size: 20px; }
+  .header-text .tagline { font-size: 12px; }
+  .header-stats { gap: 6px; }
+  .page-body { padding-top: 130px; }
   .container { padding: 24px 14px 50px; }
   .tbl-wrap { overflow-x: auto; }
   .notice-grid-wrap { grid-template-columns: 1fr; }
@@ -384,68 +430,68 @@ body {
             <div class="modal-body">
               <div class="modal-grid" id="m-grid"></div>
               <div class="modal-warn">
+                <i class="fas fa-exclamation-triangle"></i>
                 NOTICE: This book is OVERDUE. Please return immediately to avoid penalties.
               </div>
             </div>
           </div>
         </div>
 
-        <div class="site-header">
-          <div class="header-top">
-            <div>
-              <div class="header-title">
-                <i class="fas fa-book" style="font-size:16px;opacity:0.9"></i>
-                Library Management System
-              </div>
-              <div class="header-sub">Pamantasan ng Lungsod ng Pasig — Group 4</div>
+        <header class="site-header">
+          <div class="header-content">
+            <div class="header-logo">
+              <img src="../group6-events/PLP_logo.png" alt="PLP Logo"/>
             </div>
-            <div class="header-badge">LMS Report</div>
+            <div class="header-text">
+              <h1>Library Management System</h1>
+              <div class="tagline">Pamantasan ng Lungsod ng Pasig — Group 4</div>
+            </div>
+            <div class="header-stats">
+              <div class="hstat">
+                <div class="hstat-icon books">BK</div>
+                <div>
+                  <div class="hstat-num purple"><xsl:value-of select="count(/library/books/book)"/></div>
+                  <div class="hstat-lbl">Books</div>
+                </div>
+              </div>
+              <div class="hstat">
+                <div class="hstat-icon records">RC</div>
+                <div>
+                  <div class="hstat-num"><xsl:value-of select="count(/library/borrowingRecords/record)"/></div>
+                  <div class="hstat-lbl">Records</div>
+                </div>
+              </div>
+              <div class="hstat">
+                <div class="hstat-icon active">AC</div>
+                <div>
+                  <div class="hstat-num green"><xsl:value-of select="count(/library/borrowingRecords/record[status='Active'])"/></div>
+                  <div class="hstat-lbl">Active</div>
+                </div>
+              </div>
+              <div class="hstat">
+                <div class="hstat-icon returned">RT</div>
+                <div>
+                  <div class="hstat-num blue"><xsl:value-of select="count(/library/borrowingRecords/record[status='Returned'])"/></div>
+                  <div class="hstat-lbl">Returned</div>
+                </div>
+              </div>
+              <div class="hstat">
+                <div class="hstat-icon overdue">OD</div>
+                <div>
+                  <div class="hstat-num red"><xsl:value-of select="count(/library/borrowingRecords/record[status='Overdue'])"/></div>
+                  <div class="hstat-lbl">Overdue</div>
+                </div>
+              </div>
+              <div class="hstat">
+                <div class="hstat-icon late">LT</div>
+                <div>
+                  <div class="hstat-num orange"><xsl:value-of select="count(/library/borrowingRecords/record[status='Returned Late'])"/></div>
+                  <div class="hstat-lbl">Late</div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="header-stats">
-            <div class="hstat">
-              <div class="hstat-icon books">BK</div>
-              <div>
-                <div class="hstat-num purple"><xsl:value-of select="count(/library/books/book)"/></div>
-                <div class="hstat-lbl">Books</div>
-              </div>
-            </div>
-            <div class="hstat">
-              <div class="hstat-icon records">RC</div>
-              <div>
-                <div class="hstat-num"><xsl:value-of select="count(/library/borrowingRecords/record)"/></div>
-                <div class="hstat-lbl">Records</div>
-              </div>
-            </div>
-            <div class="hstat">
-              <div class="hstat-icon active">AC</div>
-              <div>
-                <div class="hstat-num green"><xsl:value-of select="count(/library/borrowingRecords/record[status='Active'])"/></div>
-                <div class="hstat-lbl">Active</div>
-              </div>
-            </div>
-            <div class="hstat">
-              <div class="hstat-icon returned">RT</div>
-              <div>
-                <div class="hstat-num blue"><xsl:value-of select="count(/library/borrowingRecords/record[status='Returned'])"/></div>
-                <div class="hstat-lbl">Returned</div>
-              </div>
-            </div>
-            <div class="hstat">
-              <div class="hstat-icon overdue">OD</div>
-              <div>
-                <div class="hstat-num red"><xsl:value-of select="count(/library/borrowingRecords/record[status='Overdue'])"/></div>
-                <div class="hstat-lbl">Overdue</div>
-              </div>
-            </div>
-            <div class="hstat">
-              <div class="hstat-icon late">LT</div>
-              <div>
-                <div class="hstat-num orange"><xsl:value-of select="count(/library/borrowingRecords/record[status='Returned Late'])"/></div>
-                <div class="hstat-lbl">Late</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </header>
 
         <div class="page-body">
           <div class="container">
