@@ -42,36 +42,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="enrolledSubjects">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="subject" maxOccurs="unbounded">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="subjectName" type="xs:string"/>
-                  <xs:element name="units">
-                    <xs:simpleType>
-                      <xs:restriction base="xs:integer">
-                        <xs:minInclusive value="1"/>
-                        <xs:maxInclusive value="6"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                  <xs:element name="grade">
-                    <xs:simpleType>
-                      <xs:restriction base="xs:decimal">
-                        <xs:minInclusive value="1.00"/>
-                        <xs:maxInclusive value="5.00"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-                <xs:attribute name="subjectId" type="xs:string" use="required"/>
-              </xs:complexType>
-            </xs:element>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="enrolledSubjects" type="enrolledSubjectsType"/>
       <xs:element name="gpa">
         <xs:simpleType>
           <xs:restriction base="xs:decimal">
@@ -82,6 +53,35 @@
       </xs:element>
     </xs:sequence>
     <xs:attribute name="studentId" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="enrolledSubjectsType">
+    <xs:sequence>
+      <xs:element name="subject" type="studentSubjectType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="studentSubjectType">
+    <xs:sequence>
+      <xs:element name="subjectName" type="xs:string"/>
+      <xs:element name="units">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="6"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="grade">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="1.00"/>
+            <xs:maxInclusive value="5.00"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="subjectId" type="xs:string" use="required"/>
   </xs:complexType>
 
   <!-- ==================== FACULTY MODULE ==================== -->
@@ -107,7 +107,7 @@
                     <xs:simpleType>
                       <xs:restriction base="xs:integer">
                         <xs:minInclusive value="1"/>
-                        <xs:maxInclusive value="10"/>
+                        <xs:maxInclusive value="30"/>
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
@@ -188,6 +188,7 @@
             <xs:enumeration value="Active"/>
             <xs:enumeration value="Returned"/>
             <xs:enumeration value="Overdue"/>
+            <xs:enumeration value="Returned Late"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -258,6 +259,7 @@
         </xs:simpleType>
       </xs:element>
       <xs:element name="category" type="xs:string"/>
+      <xs:element name="organizer" type="xs:string" minOccurs="0"/>
       <xs:element name="description" type="xs:string"/>
     </xs:sequence>
     <xs:attribute name="eventId" type="xs:string" use="required"/>
