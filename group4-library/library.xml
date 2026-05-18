@@ -30,6 +30,15 @@
       <copies>2</copies>
     </book>
 
+    <book bookId="BK-101">
+      <title>Database Management Systems</title>
+      <author>Ramez Elmasri</author>
+      <category>Technology</category>
+      <isbn>978-0-13-235-317-5</isbn>
+      <copies>2</copies>
+    </book>
+
+
     <book bookId="BK-004">
       <title>Calculus: Early Transcendentals</title>
       <author>James Stewart</author>

@@ -1045,7 +1045,7 @@
                             </div>
                         </div>
                         <div class="stat-label">Active Loans</div>
-                        <div class="stat-value"><xsl:value-of select="count($libraryDoc//borrowingRecords/record[status='Borrowed'])"/></div>
+                        <div class="stat-value"><xsl:value-of select="count($libraryDoc//borrowingRecords/record[status='Active'])"/></div>
                         <div class="stat-description">Currently borrowed</div>
                     </div>
 
@@ -1291,7 +1291,7 @@
                 </xsl:for-each>
             },
             borrowingStatus: {
-                'Borrowed': <xsl:value-of select="count($libraryDoc//borrowingRecords/record[status='Borrowed'])"/>,
+                'Borrowed': <xsl:value-of select="count($libraryDoc//borrowingRecords/record[status='Active'])"/>,
                 'Returned': <xsl:value-of select="count($libraryDoc//borrowingRecords/record[status='Returned'])"/>,
                 'Overdue': <xsl:value-of select="count($libraryDoc//borrowingRecords/record[status='Overdue'])"/>
             },
