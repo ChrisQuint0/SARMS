@@ -62,6 +62,32 @@
       <xs:selector xpath="registrations/registration"/>
       <xs:field xpath="@registrationId"/>
     </xs:unique>
+
+    <!-- KEY / KEYREF for referential integrity -->
+    <xs:key name="eventKey">
+      <xs:selector xpath="events/event"/>
+      <xs:field xpath="@eventId"/>
+    </xs:key>
+
+    <xs:key name="participantKey">
+      <xs:selector xpath="participants/participant"/>
+      <xs:field xpath="@participantId"/>
+    </xs:key>
+
+    <xs:key name="registrationKey">
+      <xs:selector xpath="registrations/registration"/>
+      <xs:field xpath="@registrationId"/>
+    </xs:key>
+
+    <xs:keyref name="registrationEventRef" refer="eventKey">
+      <xs:selector xpath="registrations/registration"/>
+      <xs:field xpath="@eventId"/>
+    </xs:keyref>
+
+    <xs:keyref name="registrationParticipantRef" refer="participantKey">
+      <xs:selector xpath="registrations/registration"/>
+      <xs:field xpath="@participantId"/>
+    </xs:keyref>
   </xs:element>
 
   <xs:element name="events">

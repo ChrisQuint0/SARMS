@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE eventManagementSystem SYSTEM "events.dtd">
 <?xml-stylesheet href="events.xsl" type="text/xsl"?>
+<?xml-model href="events.dtd" type="application/xml-dtd"?>
 <!-- Event Management System XML Data -->
 <!-- Contains 100 events, 109 participants, and 154+ registrations -->
 <eventManagementSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="events.xsd">
@@ -438,7 +440,7 @@
     <event eventId="EVT-0040" eventStatus="closed">
       <eventName>Microservices Architecture</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>16:00:00</eventTime>
+      <eventTime>17:30:00</eventTime>
       <venue>PLP Quadrangle</venue>
       <capacity>50</capacity>
       <registrationCount>1</registrationCount>
@@ -614,7 +616,7 @@
     <event eventId="EVT-0056" eventStatus="closed">
       <eventName>Social Entrepreneurship Workshop</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>11:00:00</eventTime>
+      <eventTime>14:00:00</eventTime>
       <venue>Function Hall</venue>
       <capacity>70</capacity>
       <registrationCount>1</registrationCount>
@@ -1054,7 +1056,7 @@
     <event eventId="EVT-0096" eventStatus="closed">
       <eventName>Visualization and Data Analytics</eventName>
       <eventDate>2026-05-12</eventDate>
-      <eventTime>13:00:00</eventTime>
+      <eventTime>14:30:00</eventTime>
       <venue>Facade</venue>
       <capacity>50</capacity>
       <registrationCount>1</registrationCount>
@@ -1882,45 +1884,45 @@
     <registration registrationId="REG-112" eventId="EVT-0018" participantId="PAR-003" registrationStatus="Registered" registrationDate="2026-05-14" />
     <registration registrationId="REG-113" eventId="EVT-0019" participantId="PAR-004" registrationStatus="Registered" registrationDate="2026-05-14" />
     <registration registrationId="REG-114" eventId="EVT-0020" participantId="PAR-005" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-115" eventId="EVT-0026" participantId="PAR-006" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-116" eventId="EVT-0027" participantId="PAR-007" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-117" eventId="EVT-0028" participantId="PAR-008" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-118" eventId="EVT-0029" participantId="PAR-009" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-119" eventId="EVT-0030" participantId="PAR-010" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-120" eventId="EVT-0036" participantId="PAR-011" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-121" eventId="EVT-0037" participantId="PAR-012" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-122" eventId="EVT-0038" participantId="PAR-013" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-123" eventId="EVT-0039" participantId="PAR-014" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-124" eventId="EVT-0040" participantId="PAR-015" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-125" eventId="EVT-0046" participantId="PAR-016" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-126" eventId="EVT-0047" participantId="PAR-017" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-127" eventId="EVT-0048" participantId="PAR-018" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-128" eventId="EVT-0049" participantId="PAR-019" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-129" eventId="EVT-0050" participantId="PAR-020" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-130" eventId="EVT-0056" participantId="PAR-021" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-131" eventId="EVT-0057" participantId="PAR-022" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-132" eventId="EVT-0058" participantId="PAR-023" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-133" eventId="EVT-0059" participantId="PAR-024" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-134" eventId="EVT-0060" participantId="PAR-025" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-135" eventId="EVT-0066" participantId="PAR-026" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-136" eventId="EVT-0067" participantId="PAR-027" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-137" eventId="EVT-0068" participantId="PAR-028" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-138" eventId="EVT-0069" participantId="PAR-029" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-139" eventId="EVT-0070" participantId="PAR-030" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-140" eventId="EVT-0076" participantId="PAR-031" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-141" eventId="EVT-0077" participantId="PAR-032" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-142" eventId="EVT-0078" participantId="PAR-033" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-143" eventId="EVT-0079" participantId="PAR-034" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-144" eventId="EVT-0080" participantId="PAR-035" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-145" eventId="EVT-0086" participantId="PAR-036" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-146" eventId="EVT-0087" participantId="PAR-037" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-147" eventId="EVT-0088" participantId="PAR-038" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-148" eventId="EVT-0089" participantId="PAR-039" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-149" eventId="EVT-0090" participantId="PAR-040" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-150" eventId="EVT-0096" participantId="PAR-041" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-151" eventId="EVT-0097" participantId="PAR-042" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-152" eventId="EVT-0098" participantId="PAR-043" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-153" eventId="EVT-0099" participantId="PAR-044" registrationStatus="Registered" registrationDate="2026-05-14" />
-    <registration registrationId="REG-154" eventId="EVT-0100" participantId="PAR-045" registrationStatus="Registered" registrationDate="2026-05-14" />
+    <registration registrationId="REG-115" eventId="EVT-0026" participantId="PAR-006" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-116" eventId="EVT-0027" participantId="PAR-007" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-117" eventId="EVT-0028" participantId="PAR-008" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-118" eventId="EVT-0029" participantId="PAR-009" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-119" eventId="EVT-0030" participantId="PAR-010" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-120" eventId="EVT-0036" participantId="PAR-011" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-121" eventId="EVT-0037" participantId="PAR-012" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-122" eventId="EVT-0038" participantId="PAR-013" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-123" eventId="EVT-0039" participantId="PAR-014" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-124" eventId="EVT-0040" participantId="PAR-015" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-125" eventId="EVT-0046" participantId="PAR-016" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-126" eventId="EVT-0047" participantId="PAR-017" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-127" eventId="EVT-0048" participantId="PAR-018" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-128" eventId="EVT-0049" participantId="PAR-019" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-129" eventId="EVT-0050" participantId="PAR-020" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-130" eventId="EVT-0056" participantId="PAR-021" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-131" eventId="EVT-0057" participantId="PAR-022" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-132" eventId="EVT-0058" participantId="PAR-023" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-133" eventId="EVT-0059" participantId="PAR-024" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-134" eventId="EVT-0060" participantId="PAR-025" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-135" eventId="EVT-0066" participantId="PAR-026" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-136" eventId="EVT-0067" participantId="PAR-027" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-137" eventId="EVT-0068" participantId="PAR-028" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-138" eventId="EVT-0069" participantId="PAR-029" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-139" eventId="EVT-0070" participantId="PAR-030" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-140" eventId="EVT-0076" participantId="PAR-031" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-141" eventId="EVT-0077" participantId="PAR-032" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-142" eventId="EVT-0078" participantId="PAR-033" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-143" eventId="EVT-0079" participantId="PAR-034" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-144" eventId="EVT-0080" participantId="PAR-035" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-145" eventId="EVT-0086" participantId="PAR-036" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-146" eventId="EVT-0087" participantId="PAR-037" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-147" eventId="EVT-0088" participantId="PAR-038" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-148" eventId="EVT-0089" participantId="PAR-039" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-149" eventId="EVT-0090" participantId="PAR-040" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-150" eventId="EVT-0096" participantId="PAR-041" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-151" eventId="EVT-0097" participantId="PAR-042" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-152" eventId="EVT-0098" participantId="PAR-043" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-153" eventId="EVT-0099" participantId="PAR-044" registrationStatus="Registered" registrationDate="2026-05-01" />
+    <registration registrationId="REG-154" eventId="EVT-0100" participantId="PAR-045" registrationStatus="Registered" registrationDate="2026-05-01" />
   </registrations>
 </eventManagementSystem>

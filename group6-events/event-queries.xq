@@ -1,80 +1,7 @@
 xquery version "3.1";
 
-(: Embedded XML document :)
-declare variable $doc :=
-
-<eventManagementSystem>
-
-    <events>
-
-        <event eventId="E001" eventStatus="upcoming">
-            <eventName>Tech Symposium</eventName>
-            <eventDate>2026-06-10</eventDate>
-            <category>Technology</category>
-            <capacity>200</capacity>
-        </event>
-
-        <event eventId="E002" eventStatus="current">
-            <eventName>Sports Fest</eventName>
-            <eventDate>2026-06-15</eventDate>
-            <category>Sports</category>
-            <capacity>150</capacity>
-        </event>
-
-        <event eventId="E003" eventStatus="closed">
-            <eventName>Cultural Day</eventName>
-            <eventDate>2026-05-01</eventDate>
-            <category>Culture</category>
-            <capacity>100</capacity>
-        </event>
-
-    </events>
-
-    <participants>
-
-        <participant participantId="P001">
-            <fullName>Juan Dela Cruz</fullName>
-            <department>College of Computer Studies</department>
-        </participant>
-
-        <participant participantId="P002">
-            <fullName>Maria Santos</fullName>
-            <department>College of Engineering</department>
-        </participant>
-
-        <participant participantId="P003">
-            <fullName>Jose Reyes</fullName>
-            <department>College of Business and Accountancy</department>
-        </participant>
-
-    </participants>
-
-    <registrations>
-
-        <registration
-            registrationId="R001"
-            eventId="E001"
-            participantId="P001"
-            registrationStatus="Registered"
-            registrationDate="2026-05-10"/>
-
-        <registration
-            registrationId="R002"
-            eventId="E002"
-            participantId="P002"
-            registrationStatus="Attended"
-            registrationDate="2026-05-11"/>
-
-        <registration
-            registrationId="R003"
-            eventId="E003"
-            participantId="P003"
-            registrationStatus="Cancelled"
-            registrationDate="2026-05-12"/>
-
-    </registrations>
-
-</eventManagementSystem>;
+(: Load the live project XML from the same folder as this XQuery file. :)
+declare variable $doc := doc(resolve-uri("events.xml", static-base-uri()));
 
 (: Safe integer conversion :)
 declare function local:int($node) {
@@ -143,5 +70,94 @@ declare function local:int($node) {
       </category>
   }
   </eventCategories>
+
+  <registrationsByStatus>
+  {
+    for $status in distinct-values($doc/registrations/registration/@registrationStatus)
+    order by $status
+    return
+      <status name="{$status}" count="{count($doc/registrations/registration[@registrationStatus = $status])}"/>
+  }
+  </registrationsByStatus>
+
+  <eventsByVenue>
+  {
+    for $v in distinct-values($doc/events/event/venue)
+    let $evs := $doc/events/event[venue = $v]
+    order by $v
+    return
+      <venue name="{$v}">
+      {
+        for $e in $evs
+        let $eid := string($e/@eventId)
+        let $regCount := count($doc/registrations/registration[@eventId = $eid])
+        order by $eid
+        return <event eventId="{$eid}" date="{string($e/eventDate)}" time="{string($e/eventTime)}" registrations="{$regCount}"/>
+      }
+      </venue>
+  }
+  </eventsByVenue>
+
+  <attendedRegistrations>
+  {
+    for $reg in $doc/registrations/registration[@registrationStatus = 'Attended']
+    let $eventId := string($reg/@eventId)
+    let $participantId := string($reg/@participantId)
+    let $event := $doc/events/event[@eventId = $eventId][1]
+    let $participant := $doc/participants/participant[@participantId = $participantId][1]
+    order by $participantId, $eventId
+    return
+      <attendance>
+        <registrationId>{string($reg/@registrationId)}</registrationId>
+        <participantName>{string($participant/fullName)}</participantName>
+        <eventName>{string($event/eventName)}</eventName>
+        <eventDate>{string($event/eventDate)}</eventDate>
+        <eventTime>{string($event/eventTime)}</eventTime>
+      </attendance>
+  }
+  </attendedRegistrations>
+
+  <venueDistribution>
+  {
+    for $venue in distinct-values($doc/events/event/venue)
+    let $venueEvents := $doc/events/event[venue = $venue]
+    let $totalEventCount := count($venueEvents)
+    order by $venue
+    return
+      <venue name="{$venue}" eventCount="{$totalEventCount}">
+      {
+        for $event in $venueEvents
+        let $eventId := string($event/@eventId)
+        let $regCount := count($doc/registrations/registration[@eventId = $eventId])
+        order by $eventId
+        return
+          <event eventId="{$eventId}" 
+                 eventName="{string($event/eventName)}" 
+                 date="{string($event/eventDate)}" 
+                 time="{string($event/eventTime)}" 
+                 capacity="{string($event/capacity)}"
+                 registrations="{$regCount}"/>
+      }
+      </venue>
+  }
+  </venueDistribution>
+
+  <participantSchedules>
+  {
+    for $p in $doc/participants/participant
+    let $pid := string($p/@participantId)
+    let $regs := $doc/registrations/registration[@participantId = $pid]
+    order by $pid
+    return
+      <participant participantId="{$pid}" fullName="{string($p/fullName)}">
+      {
+        for $r in $regs
+        let $e := $doc/events/event[@eventId = string($r/@eventId)][1]
+        order by $e/eventDate, $e/eventTime
+        return <scheduled eventId="{string($e/@eventId)}" name="{string($e/eventName)}" date="{string($e/eventDate)}" time="{string($e/eventTime)}" status="{string($r/@registrationStatus)}"/>
+      }
+      </participant>
+  }
+  </participantSchedules>
 
 </results>
