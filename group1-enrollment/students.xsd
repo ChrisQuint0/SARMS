@@ -54,7 +54,6 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="BSIT"/>
       <xs:enumeration value="BSCS"/>
-      <xs:enumeration value="BSIS"/>
     </xs:restriction>
   </xs:simpleType>
 

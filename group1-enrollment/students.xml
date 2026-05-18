@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE students SYSTEM "students.dtd">
 <?xml-stylesheet type="text/xsl" href="students.xsl"?>
 <students>
@@ -92,7 +92,7 @@
   <student studentId="23-00004">
     <firstName>Ana</firstName>
     <lastName>Garcia</lastName>
-    <course>BSIS</course>
+    <course>BSIT</course>
     <yearLevel>1</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-012">
@@ -149,7 +149,7 @@
   <student studentId="23-00006">
     <firstName>Patricia</firstName>
     <lastName>Villanueva</lastName>
-    <course>BSIS</course>
+    <course>BSCS</course>
     <yearLevel>2</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-019">
@@ -232,7 +232,7 @@
   <student studentId="23-00009">
     <firstName>Rafael</firstName>
     <lastName>Lim</lastName>
-    <course>BSIS</course>
+    <course>BSIT</course>
     <yearLevel>3</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-029">
@@ -291,7 +291,7 @@
   <student studentId="23-00011">
     <firstName>Gabriela</firstName>
     <lastName>Sosa</lastName>
-    <course>BSIS</course>
+    <course>BSCS</course>
     <yearLevel>1</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-036">
@@ -411,7 +411,7 @@
   <student studentId="23-00015">
     <firstName>Gabriel</firstName>
     <lastName>Martinez</lastName>
-    <course>BSIS</course>
+    <course>BSIT</course>
     <yearLevel>2</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-052">
@@ -521,7 +521,7 @@
   <student studentId="23-00019">
     <firstName>Gabriel</firstName>
     <lastName>Jimenez</lastName>
-    <course>BSIS</course>
+    <course>BSCS</course>
     <yearLevel>3</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-066">
@@ -581,7 +581,7 @@
   <student studentId="23-00021">
     <firstName>Javier</firstName>
     <lastName>Ramos</lastName>
-    <course>BSIS</course>
+    <course>BSIT</course>
     <yearLevel>4</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-074">
@@ -786,7 +786,7 @@
   <student studentId="23-00028">
     <firstName>Alejandro</firstName>
     <lastName>Flores</lastName>
-    <course>BSIS</course>
+    <course>BSCS</course>
     <yearLevel>3</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-101">
@@ -901,7 +901,7 @@
   <student studentId="23-00032">
     <firstName>Isabela</firstName>
     <lastName>Garcia</lastName>
-    <course>BSIS</course>
+    <course>BSIT</course>
     <yearLevel>4</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-116">
@@ -991,7 +991,7 @@
   <student studentId="23-00035">
     <firstName>Gabriel</firstName>
     <lastName>Villanueva</lastName>
-    <course>BSIS</course>
+    <course>BSCS</course>
     <yearLevel>1</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-128">
@@ -1186,7 +1186,7 @@
   <student studentId="23-00041">
     <firstName>Jose</firstName>
     <lastName>Perez</lastName>
-    <course>BSIS</course>
+    <course>BSIT</course>
     <yearLevel>1</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-155">
@@ -1421,7 +1421,7 @@
   <student studentId="23-00049">
     <firstName>Daniela</firstName>
     <lastName>Perez</lastName>
-    <course>BSIS</course>
+    <course>BSCS</course>
     <yearLevel>2</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-186">
@@ -1491,7 +1491,7 @@
   <student studentId="23-00051">
     <firstName>Patricia</firstName>
     <lastName>Gomez</lastName>
-    <course>BSIS</course>
+    <course>BSIT</course>
     <yearLevel>4</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-196">
@@ -1561,7 +1561,7 @@
   <student studentId="23-00053">
     <firstName>Gabriela</firstName>
     <lastName>Sanchez</lastName>
-    <course>BSIS</course>
+    <course>BSCS</course>
     <yearLevel>4</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-206">
@@ -1701,7 +1701,7 @@
   <student studentId="23-00058">
     <firstName>Patricia</firstName>
     <lastName>Ortiz</lastName>
-    <course>BSIS</course>
+    <course>BSIT</course>
     <yearLevel>1</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-224">
@@ -1851,7 +1851,7 @@
   <student studentId="23-00063">
     <firstName>Daniel</firstName>
     <lastName>Villanueva</lastName>
-    <course>BSIS</course>
+    <course>BSCS</course>
     <yearLevel>2</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-244">
@@ -1876,7 +1876,7 @@
   <student studentId="23-00064">
     <firstName>Luis</firstName>
     <lastName>Jimenez</lastName>
-    <course>BSIS</course>
+    <course>BSIT</course>
     <yearLevel>4</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-247">
@@ -2206,7 +2206,7 @@
   <student studentId="23-00075">
     <firstName>Valeria</firstName>
     <lastName>Sosa</lastName>
-    <course>BSIS</course>
+    <course>BSCS</course>
     <yearLevel>4</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-291">
@@ -2321,7 +2321,7 @@
   <student studentId="23-00079">
     <firstName>Isabela</firstName>
     <lastName>Rojas</lastName>
-    <course>BSIS</course>
+    <course>BSIT</course>
     <yearLevel>1</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-306">
@@ -2446,7 +2446,7 @@
   <student studentId="23-00083">
     <firstName>Fernando</firstName>
     <lastName>Gomez</lastName>
-    <course>BSIS</course>
+    <course>BSCS</course>
     <yearLevel>2</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-323">
@@ -2711,7 +2711,7 @@
   <student studentId="23-00092">
     <firstName>Andres</firstName>
     <lastName>Mendoza</lastName>
-    <course>BSIS</course>
+    <course>BSIT</course>
     <yearLevel>4</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-358">
@@ -2746,7 +2746,7 @@
   <student studentId="23-00093">
     <firstName>Lucia</firstName>
     <lastName>Gonzalez</lastName>
-    <course>BSIS</course>
+    <course>BSCS</course>
     <yearLevel>3</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-363">
@@ -2806,7 +2806,7 @@
   <student studentId="23-00095">
     <firstName>Gabriela</firstName>
     <lastName>Flores</lastName>
-    <course>BSIS</course>
+    <course>BSIT</course>
     <yearLevel>2</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-371">
@@ -2896,7 +2896,7 @@
   <student studentId="23-00098">
     <firstName>Mariana</firstName>
     <lastName>Diaz</lastName>
-    <course>BSIS</course>
+    <course>BSCS</course>
     <yearLevel>3</yearLevel>
     <enrolledSubjects>
       <subject subjectId="SUB-383">
