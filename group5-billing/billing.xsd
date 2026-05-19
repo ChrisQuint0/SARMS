@@ -14,18 +14,12 @@
       <xs:element name="studentId">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value="BIL-\d{3}"/>
+            <xs:pattern value="\d{2}-\d{5}"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
 
-      <xs:element name="name">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:minLength value="1"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
+
 
       <xs:element name="tuitionFee">
         <xs:simpleType>
