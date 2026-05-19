@@ -30,6 +30,7 @@
                                                     <xs:element name="subjectName" type="xs:string"/>
                                                     <xs:element name="hours" type="xs:integer"/>
                                                 </xs:sequence>
+                                                <xs:attribute name="subjectId" type="xs:string" use="required"/>
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>

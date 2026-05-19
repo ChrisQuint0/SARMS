@@ -69,7 +69,7 @@ return
             let $facultyMember := $s/ancestor::facultyMember[1]
             order by string($facultyMember/id), string($s/subjectName)
             return
-                <subject facultyId="{ string($facultyMember/id) }">
+                <subject facultyId="{ string($facultyMember/id) }" subjectId="{ string($s/@subjectId) }">
                     <facultyName>{ string($facultyMember/name) }</facultyName>
                     <subjectName>{ string($s/subjectName) }</subjectName>
                 </subject>
@@ -106,9 +106,9 @@ return
 
     <query8SubjectsHandledByFAC021 count="{ count($faculty[id = 'FAC-021']/subjects/subject) }">
         {
-            for $s in $faculty[id = 'FAC-021']/subjects/subject/subjectName
+            for $s in $faculty[id = 'FAC-021']/subjects/subject
             return
-                <subject>{ string($s) }</subject>
+                <subject subjectId="{ string($s/@subjectId) }">{ string($s/subjectName) }</subject>
         }
     </query8SubjectsHandledByFAC021>
 

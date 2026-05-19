@@ -23,6 +23,7 @@
 <!-- Teaching Assignment Details -->
 <!ELEMENT subjects (subject+)>
 <!ELEMENT subject (subjectName, hours)>
+<!ATTLIST subject subjectId CDATA #REQUIRED>
 <!ELEMENT subjectName (#PCDATA)>
 <!ELEMENT hours (#PCDATA)>
 
