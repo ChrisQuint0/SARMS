@@ -547,6 +547,8 @@
                                             <xsl:for-each select="subjects/subject">
                                                 <xsl:if test="position() &gt; 1"><xsl:text> </xsl:text></xsl:if>
                                                 <xsl:value-of select="translate(subjectName, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')"/>
+                                                <xsl:text> </xsl:text>
+                                                <xsl:value-of select="translate(@subjectId, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')"/>
                                             </xsl:for-each>
                                         </xsl:attribute>
                                         <xsl:attribute name="data-subject-list">
@@ -564,10 +566,11 @@
                                             <div class="load-list">
                                                 <xsl:for-each select="subjects/subject">
                                                     <span class="subject-tag">
+                                                        <xsl:attribute name="title">Subject ID: <xsl:value-of select="@subjectId"/></xsl:attribute>
                                                         <xsl:attribute name="data-subject-name"><xsl:value-of select="subjectName"/></xsl:attribute>
                                                         <xsl:value-of select="subjectName"/>
                                                         <xsl:text> </xsl:text>
-                                                        <small style="color:var(--muted);font-weight:500;margin-left:.25rem">(<xsl:value-of select="hours"/>)</small>
+                                                        <small style="color:var(--muted);font-weight:500;margin-left:.25rem">(<xsl:value-of select="@subjectId"/>, <xsl:value-of select="hours"/>h)</small>
                                                     </span>
                                                 </xsl:for-each>
                                             </div>

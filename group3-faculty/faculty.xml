@@ -6,23 +6,23 @@
         <name>Dr. Rodrigo Lacson</name>
         <department>College of Arts &amp; Sciences</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-022">
                 <subjectName>Ethics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-061">
                 <subjectName>Understanding the Self</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-002">
                 <subjectName>Art Appreciation</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-012">
                 <subjectName>Contemporary World</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-048">
                 <subjectName>Readings in Philippine History</subjectName>
                 <hours>3</hours>
             </subject>
@@ -34,27 +34,27 @@
         <name>Sir Lito Pacquiao</name>
         <department>College of Computer Studies</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-051">
                 <subjectName>Software Engineering</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-032">
                 <subjectName>Human Computer Interaction</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-043">
                 <subjectName>Object-Oriented Programming</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-003">
                 <subjectName>Artificial Intelligence</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-062">
                 <subjectName>Web Systems and Technologies</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-039">
                 <subjectName>Network Security</subjectName>
                 <hours>3</hours>
             </subject>
@@ -66,15 +66,15 @@
         <name>Sir Manuel Pacquiao</name>
         <department>College of Education</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-024">
                 <subjectName>Facilitating Learner-Centered Teaching</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-057">
                 <subjectName>The Teaching Profession</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-055">
                 <subjectName>Technology for Teaching and Learning</subjectName>
                 <hours>3</hours>
             </subject>
@@ -86,15 +86,15 @@
         <name>Dr. Elena Pangilinan</name>
         <department>College of Nursing</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-042">
                 <subjectName>Nutrition and Dietetics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-037">
                 <subjectName>Microbiology and Parasitology</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-036">
                 <subjectName>Medical-Surgical Nursing</subjectName>
                 <hours>6</hours>
             </subject>
@@ -106,19 +106,19 @@
         <name>Dr. Imelda Pangilinan</name>
         <department>College of Education</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-027">
                 <subjectName>Foundation of Special Education</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-004">
                 <subjectName>Assessment in Learning</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-057">
                 <subjectName>The Teaching Profession</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-019">
                 <subjectName>Educational Leadership</subjectName>
                 <hours>3</hours>
             </subject>
@@ -130,15 +130,15 @@
         <name>Dr. Ricardo Hontiveros</name>
         <department>College of Nursing</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-001">
                 <subjectName>Anatomy and Physiology</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-037">
                 <subjectName>Microbiology and Parasitology</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-036">
                 <subjectName>Medical-Surgical Nursing</subjectName>
                 <hours>6</hours>
             </subject>
@@ -150,27 +150,27 @@
         <name>Dr. Ferdinand Sotto</name>
         <department>College of International Hospitality Management</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-026">
                 <subjectName>Food and Beverage Service</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-031">
                 <subjectName>Hospitality Marketing</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-059">
                 <subjectName>Tourism Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-023">
                 <subjectName>Events Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-034">
                 <subjectName>Kitchen Essentials</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-060">
                 <subjectName>Travel and Tour Operations</subjectName>
                 <hours>3</hours>
             </subject>
@@ -182,19 +182,19 @@
         <name>Dr. Maria Pascual</name>
         <department>College of Education</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-027">
                 <subjectName>Foundation of Special Education</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-014">
                 <subjectName>Curriculum Development</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-007">
                 <subjectName>Child and Adolescent Development</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-024">
                 <subjectName>Facilitating Learner-Centered Teaching</subjectName>
                 <hours>3</hours>
             </subject>
@@ -206,27 +206,27 @@
         <name>Dr. Paulo Mendoza</name>
         <department>College of Education</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-019">
                 <subjectName>Educational Leadership</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-007">
                 <subjectName>Child and Adolescent Development</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-004">
                 <subjectName>Assessment in Learning</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-027">
                 <subjectName>Foundation of Special Education</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-014">
                 <subjectName>Curriculum Development</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-024">
                 <subjectName>Facilitating Learner-Centered Teaching</subjectName>
                 <hours>3</hours>
             </subject>
@@ -238,23 +238,23 @@
         <name>Dr. Liza Bautista</name>
         <department>College of Education</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-004">
                 <subjectName>Assessment in Learning</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-019">
                 <subjectName>Educational Leadership</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-014">
                 <subjectName>Curriculum Development</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-055">
                 <subjectName>Technology for Teaching and Learning</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-052">
                 <subjectName>Specialization Project</subjectName>
                 <hours>18</hours>
             </subject>
@@ -266,27 +266,27 @@
         <name>Prof. Jovita Garcia</name>
         <department>College of Nursing</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-045">
                 <subjectName>Pharmacology</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-029">
                 <subjectName>Fundamentals of Nursing</subjectName>
                 <hours>5</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-041">
                 <subjectName>Nursing Care Management</subjectName>
                 <hours>5</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-036">
                 <subjectName>Medical-Surgical Nursing</subjectName>
                 <hours>6</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-042">
                 <subjectName>Nutrition and Dietetics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-010">
                 <subjectName>Community Health Nursing</subjectName>
                 <hours>4</hours>
             </subject>
@@ -298,27 +298,27 @@
         <name>Prof. Manuel Villanueva</name>
         <department>College of Education</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-014">
                 <subjectName>Curriculum Development</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-055">
                 <subjectName>Technology for Teaching and Learning</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-007">
                 <subjectName>Child and Adolescent Development</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-019">
                 <subjectName>Educational Leadership</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-057">
                 <subjectName>The Teaching Profession</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-004">
                 <subjectName>Assessment in Learning</subjectName>
                 <hours>3</hours>
             </subject>
@@ -330,19 +330,19 @@
         <name>Prof. Sara Lacson</name>
         <department>College of International Hospitality Management</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-049">
                 <subjectName>Risk Management in Hospitality</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-028">
                 <subjectName>Front Office Operations</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-023">
                 <subjectName>Events Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-031">
                 <subjectName>Hospitality Marketing</subjectName>
                 <hours>3</hours>
             </subject>
@@ -354,15 +354,15 @@
         <name>Prof. Amelita Zubiri</name>
         <department>College of Computer Studies</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-015">
                 <subjectName>Data Structures and Algorithms</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-044">
                 <subjectName>Operating Systems</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-003">
                 <subjectName>Artificial Intelligence</subjectName>
                 <hours>3</hours>
             </subject>
@@ -374,19 +374,19 @@
         <name>Dr. Danilo Mendoza</name>
         <department>College of Nursing</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-037">
                 <subjectName>Microbiology and Parasitology</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-045">
                 <subjectName>Pharmacology</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-036">
                 <subjectName>Medical-Surgical Nursing</subjectName>
                 <hours>6</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-001">
                 <subjectName>Anatomy and Physiology</subjectName>
                 <hours>4</hours>
             </subject>
@@ -398,23 +398,23 @@
         <name>Engr. Sara Pacquiao</name>
         <department>College of Engineering</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-058">
                 <subjectName>Thermodynamics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-013">
                 <subjectName>Control Systems</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-017">
                 <subjectName>Differential Equations</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-008">
                 <subjectName>Circuit Analysis</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-021">
                 <subjectName>Engineering Mechanics</subjectName>
                 <hours>3</hours>
             </subject>
@@ -426,27 +426,27 @@
         <name>Ma'am Corazon Duterte</name>
         <department>College of Computer Studies</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-043">
                 <subjectName>Object-Oriented Programming</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-044">
                 <subjectName>Operating Systems</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-051">
                 <subjectName>Software Engineering</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-032">
                 <subjectName>Human Computer Interaction</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-003">
                 <subjectName>Artificial Intelligence</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-015">
                 <subjectName>Data Structures and Algorithms</subjectName>
                 <hours>3</hours>
             </subject>
@@ -458,19 +458,19 @@
         <name>Dr. Angelo Robredo</name>
         <department>College of Nursing</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-029">
                 <subjectName>Fundamentals of Nursing</subjectName>
                 <hours>5</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-045">
                 <subjectName>Pharmacology</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-041">
                 <subjectName>Nursing Care Management</subjectName>
                 <hours>5</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-036">
                 <subjectName>Medical-Surgical Nursing</subjectName>
                 <hours>6</hours>
             </subject>
@@ -482,23 +482,23 @@
         <name>Dr. Felicia Duterte</name>
         <department>College of Arts &amp; Sciences</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-012">
                 <subjectName>Contemporary World</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-022">
                 <subjectName>Ethics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-030">
                 <subjectName>General Psychology</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-047">
                 <subjectName>Purposive Communication</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-061">
                 <subjectName>Understanding the Self</subjectName>
                 <hours>3</hours>
             </subject>
@@ -510,23 +510,23 @@
         <name>Dr. Gabriel Cayetano</name>
         <department>College of Arts &amp; Sciences</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-012">
                 <subjectName>Contemporary World</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-061">
                 <subjectName>Understanding the Self</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-022">
                 <subjectName>Ethics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-018">
                 <subjectName>Discrete Structures</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-052">
                 <subjectName>Specialization Project</subjectName>
                 <hours>18</hours>
             </subject>
@@ -538,15 +538,15 @@
         <name>Prof. Manuel Garcia</name>
         <department>College of International Hospitality Management</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-034">
                 <subjectName>Kitchen Essentials</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-023">
                 <subjectName>Events Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-059">
                 <subjectName>Tourism Management</subjectName>
                 <hours>3</hours>
             </subject>
@@ -558,27 +558,27 @@
         <name>Dr. Katrina Robredo</name>
         <department>College of Nursing</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-037">
                 <subjectName>Microbiology and Parasitology</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-042">
                 <subjectName>Nutrition and Dietetics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-036">
                 <subjectName>Medical-Surgical Nursing</subjectName>
                 <hours>6</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-001">
                 <subjectName>Anatomy and Physiology</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-045">
                 <subjectName>Pharmacology</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-041">
                 <subjectName>Nursing Care Management</subjectName>
                 <hours>5</hours>
             </subject>
@@ -590,19 +590,19 @@
         <name>Dr. Elena Pascual</name>
         <department>College of International Hospitality Management</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-023">
                 <subjectName>Events Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-031">
                 <subjectName>Hospitality Marketing</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-028">
                 <subjectName>Front Office Operations</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-060">
                 <subjectName>Travel and Tour Operations</subjectName>
                 <hours>3</hours>
             </subject>
@@ -614,19 +614,19 @@
         <name>Prof. Diana Robredo</name>
         <department>College of Computer Studies</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-003">
                 <subjectName>Artificial Intelligence</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-015">
                 <subjectName>Data Structures and Algorithms</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-016">
                 <subjectName>Database Management Systems</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-044">
                 <subjectName>Operating Systems</subjectName>
                 <hours>3</hours>
             </subject>
@@ -638,23 +638,23 @@
         <name>Dr. Hilda Zubiri</name>
         <department>College of Computer Studies</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-051">
                 <subjectName>Software Engineering</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-062">
                 <subjectName>Web Systems and Technologies</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-009">
                 <subjectName>Cloud Computing</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-044">
                 <subjectName>Operating Systems</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-032">
                 <subjectName>Human Computer Interaction</subjectName>
                 <hours>3</hours>
             </subject>
@@ -666,15 +666,15 @@
         <name>Prof. Ferdinand Lacson</name>
         <department>College of Business Administration</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-053">
                 <subjectName>Strategic Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-038">
                 <subjectName>Microeconomics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-035">
                 <subjectName>Marketing Management</subjectName>
                 <hours>3</hours>
             </subject>
@@ -686,23 +686,23 @@
         <name>Dr. Christian Santos</name>
         <department>College of Computer Studies</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-003">
                 <subjectName>Artificial Intelligence</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-062">
                 <subjectName>Web Systems and Technologies</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-044">
                 <subjectName>Operating Systems</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-015">
                 <subjectName>Data Structures and Algorithms</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-043">
                 <subjectName>Object-Oriented Programming</subjectName>
                 <hours>3</hours>
             </subject>
@@ -714,27 +714,27 @@
         <name>Dr. Lito Sotto</name>
         <department>College of International Hospitality Management</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-034">
                 <subjectName>Kitchen Essentials</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-026">
                 <subjectName>Food and Beverage Service</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-028">
                 <subjectName>Front Office Operations</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-031">
                 <subjectName>Hospitality Marketing</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-060">
                 <subjectName>Travel and Tour Operations</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-049">
                 <subjectName>Risk Management in Hospitality</subjectName>
                 <hours>3</hours>
             </subject>
@@ -746,19 +746,19 @@
         <name>Prof. Jose Cayetano</name>
         <department>College of Education</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-057">
                 <subjectName>The Teaching Profession</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-024">
                 <subjectName>Facilitating Learner-Centered Teaching</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-027">
                 <subjectName>Foundation of Special Education</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-004">
                 <subjectName>Assessment in Learning</subjectName>
                 <hours>3</hours>
             </subject>
@@ -770,31 +770,31 @@
         <name>Dr. Amelita Dela Cruz</name>
         <department>College of Computer Studies</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-032">
                 <subjectName>Human Computer Interaction</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-015">
                 <subjectName>Data Structures and Algorithms</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-051">
                 <subjectName>Software Engineering</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-039">
                 <subjectName>Network Security</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-044">
                 <subjectName>Operating Systems</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-009">
                 <subjectName>Cloud Computing</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-052">
                 <subjectName>Specialization Project</subjectName>
                 <hours>12</hours>
             </subject>
@@ -806,27 +806,27 @@
         <name>Prof. Angelica Zubiri</name>
         <department>College of Computer Studies</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-015">
                 <subjectName>Data Structures and Algorithms</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-009">
                 <subjectName>Cloud Computing</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-051">
                 <subjectName>Software Engineering</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-016">
                 <subjectName>Database Management Systems</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-039">
                 <subjectName>Network Security</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-043">
                 <subjectName>Object-Oriented Programming</subjectName>
                 <hours>3</hours>
             </subject>
@@ -838,15 +838,15 @@
         <name>Prof. Emilio Garcia</name>
         <department>College of Business Administration</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-025">
                 <subjectName>Financial Accounting</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-035">
                 <subjectName>Marketing Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-046">
                 <subjectName>Principles of Management</subjectName>
                 <hours>3</hours>
             </subject>
@@ -858,23 +858,23 @@
         <name>Dr. Liza Zubiri</name>
         <department>College of International Hospitality Management</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-031">
                 <subjectName>Hospitality Marketing</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-034">
                 <subjectName>Kitchen Essentials</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-028">
                 <subjectName>Front Office Operations</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-023">
                 <subjectName>Events Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-026">
                 <subjectName>Food and Beverage Service</subjectName>
                 <hours>4</hours>
             </subject>
@@ -886,19 +886,19 @@
         <name>Prof. Andres Reyes</name>
         <department>College of Business Administration</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-038">
                 <subjectName>Microeconomics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-056">
                 <subjectName>Technopreneurship</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-025">
                 <subjectName>Financial Accounting</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-035">
                 <subjectName>Marketing Management</subjectName>
                 <hours>3</hours>
             </subject>
@@ -910,15 +910,15 @@
         <name>Dr. Gloria Cayetano</name>
         <department>College of Business Administration</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-035">
                 <subjectName>Marketing Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-025">
                 <subjectName>Financial Accounting</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-056">
                 <subjectName>Technopreneurship</subjectName>
                 <hours>3</hours>
             </subject>
@@ -930,15 +930,15 @@
         <name>Prof. Bernadette Bautista</name>
         <department>College of Arts &amp; Sciences</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-047">
                 <subjectName>Purposive Communication</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-048">
                 <subjectName>Readings in Philippine History</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-018">
                 <subjectName>Discrete Structures</subjectName>
                 <hours>3</hours>
             </subject>
@@ -950,27 +950,27 @@
         <name>Dr. Imelda Villanueva</name>
         <department>College of Business Administration</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-025">
                 <subjectName>Financial Accounting</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-056">
                 <subjectName>Technopreneurship</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-033">
                 <subjectName>Human Resource Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-038">
                 <subjectName>Microeconomics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-053">
                 <subjectName>Strategic Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-005">
                 <subjectName>Business Law</subjectName>
                 <hours>3</hours>
             </subject>
@@ -982,27 +982,27 @@
         <name>Dr. Amelita Bautista</name>
         <department>College of Education</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-014">
                 <subjectName>Curriculum Development</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-027">
                 <subjectName>Foundation of Special Education</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-024">
                 <subjectName>Facilitating Learner-Centered Teaching</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-057">
                 <subjectName>The Teaching Profession</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-055">
                 <subjectName>Technology for Teaching and Learning</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-007">
                 <subjectName>Child and Adolescent Development</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1014,23 +1014,23 @@
         <name>Dr. Manuel Dela Cruz</name>
         <department>College of Arts &amp; Sciences</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-030">
                 <subjectName>General Psychology</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-018">
                 <subjectName>Discrete Structures</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-022">
                 <subjectName>Ethics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-012">
                 <subjectName>Contemporary World</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-050">
                 <subjectName>Science, Technology, and Society</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1042,19 +1042,19 @@
         <name>Dr. Angelica Marcos</name>
         <department>College of Arts &amp; Sciences</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-047">
                 <subjectName>Purposive Communication</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-022">
                 <subjectName>Ethics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-030">
                 <subjectName>General Psychology</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-052">
                 <subjectName>Specialization Project</subjectName>
                 <hours>21</hours>
             </subject>
@@ -1066,27 +1066,27 @@
         <name>Dr. Roberto Pascual</name>
         <department>College of International Hospitality Management</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-031">
                 <subjectName>Hospitality Marketing</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-023">
                 <subjectName>Events Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-060">
                 <subjectName>Travel and Tour Operations</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-034">
                 <subjectName>Kitchen Essentials</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-028">
                 <subjectName>Front Office Operations</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-026">
                 <subjectName>Food and Beverage Service</subjectName>
                 <hours>4</hours>
             </subject>
@@ -1098,15 +1098,15 @@
         <name>Dr. Angelica Aquino</name>
         <department>College of Business Administration</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-038">
                 <subjectName>Microeconomics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-046">
                 <subjectName>Principles of Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-005">
                 <subjectName>Business Law</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1118,15 +1118,15 @@
         <name>Prof. Felicia Sotto</name>
         <department>College of Computer Studies</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-051">
                 <subjectName>Software Engineering</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-003">
                 <subjectName>Artificial Intelligence</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-015">
                 <subjectName>Data Structures and Algorithms</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1138,15 +1138,15 @@
         <name>Dr. Emilio Pascual</name>
         <department>College of Nursing</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-042">
                 <subjectName>Nutrition and Dietetics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-036">
                 <subjectName>Medical-Surgical Nursing</subjectName>
                 <hours>6</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-010">
                 <subjectName>Community Health Nursing</subjectName>
                 <hours>4</hours>
             </subject>
@@ -1158,15 +1158,15 @@
         <name>Dr. Emilio Pangilinan</name>
         <department>College of Engineering</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-008">
                 <subjectName>Circuit Analysis</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-017">
                 <subjectName>Differential Equations</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-020">
                 <subjectName>Engineering Economy</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1178,23 +1178,23 @@
         <name>Dr. Angelo Reyes</name>
         <department>College of International Hospitality Management</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-026">
                 <subjectName>Food and Beverage Service</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-031">
                 <subjectName>Hospitality Marketing</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-028">
                 <subjectName>Front Office Operations</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-034">
                 <subjectName>Kitchen Essentials</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-060">
                 <subjectName>Travel and Tour Operations</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1206,19 +1206,19 @@
         <name>Prof. Emilio Dela Cruz</name>
         <department>College of Business Administration</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-053">
                 <subjectName>Strategic Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-033">
                 <subjectName>Human Resource Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-025">
                 <subjectName>Financial Accounting</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-046">
                 <subjectName>Principles of Management</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1230,27 +1230,27 @@
         <name>Dr. Irene Pacquiao</name>
         <department>College of Business Administration</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-005">
                 <subjectName>Business Law</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-025">
                 <subjectName>Financial Accounting</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-053">
                 <subjectName>Strategic Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-035">
                 <subjectName>Marketing Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-056">
                 <subjectName>Technopreneurship</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-046">
                 <subjectName>Principles of Management</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1262,15 +1262,15 @@
         <name>Prof. Katrina Sotto</name>
         <department>College of Nursing</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-041">
                 <subjectName>Nursing Care Management</subjectName>
                 <hours>5</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-001">
                 <subjectName>Anatomy and Physiology</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-037">
                 <subjectName>Microbiology and Parasitology</subjectName>
                 <hours>4</hours>
             </subject>
@@ -1282,31 +1282,31 @@
         <name>Dr. Maria Aquino</name>
         <department>College of Education</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-004">
                 <subjectName>Assessment in Learning</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-014">
                 <subjectName>Curriculum Development</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-007">
                 <subjectName>Child and Adolescent Development</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-027">
                 <subjectName>Foundation of Special Education</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-019">
                 <subjectName>Educational Leadership</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-024">
                 <subjectName>Facilitating Learner-Centered Teaching</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-052">
                 <subjectName>Specialization Project</subjectName>
                 <hours>12</hours>
             </subject>
@@ -1318,23 +1318,23 @@
         <name>Engr. Efren Santos</name>
         <department>College of Engineering</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-008">
                 <subjectName>Circuit Analysis</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-011">
                 <subjectName>Computer Architecture</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-013">
                 <subjectName>Control Systems</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-017">
                 <subjectName>Differential Equations</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-058">
                 <subjectName>Thermodynamics</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1346,23 +1346,23 @@
         <name>Prof. Ferdinand Pacquiao</name>
         <department>College of Computer Studies</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-009">
                 <subjectName>Cloud Computing</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-062">
                 <subjectName>Web Systems and Technologies</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-043">
                 <subjectName>Object-Oriented Programming</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-032">
                 <subjectName>Human Computer Interaction</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-016">
                 <subjectName>Database Management Systems</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1374,27 +1374,27 @@
         <name>Dr. Imelda Duterte</name>
         <department>College of Arts &amp; Sciences</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-030">
                 <subjectName>General Psychology</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-018">
                 <subjectName>Discrete Structures</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-047">
                 <subjectName>Purposive Communication</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-050">
                 <subjectName>Science, Technology, and Society</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-061">
                 <subjectName>Understanding the Self</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-022">
                 <subjectName>Ethics</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1406,27 +1406,27 @@
         <name>Dr. Andres Zubiri</name>
         <department>College of Nursing</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-037">
                 <subjectName>Microbiology and Parasitology</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-045">
                 <subjectName>Pharmacology</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-010">
                 <subjectName>Community Health Nursing</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-041">
                 <subjectName>Nursing Care Management</subjectName>
                 <hours>5</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-001">
                 <subjectName>Anatomy and Physiology</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-029">
                 <subjectName>Fundamentals of Nursing</subjectName>
                 <hours>5</hours>
             </subject>
@@ -1438,27 +1438,27 @@
         <name>Dr. Diana Santos</name>
         <department>College of Education</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-024">
                 <subjectName>Facilitating Learner-Centered Teaching</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-027">
                 <subjectName>Foundation of Special Education</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-055">
                 <subjectName>Technology for Teaching and Learning</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-004">
                 <subjectName>Assessment in Learning</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-057">
                 <subjectName>The Teaching Profession</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-014">
                 <subjectName>Curriculum Development</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1470,15 +1470,15 @@
         <name>Dr. Elena Robredo</name>
         <department>College of International Hospitality Management</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-026">
                 <subjectName>Food and Beverage Service</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-031">
                 <subjectName>Hospitality Marketing</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-060">
                 <subjectName>Travel and Tour Operations</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1490,19 +1490,19 @@
         <name>Dr. Roberto Mendoza</name>
         <department>College of Business Administration</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-035">
                 <subjectName>Marketing Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-025">
                 <subjectName>Financial Accounting</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-005">
                 <subjectName>Business Law</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-053">
                 <subjectName>Strategic Management</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1514,15 +1514,15 @@
         <name>Prof. Benigno Lacson</name>
         <department>College of International Hospitality Management</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-031">
                 <subjectName>Hospitality Marketing</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-049">
                 <subjectName>Risk Management in Hospitality</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-060">
                 <subjectName>Travel and Tour Operations</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1534,19 +1534,19 @@
         <name>Dr. Sara Bautista</name>
         <department>College of Engineering</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-011">
                 <subjectName>Computer Architecture</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-058">
                 <subjectName>Thermodynamics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-040">
                 <subjectName>Numerical Analysis</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-021">
                 <subjectName>Engineering Mechanics</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1558,23 +1558,23 @@
         <name>Prof. Gabriel Pangilinan</name>
         <department>College of Engineering</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-021">
                 <subjectName>Engineering Mechanics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-008">
                 <subjectName>Circuit Analysis</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-054">
                 <subjectName>Strength of Materials</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-058">
                 <subjectName>Thermodynamics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-052">
                 <subjectName>Specialization Project</subjectName>
                 <hours>17</hours>
             </subject>
@@ -1586,27 +1586,27 @@
         <name>Prof. Angelica Robredo</name>
         <department>College of Engineering</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-006">
                 <subjectName>Calculus with Analytic Geometry</subjectName>
                 <hours>5</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-008">
                 <subjectName>Circuit Analysis</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-040">
                 <subjectName>Numerical Analysis</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-020">
                 <subjectName>Engineering Economy</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-058">
                 <subjectName>Thermodynamics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-011">
                 <subjectName>Computer Architecture</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1618,15 +1618,15 @@
         <name>Dr. Ricardo Gordon</name>
         <department>College of Nursing</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-001">
                 <subjectName>Anatomy and Physiology</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-029">
                 <subjectName>Fundamentals of Nursing</subjectName>
                 <hours>5</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-010">
                 <subjectName>Community Health Nursing</subjectName>
                 <hours>4</hours>
             </subject>
@@ -1638,19 +1638,19 @@
         <name>Dr. Danilo Villanueva</name>
         <department>College of Nursing</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-037">
                 <subjectName>Microbiology and Parasitology</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-010">
                 <subjectName>Community Health Nursing</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-001">
                 <subjectName>Anatomy and Physiology</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-029">
                 <subjectName>Fundamentals of Nursing</subjectName>
                 <hours>5</hours>
             </subject>
@@ -1662,27 +1662,27 @@
         <name>Dr. Ferdinand Duterte</name>
         <department>College of Business Administration</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-035">
                 <subjectName>Marketing Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-033">
                 <subjectName>Human Resource Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-005">
                 <subjectName>Business Law</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-053">
                 <subjectName>Strategic Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-038">
                 <subjectName>Microeconomics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-056">
                 <subjectName>Technopreneurship</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1694,19 +1694,19 @@
         <name>Sir Gabriel Lacson</name>
         <department>College of Computer Studies</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-009">
                 <subjectName>Cloud Computing</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-003">
                 <subjectName>Artificial Intelligence</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-044">
                 <subjectName>Operating Systems</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-062">
                 <subjectName>Web Systems and Technologies</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1718,23 +1718,23 @@
         <name>Dr. Amelita Lacson</name>
         <department>College of Arts &amp; Sciences</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-050">
                 <subjectName>Science, Technology, and Society</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-048">
                 <subjectName>Readings in Philippine History</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-047">
                 <subjectName>Purposive Communication</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-002">
                 <subjectName>Art Appreciation</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-022">
                 <subjectName>Ethics</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1746,27 +1746,27 @@
         <name>Dr. Emilio Lacson</name>
         <department>College of Computer Studies</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-044">
                 <subjectName>Operating Systems</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-032">
                 <subjectName>Human Computer Interaction</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-043">
                 <subjectName>Object-Oriented Programming</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-009">
                 <subjectName>Cloud Computing</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-015">
                 <subjectName>Data Structures and Algorithms</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-016">
                 <subjectName>Database Management Systems</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1778,15 +1778,15 @@
         <name>Dr. Grace Mendoza</name>
         <department>College of Nursing</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-041">
                 <subjectName>Nursing Care Management</subjectName>
                 <hours>5</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-029">
                 <subjectName>Fundamentals of Nursing</subjectName>
                 <hours>5</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-045">
                 <subjectName>Pharmacology</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1798,15 +1798,15 @@
         <name>Engr. Lourdes Dela Cruz</name>
         <department>College of Engineering</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-054">
                 <subjectName>Strength of Materials</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-021">
                 <subjectName>Engineering Mechanics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-020">
                 <subjectName>Engineering Economy</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1818,19 +1818,19 @@
         <name>Dr. Liza Sotto</name>
         <department>College of Arts &amp; Sciences</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-048">
                 <subjectName>Readings in Philippine History</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-018">
                 <subjectName>Discrete Structures</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-050">
                 <subjectName>Science, Technology, and Society</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-052">
                 <subjectName>Specialization Project</subjectName>
                 <hours>21</hours>
             </subject>
@@ -1842,23 +1842,23 @@
         <name>Dr. Ferdinand Zubiri</name>
         <department>College of International Hospitality Management</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-031">
                 <subjectName>Hospitality Marketing</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-034">
                 <subjectName>Kitchen Essentials</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-060">
                 <subjectName>Travel and Tour Operations</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-059">
                 <subjectName>Tourism Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-049">
                 <subjectName>Risk Management in Hospitality</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1870,15 +1870,15 @@
         <name>Dr. Manuel Pascual</name>
         <department>College of Arts &amp; Sciences</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-022">
                 <subjectName>Ethics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-002">
                 <subjectName>Art Appreciation</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-018">
                 <subjectName>Discrete Structures</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1890,15 +1890,15 @@
         <name>Prof. Amelita Robredo</name>
         <department>College of Business Administration</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-035">
                 <subjectName>Marketing Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-033">
                 <subjectName>Human Resource Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-046">
                 <subjectName>Principles of Management</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1910,27 +1910,27 @@
         <name>Engr. Juan Marcos</name>
         <department>College of Engineering</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-054">
                 <subjectName>Strength of Materials</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-008">
                 <subjectName>Circuit Analysis</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-011">
                 <subjectName>Computer Architecture</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-021">
                 <subjectName>Engineering Mechanics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-040">
                 <subjectName>Numerical Analysis</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-058">
                 <subjectName>Thermodynamics</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1942,27 +1942,27 @@
         <name>Dr. Elena Hontiveros</name>
         <department>College of Business Administration</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-025">
                 <subjectName>Financial Accounting</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-038">
                 <subjectName>Microeconomics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-046">
                 <subjectName>Principles of Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-053">
                 <subjectName>Strategic Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-035">
                 <subjectName>Marketing Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-056">
                 <subjectName>Technopreneurship</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1974,19 +1974,19 @@
         <name>Sir Lito Mendoza</name>
         <department>College of Business Administration</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-025">
                 <subjectName>Financial Accounting</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-035">
                 <subjectName>Marketing Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-005">
                 <subjectName>Business Law</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-056">
                 <subjectName>Technopreneurship</subjectName>
                 <hours>3</hours>
             </subject>
@@ -1998,15 +1998,15 @@
         <name>Ma'am Corazon Robredo</name>
         <department>College of Education</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-019">
                 <subjectName>Educational Leadership</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-007">
                 <subjectName>Child and Adolescent Development</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-004">
                 <subjectName>Assessment in Learning</subjectName>
                 <hours>3</hours>
             </subject>
@@ -2018,27 +2018,27 @@
         <name>Dr. Lito Garcia</name>
         <department>College of Business Administration</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-053">
                 <subjectName>Strategic Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-056">
                 <subjectName>Technopreneurship</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-033">
                 <subjectName>Human Resource Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-046">
                 <subjectName>Principles of Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-025">
                 <subjectName>Financial Accounting</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-005">
                 <subjectName>Business Law</subjectName>
                 <hours>3</hours>
             </subject>
@@ -2050,19 +2050,19 @@
         <name>Prof. Leonor Pangilinan</name>
         <department>College of Arts &amp; Sciences</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-012">
                 <subjectName>Contemporary World</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-018">
                 <subjectName>Discrete Structures</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-022">
                 <subjectName>Ethics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-002">
                 <subjectName>Art Appreciation</subjectName>
                 <hours>3</hours>
             </subject>
@@ -2074,23 +2074,23 @@
         <name>Dr. Rodrigo Aquino</name>
         <department>College of Engineering</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-054">
                 <subjectName>Strength of Materials</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-011">
                 <subjectName>Computer Architecture</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-013">
                 <subjectName>Control Systems</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-017">
                 <subjectName>Differential Equations</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-052">
                 <subjectName>Specialization Project</subjectName>
                 <hours>18</hours>
             </subject>
@@ -2102,19 +2102,19 @@
         <name>Dr. Liza Mendoza</name>
         <department>College of Education</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-019">
                 <subjectName>Educational Leadership</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-055">
                 <subjectName>Technology for Teaching and Learning</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-014">
                 <subjectName>Curriculum Development</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-057">
                 <subjectName>The Teaching Profession</subjectName>
                 <hours>3</hours>
             </subject>
@@ -2126,19 +2126,19 @@
         <name>Dr. Irene Dela Cruz</name>
         <department>College of Arts &amp; Sciences</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-047">
                 <subjectName>Purposive Communication</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-050">
                 <subjectName>Science, Technology, and Society</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-030">
                 <subjectName>General Psychology</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-061">
                 <subjectName>Understanding the Self</subjectName>
                 <hours>3</hours>
             </subject>
@@ -2150,27 +2150,27 @@
         <name>Dr. Ferdinand Pascual</name>
         <department>College of Business Administration</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-033">
                 <subjectName>Human Resource Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-038">
                 <subjectName>Microeconomics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-053">
                 <subjectName>Strategic Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-025">
                 <subjectName>Financial Accounting</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-046">
                 <subjectName>Principles of Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-005">
                 <subjectName>Business Law</subjectName>
                 <hours>3</hours>
             </subject>
@@ -2182,19 +2182,19 @@
         <name>Dr. Paulo Santos</name>
         <department>College of Business Administration</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-038">
                 <subjectName>Microeconomics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-046">
                 <subjectName>Principles of Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-005">
                 <subjectName>Business Law</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-035">
                 <subjectName>Marketing Management</subjectName>
                 <hours>3</hours>
             </subject>
@@ -2206,23 +2206,23 @@
         <name>Prof. Irene Villanueva</name>
         <department>College of International Hospitality Management</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-060">
                 <subjectName>Travel and Tour Operations</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-034">
                 <subjectName>Kitchen Essentials</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-023">
                 <subjectName>Events Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-031">
                 <subjectName>Hospitality Marketing</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-026">
                 <subjectName>Food and Beverage Service</subjectName>
                 <hours>4</hours>
             </subject>
@@ -2234,15 +2234,15 @@
         <name>Dr. Elena Marcos</name>
         <department>College of Computer Studies</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-062">
                 <subjectName>Web Systems and Technologies</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-015">
                 <subjectName>Data Structures and Algorithms</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-043">
                 <subjectName>Object-Oriented Programming</subjectName>
                 <hours>3</hours>
             </subject>
@@ -2254,19 +2254,19 @@
         <name>Dr. Christian Cayetano</name>
         <department>College of Arts &amp; Sciences</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-018">
                 <subjectName>Discrete Structures</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-002">
                 <subjectName>Art Appreciation</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-048">
                 <subjectName>Readings in Philippine History</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-050">
                 <subjectName>Science, Technology, and Society</subjectName>
                 <hours>3</hours>
             </subject>
@@ -2278,23 +2278,23 @@
         <name>Dr. Carmela Lacson</name>
         <department>College of Education</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-055">
                 <subjectName>Technology for Teaching and Learning</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-014">
                 <subjectName>Curriculum Development</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-004">
                 <subjectName>Assessment in Learning</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-007">
                 <subjectName>Child and Adolescent Development</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-019">
                 <subjectName>Educational Leadership</subjectName>
                 <hours>3</hours>
             </subject>
@@ -2306,19 +2306,19 @@
         <name>Prof. Jovita Pacquiao</name>
         <department>College of Business Administration</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-046">
                 <subjectName>Principles of Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-035">
                 <subjectName>Marketing Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-056">
                 <subjectName>Technopreneurship</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-025">
                 <subjectName>Financial Accounting</subjectName>
                 <hours>3</hours>
             </subject>
@@ -2330,23 +2330,23 @@
         <name>Dr. Elena Hontiveros</name>
         <department>College of Nursing</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-029">
                 <subjectName>Fundamentals of Nursing</subjectName>
                 <hours>5</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-042">
                 <subjectName>Nutrition and Dietetics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-010">
                 <subjectName>Community Health Nursing</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-036">
                 <subjectName>Medical-Surgical Nursing</subjectName>
                 <hours>6</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-052">
                 <subjectName>Specialization Project</subjectName>
                 <hours>12</hours>
             </subject>
@@ -2358,15 +2358,15 @@
         <name>Prof. Sara Duterte</name>
         <department>College of International Hospitality Management</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-023">
                 <subjectName>Events Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-049">
                 <subjectName>Risk Management in Hospitality</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-059">
                 <subjectName>Tourism Management</subjectName>
                 <hours>3</hours>
             </subject>
@@ -2378,23 +2378,23 @@
         <name>Dr. Grace Sotto</name>
         <department>College of Computer Studies</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-032">
                 <subjectName>Human Computer Interaction</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-003">
                 <subjectName>Artificial Intelligence</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-015">
                 <subjectName>Data Structures and Algorithms</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-039">
                 <subjectName>Network Security</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-043">
                 <subjectName>Object-Oriented Programming</subjectName>
                 <hours>3</hours>
             </subject>
@@ -2406,23 +2406,23 @@
         <name>Prof. Danilo Villanueva</name>
         <department>College of Business Administration</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-056">
                 <subjectName>Technopreneurship</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-005">
                 <subjectName>Business Law</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-033">
                 <subjectName>Human Resource Management</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-025">
                 <subjectName>Financial Accounting</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-046">
                 <subjectName>Principles of Management</subjectName>
                 <hours>3</hours>
             </subject>
@@ -2434,15 +2434,15 @@
         <name>Dr. Leonor Aquino</name>
         <department>College of Computer Studies</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-044">
                 <subjectName>Operating Systems</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-003">
                 <subjectName>Artificial Intelligence</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-016">
                 <subjectName>Database Management Systems</subjectName>
                 <hours>3</hours>
             </subject>
@@ -2454,15 +2454,15 @@
         <name>Engr. Gabriel Cayetano</name>
         <department>College of Engineering</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-020">
                 <subjectName>Engineering Economy</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-021">
                 <subjectName>Engineering Mechanics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-017">
                 <subjectName>Differential Equations</subjectName>
                 <hours>3</hours>
             </subject>
@@ -2474,23 +2474,23 @@
         <name>Prof. Jose Garcia</name>
         <department>College of International Hospitality Management</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-034">
                 <subjectName>Kitchen Essentials</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-026">
                 <subjectName>Food and Beverage Service</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-031">
                 <subjectName>Hospitality Marketing</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-060">
                 <subjectName>Travel and Tour Operations</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-049">
                 <subjectName>Risk Management in Hospitality</subjectName>
                 <hours>3</hours>
             </subject>
@@ -2502,23 +2502,23 @@
         <name>Ma'am Corazon Villanueva</name>
         <department>College of Nursing</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-036">
                 <subjectName>Medical-Surgical Nursing</subjectName>
                 <hours>6</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-001">
                 <subjectName>Anatomy and Physiology</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-041">
                 <subjectName>Nursing Care Management</subjectName>
                 <hours>5</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-010">
                 <subjectName>Community Health Nursing</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-037">
                 <subjectName>Microbiology and Parasitology</subjectName>
                 <hours>4</hours>
             </subject>
@@ -2530,15 +2530,15 @@
         <name>Engr. Leonor Garcia</name>
         <department>College of Engineering</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-011">
                 <subjectName>Computer Architecture</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-054">
                 <subjectName>Strength of Materials</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-020">
                 <subjectName>Engineering Economy</subjectName>
                 <hours>3</hours>
             </subject>
@@ -2550,23 +2550,23 @@
         <name>Ma'am Diana Santos</name>
         <department>College of Nursing</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-029">
                 <subjectName>Fundamentals of Nursing</subjectName>
                 <hours>5</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-045">
                 <subjectName>Pharmacology</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-041">
                 <subjectName>Nursing Care Management</subjectName>
                 <hours>5</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-042">
                 <subjectName>Nutrition and Dietetics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-001">
                 <subjectName>Anatomy and Physiology</subjectName>
                 <hours>4</hours>
             </subject>
@@ -2578,27 +2578,27 @@
         <name>Prof. Jose Mendoza</name>
         <department>College of Nursing</department>
         <subjects>
-            <subject>
+            <subject subjectId="SUB-037">
                 <subjectName>Microbiology and Parasitology</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-045">
                 <subjectName>Pharmacology</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-036">
                 <subjectName>Medical-Surgical Nursing</subjectName>
                 <hours>6</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-001">
                 <subjectName>Anatomy and Physiology</subjectName>
                 <hours>4</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-042">
                 <subjectName>Nutrition and Dietetics</subjectName>
                 <hours>3</hours>
             </subject>
-            <subject>
+            <subject subjectId="SUB-052">
                 <subjectName>Specialization Project</subjectName>
                 <hours>10</hours>
             </subject>
