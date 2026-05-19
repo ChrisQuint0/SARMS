@@ -9,6 +9,7 @@
     <xsl:variable name="totalTuition" select="format-number(sum(billing/record/tuitionFee), '#,##0')"/>
     <xsl:variable name="totalPayments" select="format-number(sum(billing/record/paymentsMade), '#,##0')"/>
     <xsl:variable name="totalBalance" select="format-number(sum(billing/record/balance), '#,##0')"/>
+    <xsl:variable name="enrollmentData" select="document('../group1-enrollment/students.xml')"/>
 
 <html>
 <head>
@@ -221,6 +222,36 @@
             border-color: var(--plp-green-400);
             box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.15);
             background: #ffffff;
+        }
+
+        .premium-button {
+            padding: 14px 24px;
+            background: linear-gradient(135deg, var(--plp-green-400), var(--plp-green-600));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 138, 69, 0.2);
+            transition: all 0.3s ease;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .premium-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 138, 69, 0.3);
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 24px;
+            text-align: left;
         }
 
         /* Table */
@@ -594,6 +625,65 @@
     }
 </script>
 
+<!--  Modal Overlay -->
+<div class="modal-overlay" id="billingModalOverlay" onclick="closeModal()"></div>
+
+<!-- Add Form Modal -->
+<div class="module-modal" id="billingModal" style="max-width: 600px;">
+    <div class="modal-header">
+        <h2 id="modalTitle">Add Billing Record</h2>
+        <p id="modalSubtitle">Enter Student ID to automatically fetch enrollment data.</p>
+    </div>
+    <div class="form-grid">
+        <div class="input-group">
+            <label for="newStudentId">Student ID</label>
+            <input type="text" id="newStudentId" class="premium-input" placeholder="e.g. 23-00001" onblur="fetchStudentData()"/>
+        </div>
+        <div class="input-group">
+            <label for="newName">Student Name</label>
+            <input type="text" id="newName" class="premium-input" placeholder="Auto-populated" readonly="readonly" style="background: #F3F4F6;"/>
+        </div>
+        <div class="input-group">
+            <label for="newTuition">Tuition Fee (₱)</label>
+            <input type="number" id="newTuition" class="premium-input" placeholder="0.00"/>
+        </div>
+        <div class="input-group">
+            <label for="newPayment">Payment Made (₱)</label>
+            <input type="number" id="newPayment" class="premium-input" placeholder="0.00"/>
+        </div>
+    </div>
+    <div style="text-align: right; margin-top: 24px;">
+        <button class="premium-button" style="background: #6B7280; display: inline-flex; margin-right: 12px;" onclick="closeModal()">Cancel</button>
+        <button class="premium-button" style="display: inline-flex;" onclick="saveBillingRecord()">Save Record</button>
+    </div>
+</div>
+
+<!-- Confirm Modal -->
+<div class="modal-overlay" id="confirmModalOverlay" onclick="closeConfirmModal()"></div>
+<div class="module-modal" id="confirmModal" style="max-width: 400px; text-align: center; padding: 30px;">
+    <div style="font-size: 48px; color: #F59E0B; margin-bottom: 16px;">
+        <i class="fas fa-exclamation-circle"></i>
+    </div>
+    <h2 style="font-size: 24px; color: #111827; margin-bottom: 12px;" id="confirmTitle">Confirm Action</h2>
+    <p style="color: #6B7280; font-size: 15px; margin-bottom: 24px;" id="confirmMessage">Are you sure you want to proceed?</p>
+    <div style="display: flex; gap: 12px; justify-content: center;">
+        <button class="premium-button" style="background: #E5E7EB; color: #4B5563; box-shadow: none;" onclick="closeConfirmModal()">Cancel</button>
+        <button class="premium-button" id="confirmActionBtn" style="background: #008A45;">Yes, Confirm</button>
+    </div>
+</div>
+
+<!-- Alert Modal -->
+<div class="modal-overlay" id="alertModalOverlay" onclick="closeAlertModal()"></div>
+<div class="module-modal" id="alertModal" style="max-width: 400px; text-align: center; padding: 30px;">
+    <div id="alertIcon" style="font-size: 48px; color: #10B981; margin-bottom: 16px;">
+        <i class="fas fa-check-circle"></i>
+    </div>
+    <h2 style="font-size: 24px; color: #111827; margin-bottom: 12px;" id="alertTitle">Success!</h2>
+    <p style="color: #6B7280; font-size: 15px; margin-bottom: 24px;" id="alertMessage">Action completed successfully.</p>
+    <button class="premium-button" style="margin: 0 auto;" onclick="closeAlertModal()">OK</button>
+</div>
+
+
 <div class="container">
 
     <!-- Dashboard -->
@@ -635,6 +725,11 @@
                 <option value="balance">With Balance</option>
             </select>
         </div>
+        <div class="input-group" style="flex: 0 0 auto;">
+            <button class="premium-button" onclick="openAddModal()">
+                <i class="fas fa-plus"></i> Add Record
+            </button>
+        </div>
     </div>
 
     <!-- Table -->
@@ -649,6 +744,7 @@
                         <th>Payments Made</th>
                         <th>Current Balance</th>
                         <th>Status</th>
+                        <th style="text-align: right;">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -663,8 +759,22 @@
                                 </xsl:choose>
                             </xsl:attribute>
                             
+                            <xsl:variable name="currentStudentId" select="studentId" />
+                            <xsl:variable name="studentNode" select="$enrollmentData//student[@studentId = $currentStudentId]" />
+                            
                             <td class="student-id"><xsl:value-of select="studentId"/></td>
-                            <td class="student-name"><xsl:value-of select="name"/></td>
+                            <td class="student-name">
+                                <xsl:choose>
+                                    <xsl:when test="$studentNode">
+                                        <xsl:value-of select="$studentNode/firstName"/>
+                                        <xsl:text> </xsl:text>
+                                        <xsl:value-of select="$studentNode/lastName"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <span style="color:red; font-style:italic;">Name Not Found</span>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </td>
                             <td class="currency tuition">₱<xsl:value-of select="format-number(tuitionFee, '#,##0')"/></td>
                             <td class="currency payment">₱<xsl:value-of select="format-number(paymentsMade, '#,##0')"/></td>
                             <td class="currency balance">₱<xsl:value-of select="format-number(balance, '#,##0')"/></td>
@@ -680,6 +790,11 @@
                                         <span class="status-badge badge-balance">With Balance</span>
                                     </xsl:otherwise>
                                 </xsl:choose>
+                            </td>
+                            <td style="text-align: right;">
+                                <button class="premium-button" style="padding: 8px 16px; height: auto; font-size: 13px;" onclick="openEditModal('{studentId}', '{tuitionFee}', '{paymentsMade}')">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
                             </td>
                         </tr>
                     </xsl:for-each>
@@ -701,7 +816,7 @@
 
 </div>
 
-<script>
+<script><![CDATA[
     function filterTable() {
         const table = document.getElementById('billingTable');
         const rows = table.querySelectorAll('tbody tr');
@@ -719,7 +834,7 @@
             const matchSearch = searchVal === '' || textContent.includes(searchVal);
             const matchStatus = statusVal === 'all' || statusVal === rowStatus;
             
-            if (matchSearch &amp;&amp; matchStatus) {
+            if (matchSearch && matchStatus) {
                 row.classList.remove('hidden-row');
                 visibleCount++;
             } else {
@@ -735,7 +850,241 @@
             noRecords.style.display = 'none';
         }
     }
-</script>
+
+    function openAddModal() {
+        document.getElementById('modalTitle').innerText = 'Add Billing Record';
+        document.getElementById('modalSubtitle').innerText = 'Enter Student ID to automatically fetch enrollment data.';
+        
+        const idInput = document.getElementById('newStudentId');
+        idInput.value = '';
+        idInput.removeAttribute('readonly');
+        idInput.style.background = '#ffffff';
+        
+        document.getElementById('newName').value = '';
+        document.getElementById('newTuition').value = '';
+        document.getElementById('newPayment').value = '';
+        
+        document.getElementById('billingModalOverlay').classList.add('active');
+        document.getElementById('billingModal').classList.add('active');
+    }
+
+    function openEditModal(studentId, tuition, payment) {
+        document.getElementById('modalTitle').innerText = 'Edit Billing Record';
+        document.getElementById('modalSubtitle').innerText = 'Update financial details for this student.';
+        
+        const idInput = document.getElementById('newStudentId');
+        idInput.value = studentId;
+        idInput.setAttribute('readonly', 'readonly');
+        idInput.style.background = '#F3F4F6';
+        
+        document.getElementById('newTuition').value = tuition;
+        document.getElementById('newPayment').value = payment;
+        
+        // Trigger name fetch immediately
+        fetchStudentData();
+        
+        document.getElementById('billingModalOverlay').classList.add('active');
+        document.getElementById('billingModal').classList.add('active');
+    }
+
+    function closeModal() {
+        document.getElementById('billingModalOverlay').classList.remove('active');
+        document.getElementById('billingModal').classList.remove('active');
+    }
+
+    function fetchStudentData() {
+        const studentId = document.getElementById('newStudentId').value;
+        if (!studentId) return;
+
+        // Visual feedback
+        const nameInput = document.getElementById('newName');
+        nameInput.placeholder = "Fetching data...";
+
+        // Fetch XML from the enrollment module
+        fetch('../group1-enrollment/students.xml')
+            .then(response => {
+                if (!response.ok) throw new Error("Could not load students.xml");
+                return response.text();
+            })
+            .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+            .then(xml => {
+                // Find student by attribute
+                const studentNodes = xml.getElementsByTagName("student");
+                let found = false;
+                for (let i = 0; i < studentNodes.length; i++) {
+                    if (studentNodes[i].getAttribute("studentId") === studentId) {
+                        const firstName = studentNodes[i].getElementsByTagName("firstName")[0].textContent;
+                        const lastName = studentNodes[i].getElementsByTagName("lastName")[0].textContent;
+                        nameInput.value = firstName + " " + lastName;
+                        found = true;
+                        break;
+                    }
+                }
+                
+                if (!found) {
+                    nameInput.value = "";
+                    nameInput.placeholder = "Student not found.";
+                    showAlert("Student Not Found", "The Student ID you entered does not exist in the enrollment module.", "error");
+                }
+            })
+            .catch(err => {
+                console.error("Error fetching student data:", err);
+                nameInput.value = "";
+                nameInput.placeholder = "Error loading data.";
+                showAlert("Connection Error", "Could not load enrollment data. Ensure you are running this on a local server.", "error");
+            });
+    }
+
+    function saveBillingRecord() {
+        const studentId = document.getElementById('newStudentId').value;
+        const tuition = document.getElementById('newTuition').value;
+        const payment = document.getElementById('newPayment').value;
+        const name = document.getElementById('newName').value;
+
+        if (!studentId || tuition === '' || payment === '') {
+            showAlert("Error", "Please fill in all fields (Student ID, Tuition Fee, and Payment) before saving.", "error");
+            return;
+        }
+        
+        if (name === "" || name === "Student not found." || name === "Error loading data.") {
+            showAlert("Error", "Valid student name is required. Please enter a valid Student ID.", "error");
+            return;
+        }
+
+        const isEdit = document.getElementById('newStudentId').hasAttribute('readonly');
+        const actionText = isEdit ? "update" : "add";
+        
+        showConfirm("Confirm Action", `Are you sure you want to ${actionText} the billing record for Student ID: ${studentId}?`, () => {
+            executeSave(studentId, name, parseFloat(tuition), parseFloat(payment), isEdit);
+        });
+    }
+
+    function executeSave(studentId, name, tuition, payment, isEdit) {
+        const balance = tuition - payment;
+        const tbody = document.querySelector('#billingTable tbody');
+        
+        const formatCurrency = (num) => num.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+        
+        let statusClass, statusText, filterStatus;
+        if (balance <= 0) {
+            statusClass = 'badge-paid'; statusText = 'Fully Paid'; filterStatus = 'paid';
+        } else if (balance <= 5000) {
+            statusClass = 'badge-nearly'; statusText = 'Nearly Paid'; filterStatus = 'nearly';
+        } else {
+            statusClass = 'badge-balance'; statusText = 'With Balance'; filterStatus = 'balance';
+        }
+
+        if (isEdit) {
+            const rows = tbody.querySelectorAll('tr');
+            for(let i=0; i<rows.length; i++) {
+                const row = rows[i];
+                if(row.querySelector('.student-id') && row.querySelector('.student-id').textContent === studentId) {
+                    row.setAttribute('data-status', filterStatus);
+                    row.querySelector('.tuition').textContent = "₱" + formatCurrency(tuition);
+                    row.querySelector('.payment').textContent = "₱" + formatCurrency(payment);
+                    row.querySelector('.balance').textContent = "₱" + formatCurrency(balance);
+                    row.querySelector('td:nth-child(6)').innerHTML = `<span class="status-badge ${statusClass}">${statusText}</span>`;
+                    row.querySelector('button').setAttribute('onclick', `openEditModal('${studentId}', '${tuition}', '${payment}')`);
+                    break;
+                }
+            }
+        } else {
+            const tr = document.createElement('tr');
+            tr.setAttribute('data-status', filterStatus);
+            
+            tr.innerHTML = `
+                <td class="student-id">${studentId}</td>
+                <td class="student-name">${name}</td>
+                <td class="currency tuition">₱${formatCurrency(tuition)}</td>
+                <td class="currency payment">₱${formatCurrency(payment)}</td>
+                <td class="currency balance">₱${formatCurrency(balance)}</td>
+                <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                <td style="text-align: right;">
+                    <button class="premium-button" style="padding: 8px 16px; height: auto; font-size: 13px;" onclick="openEditModal('${studentId}', '${tuition}', '${payment}')">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                </td>
+            `;
+            tbody.insertBefore(tr, tbody.firstChild);
+        }
+        
+        updateDashboardStats();
+        
+        closeModal();
+        showAlert("Success!", `Record successfully ${isEdit ? "updated" : "added"} in the dashboard.`);
+    }
+
+    function updateDashboardStats() {
+        const rows = document.querySelectorAll('#billingTable tbody tr');
+        let totalTuition = 0;
+        let totalPayments = 0;
+        let totalBalance = 0;
+        let validRows = 0;
+        
+        for(let i=0; i<rows.length; i++) {
+            const row = rows[i];
+            if(row.querySelector('.tuition')) {
+                const t = parseFloat(row.querySelector('.tuition').textContent.replace(/[^0-9.-]+/g,""));
+                const p = parseFloat(row.querySelector('.payment').textContent.replace(/[^0-9.-]+/g,""));
+                const b = parseFloat(row.querySelector('.balance').textContent.replace(/[^0-9.-]+/g,""));
+                totalTuition += t;
+                totalPayments += p;
+                totalBalance += b;
+                validRows++;
+            }
+        }
+        
+        const cards = document.querySelectorAll('.dashboard-grid .card .value');
+        if(cards.length >= 4) {
+            cards[0].textContent = validRows;
+            cards[1].textContent = "₱" + totalTuition.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            cards[2].textContent = "₱" + totalPayments.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            cards[3].textContent = "₱" + totalBalance.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+        }
+    }
+
+
+
+    function showConfirm(title, message, callback) {
+        document.getElementById('confirmTitle').innerText = title;
+        document.getElementById('confirmMessage').innerText = message;
+        document.getElementById('confirmModalOverlay').classList.add('active');
+        document.getElementById('confirmModal').classList.add('active');
+        
+        const btn = document.getElementById('confirmActionBtn');
+        btn.onclick = function() {
+            closeConfirmModal();
+            if(callback) callback();
+        };
+    }
+
+    function closeConfirmModal() {
+        document.getElementById('confirmModalOverlay').classList.remove('active');
+        document.getElementById('confirmModal').classList.remove('active');
+    }
+
+    function showAlert(title, message, type="success") {
+        document.getElementById('alertTitle').innerText = title;
+        document.getElementById('alertMessage').innerText = message;
+        
+        const icon = document.getElementById('alertIcon');
+        if(type === "error") {
+            icon.style.color = "#DC2626";
+            icon.innerHTML = '<i class="fas fa-times-circle"></i>';
+        } else {
+            icon.style.color = "#10B981";
+            icon.innerHTML = '<i class="fas fa-check-circle"></i>';
+        }
+        
+        document.getElementById('alertModalOverlay').classList.add('active');
+        document.getElementById('alertModal').classList.add('active');
+    }
+
+    function closeAlertModal() {
+        document.getElementById('alertModalOverlay').classList.remove('active');
+        document.getElementById('alertModal').classList.remove('active');
+    }
+]]></script>
 
 </body>
 </html>

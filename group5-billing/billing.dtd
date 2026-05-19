@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!ELEMENT billing (record+)>
-<!ELEMENT record (studentId, name, tuitionFee, paymentsMade, balance)>
+<!ELEMENT record (studentId, tuitionFee, paymentsMade, balance)>
 <!ELEMENT studentId (#PCDATA)>
-<!ELEMENT name (#PCDATA)>
 <!ELEMENT tuitionFee (#PCDATA)>
 <!ELEMENT paymentsMade (#PCDATA)>
 <!ELEMENT balance (#PCDATA)>

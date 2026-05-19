@@ -22,15 +22,15 @@ Filters records to identify students who have any remaining
 debt higher than zero.
 
 --------------------------------------------------------------------
-QUERY 2: Retrieve all student names
+QUERY 2: Retrieve fully paid accounts
 --------------------------------------------------------------------
 
 Expression:
-/billing/record/name
+/billing/record [balance = 0]
 
 Explanation:
-Navigates to the name child element for all records to list
-enrolled students.  
+Filters the records to identify students who have completely 
+paid off their tuition with zero remaining balance.
 
 --------------------------------------------------------------------
 QUERY 3: Retrieve all student IDs
@@ -207,45 +207,46 @@ Provides a numerical count of students holding a high
 debt status.  
 
 -------------------------------------------------------------------- 
-QUERY 19: Retrieve students whose names contain "Garcia"
+QUERY 19: Retrieve student record by specific ID
 -------------------------------------------------------------------- 
 
 Expression:
-/billing/record [contains (name, 'Garcia')]   
+/billing/record [contains(studentId, '00045')]   
 
 Explanation:
-A string search that returns records for any student with
-"Garcia" in their name.  
+A string search that returns the record for the specific student 
+ID containing "00045".
 
 -------------------------------------------------------------------- 
-QUERY 20: Retrieve students whose names start with "Emma"
+QUERY 20: Retrieve students from batch 2023
 -------------------------------------------------------------------- 
 
 Expression:
-/billing/record [starts-with(name, 'Emma')]   
+/billing/record [starts-with(studentId, '23-')]   
 
 Explanation:
-Filters records where the name begins exactly with "Emma".  
+Filters records where the studentId begins exactly with "23-",
+representing the enrollment batch year.
 
 -------------------------------------------------------------------- 
-QUERY 21: Retrieve students whose names end with "Smith"
+QUERY 21: Retrieve students whose IDs end with '00'
 -------------------------------------------------------------------- 
 Expression:
-/billing/record [substring(name, string-length (name)-4, 5) = 'Smith']   
+/billing/record [substring(studentId, string-length(studentId)-1, 2) = '00']   
 
 Explanation:
-A string manipulation that isolates the end of the name
-to match "Smith".  
+A string manipulation that isolates the end of the studentId
+to match specific sequences.  
 
 -------------------------------------------------------------------- 
-QUERY 22: Retrieve duplicate student names
+QUERY 22: Retrieve duplicate student records (Integrity Check)
 -------------------------------------------------------------------- 
 Expression:
-/billing/record [name = preceding::record/name]   
+/billing/record [studentId = preceding::record/studentId]   
 
 Explanation:
-Checks previous records to find entries with identical
-names.  
+Checks previous records to find duplicate entries with identical
+student IDs.  
 
 -------------------------------------------------------------------- 
 QUERY 23: Retrieve students with exact balance of 15,875
@@ -258,20 +259,20 @@ Performs an exact numerical match for a specific balance
 amount.  
 
 -------------------------------------------------------------------- 
-QUERY 24: Retrieve students whose names have more than 12 characters
+QUERY 24: Retrieve records with unusually low tuition figures
 -------------------------------------------------------------------- 
 Expression:
-/billing/record [string-length (name) > 12]   
+/billing/record [string-length(tuitionFee) < 5]   
 
 Explanation:
 Filters students based on the total character count of
-their full name.  
+their tuition fee (e.g. less than 5 digits means under 10,000).
 
 -------------------------------------------------------------------- 
-QUERY 25: Retrieve names and balances together
+QUERY 25: Retrieve student IDs and balances together
 -------------------------------------------------------------------- 
 Expression:
-/billing/record/name | /billing/record/balance   
+/billing/record/studentId | /billing/record/balance   
 
 Explanation:
 Uses the union operator to combine two node sets for a summary
