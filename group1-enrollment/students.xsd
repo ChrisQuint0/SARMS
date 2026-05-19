@@ -10,10 +10,17 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <!-- SubjectIdType: Enforces SUB-XXX format (e.g., SUB-001, SUB-999) -->
+  <!-- FacultyIdType: Enforces FAC-000 format -->
+  <xs:simpleType name="facultyIdType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="FAC-[0-9]{3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- SubjectIdType: Course codes like IT-101, ART-102, NURS-103 -->
   <xs:simpleType name="subjectIdType">
     <xs:restriction base="xs:string">
-      <xs:pattern value="SUB-[0-9]{3}"/>
+      <xs:pattern value="[A-Z]{2,4}-[0-9]{3}"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -25,8 +32,16 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <!-- UnitsType: Units must be a positive integer (1 or more) -->
+  <!-- UnitsType: Units must be a positive integer (1 to 6) -->
   <xs:simpleType name="unitsType">
+    <xs:restriction base="xs:positiveInteger">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- HoursType: Contact hours must be a positive integer (1 to 6) -->
+  <xs:simpleType name="hoursType">
     <xs:restriction base="xs:positiveInteger">
       <xs:minInclusive value="1"/>
       <xs:maxInclusive value="6"/>
@@ -49,11 +64,21 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <!-- CourseType: Restricts to known PLP course programs -->
-  <xs:simpleType name="courseType">
+  <!-- ProgramType: Restricts to known PLP course programs -->
+  <xs:simpleType name="programType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="BSIT"/>
       <xs:enumeration value="BSCS"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- SectionType: Restricts section to A, B, C, or D -->
+  <xs:simpleType name="sectionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="A"/>
+      <xs:enumeration value="B"/>
+      <xs:enumeration value="C"/>
+      <xs:enumeration value="D"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -61,14 +86,25 @@
   <!-- COMPLEX TYPES: Element structures                             -->
   <!-- ============================================================ -->
 
+  <!-- FacultyMemberType: Defines the nested faculty block inside a subject -->
+  <xs:complexType name="facultyMemberType">
+    <xs:sequence>
+      <xs:element name="id" type="facultyIdType"/>
+      <xs:element name="professorName" type="xs:string"/>
+      <xs:element name="department" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
   <!-- SubjectType: Defines the structure for a single subject -->
   <xs:complexType name="subjectType">
     <xs:sequence>
       <xs:element name="subjectName" type="xs:string"/>
       <xs:element name="units" type="unitsType"/>
+      <xs:element name="hours" type="hoursType"/>
       <xs:element name="grade" type="gradeType"/>
+      <xs:element name="facultyMember" type="facultyMemberType"/>
     </xs:sequence>
-    <!-- Subject ID attribute (required, must match SUB-XXX pattern) -->
+    <!-- Subject ID attribute (required, uses dynamic prefix-based ID like IT-101, ART-102) -->
     <xs:attribute name="subjectId" type="subjectIdType" use="required"/>
   </xs:complexType>
 
@@ -76,12 +112,12 @@
   <xs:complexType name="enrolledSubjectsType">
     <xs:sequence>
       <!-- At least one subject is required per enrollment -->
-      <xs:element name="subject" type="subjectType" maxOccurs="unbounded"/>
+      <xs:element name="subject" type="subjectType" minOccurs="1" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
   <!-- StudentType: Defines the full structure for a student record -->
-  <!-- 
+  <!--
     XSD Assertion (Self-Study):
     The GPA value must not exceed 5.0 — enforced via xs:assert.
     This demonstrates XSD 1.1 assertion capability for rule-based validation.
@@ -90,12 +126,14 @@
     <xs:sequence>
       <xs:element name="firstName" type="xs:string"/>
       <xs:element name="lastName" type="xs:string"/>
-      <xs:element name="course" type="courseType"/>
+      <xs:element name="program" type="programType"/>
+      <xs:element name="section" type="sectionType"/>
+      <xs:element name="studDepartment" type="xs:string"/>
       <xs:element name="yearLevel" type="yearLevelType"/>
       <xs:element name="enrolledSubjects" type="enrolledSubjectsType"/>
       <xs:element name="gpa" type="gpaType"/>
     </xs:sequence>
-    <!-- Student ID attribute (required, must match STU-XXX pattern) -->
+    <!-- Student ID attribute (required, must match YY-NNNNN pattern) -->
     <xs:attribute name="studentId" type="studentIdType" use="required"/>
 
     <!-- XSD 1.1 Assertion: GPA must not exceed 5.0 -->
@@ -118,12 +156,6 @@
     <xs:unique name="uniqueStudentId">
       <xs:selector xpath="student"/>
       <xs:field xpath="@studentId"/>
-    </xs:unique>
-
-    <!-- Uniqueness constraint: Subject IDs must be unique across all students -->
-    <xs:unique name="uniqueSubjectId">
-      <xs:selector xpath="student/enrolledSubjects/subject"/>
-      <xs:field xpath="@subjectId"/>
     </xs:unique>
   </xs:element>
 
