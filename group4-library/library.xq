@@ -14,9 +14,9 @@ declare variable $lib := doc("library.xml");
 (: ------------------------------------------------------------ :)
 <mostBorrowedBooks>
 {
-  for $book in $lib/books/book
+  for $book in $lib/library/books/book
   let $borrowCount :=
-      count($lib/borrowingRecords/record[bookId = $book/@bookId])
+      count($lib/library/borrowingRecords/record[bookId = $book/@bookId])
   where $borrowCount > 0
   order by $borrowCount descending
   return
@@ -37,13 +37,12 @@ declare variable $lib := doc("library.xml");
 (: ------------------------------------------------------------ :)
 <overdueRecords>
 {
-  for $rec in $lib/borrowingRecords/record[status = 'Overdue']
+  for $rec in $lib/library/borrowingRecords/record[status = 'Overdue']
   order by $rec/dueDate ascending
   return
     <overdueRecord recordId="{$rec/@recordId}">
-      <borrowerName>{$rec/borrower/borrowerName/text()}</borrowerName>
       <borrowerId>{$rec/borrower/borrowerId/text()}</borrowerId>
-      <course>{$rec/borrower/course/text()}</course>
+      <borrowerType>{$rec/borrower/borrowerType/text()}</borrowerType>
       <contactNo>{$rec/borrower/contactNo/text()}</contactNo>
       <bookId>{$rec/bookId/text()}</bookId>
       <borrowDate>{$rec/borrowDate/text()}</borrowDate>
@@ -60,9 +59,9 @@ declare variable $lib := doc("library.xml");
 (: ------------------------------------------------------------ :)
 <statusSummary>
 {
-  let $statuses := distinct-values($lib/borrowingRecords/record/status)
+  let $statuses := distinct-values($lib/library/borrowingRecords/record/status)
   for $s in $statuses
-  let $count := count($lib/borrowingRecords/record[status = $s])
+  let $count := count($lib/library/borrowingRecords/record[status = $s])
   order by $count descending
   return
     <statusGroup>
@@ -80,9 +79,9 @@ declare variable $lib := doc("library.xml");
 (: ------------------------------------------------------------ :)
 <categoryReport>
 {
-  let $categories := distinct-values($lib/books/book/category)
+  let $categories := distinct-values($lib/library/books/book/category)
   for $cat in $categories
-  let $books := $lib/books/book[category = $cat]
+  let $books := $lib/library/books/book[category = $cat]
   order by $cat ascending
   return
     <category name="{$cat}">
@@ -100,13 +99,13 @@ declare variable $lib := doc("library.xml");
 (: ------------------------------------------------------------ :)
 <activeLoans>
 {
-  for $rec in $lib/borrowingRecords/record[status = 'Active']
+  for $rec in $lib/library/borrowingRecords/record[status = 'Active']
   order by $rec/dueDate ascending
   return
     <activeLoan recordId="{$rec/@recordId}">
-      <borrowerName>{$rec/borrower/borrowerName/text()}</borrowerName>
+      <borrowerId>{$rec/borrower/borrowerId/text()}</borrowerId>
       <borrowerType>{$rec/borrower/borrowerType/text()}</borrowerType>
-      <course>{$rec/borrower/course/text()}</course>
+      <contactNo>{$rec/borrower/contactNo/text()}</contactNo>
       <bookId>{$rec/bookId/text()}</bookId>
       <borrowDate>{$rec/borrowDate/text()}</borrowDate>
       <dueDate>{$rec/dueDate/text()}</dueDate>
@@ -122,11 +121,11 @@ declare variable $lib := doc("library.xml");
 (: ------------------------------------------------------------ :)
 <returnedLateRecords>
 {
-  for $rec in $lib/borrowingRecords/record[status = 'Returned Late']
+  for $rec in $lib/library/borrowingRecords/record[status = 'Returned Late']
   order by $rec/returnDate descending
   return
     <lateReturn recordId="{$rec/@recordId}">
-      <borrowerName>{$rec/borrower/borrowerName/text()}</borrowerName>
+      <borrowerId>{$rec/borrower/borrowerId/text()}</borrowerId>
       <bookId>{$rec/bookId/text()}</bookId>
       <dueDate>{$rec/dueDate/text()}</dueDate>
       <returnDate>{$rec/returnDate/text()}</returnDate>
@@ -142,9 +141,9 @@ declare variable $lib := doc("library.xml");
 (: ------------------------------------------------------------ :)
 <neverBorrowedBooks>
 {
-  for $book in $lib/books/book
+  for $book in $lib/library/books/book
   let $borrowCount :=
-      count($lib/borrowingRecords/record[bookId = $book/@bookId])
+      count($lib/library/borrowingRecords/record[bookId = $book/@bookId])
   where $borrowCount = 0
   return
     <book bookId="{$book/@bookId}">

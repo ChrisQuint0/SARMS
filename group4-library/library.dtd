@@ -1,3 +1,7 @@
+<!-- ================================================================
+     library.dtd  - DTD for Library XML documents
+     ================================================================ -->
+
 <!-- Root element contains two main sections -->
 <!ELEMENT library (books, borrowingRecords)>
 
@@ -34,16 +38,18 @@
 <!-- bookId inside record references the borrowed book -->
 <!ELEMENT bookId (#PCDATA)>
 
-<!-- Borrower block contains all borrower details -->
-<!ELEMENT borrower (borrowerId, borrowerName, borrowerType, course, contactNo)>
+<!--
+  Borrower block — aligned to XML.
+  REMOVED: borrowerName, course  (not present in any record in library.xml)
+  KEPT:    borrowerId, borrowerType, contactNo
+-->
+<!ELEMENT borrower (borrowerId, borrowerType, contactNo)>
 <!ELEMENT borrowerId   (#PCDATA)>
-<!ELEMENT borrowerName (#PCDATA)>
 
 <!-- borrowerType allowed values: Student | Faculty               -->
 <!-- DTD cannot restrict to enum values; XSD enforces this rule   -->
 <!ELEMENT borrowerType (#PCDATA)>
 
-<!ELEMENT course    (#PCDATA)>
 <!ELEMENT contactNo (#PCDATA)>
 
 <!-- All dates stored in YYYY-MM-DD format                        -->

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  library.xsd  —  XSD Schema for Library XML documents
+-->
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified"
@@ -108,17 +111,20 @@
 
   <!-- ==================== BORROWER ==================== -->
 
+  <!--
+    BorrowerType — aligned to library.xml.
+    REMOVED: borrowerName, course  (not present in any record in library.xml)
+    KEPT:    borrowerId, borrowerType, contactNo
+  -->
   <xs:complexType name="BorrowerType">
     <xs:sequence>
       <xs:element name="borrowerId"   type="xs:string"/>
-      <xs:element name="borrowerName" type="xs:string"/>
 
       <!--
         RULE 2: borrowerType must be exactly "Student" or "Faculty".
       -->
       <xs:element name="borrowerType" type="BorrowerTypeEnum"/>
 
-      <xs:element name="course"       type="xs:string"/>
       <xs:element name="contactNo"    type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
