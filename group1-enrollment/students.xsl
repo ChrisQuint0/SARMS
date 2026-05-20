@@ -340,7 +340,7 @@
             box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
-            overflow: hidden;
+            overflow-x: auto;
           }
 
           .student-info-wrapper {
@@ -449,22 +449,23 @@
           }
 
           .subjects-table th {
-            padding: 16px 32px;
+            padding: 12px 16px;
             text-align: left;
-            font-size: 14px;
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 0.02em;
             font-weight: 700;
             border-top: none;
             border-bottom: none;
+            white-space: nowrap;
           }
 
           .subjects-table td {
-            padding: 14px 32px;
+            padding: 10px 16px;
             border-bottom: 1px solid #e2e8f0;
             border-left: none;
             border-right: none;
-            font-size: 14px;
+            font-size: 13px;
             color: #334155;
             transition: background-color 0.15s ease;
           }
@@ -955,7 +956,7 @@
                           </xsl:otherwise>
                         </xsl:choose>
                         <div class="activity-content">
-                          <h4><xsl:value-of select="course"/> Enrollment</h4>
+                          <h4><xsl:value-of select="program"/> Enrollment</h4>
                           <p><xsl:value-of select="lastName"/>, <xsl:value-of select="firstName"/> was enrolled successfully.</p>
                           <span class="activity-time">Student ID: <xsl:value-of select="@studentId"/></span>
                         </div>
@@ -1124,7 +1125,7 @@
   <!-- STUDENT TEMPLATE: Renders each student as a card              -->
   <!-- ============================================================ -->
   <xsl:template match="student">
-    <div class="student-card" data-course="{course}" data-year="{yearLevel}" data-gpa="{gpa}" data-subjects="{count(enrolledSubjects/subject)}">
+    <div class="student-card" data-course="{program}" data-year="{yearLevel}" data-gpa="{gpa}" data-subjects="{count(enrolledSubjects/subject)}">
 
       <!-- Left Section: Student Profile Sidebar -->
       <div class="card-sidebar">
@@ -1146,7 +1147,11 @@
           </span>
           <span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-            <xsl:value-of select="course"/>
+            <xsl:value-of select="program"/>
+          </span>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+            <xsl:value-of select="studDepartment"/>
           </span>
           <span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
@@ -1181,7 +1186,11 @@
               <th>Subject ID</th>
               <th>Subject Name</th>
               <th style="text-align: center;">Units</th>
+              <th style="text-align: center;">Hours</th>
               <th style="text-align: center;">Grade</th>
+              <th>Faculty ID</th>
+              <th>Professor</th>
+              <th>Department</th>
             </tr>
           </thead>
           <tbody>
@@ -1201,6 +1210,7 @@
       <td><span class="subject-id"><xsl:value-of select="@subjectId"/></span></td>
       <td class="subject-name"><xsl:value-of select="subjectName"/></td>
       <td style="text-align: center;" class="units-cell"><xsl:value-of select="units"/></td>
+      <td style="text-align: center;" class="units-cell"><xsl:value-of select="hours"/></td>
       <td style="text-align: center;">
         <span>
           <xsl:attribute name="class">
@@ -1215,6 +1225,9 @@
           <xsl:value-of select="grade"/>
         </span>
       </td>
+      <td style="font-size: 13px; color: #475569;"><xsl:value-of select="facultyMember/id"/></td>
+      <td style="font-size: 13px;"><xsl:value-of select="facultyMember/professorName"/></td>
+      <td style="font-size: 13px; color: #64748b;"><xsl:value-of select="facultyMember/department"/></td>
     </tr>
   </xsl:template>
 

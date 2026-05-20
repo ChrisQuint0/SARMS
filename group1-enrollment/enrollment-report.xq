@@ -1,12 +1,13 @@
 xquery version "1.0";
 
-(: 
-  SARMS Group 1: Student Enrollment System 
+(:
+  SARMS Group 1: Student Enrollment System
   Unified Academic Report
-  This script implements all 10 required XPath queries into a single, automated XQuery report.
+  This script implements exactly 10 XPath queries into a single,
+  automated XQuery report, updated to reflect the revised XML structure.
 :)
 
-let $doc := doc("students.xml")
+let $doc      := doc("students.xml")
 let $students := $doc/students/student
 let $subjects := $doc/students/student/enrolledSubjects/subject
 
@@ -14,83 +15,103 @@ return
 <academicReport>
     <title>SARMS Enrollment System - Comprehensive Academic Report</title>
     <timestamp>{ current-dateTime() }</timestamp>
-    
+
     <summary>
-        <!-- Query 5: Count total number of enrolled students -->
+        <!-- Query 1: Count total number of enrolled students -->
         <totalStudents>{ count($students) }</totalStudents>
-        
-        <!-- Query 9: Calculate the total units enrolled across all students -->
+
+        <!-- Query 2: Calculate the total units enrolled across all students -->
         <totalUnitsEnrolled>{ sum($subjects/units) }</totalUnitsEnrolled>
     </summary>
 
     <academicStanding>
-        <!-- Query 1: Retrieve all students with GPA > 2.0 (Needs intervention) -->
+        <!-- Query 3: Retrieve all students with GPA > 2.0 (Needs intervention) -->
         <studentsNeedingIntervention count="{ count($students[gpa > 2.0]) }">
             {
                 for $s in $students[gpa > 2.0]
-                return <student id="{ string($s/@studentId) }" gpa="{ $s/gpa }">{ concat($s/firstName, ' ', $s/lastName) }</student>
+                order by $s/gpa ascending
+                return <student id="{ string($s/@studentId) }"
+                                name="{ concat($s/firstName, ' ', $s/lastName) }"
+                                program="{ $s/program }"
+                                gpa="{ $s/gpa }"/>
             }
         </studentsNeedingIntervention>
 
-        <!-- Query 7: Get the student ID and GPA of the Dean's Listers (GPA <= 1.75) -->
+        <!-- Query 4: Get the student ID and GPA of the Dean's Listers (GPA <= 1.75) -->
         <deansListers count="{ count($students[gpa <= 1.75]) }">
             {
                 for $s in $students[gpa <= 1.75]
-                return <lister id="{ string($s/@studentId) }" gpa="{ $s/gpa }" />
+                order by $s/gpa ascending
+                return <lister id="{ string($s/@studentId) }"
+                               name="{ concat($s/firstName, ' ', $s/lastName) }"
+                               gpa="{ $s/gpa }"/>
             }
         </deansListers>
     </academicStanding>
 
     <demographics>
-        <!-- Query 2: List all students enrolled in the BSIT course -->
-        <bsitStudents count="{ count($students[course = 'BSIT']) }">
+        <!-- Query 5: List all students enrolled in the BSIT program -->
+        <bsitStudents count="{ count($students[program = 'BSIT']) }">
             {
-                for $s in $students[course = 'BSIT']
-                return <student>{ concat($s/firstName, ' ', $s/lastName) }</student>
+                for $s in $students[program = 'BSIT']
+                order by $s/lastName ascending
+                return <student id="{ string($s/@studentId) }"
+                                name="{ concat($s/firstName, ' ', $s/lastName) }"
+                                yearLevel="{ $s/yearLevel }"
+                                department="{ $s/studDepartment }"/>
             }
         </bsitStudents>
 
-        <!-- Query 3: Get the names of all 4th year students -->
-        <fourthYearStudents count="{ count($students[yearLevel = 4]) }">
+        <!-- Query 6: Retrieve students from BSCS program in year level 4 -->
+        <graduatingBscsStudents count="{ count($students[program = 'BSCS' and yearLevel = 4]) }">
             {
-                for $s in $students[yearLevel = 4]
-                return <name>{ concat($s/firstName, ' ', $s/lastName) }</name>
-            }
-        </fourthYearStudents>
-
-        <!-- Query 10: Retrieve students from BSCS course in year level 4 -->
-        <graduatingBscsStudents count="{ count($students[course = 'BSCS' and yearLevel = 4]) }">
-            {
-                for $s in $students[course = 'BSCS' and yearLevel = 4]
-                return <student id="{ string($s/@studentId) }" name="{ concat($s/firstName, ' ', $s/lastName) }" />
+                for $s in $students[program = 'BSCS' and yearLevel = 4]
+                return <student id="{ string($s/@studentId) }"
+                                name="{ concat($s/firstName, ' ', $s/lastName) }"
+                                department="{ $s/studDepartment }"/>
             }
         </graduatingBscsStudents>
     </demographics>
 
     <courseLoadAndPerformance>
-        <!-- Query 6: Retrieve students enrolled in more than 3 subjects -->
-        <heavyCourseLoadStudents count="{ count($students[count(enrolledSubjects/subject) > 3]) }">
-            {
-                for $s in $students[count(enrolledSubjects/subject) > 3]
-                return <student id="{ string($s/@studentId) }">{ count($s/enrolledSubjects/subject) } subjects</student>
-            }
-        </heavyCourseLoadStudents>
-
-        <!-- Query 4: Find all subjects with a grade of 1.00 (perfect mark) -->
+        <!-- Query 7: Find all subjects with a grade of 1.00 (perfect mark) -->
         <perfectMarkSubjects count="{ count($subjects[grade = 1.00]) }">
             {
                 for $subj in $subjects[grade = 1.00]
-                return <subject>{ string($subj/subjectName) }</subject>
+                let $student := $subj/../../..
+                return <subject subjectId="{ string($subj/@subjectId) }"
+                                studentId="{ string($student/@studentId) }"
+                                faculty="{ $subj/facultyMember/professorName }">
+                           { string($subj/subjectName) }
+                       </subject>
             }
         </perfectMarkSubjects>
-
-        <!-- Query 8: List all subject names for student 23-00003 -->
-        <student2300003Subjects>
-            {
-                for $name in $students[@studentId = '23-00003']/enrolledSubjects/subject/subjectName
-                return <subject>{ string($name) }</subject>
-            }
-        </student2300003Subjects>
     </courseLoadAndPerformance>
+
+    <newXMLStructureQueries>
+        <!-- Query 8: Retrieve faculty details for all subjects taught by Sir Lito Pacquiao -->
+        <subjectsByProfessor professor="Sir Lito Pacquiao">
+            {
+                for $subj in $subjects[facultyMember/professorName = 'Sir Lito Pacquiao']
+                return <subject id="{ string($subj/@subjectId) }">{ string($subj/subjectName) }</subject>
+            }
+        </subjectsByProfessor>
+
+        <!-- Query 9: Retrieve all subject names along with their contact hours -->
+        <subjectsAndHours>
+            {
+                for $subj in $subjects
+                return <subject name="{ string($subj/subjectName) }" hours="{ $subj/hours }"/>
+            }
+        </subjectsAndHours>
+
+        <!-- Query 10: List subjects taught by faculty from College of Computer Studies -->
+        <subjectsByDepartment department="College of Computer Studies">
+            {
+                for $subj in $subjects[facultyMember/department = 'College of Computer Studies']
+                return <subject>{ string($subj/subjectName) }</subject>
+            }
+        </subjectsByDepartment>
+    </newXMLStructureQueries>
 
 </academicReport>
