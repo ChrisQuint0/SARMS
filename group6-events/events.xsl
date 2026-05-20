@@ -126,18 +126,26 @@
             <xsl:variable name="eventNameVal" select="eventName"/>
             <xsl:variable name="eventDateVal" select="eventDate"/>
             <xsl:variable name="eventVenueVal" select="venue"/>
-            <xsl:for-each select="//registration[@eventId=$eventId]">
+              <xsl:for-each select="//registration[@eventId=$eventId]">
               <xsl:sort select="@registrationDate"/>
-              <xsl:variable name="participantId" select="@participantId"/>
-              <xsl:variable name="participant" select="//participant[@participantId=$participantId]"/>
-              <tr data-reg-status="{@registrationStatus}">
+              <xsl:variable name="studentId" select="@studentId"/>
+              <xsl:variable name="participant" select="//participant[@studentId=$studentId]"/>
+              <tr data-reg-status="{translate(@registrationStatus,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">
                 <td><xsl:value-of select="$eventId"/></td>
                 <td><xsl:choose><xsl:when test="$eventNameVal!=''"><xsl:value-of select="$eventNameVal"/></xsl:when><xsl:otherwise><span class="empty-cell">-</span></xsl:otherwise></xsl:choose></td>
                 <td><xsl:choose><xsl:when test="$eventDateVal!=''"><xsl:value-of select="$eventDateVal"/></xsl:when><xsl:otherwise><span class="empty-cell">-</span></xsl:otherwise></xsl:choose></td>
                 <td><xsl:choose><xsl:when test="$eventVenueVal!=''"><xsl:value-of select="$eventVenueVal"/></xsl:when><xsl:otherwise><span class="empty-cell">-</span></xsl:otherwise></xsl:choose></td>
-                <td><xsl:value-of select="$participant/fullName"/></td>
+                <td><xsl:value-of select="concat($participant/firstName, ' ', $participant/lastName)"/></td>
                 <td><xsl:value-of select="$participant/email"/></td>
-                <td><xsl:choose><xsl:when test="@registrationStatus='Registered'"><span class="badge badge-registered">Registered</span></xsl:when><xsl:when test="@registrationStatus='Attended'"><span class="badge badge-attended">Attended</span></xsl:when><xsl:when test="@registrationStatus='Cancelled'"><span class="badge badge-cancelled">Cancelled</span></xsl:when><xsl:otherwise><span class="badge badge-noshow">No-show</span></xsl:otherwise></xsl:choose></td>
+                <td>
+                  <xsl:variable name="rs2" select="translate(@registrationStatus,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')"/>
+                  <xsl:choose>
+                    <xsl:when test="$rs2='registered'"><span class="badge badge-registered">Registered</span></xsl:when>
+                    <xsl:when test="$rs2='attended'"><span class="badge badge-attended">Attended</span></xsl:when>
+                    <xsl:when test="$rs2='cancelled'"><span class="badge badge-cancelled">Cancelled</span></xsl:when>
+                    <xsl:otherwise><span class="badge badge-noshow">No-show</span></xsl:otherwise>
+                  </xsl:choose>
+                </td>
               </tr>
             </xsl:for-each>
           </xsl:for-each>
@@ -824,7 +832,7 @@
               <div class="stats-grid">
                 <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//event)"/></div><div class="stat-label">Total Events</div></div>
                 <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//participant)"/></div><div class="stat-label">Total Participants</div></div>
-                <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//registration[@registrationStatus='Registered'])"/></div><div class="stat-label">Active Registrations</div></div>
+                <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//registration[translate(@registrationStatus,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='registered'])"/></div><div class="stat-label">Active Registrations</div></div>
                 <div class="stat-card"><div class="stat-value"><xsl:value-of select="count(//event[@eventStatus='upcoming'])"/></div><div class="stat-label">Upcoming Events</div></div>
               </div>
             </section>
@@ -947,10 +955,10 @@
                   <thead><tr><th>ID</th><th>Full Name</th><th>Email</th><th>College</th><th>Year Level</th></tr></thead>
                   <tbody id="participantsTableBody">
                     <xsl:for-each select="//participant">
-                      <xsl:sort select="fullName"/>
+                      <xsl:sort select="firstName"/>
                       <tr data-dept="{department}" data-year="{yearLevel}">
-                        <td><xsl:value-of select="@participantId"/></td>
-                        <td><xsl:value-of select="fullName"/></td>
+                        <td><xsl:value-of select="@studentId"/></td>
+                        <td><xsl:value-of select="concat(firstName, ' ', lastName)"/></td>
                         <td><xsl:value-of select="email"/></td>
                         <td><xsl:value-of select="department"/></td>
                         <td>Year <xsl:value-of select="yearLevel"/></td>
@@ -971,8 +979,8 @@
               <div class="filter-controls">
                 <label for="registrationStatusFilter" class="filter-label">Filter by Status:</label>
                 <select id="registrationStatusFilter" class="filter-select" onchange="filterRegistrations()">
-                  <option value="">All</option><option value="Registered">Registered</option><option value="Attended">Attended</option>
-                  <option value="Cancelled">Cancelled</option><option value="No-show">No-show</option>
+                  <option value="">All</option><option value="registered">Registered</option><option value="attended">Attended</option>
+                  <option value="cancelled">Cancelled</option><option value="no-show">No-show</option>
                 </select>
                 <label for="registrationSearchFilter" class="filter-label">Search:</label>
                 <input id="registrationSearchFilter" class="filter-select" type="text" placeholder="Search by registration, event, participant" oninput="filterRegistrations()"/>
@@ -982,12 +990,20 @@
                   <thead><tr><th>Registration ID</th><th>Event ID</th><th>Participant ID</th><th>Registration Date</th><th>Status</th></tr></thead>
                   <tbody id="registrationsTableBody">
                     <xsl:for-each select="//registration">
-                      <tr data-status="{@registrationStatus}">
+                      <tr data-status="{translate(@registrationStatus,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}">
                         <td><xsl:value-of select="@registrationId"/></td>
                         <td><xsl:value-of select="@eventId"/></td>
-                        <td><xsl:value-of select="@participantId"/></td>
+                        <td><xsl:value-of select="@studentId"/></td>
                         <td><xsl:value-of select="@registrationDate"/></td>
-                        <td><xsl:choose><xsl:when test="@registrationStatus='Registered'"><span class="badge badge-registered">Registered</span></xsl:when><xsl:when test="@registrationStatus='Attended'"><span class="badge badge-attended">Attended</span></xsl:when><xsl:when test="@registrationStatus='Cancelled'"><span class="badge badge-cancelled">Cancelled</span></xsl:when><xsl:otherwise><span class="badge badge-noshow">No-show</span></xsl:otherwise></xsl:choose></td>
+                        <td>
+                          <xsl:variable name="rs" select="translate(@registrationStatus,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')"/>
+                          <xsl:choose>
+                            <xsl:when test="$rs='registered'"><span class="badge badge-registered">Registered</span></xsl:when>
+                            <xsl:when test="$rs='attended'"><span class="badge badge-attended">Attended</span></xsl:when>
+                            <xsl:when test="$rs='cancelled'"><span class="badge badge-cancelled">Cancelled</span></xsl:when>
+                            <xsl:otherwise><span class="badge badge-noshow">No-show</span></xsl:otherwise>
+                          </xsl:choose>
+                        </td>
                       </tr>
                     </xsl:for-each>
                   </tbody>
@@ -1005,8 +1021,8 @@
               <div class="filter-controls">
                 <label for="attendanceStatusFilter" class="filter-label">Filter by Status:</label>
                 <select id="attendanceStatusFilter" class="filter-select" onchange="filterAttendance()">
-                  <option value="">All</option><option value="Registered">Registered</option><option value="Attended">Attended</option>
-                  <option value="Cancelled">Cancelled</option><option value="No-show">No-show</option>
+                  <option value="">All</option><option value="registered">Registered</option><option value="attended">Attended</option>
+                  <option value="cancelled">Cancelled</option><option value="no-show">No-show</option>
                 </select>
                 <label for="attendanceSearchFilter" class="filter-label">Search:</label>
                 <input id="attendanceSearchFilter" class="filter-select" type="text" placeholder="Search by event, participant, email" oninput="filterAttendance()"/>
@@ -1123,13 +1139,13 @@
             const tbody = document.getElementById('registrationsTableBody');
             const rows = tbody.querySelectorAll('tr');
             const noRecords = document.getElementById('registrationsNoRecords');
-            const selectedStatus = document.getElementById('registrationStatusFilter').value;
+            const selectedStatus = document.getElementById('registrationStatusFilter').value.trim().toLowerCase();
             const searchInput = document.getElementById('registrationSearchFilter');
             const searchTerm = searchInput.value.trim().toLowerCase();
             let visibleCount = 0;
             
             rows.forEach(row => { 
-              const rowStatus = row.getAttribute('data-status'); 
+              const rowStatus = (row.getAttribute('data-status') || '').toLowerCase(); 
               const rowText = row.textContent.toLowerCase();
               const statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
               const searchMatch = (searchTerm === '' || rowText.includes(searchTerm));
@@ -1190,13 +1206,13 @@
             const tbody = document.getElementById('attendanceTableBody');
             const rows = tbody.querySelectorAll('tr');
             const noRecords = document.getElementById('attendanceNoRecords');
-            const selectedStatus = document.getElementById('attendanceStatusFilter').value;
+            const selectedStatus = document.getElementById('attendanceStatusFilter').value.trim().toLowerCase();
             const searchInput = document.getElementById('attendanceSearchFilter');
             const searchTerm = searchInput.value.trim().toLowerCase();
             let visibleCount = 0;
             
             rows.forEach(row => {
-              const rowStatus = row.getAttribute('data-reg-status');
+              const rowStatus = (row.getAttribute('data-reg-status') || '').toLowerCase();
               const rowText = row.textContent.toLowerCase();
               let statusMatch = (selectedStatus === '' || selectedStatus === rowStatus);
               let searchMatch = (searchTerm === '' || rowText.includes(searchTerm));

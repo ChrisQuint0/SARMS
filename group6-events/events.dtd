@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
-  Event Management System DTD
+  Event Management System DTD - REFACTORED
   
   PURPOSE: Validates XML structure for the Event Management System
   - Ensures all required elements are present
   - Enforces proper element nesting and hierarchy
   - Validates ID uniqueness and IDREF references
+  
+  CHANGES FROM ORIGINAL:
+  - participantId → studentId (IDREF matching)
+  - fullName → firstName and lastName (separated elements)
+  - Updated participant structure to use firstName/lastName
   
   NOTE: DTD handles STRUCTURAL validation only
   - Data type validation (dates, numbers, enumerations) handled by XSD
@@ -58,27 +63,35 @@
 <!ELEMENT description (#PCDATA)>
 
 <!-- 
-  ===== PARTICIPANTS SECTION =====
+  ===== PARTICIPANTS SECTION (REFACTORED) =====
   Contains all participant/student records
   
   STRUCTURE: <participants> container with <participant> children
-  - Each <participant> MUST have: participantId (ID, unique)
-  - Each <participant> MUST contain 4 child elements in specific order
+  - Each <participant> MUST have: studentId (ID, unique)
+  - Each <participant> MUST contain 5 child elements in specific order: firstName, lastName, email, department, yearLevel
+  
+  REFACTORING NOTES:
+  - Changed from participantId to studentId for better semantic clarity
+  - Split fullName into firstName and lastName (more flexible and structured)
+  - Now references student records from students.xml directly
   
   VALIDATION RULES (by XSD):
-  - fullName must be unique across all participants
+  - firstName and lastName together form the full name
   - email must be unique and valid format (RFC 5322 style)
   - department must be one of 7 enumerated college names
   - yearLevel must be integer 1-4
+  - studentId should match source student data (e.g., 23-00001)
 -->
 <!ELEMENT participants (participant+)>
-<!ELEMENT participant (fullName, email, department, yearLevel)>
+<!ELEMENT participant (firstName, lastName, email, department, yearLevel)>
 <!ATTLIST participant
-    participantId ID #REQUIRED
+    studentId ID #REQUIRED
 >
 
-<!ELEMENT fullName (#PCDATA)>
-<!-- Full name of participant; must be unique (XSD constraint) -->
+<!ELEMENT firstName (#PCDATA)>
+<!-- First name of student participant -->
+<!ELEMENT lastName (#PCDATA)>
+<!-- Last name of student participant -->
 <!ELEMENT email (#PCDATA)>
 <!-- Email address; must be unique across all participants (XSD unique constraint) -->
 <!ELEMENT department (#PCDATA)>
@@ -87,7 +100,7 @@
 <!-- Academic year level (1-4) or equivalent -->
 
 <!-- 
-  ===== REGISTRATIONS SECTION =====
+  ===== REGISTRATIONS SECTION (REFACTORED) =====
   Registration records linking events and participants
   
   STRUCTURE: <registrations> container with empty <registration> elements
@@ -95,16 +108,20 @@
   - All data stored as attributes
   - IDREF attributes establish relationships to events and participants
   
+  REFACTORING NOTES:
+  - Changed participantId attribute to studentId
+  - Now references student IDs (e.g., 23-00001) instead of participant IDs (e.g., PAR-001)
+  
   ATTRIBUTES (all required):
   - registrationId: unique identifier (ID type)
   - eventId: references an event (IDREF type) - must match an event/@eventId
-  - participantId: references a participant (IDREF type) - must match a participant/@participantId
+  - studentId: references a student participant (IDREF type) - must match a participant/@studentId
   - registrationStatus: one of (Registered|Attended|Cancelled|No-show)
   - registrationDate: must be before the corresponding event date (XSD assertion)
   
   VALIDATION RULES (by XSD):
   - Registration date must occur BEFORE the event date
-  - Both eventId and participantId must reference existing records
+  - Both eventId and studentId must reference existing records
   - Registration counts per event must match actual registration records
 -->
 <!ELEMENT registrations (registration+)>
@@ -112,7 +129,7 @@
 <!ATTLIST registration
     registrationId ID #REQUIRED
     eventId IDREF #REQUIRED
-    participantId IDREF #REQUIRED
+    studentId IDREF #REQUIRED
     registrationStatus (Registered|Attended|Cancelled|No-show) #REQUIRED
     registrationDate CDATA #REQUIRED
 >

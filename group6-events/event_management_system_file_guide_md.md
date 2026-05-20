@@ -131,12 +131,6 @@ All IDs must follow the format:
 
 `<MODULE>-<NUMBER>`
 
-Examples:
-
-- `EVT-001`
-- `PAR-001`
-- `REG-001`
-
 Rules:
 
 - IDs must be unique.

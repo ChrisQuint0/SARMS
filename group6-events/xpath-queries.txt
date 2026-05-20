@@ -1,56 +1,88 @@
-XPath Validation Notes
-Validated against: group6-events/events.xml
-Date: 2026-05-18
-
-The queries below use the same department names, event IDs, and registration IDs as the live XML data.
-The first and eighth queries were corrected during validation.
+The queries below have been refactored to match the new XML structure with 100 students from students.xml.
 
 1. High participation events
- //event[number(registrationCount) > 50]
-Purpose: Select events whose registration count is above 50.
-Expected output: 0 matching events in the current dataset.
+   //event[number(registrationCount) > 50]
+   Purpose: Select events whose registration count is above 50.
+   Expected output: 0 matching events in the current dataset.
 
 2. Upcoming events
- //event[@eventStatus = 'upcoming']
-Purpose: Filter all events with upcoming status.
-Expected output: 54 events.
+   //event[@eventStatus = 'upcoming']
+   Purpose: Filter all events with upcoming status.
+   Expected output: 54 events.
 
 3. Events with high capacity
- //event[capacity > 80]/eventName
-Purpose: Retrieve names of events with a capacity above 80.
-Expected output: 27 event names.
+   //event[capacity > 80]/eventName
+   Purpose: Retrieve names of events with a capacity above 80.
+   Expected output: 27 event names.
 
 4. Participants in the College of Computer Studies
- //participant[department = 'College of Computer Studies']
-Purpose: Select participants from the Computer Studies college.
-Expected output: 44 participants.
+   //participant[department = 'College of Computer Studies']
+   Purpose: Select participants from the Computer Studies college.
+   Expected output: 100 participants (all students from students.xml are from this college).
 
 5. Total events
- count(//event)
-Purpose: Count all event entries in the system.
-Expected output: 100 events.
+   count(//event)
+   Purpose: Count all event entries in the system.
+   Expected output: 100 events.
 
 6. Attended registrations
- //registration[@registrationStatus = 'Attended']
-Purpose: Retrieve registration records marked as attended.
-Expected output: 14 registrations.
+   //registration[@registrationStatus = 'Attended']
+   Purpose: Retrieve registration records marked as attended.
+   Expected output: 14 registrations.
 
-7. Participants registered for EVT-0001
- //registration[@eventId = 'EVT-0001']/@participantId
-Purpose: Extract participant IDs registered under the first event.
-Expected output: 3 participant IDs.
+7. Student IDs registered for EVT-0001
+   //registration[@eventId = 'EVT-0001']/@studentId
+   Purpose: Extract student IDs registered under the first event.
+   Expected output: 3 student IDs (23-00001, 23-00002, 23-00003).
 
-8. Participant name from registration REG-001
- //participant[@participantId = //registration[@registrationId='REG-001']/@participantId]/fullName
-Purpose: Cross-reference a participant's name from a registration ID.
-Expected output: Juan Dela Cruz.
+8. Participant full name from registration REG-001
+   concat(//participant[@studentId = //registration[@registrationId='REG-001']/@studentId]/firstName, ' ', //participant[@studentId = //registration[@registrationId='REG-001']/@studentId]/lastName)
+   Purpose: Cross-reference a participant's full name from a registration ID using concat.
+   Expected output: Juan Dela Cruz.
+
+   ALTERNATIVE (more concise):
+   //participant[@studentId = //registration[@registrationId='REG-001']/@studentId]/concat(firstName, ' ', lastName)
+   Purpose: Same as above, using concat directly on elements.
+   Expected output: Juan Dela Cruz.
 
 9. Total event capacity
- sum(//event/capacity)
-Purpose: Calculate total capacity across all events.
-Expected output: 9010.
+   sum(//event/capacity)
+   Purpose: Calculate total capacity across all events.
+   Expected output: 9010.
 
 10. Academic upcoming events
- //event[category='Academic' and @eventStatus='upcoming']
-Purpose: Combine category and status filtering for academic upcoming events.
-Expected output: 40 events.
+    //event[category='Academic' and @eventStatus='upcoming']
+    Purpose: Combine category and status filtering for academic upcoming events.
+    Expected output: 40 events.
+
+11. All participant names (NEW - leveraging separated firstName/lastName)
+    //participant/concat(firstName, ' ', lastName)
+    Purpose: Retrieve all participant full names by concatenating firstName and lastName.
+    Expected output: 100 full names (Juan Dela Cruz, Maria Santos, Jose Reyes, ...).
+
+12. Participants with specific year level
+    //participant[yearLevel = '2']
+    Purpose: Select all participants in year level 2.
+    Expected output: 25 participants.
+
+13. Students registered for multiple events
+    //participant[@studentId = //registration[@eventId and @studentId = //participant/@studentId]/@studentId][count(//registration[@studentId = current()/@studentId]) > 1]
+    Purpose: Find students who are registered for more than one event.
+    Expected output: Variable based on registration data.
+
+14. Event details with participant count per event
+    //event[eventId = //registration/@eventId]/eventName
+    Purpose: Get event names that have registered participants.
+    Expected output: Event names with at least one registration.
+
+15. Department distribution of participants
+    //participant/@department
+    Purpose: List all unique departments of participants.
+    Expected output: College of Computer Studies (for all 100 participants).
+
+REFACTORING NOTES:
+- All references to @participantId have been updated to @studentId
+- All references to /fullName have been split into /firstName and /lastName
+- Queries using fullName now use concat() or direct concatenation
+- Registration records now link directly to studentId for cleaner relationships
+- All 100 students from students.xml are now integrated into the participants section

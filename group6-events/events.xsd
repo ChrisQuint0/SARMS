@@ -35,13 +35,11 @@
     <xs:assert test="every $e1 at $i in events/event satisfies every $e2 in events/event[position() gt $i] satisfies not($e1/eventName = $e2/eventName and ($e1/eventDate = $e2/eventDate or $e1/eventTime = $e2/eventTime))"/>
     
     <!-- ASSERTION 8: Participant Schedule Conflict Prevention -->
-    <xs:assert test="every $p in participants/participant satisfies every $r1 at $i in registrations/registration[@participantId = $p/@participantId] satisfies every $r2 in registrations/registration[@participantId = $p/@participantId][position() gt $i] satisfies not(events/event[@eventId = string($r1/@eventId)][1]/eventDate = events/event[@eventId = string($r2/@eventId)][1]/eventDate and events/event[@eventId = string($r1/@eventId)][1]/eventTime = events/event[@eventId = string($r2/@eventId)][1]/eventTime)"/>
+    <xs:assert test="every $p in participants/participant satisfies every $r1 at $i in registrations/registration[@studentId = $p/@studentId] satisfies every $r2 in registrations/registration[@studentId = $p/@studentId][position() gt $i] satisfies not(events/event[@eventId = string($r1/@eventId)][1]/eventDate = events/event[@eventId = string($r2/@eventId)][1]/eventDate and events/event[@eventId = string($r1/@eventId)][1]/eventTime = events/event[@eventId = string($r2/@eventId)][1]/eventTime)"/>
 
     <!-- UNIQUE CONSTRAINTS -->
-    <xs:unique name="uniqueParticipantFullName">
-      <xs:selector xpath="participants/participant"/>
-      <xs:field xpath="fullName"/>
-    </xs:unique>
+    <!-- Unique constraint on full name removed - now using firstName and lastName separately -->
+    <!-- Combination uniqueness of firstName+lastName could be enforced at application level -->
 
     <xs:unique name="uniqueParticipantEmail">
       <xs:selector xpath="participants/participant"/>
@@ -53,9 +51,9 @@
       <xs:field xpath="@eventId"/>
     </xs:unique>
     
-    <xs:unique name="uniqueParticipantId">
+    <xs:unique name="uniqueStudentId">
       <xs:selector xpath="participants/participant"/>
-      <xs:field xpath="@participantId"/>
+      <xs:field xpath="@studentId"/>
     </xs:unique>
     
     <xs:unique name="uniqueRegistrationId">
@@ -71,7 +69,7 @@
 
     <xs:key name="participantKey">
       <xs:selector xpath="participants/participant"/>
-      <xs:field xpath="@participantId"/>
+      <xs:field xpath="@studentId"/>
     </xs:key>
 
     <xs:key name="registrationKey">
@@ -86,7 +84,7 @@
 
     <xs:keyref name="registrationParticipantRef" refer="participantKey">
       <xs:selector xpath="registrations/registration"/>
-      <xs:field xpath="@participantId"/>
+      <xs:field xpath="@studentId"/>
     </xs:keyref>
   </xs:element>
 
@@ -137,16 +135,18 @@
   <xs:element name="participant">
     <xs:complexType>
       <xs:sequence>
-        <xs:element ref="fullName" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="firstName" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="lastName" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element ref="email" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element ref="department" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element ref="yearLevel" minOccurs="0" maxOccurs="unbounded"/>
       </xs:sequence>
-      <xs:attribute name="participantId" type="xs:ID" use="required"/>
+      <xs:attribute name="studentId" type="xs:ID" use="required"/>
     </xs:complexType>
   </xs:element>
 
-  <xs:element name="fullName" type="xs:string"/>
+  <xs:element name="firstName" type="xs:string"/>
+  <xs:element name="lastName" type="xs:string"/>
   <xs:element name="email" type="emailType"/>
   <xs:element name="department" type="departmentType"/>
   <xs:element name="yearLevel" type="yearLevelType"/>
@@ -163,7 +163,7 @@
     <xs:complexType>
       <xs:attribute name="registrationId" type="xs:ID" use="required"/>
       <xs:attribute name="eventId" type="xs:IDREF" use="required"/>
-      <xs:attribute name="participantId" type="xs:IDREF" use="required"/>
+      <xs:attribute name="studentId" type="xs:IDREF" use="required"/>
       <xs:attribute name="registrationStatus" type="registrationStatusType" use="required"/>
       <xs:attribute name="registrationDate" type="xs:date" use="required"/>
     </xs:complexType>

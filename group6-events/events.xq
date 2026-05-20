@@ -102,14 +102,14 @@ declare function local:int($node) {
   {
     for $reg in $doc/registrations/registration[@registrationStatus = 'Attended']
     let $eventId := string($reg/@eventId)
-    let $participantId := string($reg/@participantId)
+    let $studentId := string($reg/@studentId)
     let $event := $doc/events/event[@eventId = $eventId][1]
-    let $participant := $doc/participants/participant[@participantId = $participantId][1]
-    order by $participantId, $eventId
+    let $participant := $doc/participants/participant[@studentId = $studentId][1]
+    order by $studentId, $eventId
     return
       <attendance>
         <registrationId>{string($reg/@registrationId)}</registrationId>
-        <participantName>{string($participant/fullName)}</participantName>
+        <participantName>{concat($participant/firstName, " ", $participant/lastName)}</participantName>
         <eventName>{string($event/eventName)}</eventName>
         <eventDate>{string($event/eventDate)}</eventDate>
         <eventTime>{string($event/eventTime)}</eventTime>
@@ -145,11 +145,11 @@ declare function local:int($node) {
   <participantSchedules>
   {
     for $p in $doc/participants/participant
-    let $pid := string($p/@participantId)
-    let $regs := $doc/registrations/registration[@participantId = $pid]
+    let $pid := string($p/@studentId)
+    let $regs := $doc/registrations/registration[@studentId = $pid]
     order by $pid
     return
-      <participant participantId="{$pid}" fullName="{string($p/fullName)}">
+      <participant studentId="{$pid}" firstName="{string($p/firstName)}" lastName="{string($p/lastName)}">
       {
         for $r in $regs
         let $e := $doc/events/event[@eventId = string($r/@eventId)][1]
