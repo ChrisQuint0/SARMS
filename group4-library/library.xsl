@@ -4,6 +4,9 @@
 
   <xsl:output method="html" encoding="UTF-8" indent="yes"/>
 
+  <!-- Load enrollment.xml as a variable for joining -->
+  <xsl:variable name="enrollment" select="document('../group1-enrollment/students.xml')/students/student"/>
+
   <xsl:template match="/">
     <html lang="en">
       <head>
@@ -38,7 +41,6 @@ body {
   min-height: 100vh;
 }
 
-/* ==================== HEADER ==================== */
 .site-header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -71,67 +73,26 @@ body {
 }
 
 .header-logo {
-  width: 64px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  width: 64px; height: 64px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
-
-.header-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
+.header-logo img { width: 100%; height: 100%; object-fit: contain; }
 .header-text { flex: 1; }
+.header-text h1 { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 2px; letter-spacing: -0.5px; }
+.header-text .tagline { font-size: 14px; color: rgba(255,255,255,0.9); }
 
-.header-text h1 {
-  font-size: 28px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 2px;
-  letter-spacing: -0.5px;
-}
-
-.header-text .tagline {
-  font-size: 14px;
-  color: rgba(255,255,255,0.9);
-}
-
-.header-stats {
-  display: flex;
-  gap: 8px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
+.header-stats { display: flex; gap: 8px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
 .header-stats::-webkit-scrollbar { display: none; }
 
-.hstat {
-  display: flex; align-items: center; gap: 10px;
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.13);
-  border-radius: 12px; padding: 10px 16px;
-  flex-shrink: 0;
-  transition: background 0.15s;
-  backdrop-filter: blur(10px);
-}
+.hstat { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.13); border-radius: 12px; padding: 10px 16px; flex-shrink: 0; transition: background 0.15s; backdrop-filter: blur(10px); }
 .hstat:hover { background: rgba(255,255,255,0.20); }
-
-.hstat-icon {
-  width: 36px; height: 36px; border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 10px; font-weight: 800; letter-spacing: 0.3px; flex-shrink: 0;
-}
+.hstat-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; letter-spacing: 0.3px; flex-shrink: 0; }
 .hstat-icon.books    { background: rgba(255,255,255,0.15); color: #d1fae5; }
 .hstat-icon.records  { background: rgba(255,255,255,0.15); color: #d1fae5; }
 .hstat-icon.active   { background: rgba(52,211,153,0.25);  color: #6ee7b7; }
 .hstat-icon.returned { background: rgba(96,165,250,0.20);  color: #93c5fd; }
 .hstat-icon.overdue  { background: rgba(248,113,113,0.22); color: #fca5a5; }
 .hstat-icon.late     { background: rgba(251,191,36,0.22);  color: #fde68a; }
-
 .hstat-num { font-size: 22px; font-weight: 800; color: #fff; line-height: 1; }
 .hstat-num.green  { color: #34d399; }
 .hstat-num.blue   { color: #93c5fd; }
@@ -140,136 +101,57 @@ body {
 .hstat-num.purple { color: #d1fae5; }
 .hstat-lbl { font-size: 10px; color: #bbf7d0; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; margin-top: 2px; }
 
-/* ==================== MENU BUTTON ==================== */
-.menu-button {
-  position: fixed; top: 24px; left: 24px;
-  width: 56px; height: 56px;
-  background: var(--green); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; z-index: 1100;
-  box-shadow: 0 4px 12px rgba(0,138,69,0.35);
-  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-  border: none;
-}
+.menu-button { position: fixed; top: 24px; left: 24px; width: 56px; height: 56px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 1100; box-shadow: 0 4px 12px rgba(0,138,69,0.35); transition: all 0.3s cubic-bezier(0.4,0,0.2,1); border: none; }
 .menu-button:hover { transform: scale(1.05); box-shadow: 0 6px 16px rgba(0,138,69,0.45); }
 .menu-button i { color: white; font-size: 22px; transition: transform 0.3s ease; }
 .menu-button.active i { transform: rotate(90deg); }
 
-/* ==================== NAV MODAL ==================== */
-.nav-modal-overlay {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(4px);
-  z-index: 999; opacity: 0; visibility: hidden;
-  transition: all 0.3s ease;
-}
+.nav-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
 .nav-modal-overlay.active { opacity: 1; visibility: visible; }
 
-.module-modal {
-  position: fixed; top: 50%; left: 50%;
-  transform: translate(-50%,-50%) scale(0.9);
-  background: white; border-radius: 24px; padding: 40px;
-  z-index: 1001; max-width: 900px; width: 90%;
-  max-height: 80vh; overflow-y: auto;
-  opacity: 0; visibility: hidden;
-  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-}
-.module-modal.active {
-  opacity: 1; visibility: visible;
-  transform: translate(-50%,-50%) scale(1);
-}
+.module-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(0.9); background: white; border-radius: 24px; padding: 40px; z-index: 1001; max-width: 900px; width: 90%; max-height: 80vh; overflow-y: auto; opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+.module-modal.active { opacity: 1; visibility: visible; transform: translate(-50%,-50%) scale(1); }
 .modal-nav-header { margin-bottom: 32px; }
 .modal-nav-header h2 { font-size: 32px; font-weight: 800; color: var(--green); margin-bottom: 8px; }
 .modal-nav-header p  { font-size: 16px; color: #6b7280; }
 
-.module-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
-.module-card {
-  background: white; border: 2px solid #e5e7eb;
-  border-radius: 16px; padding: 24px; cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-  position: relative; overflow: hidden;
-  text-decoration: none; color: inherit; display: block;
-}
-.module-card::before {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(135deg, var(--green), var(--green-light));
-  opacity: 0; transition: all 0.3s ease;
-}
+.module-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.module-card { background: white; border: 2px solid #e5e7eb; border-radius: 16px; padding: 24px; cursor: pointer; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); position: relative; overflow: hidden; text-decoration: none; color: inherit; display: block; }
+.module-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, var(--green), var(--green-light)); opacity: 0; transition: all 0.3s ease; }
 .module-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,138,69,0.15); border-color: var(--green); }
 .module-card:hover::before { opacity: 0.03; }
 .module-card i { font-size: 28px; color: var(--green); margin-bottom: 12px; display: block; position: relative; z-index: 1; }
 .module-card h3 { font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; position: relative; z-index: 1; }
 .module-card p  { font-size: 13px; color: #6b7280; line-height: 1.5; margin-bottom: 12px; position: relative; z-index: 1; }
-.module-card .view-link {
-  font-size: 13px; color: var(--green); font-weight: 600;
-  display: flex; align-items: center; gap: 6px;
-  position: relative; z-index: 1; transition: gap 0.2s ease;
-}
+.module-card .view-link { font-size: 13px; color: var(--green); font-weight: 600; display: flex; align-items: center; gap: 6px; position: relative; z-index: 1; transition: gap 0.2s ease; }
 .module-card:hover .view-link { gap: 8px; }
 
-/* ==================== PAGE BODY ==================== */
 .page-body { padding-top: 110px; }
 .container { max-width: 1300px; margin: 0 auto; padding: 32px 24px 60px; }
 
-/* ==================== SECTION TITLE ==================== */
-.section-title {
-  font-size: 14px; font-weight: 700; color: var(--green-dark);
-  text-transform: uppercase; letter-spacing: 1px;
-  padding-bottom: 10px; border-bottom: 2px solid var(--green);
-  margin-bottom: 18px; margin-top: 44px;
-  display: flex; align-items: center; gap: 10px;
-}
+.section-title { font-size: 14px; font-weight: 700; color: var(--green-dark); text-transform: uppercase; letter-spacing: 1px; padding-bottom: 10px; border-bottom: 2px solid var(--green); margin-bottom: 18px; margin-top: 44px; display: flex; align-items: center; gap: 10px; }
 .section-title:first-of-type { margin-top: 0; }
-.section-count {
-  margin-left: auto; background: var(--green-pale); color: var(--green-dark);
-  font-size: 11px; font-weight: 700; padding: 3px 12px; border-radius: 20px;
-  text-transform: none; letter-spacing: 0;
-}
+.section-count { margin-left: auto; background: var(--green-pale); color: var(--green-dark); font-size: 11px; font-weight: 700; padding: 3px 12px; border-radius: 20px; text-transform: none; letter-spacing: 0; }
 .section-count.red { background: #fee2e2; color: var(--danger); }
 
-/* ==================== CONTROLS ==================== */
 .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; align-items: center; }
 .search-wrap { flex: 1; min-width: 200px; position: relative; }
-.search-wrap input {
-  width: 100%; padding: 9px 14px 9px 36px;
-  border: 1.5px solid #cbd5e1; border-radius: 8px;
-  font-family: 'Inter', sans-serif; font-size: 13px;
-  background: #fff; color: var(--text); outline: none;
-  transition: border-color .2s, box-shadow .2s;
-}
+.search-wrap input { width: 100%; padding: 9px 14px 9px 36px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 13px; background: #fff; color: var(--text); outline: none; transition: border-color .2s, box-shadow .2s; }
 .search-wrap input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(0,138,69,0.10); }
 .search-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
 .filter-row { display: flex; gap: 6px; flex-wrap: wrap; }
-.fbtn {
-  padding: 7px 14px; border-radius: 6px; border: 1.5px solid #cbd5e1;
-  background: #fff; font-family: 'Inter', sans-serif; font-size: 12px;
-  font-weight: 600; color: #475569; cursor: pointer; transition: all .15s;
-}
+.fbtn { padding: 7px 14px; border-radius: 6px; border: 1.5px solid #cbd5e1; background: #fff; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; color: #475569; cursor: pointer; transition: all .15s; }
 .fbtn:hover { border-color: var(--green); color: var(--green); }
 .fbtn.on        { background: var(--green); border-color: var(--green); color: #fff; }
 .fbtn.on-red    { background: #dc2626; border-color: #dc2626; color: #fff; }
 .fbtn.on-orange { background: #d97706; border-color: #d97706; color: #fff; }
 .fbtn.on-green  { background: #16a34a; border-color: #16a34a; color: #fff; }
-.sel {
-  padding: 7px 10px; border: 1.5px solid #cbd5e1; border-radius: 6px;
-  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
-  background: #fff; color: #475569; cursor: pointer; outline: none;
-}
+.sel { padding: 7px 10px; border: 1.5px solid #cbd5e1; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; background: #fff; color: #475569; cursor: pointer; outline: none; }
 
-/* ==================== TABLE ==================== */
 .tbl-wrap { background: #fff; border-radius: 10px; border: 1px solid #e2e8f0; overflow: hidden; }
 .data-table { width: 100%; border-collapse: collapse; }
 .data-table thead { background: linear-gradient(90deg, var(--green-dark), var(--green)); }
-.data-table th {
-  color: #d1fae5; padding: 12px 16px; text-align: left;
-  font-size: 10px; text-transform: uppercase; letter-spacing: 1px;
-  font-weight: 700; white-space: nowrap;
-}
+.data-table th { color: #d1fae5; padding: 12px 16px; text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; white-space: nowrap; }
 .data-table td { padding: 12px 16px; font-size: 13px; border-bottom: 1px solid #f1f5f9; color: #334155; }
 .data-table tbody tr:last-child td { border-bottom: none; }
 .data-table tbody tr:hover td { background: var(--green-pale); }
@@ -286,15 +168,10 @@ body {
 .s-returned { background: var(--green); }
 .s-overdue  { background: #dc2626; }
 .s-late     { background: #d97706; }
+.yr-pill    { display: inline-block; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 12px; }
 
-/* ==================== NOTICE CARDS ==================== */
 .notice-grid-wrap { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 14px; }
-.notice-mini {
-  background: #fff; border-radius: 10px;
-  border: 1px solid #fecaca; border-left: 4px solid #dc2626;
-  padding: 16px 18px; cursor: pointer;
-  transition: box-shadow .18s, transform .18s; position: relative;
-}
+.notice-mini { background: #fff; border-radius: 10px; border: 1px solid #fecaca; border-left: 4px solid #dc2626; padding: 16px 18px; cursor: pointer; transition: box-shadow .18s, transform .18s; position: relative; }
 .notice-mini:hover { box-shadow: 0 4px 18px rgba(220,38,38,0.13); transform: translateY(-2px); }
 .notice-mini-name  { font-size: 14px; font-weight: 700; color: #991b1b; margin-bottom: 6px; }
 .notice-mini-row   { font-size: 12px; color: #64748b; margin-bottom: 3px; display: flex; gap: 6px; }
@@ -303,7 +180,6 @@ body {
 .notice-mini-tag   { position: absolute; top: 12px; right: 14px; background: #fee2e2; color: #dc2626; font-size: 9px; font-weight: 800; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.5px; }
 .notice-mini-footer{ margin-top: 10px; font-size: 11px; color: var(--green); font-weight: 600; display: flex; align-items: center; gap: 4px; }
 
-/* ==================== DETAIL MODAL ==================== */
 .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.55); z-index: 1200; align-items: center; justify-content: center; padding: 20px; }
 .modal-overlay.open { display: flex; }
 .modal { background: #fff; border-radius: 14px; width: 100%; max-width: 560px; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.22); animation: modalIn .2s ease; }
@@ -324,7 +200,6 @@ body {
 .mf-val.due { color: #dc2626; }
 .modal-warn { background: #fee2e2; border: 1px solid #fecaca; border-radius: 8px; padding: 12px 16px; font-size: 13px; font-weight: 600; color: #991b1b; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px; }
 
-/* ==================== PAGER ==================== */
 .pager { display: flex; align-items: center; gap: 4px; padding: 16px 0 4px; justify-content: center; flex-wrap: wrap; }
 .pager-info { font-size: 12px; color: #64748b; font-weight: 600; margin-right: 8px; }
 .pager-btn { min-width: 34px; height: 34px; padding: 0 8px; border-radius: 7px; border: 1.5px solid #e2e8f0; background: #fff; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: #475569; cursor: pointer; transition: all .15s; display: flex; align-items: center; justify-content: center; }
@@ -373,25 +248,19 @@ body {
               <i class="fas fa-th"></i>
               <h3>Dashboard</h3>
               <p>Unified view with statistics and charts</p>
-              <span class="view-link">
-                <i class="fas fa-arrow-right" style="font-size:10px"></i> Go to Dashboard
-              </span>
+              <span class="view-link"><i class="fas fa-arrow-right" style="font-size:10px"></i> Go to Dashboard</span>
             </a>
             <a href="../group1-enrollment/students.xml" class="module-card">
               <i class="fas fa-user-graduate"></i>
               <h3>Student Enrollment</h3>
               <p>Manage student records, enrollments, and academic performance</p>
-              <span class="view-link">
-                <i class="fas fa-arrow-right" style="font-size:10px"></i> View Module
-              </span>
+              <span class="view-link"><i class="fas fa-arrow-right" style="font-size:10px"></i> View Module</span>
             </a>
             <a href="../group3-faculty/faculty.xml" class="module-card">
               <i class="fas fa-chalkboard-teacher"></i>
               <h3>Faculty Workload</h3>
               <p>Track faculty assignments, teaching hours, and workload distribution</p>
-              <span class="view-link">
-                <i class="fas fa-arrow-right" style="font-size:10px"></i> View Module
-              </span>
+              <span class="view-link"><i class="fas fa-arrow-right" style="font-size:10px"></i> View Module</span>
             </a>
             <a href="../group4-library/library.xml" class="module-card" style="border-color:#008A45;background:#f0fdf4;">
               <i class="fas fa-book"></i>
@@ -403,17 +272,13 @@ body {
               <i class="fas fa-file-invoice-dollar"></i>
               <h3>Student Billing</h3>
               <p>Track tuition fees, payments, and outstanding balances</p>
-              <span class="view-link">
-                <i class="fas fa-arrow-right" style="font-size:10px"></i> View Module
-              </span>
+              <span class="view-link"><i class="fas fa-arrow-right" style="font-size:10px"></i> View Module</span>
             </a>
             <a href="../group6-events/events.xml" class="module-card">
               <i class="fas fa-calendar-alt"></i>
               <h3>Event Management</h3>
               <p>Organize university events, registrations, and attendance</p>
-              <span class="view-link">
-                <i class="fas fa-arrow-right" style="font-size:10px"></i> View Module
-              </span>
+              <span class="view-link"><i class="fas fa-arrow-right" style="font-size:10px"></i> View Module</span>
             </a>
           </div>
         </div>
@@ -551,7 +416,7 @@ body {
                 <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
                 </svg>
-                <input type="text" id="rec-q" placeholder="Search name, ID, course…" oninput="renderRecords()"/>
+                <input type="text" id="rec-q" placeholder="Search name, ID, course, year level…" oninput="renderRecords()"/>
               </div>
               <div class="filter-row" id="rec-filter-row">
                 <button class="fbtn on"  onclick="setRecStatus('all',this)">All</button>
@@ -572,8 +437,9 @@ body {
               <table class="data-table">
                 <thead>
                   <tr>
-                    <th>Record ID</th><th>Book ID</th><th>Borrower</th>
-                    <th>Type</th><th>Course</th><th>Borrow Date</th>
+                    <th>Record ID</th><th>Book ID</th><th>Borrower ID</th>
+                    <th>Full Name</th><th>Type</th><th>Course</th>
+                    <th>Year Level</th><th>Borrow Date</th>
                     <th>Due Date</th><th>Return Date</th><th>Status</th>
                   </tr>
                 </thead>
@@ -755,15 +621,16 @@ renderNotices();
 function openModal(data){
   document.getElementById('m-name').textContent=data.name;
   var fields=[
-    {l:'Record ID',   v:data.recordId,  due:false},
-    {l:'Borrower ID', v:data.borrowerId,due:false},
-    {l:'Type',        v:data.type,      due:false},
-    {l:'Course/Dept', v:data.course,    due:false},
-    {l:'Contact',     v:data.contact,   due:false},
-    {l:'Book ID',     v:data.bookId,    due:false},
-    {l:'Borrow Date', v:fmtDate(data.borrowDate),due:false},
-    {l:'Due Date',    v:fmtDate(data.dueDate),   due:true},
-    {l:'Return Date', v:'Not yet returned',       due:false},
+    {l:'Record ID',    v:data.recordId,   due:false},
+    {l:'Borrower ID',  v:data.borrowerId, due:false},
+    {l:'Type',         v:data.type,       due:false},
+    {l:'Course',       v:data.course,     due:false},
+    {l:'Year Level',   v:data.yearLevel,  due:false},
+    {l:'Contact',      v:data.contact,    due:false},
+    {l:'Book ID',      v:data.bookId,     due:false},
+    {l:'Borrow Date',  v:fmtDate(data.borrowDate), due:false},
+    {l:'Due Date',     v:fmtDate(data.dueDate),    due:true},
+    {l:'Return Date',  v:'Not yet returned',        due:false},
   ];
   var grid=document.getElementById('m-grid'); grid.innerHTML='';
   fields.forEach(function(f){
@@ -787,6 +654,7 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
     </html>
   </xsl:template>
 
+  <!-- ==================== BOOK TEMPLATE ==================== -->
   <xsl:template match="book">
     <xsl:variable name="s">
       <xsl:value-of select="title"/><xsl:text> </xsl:text>
@@ -803,14 +671,49 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
     </tr>
   </xsl:template>
 
+  <!-- ==================== RECORD TEMPLATE (with enrollment join) ==================== -->
   <xsl:template match="record">
+    <!-- JOIN: find the matching student from enrollment.xml using borrowerId -->
+    <xsl:variable name="bid" select="borrower/borrowerId"/>
+    <xsl:variable name="stu" select="$enrollment[@studentId = $bid]"/>
+
+    <!-- Build full name from enrollment -->
+    <xsl:variable name="fullName">
+      <xsl:choose>
+        <xsl:when test="$stu">
+          <xsl:value-of select="$stu/firstName"/>
+          <xsl:text> </xsl:text>
+          <xsl:value-of select="$stu/lastName"/>
+        </xsl:when>
+        <xsl:otherwise>Unknown</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
+    <!-- Get course/program from enrollment -->
+    <xsl:variable name="course">
+      <xsl:choose>
+        <xsl:when test="$stu"><xsl:value-of select="$stu/program"/></xsl:when>
+        <xsl:otherwise>N/A</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
+    <!-- Get year level from enrollment -->
+    <xsl:variable name="yearLevel">
+      <xsl:choose>
+        <xsl:when test="$stu">Year <xsl:value-of select="$stu/yearLevel"/></xsl:when>
+        <xsl:otherwise>N/A</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
     <xsl:variable name="s">
       <xsl:value-of select="@recordId"/><xsl:text> </xsl:text>
-      <xsl:value-of select="bookId"/><xsl:text> </xsl:text>
-      <xsl:value-of select="borrower/borrowerName"/><xsl:text> </xsl:text>
-      <xsl:value-of select="borrower/borrowerType"/><xsl:text> </xsl:text>
-      <xsl:value-of select="borrower/course"/>
+      <xsl:value-of select="$bid"/><xsl:text> </xsl:text>
+      <xsl:value-of select="$fullName"/><xsl:text> </xsl:text>
+      <xsl:value-of select="$course"/><xsl:text> </xsl:text>
+      <xsl:value-of select="$yearLevel"/><xsl:text> </xsl:text>
+      <xsl:value-of select="borrower/borrowerType"/>
     </xsl:variable>
+
     <xsl:variable name="oc"><xsl:if test="status='Overdue'">overdue-row</xsl:if></xsl:variable>
     <xsl:variable name="sc">
       <xsl:choose>
@@ -820,12 +723,15 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
         <xsl:when test="status='Returned Late'">status-pill s-late</xsl:when>
       </xsl:choose>
     </xsl:variable>
+
     <tr class="{$oc}" data-status="{status}" data-search="{$s}">
       <td><span class="mono"><xsl:value-of select="@recordId"/></span></td>
       <td><span class="mono"><xsl:value-of select="bookId"/></span></td>
-      <td class="bold-cell"><xsl:value-of select="borrower/borrowerName"/></td>
+      <td><span class="bid"><xsl:value-of select="$bid"/></span></td>
+      <td class="bold-cell"><xsl:value-of select="$fullName"/></td>
       <td><xsl:value-of select="borrower/borrowerType"/></td>
-      <td><xsl:value-of select="borrower/course"/></td>
+      <td><xsl:value-of select="$course"/></td>
+      <td><span class="yr-pill"><xsl:value-of select="$yearLevel"/></span></td>
       <td class="date-cell"><xsl:value-of select="borrowDate"/></td>
       <td class="date-cell"><xsl:value-of select="dueDate"/></td>
       <td class="date-cell">
@@ -838,31 +744,64 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
     </tr>
   </xsl:template>
 
+  <!-- ==================== NOTICE TEMPLATE (with enrollment join) ==================== -->
   <xsl:template match="record" mode="notice">
+    <xsl:variable name="bid" select="borrower/borrowerId"/>
+    <xsl:variable name="stu" select="$enrollment[@studentId = $bid]"/>
+
+    <xsl:variable name="fullName">
+      <xsl:choose>
+        <xsl:when test="$stu">
+          <xsl:value-of select="$stu/firstName"/>
+          <xsl:text> </xsl:text>
+          <xsl:value-of select="$stu/lastName"/>
+        </xsl:when>
+        <xsl:otherwise>Unknown</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
+    <xsl:variable name="course">
+      <xsl:choose>
+        <xsl:when test="$stu"><xsl:value-of select="$stu/program"/></xsl:when>
+        <xsl:otherwise>N/A</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
+    <xsl:variable name="yearLevel">
+      <xsl:choose>
+        <xsl:when test="$stu">Year <xsl:value-of select="$stu/yearLevel"/></xsl:when>
+        <xsl:otherwise>N/A</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
     <xsl:variable name="s">
-      <xsl:value-of select="borrower/borrowerName"/><xsl:text> </xsl:text>
-      <xsl:value-of select="borrower/borrowerId"/><xsl:text> </xsl:text>
-      <xsl:value-of select="borrower/course"/><xsl:text> </xsl:text>
+      <xsl:value-of select="$fullName"/><xsl:text> </xsl:text>
+      <xsl:value-of select="$bid"/><xsl:text> </xsl:text>
+      <xsl:value-of select="$course"/><xsl:text> </xsl:text>
       <xsl:value-of select="@recordId"/>
     </xsl:variable>
+
     <div class="notice-mini" data-search="{$s}"
       onclick="openModal({{
-        name:       '{borrower/borrowerName}',
+        name:       '{$fullName}',
         recordId:   '{@recordId}',
-        borrowerId: '{borrower/borrowerId}',
+        borrowerId: '{$bid}',
         type:       '{borrower/borrowerType}',
-        course:     '{borrower/course}',
+        course:     '{$course}',
+        yearLevel:  '{$yearLevel}',
         contact:    '{borrower/contactNo}',
         bookId:     '{bookId}',
         borrowDate: '{borrowDate}',
         dueDate:    '{dueDate}'
       }})">
       <span class="notice-mini-tag">OVERDUE</span>
-      <div class="notice-mini-name"><xsl:value-of select="borrower/borrowerName"/></div>
+      <div class="notice-mini-name"><xsl:value-of select="$fullName"/></div>
       <div class="notice-mini-row"><span>Record</span><span><xsl:value-of select="@recordId"/></span></div>
+      <div class="notice-mini-row"><span>ID</span><span><xsl:value-of select="$bid"/></span></div>
       <div class="notice-mini-row"><span>Book</span><span><xsl:value-of select="bookId"/></span></div>
       <div class="notice-mini-row"><span>Due</span><span class="notice-mini-due"><xsl:value-of select="dueDate"/></span></div>
-      <div class="notice-mini-row"><span>Course</span><span><xsl:value-of select="borrower/course"/></span></div>
+      <div class="notice-mini-row"><span>Course</span><span><xsl:value-of select="$course"/></span></div>
+      <div class="notice-mini-row"><span>Year</span><span><xsl:value-of select="$yearLevel"/></span></div>
       <div class="notice-mini-footer">View Full Notice &#8594;</div>
     </div>
   </xsl:template>

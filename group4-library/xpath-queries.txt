@@ -1,218 +1,156 @@
+xquery version "1.0";
 
-------------------------------------------------------------
- QUERY 1 (REQUIRED) — List ALL Overdue Books
-------------------------------------------------------------
- Expression:
-   /library/borrowingRecords/record[status = 'Overdue']
+declare variable $lib := doc("library.xml");
 
- What it does:
-   Selects every <record> element whose <status> child equals
-   "Overdue". This is the primary query for the librarian's
-   overdue monitoring dashboard.
+(: ------------------------------------------------------------ :)
+(: QUERY 1 — Most Borrowed Books (REQUIRED)                     :)
+(:                                                             :)
+(: FLWOR breakdown:                                            :)
+(:   FOR   — loop through every book in the library            :)
+(:   LET   — count how many records reference that book        :)
+(:   WHERE — only include books borrowed at least once         :)
+(:   ORDER — sort by borrow count, highest first               :)
+(:   RETURN— output the result as XML                          :)
+(: ------------------------------------------------------------ :)
+<mostBorrowedBooks>
+{
+  for $book in $lib/library/books/book
+  let $borrowCount :=
+      count($lib/library/borrowingRecords/record[bookId = $book/@bookId])
+  where $borrowCount > 0
+  order by $borrowCount descending
+  return
+    <book bookId="{$book/@bookId}">
+      <title>{$book/title/text()}</title>
+      <author>{$book/author/text()}</author>
+      <category>{$book/category/text()}</category>
+      <timesBorrowed>{$borrowCount}</timesBorrowed>
+    </book>
+}
+</mostBorrowedBooks>
+,
 
- Breakdown:
-   /library/borrowingRecords/record  → selects all records
-   [status = 'Overdue']              → predicate: keep only
-                                       records with Overdue status
+(: ------------------------------------------------------------ :)
+(: QUERY 2 — All Overdue Records                                :)
+(:                                                             :)
+(: Lists every borrowing record with status = Overdue          :)
+(: ------------------------------------------------------------ :)
+<overdueRecords>
+{
+  for $rec in $lib/library/borrowingRecords/record[status = 'Overdue']
+  order by $rec/dueDate ascending
+  return
+    <overdueRecord recordId="{$rec/@recordId}">
+      <borrowerId>{$rec/borrower/borrowerId/text()}</borrowerId>
+      <borrowerType>{$rec/borrower/borrowerType/text()}</borrowerType>
+      <contactNo>{$rec/borrower/contactNo/text()}</contactNo>
+      <bookId>{$rec/bookId/text()}</bookId>
+      <borrowDate>{$rec/borrowDate/text()}</borrowDate>
+      <dueDate>{$rec/dueDate/text()}</dueDate>
+    </overdueRecord>
+}
+</overdueRecords>
+,
 
- Expected result from library.xml:
-   REC-002 (Ramon Jose Dela Torre  — BK-002)
-   REC-004 (Prof. Eduardo Manalo   — BK-006)
-   REC-006 (Kevin Ryan Reyes       — BK-003)
+(: ------------------------------------------------------------ :)
+(: QUERY 3 — Borrowing Status Summary                           :)
+(:                                                             :)
+(: Groups all records by status and counts each group          :)
+(: ------------------------------------------------------------ :)
+<statusSummary>
+{
+  let $statuses := distinct-values($lib/library/borrowingRecords/record/status)
+  for $s in $statuses
+  let $count := count($lib/library/borrowingRecords/record[status = $s])
+  order by $count descending
+  return
+    <statusGroup>
+      <status>{$s}</status>
+      <totalRecords>{$count}</totalRecords>
+    </statusGroup>
+}
+</statusSummary>
+,
 
- Variant — get only borrower names of overdue records:
-   /library/borrowingRecords/record[status = 'Overdue']
-     /borrower/borrowerName
+(: ------------------------------------------------------------ :)
+(: QUERY 4 — Books Per Category with Total Copies               :)
+(:                                                             :)
+(: Groups books by category, counts books and total copies     :)
+(: ------------------------------------------------------------ :)
+<categoryReport>
+{
+  let $categories := distinct-values($lib/library/books/book/category)
+  for $cat in $categories
+  let $books := $lib/library/books/book[category = $cat]
+  order by $cat ascending
+  return
+    <category name="{$cat}">
+      <totalBooks>{count($books)}</totalBooks>
+      <totalCopies>{sum($books/copies)}</totalCopies>
+    </category>
+}
+</categoryReport>
+,
 
+(: ------------------------------------------------------------ :)
+(: QUERY 5 — Currently Active Loans                             :)
+(:                                                             :)
+(: Lists all records where book is currently borrowed          :)
+(: ------------------------------------------------------------ :)
+<activeLoans>
+{
+  for $rec in $lib/library/borrowingRecords/record[status = 'Active']
+  order by $rec/dueDate ascending
+  return
+    <activeLoan recordId="{$rec/@recordId}">
+      <borrowerId>{$rec/borrower/borrowerId/text()}</borrowerId>
+      <borrowerType>{$rec/borrower/borrowerType/text()}</borrowerType>
+      <contactNo>{$rec/borrower/contactNo/text()}</contactNo>
+      <bookId>{$rec/bookId/text()}</bookId>
+      <borrowDate>{$rec/borrowDate/text()}</borrowDate>
+      <dueDate>{$rec/dueDate/text()}</dueDate>
+    </activeLoan>
+}
+</activeLoans>
+,
 
-------------------------------------------------------------
- QUERY 2 — List All Books in the "Technology" Category
-------------------------------------------------------------
- Expression:
-   /library/books/book[category = 'Technology']
+(: ------------------------------------------------------------ :)
+(: QUERY 6 — Returned Late Records                              :)
+(:                                                             :)
+(: Lists all books returned after the due date                 :)
+(: ------------------------------------------------------------ :)
+<returnedLateRecords>
+{
+  for $rec in $lib/library/borrowingRecords/record[status = 'Returned Late']
+  order by $rec/returnDate descending
+  return
+    <lateReturn recordId="{$rec/@recordId}">
+      <borrowerId>{$rec/borrower/borrowerId/text()}</borrowerId>
+      <bookId>{$rec/bookId/text()}</bookId>
+      <dueDate>{$rec/dueDate/text()}</dueDate>
+      <returnDate>{$rec/returnDate/text()}</returnDate>
+    </lateReturn>
+}
+</returnedLateRecords>
+,
 
- What it does:
-   Filters the book inventory to return only books whose
-   <category> is "Technology". Useful for subject-specific
-   collection reports.
-
- Breakdown:
-   /library/books/book       → selects all books
-   [category = 'Technology'] → predicate: filter by category
-
- Expected result:
-   BK-001 (Introduction to Programming)
-   BK-002 (Data Structures and Algorithms)
-   BK-003 (Database Management Systems)
-
- Variant — get titles only:
-   /library/books/book[category = 'Technology']/title
-
-
-------------------------------------------------------------
- QUERY 3 — Retrieve All Active Borrowing Records
-------------------------------------------------------------
- Expression:
-   /library/borrowingRecords/record[status = 'Active']
-
- What it does:
-   Returns all records where a book is currently borrowed
-   and has not yet passed its due date. Used for tracking
-   books currently on loan.
-
- Breakdown:
-   [status = 'Active'] → predicate: only currently borrowed
-
- Expected result:
-   REC-003 (Liza Mae Santos    — BK-004)
-   REC-007 (Sophia Raine Navarro — BK-008)
-
- Variant — get bookId and dueDate of active records:
-   /library/borrowingRecords/record[status = 'Active']
-     /bookId |
-   /library/borrowingRecords/record[status = 'Active']
-     /dueDate
-
-
-------------------------------------------------------------
- QUERY 4 — Retrieve All Faculty Borrowers
-------------------------------------------------------------
- Expression:
-   /library/borrowingRecords/record[
-     borrower/borrowerType = 'Faculty'
-   ]
-
- What it does:
-   Returns borrowing records where the borrower is a faculty
-   member. Useful for generating faculty-specific loan reports
-   or applying different loan policies.
-
- Breakdown:
-   borrower/borrowerType = 'Faculty' → navigates into the
-     <borrower> child block and checks <borrowerType>
-
- Expected result:
-   REC-004 (Prof. Eduardo Manalo — BK-006 — Overdue)
-
-
-------------------------------------------------------------
- QUERY 5 — Find a Specific Record by recordId Attribute
-------------------------------------------------------------
- Expression:
-   /library/borrowingRecords/record[@recordId = 'REC-004']
-
- What it does:
-   Performs an exact attribute-based lookup for a single
-   record using its unique ID. Equivalent to a primary-key
-   lookup in a relational database.
-
- Breakdown:
-   @recordId = 'REC-004' → @ prefix selects XML attributes;
-                            matches the ID value directly
-
- Expected result:
-   The full <record> block for Prof. Eduardo Manalo
-
- Variant — get only the borrower details of that record:
-   /library/borrowingRecords/record[@recordId = 'REC-004']
-     /borrower
-
-
-------------------------------------------------------------
- QUERY 6 — Count Total Number of Borrowing Records
-------------------------------------------------------------
- Expression:
-   count(/library/borrowingRecords/record)
-
- What it does:
-   Uses the count() aggregate function to return the total
-   number of borrowing records in the system.
-
- Breakdown:
-   count()    → XPath built-in function; returns a number
-   /record    → node-set passed into count()
-
- Expected result: 8
-
- Variant — count only overdue records:
-   count(/library/borrowingRecords/record[status = 'Overdue'])
-   Expected result: 3
-
-
-------------------------------------------------------------
- QUERY 7 — Find the Book with the Most Available Copies
-------------------------------------------------------------
- Expression (XPath 2.0):
-   /library/books/book[
-     copies = max(/library/books/book/copies)
-   ]
-
- What it does:
-   Uses max() to find the highest <copies> value across all
-   books, then returns the book(s) matching that value.
-   Useful for identifying the most stocked titles.
-
- Breakdown:
-   max(...)  → XPath 2.0 aggregate; finds maximum in a node-set
-   copies = max(...) → predicate compares each book's copies
-
- Expected result:
-   BK-006 (Philippine History and Culture — 6 copies)
-
-
-------------------------------------------------------------
- QUERY 8 — List Books Returned Late
-------------------------------------------------------------
- Expression:
-   /library/borrowingRecords/record[status = 'Returned Late']
-     /borrower/borrowerName
-
- What it does:
-   Returns the names of borrowers who returned books after
-   the due date. Useful for applying late fees or warnings.
-
- Breakdown:
-   [status = 'Returned Late'] → filter predicate
-   /borrower/borrowerName     → drills into the borrower block
-
- Expected result:
-   Daniel James Ocampo (REC-008)
-
-
-============================================================
- XQUERY (Self-Study) — Retrieve Most Borrowed Books
-============================================================
- XQuery is a powerful query language for XML databases
- (e.g., BaseX, eXist-db). Unlike XPath, XQuery can
- aggregate, sort, and group results.
-
- Query — Count borrows per book and sort descending:
-
-   for $bookId in distinct-values(
-     doc("library.xml")//borrowingRecords/record/bookId
-   )
-   let $count := count(
-     doc("library.xml")//borrowingRecords/record[
-       bookId = $bookId
-     ]
-   )
-   let $title := doc("library.xml")//books/book[
-     @bookId = $bookId
-   ]/title
-   order by $count descending
-   return
-     <borrowCount>
-       <bookId>{$bookId}</bookId>
-       <title>{$title}</title>
-       <timesBorrowed>{$count}</timesBorrowed>
-     </borrowCount>
-
- Explanation:
-   - distinct-values() gets each unique bookId borrowed
-   - count() tallies how many records reference that bookId
-   - "order by $count descending" sorts most borrowed first
-   - Returns structured XML with bookId, title, and count
-
- How to run:
-   Open BaseX > New Database > Import library.xml
-   Paste the query in the Editor tab > Run (F5)
+(: ------------------------------------------------------------ :)
+(: QUERY 7 — Books Never Borrowed                               :)
+(:                                                             :)
+(: Finds books that have no borrowing records at all           :)
+(: ------------------------------------------------------------ :)
+<neverBorrowedBooks>
+{
+  for $book in $lib/library/books/book
+  let $borrowCount :=
+      count($lib/library/borrowingRecords/record[bookId = $book/@bookId])
+  where $borrowCount = 0
+  return
+    <book bookId="{$book/@bookId}">
+      <title>{$book/title/text()}</title>
+      <author>{$book/author/text()}</author>
+      <category>{$book/category/text()}</category>
+      <copies>{$book/copies/text()}</copies>
+    </book>
+}
+</neverBorrowedBooks>

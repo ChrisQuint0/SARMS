@@ -38,7 +38,6 @@
       <copies>2</copies>
     </book>
 
-
     <book bookId="BK-004">
       <title>Calculus: Early Transcendentals</title>
       <author>James Stewart</author>
@@ -143,10 +142,8 @@
     <record recordId="REC-001">
       <bookId>BK-001</bookId>
       <borrower>
-        <borrowerId>STU-001</borrowerId>
-        <borrowerName>Ana Marie Cruz</borrowerName>
+        <borrowerId>23-00001</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSIT</course>
         <contactNo>09171234567</contactNo>
       </borrower>
       <borrowDate>2025-04-01</borrowDate>
@@ -158,10 +155,8 @@
     <record recordId="REC-002">
       <bookId>BK-002</bookId>
       <borrower>
-        <borrowerId>STU-002</borrowerId>
-        <borrowerName>Ramon Jose Dela Torre</borrowerName>
+        <borrowerId>23-00002</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCS</course>
         <contactNo>09189876543</contactNo>
       </borrower>
       <borrowDate>2025-03-10</borrowDate>
@@ -173,10 +168,8 @@
     <record recordId="REC-003">
       <bookId>BK-004</bookId>
       <borrower>
-        <borrowerId>STU-003</borrowerId>
-        <borrowerName>Liza Mae Santos</borrowerName>
+        <borrowerId>23-00003</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSME</course>
         <contactNo>09201122334</contactNo>
       </borrower>
       <borrowDate>2025-04-20</borrowDate>
@@ -188,10 +181,8 @@
     <record recordId="REC-004">
       <bookId>BK-006</bookId>
       <borrower>
-        <borrowerId>FAC-001</borrowerId>
-        <borrowerName>Prof. Eduardo Manalo</borrowerName>
-        <borrowerType>Faculty</borrowerType>
-        <course>General Education</course>
+        <borrowerId>23-00004</borrowerId>
+        <borrowerType>Student</borrowerType>
         <contactNo>09273344556</contactNo>
       </borrower>
       <borrowDate>2025-02-15</borrowDate>
@@ -203,10 +194,8 @@
     <record recordId="REC-005">
       <bookId>BK-007</bookId>
       <borrower>
-        <borrowerId>STU-004</borrowerId>
-        <borrowerName>Patricia Anne Flores</borrowerName>
+        <borrowerId>23-00005</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSBA</course>
         <contactNo>09151234000</contactNo>
       </borrower>
       <borrowDate>2025-04-05</borrowDate>
@@ -218,10 +207,8 @@
     <record recordId="REC-006">
       <bookId>BK-003</bookId>
       <borrower>
-        <borrowerId>STU-005</borrowerId>
-        <borrowerName>Kevin Ryan Reyes</borrowerName>
+        <borrowerId>23-00006</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSIT</course>
         <contactNo>09261239876</contactNo>
       </borrower>
       <borrowDate>2025-03-01</borrowDate>
@@ -233,10 +220,8 @@
     <record recordId="REC-007">
       <bookId>BK-008</bookId>
       <borrower>
-        <borrowerId>STU-006</borrowerId>
-        <borrowerName>Sophia Raine Navarro</borrowerName>
+        <borrowerId>23-00007</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSECE</course>
         <contactNo>09175550001</contactNo>
       </borrower>
       <borrowDate>2025-04-22</borrowDate>
@@ -248,10 +233,8 @@
     <record recordId="REC-008">
       <bookId>BK-005</bookId>
       <borrower>
-        <borrowerId>STU-007</borrowerId>
-        <borrowerName>Daniel James Ocampo</borrowerName>
+        <borrowerId>23-00008</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSME</course>
         <contactNo>09189990011</contactNo>
       </borrower>
       <borrowDate>2025-03-05</borrowDate>
@@ -263,10 +246,8 @@
     <record recordId="REC-009">
       <bookId>BK-001</bookId>
       <borrower>
-        <borrowerId>STU-008</borrowerId>
-        <borrowerName>Maria Clara Reyes</borrowerName>
+        <borrowerId>23-00009</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSIT</course>
         <contactNo>09171111222</contactNo>
       </borrower>
       <borrowDate>2025-04-10</borrowDate>
@@ -278,10 +259,8 @@
     <record recordId="REC-010">
       <bookId>BK-009</bookId>
       <borrower>
-        <borrowerId>STU-009</borrowerId>
-        <borrowerName>Jose Antonio Villanueva</borrowerName>
+        <borrowerId>23-00010</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCS</course>
         <contactNo>09221234567</contactNo>
       </borrower>
       <borrowDate>2025-04-15</borrowDate>
@@ -293,10 +272,8 @@
     <record recordId="REC-011">
       <bookId>BK-010</bookId>
       <borrower>
-        <borrowerId>STU-010</borrowerId>
-        <borrowerName>Isabella Grace Tan</borrowerName>
+        <borrowerId>23-00011</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCS</course>
         <contactNo>09182345678</contactNo>
       </borrower>
       <borrowDate>2025-03-20</borrowDate>
@@ -308,10 +285,8 @@
     <record recordId="REC-012">
       <bookId>BK-011</bookId>
       <borrower>
-        <borrowerId>FAC-002</borrowerId>
-        <borrowerName>Prof. Ligaya Bautista</borrowerName>
-        <borrowerType>Faculty</borrowerType>
-        <course>Computer Science</course>
+        <borrowerId>23-00012</borrowerId>
+        <borrowerType>Student</borrowerType>
         <contactNo>09273456789</contactNo>
       </borrower>
       <borrowDate>2025-04-01</borrowDate>
@@ -323,10 +298,8 @@
     <record recordId="REC-013">
       <bookId>BK-012</bookId>
       <borrower>
-        <borrowerId>STU-011</borrowerId>
-        <borrowerName>Gabriel Luis Mendoza</borrowerName>
+        <borrowerId>23-00013</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSED</course>
         <contactNo>09194567890</contactNo>
       </borrower>
       <borrowDate>2025-04-18</borrowDate>
@@ -338,10 +311,8 @@
     <record recordId="REC-014">
       <bookId>BK-013</bookId>
       <borrower>
-        <borrowerId>STU-012</borrowerId>
-        <borrowerName>Francesca Joy Dela Cruz</borrowerName>
+        <borrowerId>23-00014</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSBA</course>
         <contactNo>09165678901</contactNo>
       </borrower>
       <borrowDate>2025-02-20</borrowDate>
@@ -353,10 +324,8 @@
     <record recordId="REC-015">
       <bookId>BK-014</bookId>
       <borrower>
-        <borrowerId>STU-013</borrowerId>
-        <borrowerName>Miguel Andre Santos</borrowerName>
+        <borrowerId>23-00015</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSME</course>
         <contactNo>09176789012</contactNo>
       </borrower>
       <borrowDate>2025-04-12</borrowDate>
@@ -368,10 +337,8 @@
     <record recordId="REC-016">
       <bookId>BK-015</bookId>
       <borrower>
-        <borrowerId>STU-014</borrowerId>
-        <borrowerName>Angelica Rose Gomez</borrowerName>
+        <borrowerId>23-00016</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSBA</course>
         <contactNo>09187890123</contactNo>
       </borrower>
       <borrowDate>2025-04-19</borrowDate>
@@ -383,10 +350,8 @@
     <record recordId="REC-017">
       <bookId>BK-002</bookId>
       <borrower>
-        <borrowerId>STU-015</borrowerId>
-        <borrowerName>Raphael John Castillo</borrowerName>
+        <borrowerId>23-00017</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSIT</course>
         <contactNo>09198901234</contactNo>
       </borrower>
       <borrowDate>2025-03-15</borrowDate>
@@ -398,10 +363,8 @@
     <record recordId="REC-018">
       <bookId>BK-003</bookId>
       <borrower>
-        <borrowerId>FAC-003</borrowerId>
-        <borrowerName>Prof. Renato Aquino</borrowerName>
-        <borrowerType>Faculty</borrowerType>
-        <course>Information Technology</course>
+        <borrowerId>23-00018</borrowerId>
+        <borrowerType>Student</borrowerType>
         <contactNo>09209012345</contactNo>
       </borrower>
       <borrowDate>2025-04-05</borrowDate>
@@ -413,10 +376,8 @@
     <record recordId="REC-019">
       <bookId>BK-004</bookId>
       <borrower>
-        <borrowerId>STU-016</borrowerId>
-        <borrowerName>Clarissa Dawn Ramos</borrowerName>
+        <borrowerId>23-00019</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSECE</course>
         <contactNo>09170123456</contactNo>
       </borrower>
       <borrowDate>2025-04-21</borrowDate>
@@ -428,10 +389,8 @@
     <record recordId="REC-020">
       <bookId>BK-005</bookId>
       <borrower>
-        <borrowerId>STU-017</borrowerId>
-        <borrowerName>Emmanuel Troy Lacson</borrowerName>
+        <borrowerId>23-00020</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCE</course>
         <contactNo>09181234567</contactNo>
       </borrower>
       <borrowDate>2025-03-08</borrowDate>
@@ -443,10 +402,8 @@
     <record recordId="REC-021">
       <bookId>BK-006</bookId>
       <borrower>
-        <borrowerId>STU-018</borrowerId>
-        <borrowerName>Beatrice Ann Soriano</borrowerName>
+        <borrowerId>23-00021</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSED</course>
         <contactNo>09192345678</contactNo>
       </borrower>
       <borrowDate>2025-04-14</borrowDate>
@@ -458,10 +415,8 @@
     <record recordId="REC-022">
       <bookId>BK-007</bookId>
       <borrower>
-        <borrowerId>STU-019</borrowerId>
-        <borrowerName>Lorenzo Miguel Pascual</borrowerName>
+        <borrowerId>23-00022</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSBA</course>
         <contactNo>09203456789</contactNo>
       </borrower>
       <borrowDate>2025-02-10</borrowDate>
@@ -473,10 +428,8 @@
     <record recordId="REC-023">
       <bookId>BK-008</bookId>
       <borrower>
-        <borrowerId>STU-020</borrowerId>
-        <borrowerName>Vanessa Marie Reyes</borrowerName>
+        <borrowerId>23-00023</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSIT</course>
         <contactNo>09214567890</contactNo>
       </borrower>
       <borrowDate>2025-04-23</borrowDate>
@@ -488,10 +441,8 @@
     <record recordId="REC-024">
       <bookId>BK-009</bookId>
       <borrower>
-        <borrowerId>STU-021</borrowerId>
-        <borrowerName>Christian Paul Bautista</borrowerName>
+        <borrowerId>23-00024</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCS</course>
         <contactNo>09225678901</contactNo>
       </borrower>
       <borrowDate>2025-03-25</borrowDate>
@@ -503,10 +454,8 @@
     <record recordId="REC-025">
       <bookId>BK-010</bookId>
       <borrower>
-        <borrowerId>FAC-004</borrowerId>
-        <borrowerName>Prof. Marilou Fernandez</borrowerName>
-        <borrowerType>Faculty</borrowerType>
-        <course>Mathematics</course>
+        <borrowerId>23-00025</borrowerId>
+        <borrowerType>Student</borrowerType>
         <contactNo>09236789012</contactNo>
       </borrower>
       <borrowDate>2025-04-10</borrowDate>
@@ -518,10 +467,8 @@
     <record recordId="REC-026">
       <bookId>BK-011</bookId>
       <borrower>
-        <borrowerId>STU-022</borrowerId>
-        <borrowerName>Joanna Pearl Valdez</borrowerName>
+        <borrowerId>23-00026</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSIT</course>
         <contactNo>09247890123</contactNo>
       </borrower>
       <borrowDate>2025-02-28</borrowDate>
@@ -533,10 +480,8 @@
     <record recordId="REC-027">
       <bookId>BK-012</bookId>
       <borrower>
-        <borrowerId>STU-023</borrowerId>
-        <borrowerName>Marcus John Tolentino</borrowerName>
+        <borrowerId>23-00027</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSED</course>
         <contactNo>09258901234</contactNo>
       </borrower>
       <borrowDate>2025-04-16</borrowDate>
@@ -548,10 +493,8 @@
     <record recordId="REC-028">
       <bookId>BK-013</bookId>
       <borrower>
-        <borrowerId>STU-024</borrowerId>
-        <borrowerName>Samantha Joy Aguilar</borrowerName>
+        <borrowerId>23-00028</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSBA</course>
         <contactNo>09269012345</contactNo>
       </borrower>
       <borrowDate>2025-04-24</borrowDate>
@@ -563,10 +506,8 @@
     <record recordId="REC-029">
       <bookId>BK-014</bookId>
       <borrower>
-        <borrowerId>STU-025</borrowerId>
-        <borrowerName>Nathan Karl Evangelista</borrowerName>
+        <borrowerId>23-00029</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSME</course>
         <contactNo>09270123456</contactNo>
       </borrower>
       <borrowDate>2025-03-12</borrowDate>
@@ -578,10 +519,8 @@
     <record recordId="REC-030">
       <bookId>BK-015</bookId>
       <borrower>
-        <borrowerId>FAC-005</borrowerId>
-        <borrowerName>Prof. Cecilia Domingo</borrowerName>
-        <borrowerType>Faculty</borrowerType>
-        <course>Business Administration</course>
+        <borrowerId>23-00030</borrowerId>
+        <borrowerType>Student</borrowerType>
         <contactNo>09281234567</contactNo>
       </borrower>
       <borrowDate>2025-04-08</borrowDate>
@@ -593,10 +532,8 @@
     <record recordId="REC-031">
       <bookId>BK-001</bookId>
       <borrower>
-        <borrowerId>STU-026</borrowerId>
-        <borrowerName>Chloe Anne Miranda</borrowerName>
+        <borrowerId>23-00031</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSIT</course>
         <contactNo>09292345678</contactNo>
       </borrower>
       <borrowDate>2025-02-05</borrowDate>
@@ -608,10 +545,8 @@
     <record recordId="REC-032">
       <bookId>BK-002</bookId>
       <borrower>
-        <borrowerId>STU-027</borrowerId>
-        <borrowerName>Adrian Luis Hermosa</borrowerName>
+        <borrowerId>23-00032</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCS</course>
         <contactNo>09173456789</contactNo>
       </borrower>
       <borrowDate>2025-04-25</borrowDate>
@@ -623,10 +558,8 @@
     <record recordId="REC-033">
       <bookId>BK-003</bookId>
       <borrower>
-        <borrowerId>STU-028</borrowerId>
-        <borrowerName>Natalia Rose Corpuz</borrowerName>
+        <borrowerId>23-00033</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSIT</course>
         <contactNo>09184567890</contactNo>
       </borrower>
       <borrowDate>2025-03-18</borrowDate>
@@ -638,10 +571,8 @@
     <record recordId="REC-034">
       <bookId>BK-004</bookId>
       <borrower>
-        <borrowerId>STU-029</borrowerId>
-        <borrowerName>Dominic Ray Alcantara</borrowerName>
+        <borrowerId>23-00034</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCE</course>
         <contactNo>09195678901</contactNo>
       </borrower>
       <borrowDate>2025-02-18</borrowDate>
@@ -653,10 +584,8 @@
     <record recordId="REC-035">
       <bookId>BK-005</bookId>
       <borrower>
-        <borrowerId>FAC-006</borrowerId>
-        <borrowerName>Prof. Roberto Delos Reyes</borrowerName>
-        <borrowerType>Faculty</borrowerType>
-        <course>Engineering</course>
+        <borrowerId>23-00035</borrowerId>
+        <borrowerType>Student</borrowerType>
         <contactNo>09206789012</contactNo>
       </borrower>
       <borrowDate>2025-04-20</borrowDate>
@@ -668,10 +597,8 @@
     <record recordId="REC-036">
       <bookId>BK-006</bookId>
       <borrower>
-        <borrowerId>STU-030</borrowerId>
-        <borrowerName>Erica Jane Villafuerte</borrowerName>
+        <borrowerId>23-00036</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSED</course>
         <contactNo>09217890123</contactNo>
       </borrower>
       <borrowDate>2025-03-22</borrowDate>
@@ -683,10 +610,8 @@
     <record recordId="REC-037">
       <bookId>BK-007</bookId>
       <borrower>
-        <borrowerId>STU-031</borrowerId>
-        <borrowerName>Felix Andre Agustin</borrowerName>
+        <borrowerId>23-00037</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSBA</course>
         <contactNo>09228901234</contactNo>
       </borrower>
       <borrowDate>2025-04-26</borrowDate>
@@ -698,10 +623,8 @@
     <record recordId="REC-038">
       <bookId>BK-008</bookId>
       <borrower>
-        <borrowerId>STU-032</borrowerId>
-        <borrowerName>Hannah Grace Buenaventura</borrowerName>
+        <borrowerId>23-00038</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSECE</course>
         <contactNo>09239012345</contactNo>
       </borrower>
       <borrowDate>2025-03-02</borrowDate>
@@ -713,10 +636,8 @@
     <record recordId="REC-039">
       <bookId>BK-009</bookId>
       <borrower>
-        <borrowerId>STU-033</borrowerId>
-        <borrowerName>Ian Carlo Medina</borrowerName>
+        <borrowerId>23-00039</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCS</course>
         <contactNo>09240123456</contactNo>
       </borrower>
       <borrowDate>2025-04-11</borrowDate>
@@ -728,10 +649,8 @@
     <record recordId="REC-040">
       <bookId>BK-010</bookId>
       <borrower>
-        <borrowerId>STU-034</borrowerId>
-        <borrowerName>Jasmine Faye Dionisio</borrowerName>
+        <borrowerId>23-00040</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCS</course>
         <contactNo>09251234567</contactNo>
       </borrower>
       <borrowDate>2025-04-27</borrowDate>
@@ -743,10 +662,8 @@
     <record recordId="REC-041">
       <bookId>BK-011</bookId>
       <borrower>
-        <borrowerId>STU-035</borrowerId>
-        <borrowerName>Karl Vincent Navarro</borrowerName>
+        <borrowerId>23-00041</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSIT</course>
         <contactNo>09262345678</contactNo>
       </borrower>
       <borrowDate>2025-02-25</borrowDate>
@@ -758,10 +675,8 @@
     <record recordId="REC-042">
       <bookId>BK-012</bookId>
       <borrower>
-        <borrowerId>FAC-007</borrowerId>
-        <borrowerName>Prof. Amelia Soriano</borrowerName>
-        <borrowerType>Faculty</borrowerType>
-        <course>Social Science</course>
+        <borrowerId>23-00042</borrowerId>
+        <borrowerType>Student</borrowerType>
         <contactNo>09273456789</contactNo>
       </borrower>
       <borrowDate>2025-04-14</borrowDate>
@@ -773,10 +688,8 @@
     <record recordId="REC-043">
       <bookId>BK-013</bookId>
       <borrower>
-        <borrowerId>STU-036</borrowerId>
-        <borrowerName>Leah Christine Ocampo</borrowerName>
+        <borrowerId>23-00043</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSBA</course>
         <contactNo>09284567890</contactNo>
       </borrower>
       <borrowDate>2025-03-28</borrowDate>
@@ -788,10 +701,8 @@
     <record recordId="REC-044">
       <bookId>BK-014</bookId>
       <borrower>
-        <borrowerId>STU-037</borrowerId>
-        <borrowerName>Marco Antonio Reyes</borrowerName>
+        <borrowerId>23-00044</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSME</course>
         <contactNo>09175678901</contactNo>
       </borrower>
       <borrowDate>2025-02-12</borrowDate>
@@ -803,10 +714,8 @@
     <record recordId="REC-045">
       <bookId>BK-015</bookId>
       <borrower>
-        <borrowerId>STU-038</borrowerId>
-        <borrowerName>Nina Belle Castillo</borrowerName>
+        <borrowerId>23-00045</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSBA</course>
         <contactNo>09186789012</contactNo>
       </borrower>
       <borrowDate>2025-04-28</borrowDate>
@@ -818,10 +727,8 @@
     <record recordId="REC-046">
       <bookId>BK-001</bookId>
       <borrower>
-        <borrowerId>STU-039</borrowerId>
-        <borrowerName>Oscar James Dela Vega</borrowerName>
+        <borrowerId>23-00046</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSIT</course>
         <contactNo>09197890123</contactNo>
       </borrower>
       <borrowDate>2025-03-30</borrowDate>
@@ -833,10 +740,8 @@
     <record recordId="REC-047">
       <bookId>BK-002</bookId>
       <borrower>
-        <borrowerId>STU-040</borrowerId>
-        <borrowerName>Paula Kristine Mendoza</borrowerName>
+        <borrowerId>23-00047</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCS</course>
         <contactNo>09208901234</contactNo>
       </borrower>
       <borrowDate>2025-02-08</borrowDate>
@@ -848,10 +753,8 @@
     <record recordId="REC-048">
       <bookId>BK-003</bookId>
       <borrower>
-        <borrowerId>FAC-008</borrowerId>
-        <borrowerName>Prof. Victor Santos</borrowerName>
-        <borrowerType>Faculty</borrowerType>
-        <course>Information Technology</course>
+        <borrowerId>23-00048</borrowerId>
+        <borrowerType>Student</borrowerType>
         <contactNo>09219012345</contactNo>
       </borrower>
       <borrowDate>2025-04-29</borrowDate>
@@ -863,10 +766,8 @@
     <record recordId="REC-049">
       <bookId>BK-004</bookId>
       <borrower>
-        <borrowerId>STU-041</borrowerId>
-        <borrowerName>Queenie Rose Bautista</borrowerName>
+        <borrowerId>23-00049</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSECE</course>
         <contactNo>09220123456</contactNo>
       </borrower>
       <borrowDate>2025-03-14</borrowDate>
@@ -878,10 +779,8 @@
     <record recordId="REC-050">
       <bookId>BK-005</bookId>
       <borrower>
-        <borrowerId>STU-042</borrowerId>
-        <borrowerName>Ricardo Paulo Garcia</borrowerName>
+        <borrowerId>23-00050</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCE</course>
         <contactNo>09231234567</contactNo>
       </borrower>
       <borrowDate>2025-04-30</borrowDate>
@@ -893,10 +792,8 @@
     <record recordId="REC-051">
       <bookId>BK-006</bookId>
       <borrower>
-        <borrowerId>STU-043</borrowerId>
-        <borrowerName>Stella Marie Lim</borrowerName>
+        <borrowerId>23-00051</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSED</course>
         <contactNo>09242345678</contactNo>
       </borrower>
       <borrowDate>2025-02-22</borrowDate>
@@ -908,10 +805,8 @@
     <record recordId="REC-052">
       <bookId>BK-007</bookId>
       <borrower>
-        <borrowerId>STU-044</borrowerId>
-        <borrowerName>Tristan Hugo Ramos</borrowerName>
+        <borrowerId>23-00052</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSBA</course>
         <contactNo>09253456789</contactNo>
       </borrower>
       <borrowDate>2025-04-03</borrowDate>
@@ -923,10 +818,8 @@
     <record recordId="REC-053">
       <bookId>BK-008</bookId>
       <borrower>
-        <borrowerId>STU-045</borrowerId>
-        <borrowerName>Ursula Claire Vergara</borrowerName>
+        <borrowerId>23-00053</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSECE</course>
         <contactNo>09264567890</contactNo>
       </borrower>
       <borrowDate>2025-05-01</borrowDate>
@@ -938,10 +831,8 @@
     <record recordId="REC-054">
       <bookId>BK-009</bookId>
       <borrower>
-        <borrowerId>STU-046</borrowerId>
-        <borrowerName>Vincent James Padilla</borrowerName>
+        <borrowerId>23-00054</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCS</course>
         <contactNo>09275678901</contactNo>
       </borrower>
       <borrowDate>2025-03-06</borrowDate>
@@ -953,10 +844,8 @@
     <record recordId="REC-055">
       <bookId>BK-010</bookId>
       <borrower>
-        <borrowerId>FAC-009</borrowerId>
-        <borrowerName>Prof. Wilma Reyes</borrowerName>
-        <borrowerType>Faculty</borrowerType>
-        <course>Mathematics</course>
+        <borrowerId>23-00055</borrowerId>
+        <borrowerType>Student</borrowerType>
         <contactNo>09286789012</contactNo>
       </borrower>
       <borrowDate>2025-04-17</borrowDate>
@@ -968,10 +857,8 @@
     <record recordId="REC-056">
       <bookId>BK-011</bookId>
       <borrower>
-        <borrowerId>STU-047</borrowerId>
-        <borrowerName>Xander Cole Flores</borrowerName>
+        <borrowerId>23-00056</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSIT</course>
         <contactNo>09177890123</contactNo>
       </borrower>
       <borrowDate>2025-05-02</borrowDate>
@@ -983,10 +870,8 @@
     <record recordId="REC-057">
       <bookId>BK-012</bookId>
       <borrower>
-        <borrowerId>STU-048</borrowerId>
-        <borrowerName>Yvonne Faye Torres</borrowerName>
+        <borrowerId>23-00057</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSED</course>
         <contactNo>09188901234</contactNo>
       </borrower>
       <borrowDate>2025-02-14</borrowDate>
@@ -998,10 +883,8 @@
     <record recordId="REC-058">
       <bookId>BK-013</bookId>
       <borrower>
-        <borrowerId>STU-049</borrowerId>
-        <borrowerName>Zachary Ivan Dela Rosa</borrowerName>
+        <borrowerId>23-00058</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSBA</course>
         <contactNo>09199012345</contactNo>
       </borrower>
       <borrowDate>2025-04-07</borrowDate>
@@ -1013,10 +896,8 @@
     <record recordId="REC-059">
       <bookId>BK-014</bookId>
       <borrower>
-        <borrowerId>STU-050</borrowerId>
-        <borrowerName>Abigail Joy Panganiban</borrowerName>
+        <borrowerId>23-00059</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSME</course>
         <contactNo>09200123456</contactNo>
       </borrower>
       <borrowDate>2025-05-03</borrowDate>
@@ -1028,10 +909,8 @@
     <record recordId="REC-060">
       <bookId>BK-015</bookId>
       <borrower>
-        <borrowerId>FAC-010</borrowerId>
-        <borrowerName>Prof. Bernardo Cruz</borrowerName>
-        <borrowerType>Faculty</borrowerType>
-        <course>Business Administration</course>
+        <borrowerId>23-00060</borrowerId>
+        <borrowerType>Student</borrowerType>
         <contactNo>09211234567</contactNo>
       </borrower>
       <borrowDate>2025-03-10</borrowDate>
@@ -1043,10 +922,8 @@
     <record recordId="REC-061">
       <bookId>BK-001</bookId>
       <borrower>
-        <borrowerId>STU-051</borrowerId>
-        <borrowerName>Camille Rose Aquino</borrowerName>
+        <borrowerId>23-00061</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSIT</course>
         <contactNo>09222345678</contactNo>
       </borrower>
       <borrowDate>2025-04-09</borrowDate>
@@ -1058,10 +935,8 @@
     <record recordId="REC-062">
       <bookId>BK-002</bookId>
       <borrower>
-        <borrowerId>STU-052</borrowerId>
-        <borrowerName>Danilo Rey Bernardo</borrowerName>
+        <borrowerId>23-00062</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCS</course>
         <contactNo>09233456789</contactNo>
       </borrower>
       <borrowDate>2025-05-04</borrowDate>
@@ -1073,10 +948,8 @@
     <record recordId="REC-063">
       <bookId>BK-003</bookId>
       <borrower>
-        <borrowerId>STU-053</borrowerId>
-        <borrowerName>Elena Grace Macaraeg</borrowerName>
+        <borrowerId>23-00063</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSIT</course>
         <contactNo>09244567890</contactNo>
       </borrower>
       <borrowDate>2025-02-16</borrowDate>
@@ -1088,10 +961,8 @@
     <record recordId="REC-064">
       <bookId>BK-004</bookId>
       <borrower>
-        <borrowerId>STU-054</borrowerId>
-        <borrowerName>Fernando Luke Villanueva</borrowerName>
+        <borrowerId>23-00064</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCE</course>
         <contactNo>09255678901</contactNo>
       </borrower>
       <borrowDate>2025-04-13</borrowDate>
@@ -1103,10 +974,8 @@
     <record recordId="REC-065">
       <bookId>BK-005</bookId>
       <borrower>
-        <borrowerId>FAC-011</borrowerId>
-        <borrowerName>Prof. Gloria Tan</borrowerName>
-        <borrowerType>Faculty</borrowerType>
-        <course>Engineering</course>
+        <borrowerId>23-00065</borrowerId>
+        <borrowerType>Student</borrowerType>
         <contactNo>09266789012</contactNo>
       </borrower>
       <borrowDate>2025-05-05</borrowDate>
@@ -1118,10 +987,8 @@
     <record recordId="REC-066">
       <bookId>BK-006</bookId>
       <borrower>
-        <borrowerId>STU-055</borrowerId>
-        <borrowerName>Harold James Dela Torre</borrowerName>
+        <borrowerId>23-00066</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSED</course>
         <contactNo>09277890123</contactNo>
       </borrower>
       <borrowDate>2025-03-04</borrowDate>
@@ -1133,10 +1000,8 @@
     <record recordId="REC-067">
       <bookId>BK-007</bookId>
       <borrower>
-        <borrowerId>STU-056</borrowerId>
-        <borrowerName>Irene Joy Lacson</borrowerName>
+        <borrowerId>23-00067</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSBA</course>
         <contactNo>09288901234</contactNo>
       </borrower>
       <borrowDate>2025-04-15</borrowDate>
@@ -1148,10 +1013,8 @@
     <record recordId="REC-068">
       <bookId>BK-008</bookId>
       <borrower>
-        <borrowerId>STU-057</borrowerId>
-        <borrowerName>Jerome Paul Salazar</borrowerName>
+        <borrowerId>23-00068</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSECE</course>
         <contactNo>09179012345</contactNo>
       </borrower>
       <borrowDate>2025-05-06</borrowDate>
@@ -1163,10 +1026,8 @@
     <record recordId="REC-069">
       <bookId>BK-009</bookId>
       <borrower>
-        <borrowerId>STU-058</borrowerId>
-        <borrowerName>Karen Anne Villafuerte</borrowerName>
+        <borrowerId>23-00069</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCS</course>
         <contactNo>09180123456</contactNo>
       </borrower>
       <borrowDate>2025-02-20</borrowDate>
@@ -1178,10 +1039,8 @@
     <record recordId="REC-070">
       <bookId>BK-010</bookId>
       <borrower>
-        <borrowerId>STU-059</borrowerId>
-        <borrowerName>Leonardo Ivan Cruz</borrowerName>
+        <borrowerId>23-00070</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCS</course>
         <contactNo>09191234567</contactNo>
       </borrower>
       <borrowDate>2025-04-20</borrowDate>
@@ -1193,10 +1052,8 @@
     <record recordId="REC-071">
       <bookId>BK-011</bookId>
       <borrower>
-        <borrowerId>FAC-012</borrowerId>
-        <borrowerName>Prof. Henry Pascual</borrowerName>
-        <borrowerType>Faculty</borrowerType>
-        <course>Computer Science</course>
+        <borrowerId>23-00071</borrowerId>
+        <borrowerType>Student</borrowerType>
         <contactNo>09202345678</contactNo>
       </borrower>
       <borrowDate>2025-03-16</borrowDate>
@@ -1208,10 +1065,8 @@
     <record recordId="REC-072">
       <bookId>BK-012</bookId>
       <borrower>
-        <borrowerId>STU-060</borrowerId>
-        <borrowerName>Marisol Anne Gomez</borrowerName>
+        <borrowerId>23-00072</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSED</course>
         <contactNo>09213456789</contactNo>
       </borrower>
       <borrowDate>2025-05-07</borrowDate>
@@ -1223,10 +1078,8 @@
     <record recordId="REC-073">
       <bookId>BK-013</bookId>
       <borrower>
-        <borrowerId>STU-061</borrowerId>
-        <borrowerName>Nathaniel Ross Aguilar</borrowerName>
+        <borrowerId>23-00073</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSBA</course>
         <contactNo>09224567890</contactNo>
       </borrower>
       <borrowDate>2025-02-24</borrowDate>
@@ -1238,10 +1091,8 @@
     <record recordId="REC-074">
       <bookId>BK-014</bookId>
       <borrower>
-        <borrowerId>STU-062</borrowerId>
-        <borrowerName>Olivia Faye Evangelista</borrowerName>
+        <borrowerId>23-00074</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSME</course>
         <contactNo>09235678901</contactNo>
       </borrower>
       <borrowDate>2025-04-22</borrowDate>
@@ -1253,10 +1104,8 @@
     <record recordId="REC-075">
       <bookId>BK-015</bookId>
       <borrower>
-        <borrowerId>STU-063</borrowerId>
-        <borrowerName>Patrick James Domingo</borrowerName>
+        <borrowerId>23-00075</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSBA</course>
         <contactNo>09246789012</contactNo>
       </borrower>
       <borrowDate>2025-05-08</borrowDate>
@@ -1268,10 +1117,8 @@
     <record recordId="REC-076">
       <bookId>BK-001</bookId>
       <borrower>
-        <borrowerId>STU-064</borrowerId>
-        <borrowerName>Rachelle Dawn Hermosa</borrowerName>
+        <borrowerId>23-00076</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSIT</course>
         <contactNo>09257890123</contactNo>
       </borrower>
       <borrowDate>2025-03-26</borrowDate>
@@ -1283,10 +1130,8 @@
     <record recordId="REC-077">
       <bookId>BK-002</bookId>
       <borrower>
-        <borrowerId>FAC-013</borrowerId>
-        <borrowerName>Prof. Sandra Corpuz</borrowerName>
-        <borrowerType>Faculty</borrowerType>
-        <course>Computer Science</course>
+        <borrowerId>23-00077</borrowerId>
+        <borrowerType>Student</borrowerType>
         <contactNo>09268901234</contactNo>
       </borrower>
       <borrowDate>2025-04-24</borrowDate>
@@ -1298,10 +1143,8 @@
     <record recordId="REC-078">
       <bookId>BK-003</bookId>
       <borrower>
-        <borrowerId>STU-065</borrowerId>
-        <borrowerName>Sebastian Roy Alcantara</borrowerName>
+        <borrowerId>23-00078</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSIT</course>
         <contactNo>09279012345</contactNo>
       </borrower>
       <borrowDate>2025-03-08</borrowDate>
@@ -1313,10 +1156,8 @@
     <record recordId="REC-079">
       <bookId>BK-004</bookId>
       <borrower>
-        <borrowerId>STU-066</borrowerId>
-        <borrowerName>Teresa Grace Delos Reyes</borrowerName>
+        <borrowerId>23-00079</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCE</course>
         <contactNo>09170234567</contactNo>
       </borrower>
       <borrowDate>2025-05-09</borrowDate>
@@ -1328,10 +1169,8 @@
     <record recordId="REC-080">
       <bookId>BK-005</bookId>
       <borrower>
-        <borrowerId>STU-067</borrowerId>
-        <borrowerName>Ulysses Mark Villafuerte</borrowerName>
+        <borrowerId>23-00080</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSME</course>
         <contactNo>09181345678</contactNo>
       </borrower>
       <borrowDate>2025-02-26</borrowDate>
@@ -1343,10 +1182,8 @@
     <record recordId="REC-081">
       <bookId>BK-006</bookId>
       <borrower>
-        <borrowerId>STU-068</borrowerId>
-        <borrowerName>Veronica Joy Agustin</borrowerName>
+        <borrowerId>23-00081</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSED</course>
         <contactNo>09192456789</contactNo>
       </borrower>
       <borrowDate>2025-04-16</borrowDate>
@@ -1358,10 +1195,8 @@
     <record recordId="REC-082">
       <bookId>BK-007</bookId>
       <borrower>
-        <borrowerId>FAC-014</borrowerId>
-        <borrowerName>Prof. Walter Buenaventura</borrowerName>
-        <borrowerType>Faculty</borrowerType>
-        <course>Business Administration</course>
+        <borrowerId>23-00082</borrowerId>
+        <borrowerType>Student</borrowerType>
         <contactNo>09203567890</contactNo>
       </borrower>
       <borrowDate>2025-05-10</borrowDate>
@@ -1373,10 +1208,8 @@
     <record recordId="REC-083">
       <bookId>BK-008</bookId>
       <borrower>
-        <borrowerId>STU-069</borrowerId>
-        <borrowerName>Xavier Luis Medina</borrowerName>
+        <borrowerId>23-00083</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSECE</course>
         <contactNo>09214678901</contactNo>
       </borrower>
       <borrowDate>2025-03-20</borrowDate>
@@ -1388,10 +1221,8 @@
     <record recordId="REC-084">
       <bookId>BK-009</bookId>
       <borrower>
-        <borrowerId>STU-070</borrowerId>
-        <borrowerName>Yolanda Mae Dionisio</borrowerName>
+        <borrowerId>23-00084</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCS</course>
         <contactNo>09225789012</contactNo>
       </borrower>
       <borrowDate>2025-04-18</borrowDate>
@@ -1403,10 +1234,8 @@
     <record recordId="REC-085">
       <bookId>BK-010</bookId>
       <borrower>
-        <borrowerId>STU-071</borrowerId>
-        <borrowerName>Zeus Andre Navarro</borrowerName>
+        <borrowerId>23-00085</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCS</course>
         <contactNo>09236890123</contactNo>
       </borrower>
       <borrowDate>2025-05-11</borrowDate>
@@ -1418,10 +1247,8 @@
     <record recordId="REC-086">
       <bookId>BK-011</bookId>
       <borrower>
-        <borrowerId>STU-072</borrowerId>
-        <borrowerName>Alicia Rose Padilla</borrowerName>
+        <borrowerId>23-00086</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSIT</course>
         <contactNo>09247901234</contactNo>
       </borrower>
       <borrowDate>2025-03-24</borrowDate>
@@ -1433,10 +1260,8 @@
     <record recordId="REC-087">
       <bookId>BK-012</bookId>
       <borrower>
-        <borrowerId>STU-073</borrowerId>
-        <borrowerName>Bernard Paul Reyes</borrowerName>
+        <borrowerId>23-00087</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSED</course>
         <contactNo>09258012345</contactNo>
       </borrower>
       <borrowDate>2025-04-26</borrowDate>
@@ -1448,10 +1273,8 @@
     <record recordId="REC-088">
       <bookId>BK-013</bookId>
       <borrower>
-        <borrowerId>FAC-015</borrowerId>
-        <borrowerName>Prof. Corazon Dela Cruz</borrowerName>
-        <borrowerType>Faculty</borrowerType>
-        <course>Business Administration</course>
+        <borrowerId>23-00088</borrowerId>
+        <borrowerType>Student</borrowerType>
         <contactNo>09269123456</contactNo>
       </borrower>
       <borrowDate>2025-05-02</borrowDate>
@@ -1463,10 +1286,8 @@
     <record recordId="REC-089">
       <bookId>BK-014</bookId>
       <borrower>
-        <borrowerId>STU-074</borrowerId>
-        <borrowerName>Diana Joy Castillo</borrowerName>
+        <borrowerId>23-00089</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSME</course>
         <contactNo>09170345678</contactNo>
       </borrower>
       <borrowDate>2025-03-28</borrowDate>
@@ -1478,10 +1299,8 @@
     <record recordId="REC-090">
       <bookId>BK-015</bookId>
       <borrower>
-        <borrowerId>STU-075</borrowerId>
-        <borrowerName>Enrico James Dela Vega</borrowerName>
+        <borrowerId>23-00090</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSBA</course>
         <contactNo>09181456789</contactNo>
       </borrower>
       <borrowDate>2025-04-28</borrowDate>
@@ -1493,10 +1312,8 @@
     <record recordId="REC-091">
       <bookId>BK-001</bookId>
       <borrower>
-        <borrowerId>STU-076</borrowerId>
-        <borrowerName>Fatima Rose Mendoza</borrowerName>
+        <borrowerId>23-00091</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSIT</course>
         <contactNo>09192567890</contactNo>
       </borrower>
       <borrowDate>2025-05-03</borrowDate>
@@ -1508,10 +1325,8 @@
     <record recordId="REC-092">
       <bookId>BK-002</bookId>
       <borrower>
-        <borrowerId>STU-077</borrowerId>
-        <borrowerName>Gilbert Ray Santos</borrowerName>
+        <borrowerId>23-00092</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCS</course>
         <contactNo>09203678901</contactNo>
       </borrower>
       <borrowDate>2025-03-30</borrowDate>
@@ -1523,10 +1338,8 @@
     <record recordId="REC-093">
       <bookId>BK-003</bookId>
       <borrower>
-        <borrowerId>STU-078</borrowerId>
-        <borrowerName>Helena Marie Bautista</borrowerName>
+        <borrowerId>23-00093</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSIT</course>
         <contactNo>09214789012</contactNo>
       </borrower>
       <borrowDate>2025-04-02</borrowDate>
@@ -1536,12 +1349,10 @@
     </record>
 
     <record recordId="REC-094">
-      <bookId>BK-004</bookId>
+      <bookId>BK-101</bookId>
       <borrower>
-        <borrowerId>FAC-016</borrowerId>
-        <borrowerName>Prof. Ignacio Fernandez</borrowerName>
-        <borrowerType>Faculty</borrowerType>
-        <course>Mathematics</course>
+        <borrowerId>23-00094</borrowerId>
+        <borrowerType>Student</borrowerType>
         <contactNo>09225890123</contactNo>
       </borrower>
       <borrowDate>2025-05-04</borrowDate>
@@ -1553,10 +1364,8 @@
     <record recordId="REC-095">
       <bookId>BK-005</bookId>
       <borrower>
-        <borrowerId>STU-079</borrowerId>
-        <borrowerName>Juliana Pearl Garcia</borrowerName>
+        <borrowerId>23-00095</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCE</course>
         <contactNo>09236901234</contactNo>
       </borrower>
       <borrowDate>2025-04-04</borrowDate>
@@ -1568,10 +1377,8 @@
     <record recordId="REC-096">
       <bookId>BK-006</bookId>
       <borrower>
-        <borrowerId>STU-080</borrowerId>
-        <borrowerName>Kenneth James Lim</borrowerName>
+        <borrowerId>23-00096</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSED</course>
         <contactNo>09248012345</contactNo>
       </borrower>
       <borrowDate>2025-04-06</borrowDate>
@@ -1583,10 +1390,8 @@
     <record recordId="REC-097">
       <bookId>BK-007</bookId>
       <borrower>
-        <borrowerId>STU-081</borrowerId>
-        <borrowerName>Lorraine Joy Ramos</borrowerName>
+        <borrowerId>23-00097</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSBA</course>
         <contactNo>09259123456</contactNo>
       </borrower>
       <borrowDate>2025-05-05</borrowDate>
@@ -1598,10 +1403,8 @@
     <record recordId="REC-098">
       <bookId>BK-008</bookId>
       <borrower>
-        <borrowerId>STU-082</borrowerId>
-        <borrowerName>Manuel Andre Vergara</borrowerName>
+        <borrowerId>23-00098</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSECE</course>
         <contactNo>09270234567</contactNo>
       </borrower>
       <borrowDate>2025-04-08</borrowDate>
@@ -1613,10 +1416,8 @@
     <record recordId="REC-099">
       <bookId>BK-009</bookId>
       <borrower>
-        <borrowerId>STU-083</borrowerId>
-        <borrowerName>Norma Claire Torres</borrowerName>
+        <borrowerId>23-00099</borrowerId>
         <borrowerType>Student</borrowerType>
-        <course>BSCS</course>
         <contactNo>09181567890</contactNo>
       </borrower>
       <borrowDate>2025-03-14</borrowDate>
@@ -1628,10 +1429,8 @@
     <record recordId="REC-100">
       <bookId>BK-010</bookId>
       <borrower>
-        <borrowerId>FAC-017</borrowerId>
-        <borrowerName>Prof. Orlando Dela Rosa</borrowerName>
-        <borrowerType>Faculty</borrowerType>
-        <course>Mathematics</course>
+        <borrowerId>23-00100</borrowerId>
+        <borrowerType>Student</borrowerType>
         <contactNo>09192678901</contactNo>
       </borrower>
       <borrowDate>2025-05-06</borrowDate>
