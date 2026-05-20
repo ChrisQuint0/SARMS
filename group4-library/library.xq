@@ -3,7 +3,7 @@ xquery version "1.0";
 declare variable $lib := doc("library.xml");
 
 (: ------------------------------------------------------------ :)
-(: QUERY 1 — Most Borrowed Books (REQUIRED)                     :)
+(: QUERY 1 — Most Borrowed Books                  :)
 (:                                                             :)
 (: FLWOR breakdown:                                            :)
 (:   FOR   — loop through every book in the library            :)
@@ -28,7 +28,7 @@ declare variable $lib := doc("library.xml");
     </book>
 }
 </mostBorrowedBooks>
-,
+
 
 (: ------------------------------------------------------------ :)
 (: QUERY 2 — All Overdue Records                                :)
