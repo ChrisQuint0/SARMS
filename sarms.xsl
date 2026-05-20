@@ -1252,8 +1252,8 @@
         const chartData = {
             // ENROLLMENT DATA
             programs: {
-                <xsl:for-each select="$studentsDoc//student/course[not(. = preceding::student/course)]">
-                    '<xsl:value-of select="."/>': <xsl:value-of select="count($studentsDoc//student[course = current()])"/><xsl:if test="position() != last()">,</xsl:if>
+                <xsl:for-each select="$studentsDoc//student/program[not(. = preceding::student/program)]">
+                    '<xsl:value-of select="."/>': <xsl:value-of select="count($studentsDoc//student[program = current()])"/><xsl:if test="position() != last()">,</xsl:if>
                 </xsl:for-each>
             },
             yearLevels: {
@@ -1306,7 +1306,7 @@
                     <xsl:sort select="balance" data-type="number" order="descending"/>
                     <xsl:if test="position() &lt;= 10">
                     {
-                        name: '<xsl:value-of select="substring(name, 1, 15)"/>',
+                        name: '<xsl:value-of select="$studentsDoc//student[@studentId=current()/studentId]/firstName"/> <xsl:text> </xsl:text><xsl:value-of select="$studentsDoc//student[@studentId=current()/studentId]/lastName"/>' ,
                         balance: <xsl:value-of select="balance"/>
                     }<xsl:if test="position() != 10 and position() != last()">,</xsl:if>
                     </xsl:if>
@@ -1323,12 +1323,10 @@
                 <xsl:for-each select="$eventsDoc//event">
                     <xsl:sort select="registrationCount" data-type="number" order="descending"/>
                     <xsl:if test="position() &lt;= 10">
-                    <xsl:variable name="eventId" select="@eventId"/>
-                    <xsl:variable name="regCount" select="count($eventsDoc//registration[@eventId=$eventId])"/>
                     {
-                        name: '<xsl:value-of select="substring(eventName, 1, 20)"/>',
-                        eventId: '<xsl:value-of select="$eventId"/>',
-                        count: <xsl:value-of select="$regCount"/>,
+                        name: '<xsl:value-of select="substring(eventName, 1, 20)"/>' ,
+                        eventId: '<xsl:value-of select="@eventId"/>' ,
+                        count: <xsl:value-of select="registrationCount"/>,
                         capacity: <xsl:choose>
                             <xsl:when test="capacity"><xsl:value-of select="capacity"/></xsl:when>
                             <xsl:otherwise>0</xsl:otherwise>

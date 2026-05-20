@@ -33,7 +33,9 @@
     <xs:sequence>
       <xs:element name="firstName" type="xs:string"/>
       <xs:element name="lastName" type="xs:string"/>
-      <xs:element name="course" type="xs:string"/>
+      <xs:element name="program" type="xs:string"/>
+      <xs:element name="section" type="xs:string"/>
+      <xs:element name="studDepartment" type="xs:string"/>
       <xs:element name="yearLevel">
         <xs:simpleType>
           <xs:restriction base="xs:integer">
@@ -64,24 +66,20 @@
   <xs:complexType name="studentSubjectType">
     <xs:sequence>
       <xs:element name="subjectName" type="xs:string"/>
-      <xs:element name="units">
-        <xs:simpleType>
-          <xs:restriction base="xs:integer">
-            <xs:minInclusive value="1"/>
-            <xs:maxInclusive value="6"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="grade">
-        <xs:simpleType>
-          <xs:restriction base="xs:decimal">
-            <xs:minInclusive value="1.00"/>
-            <xs:maxInclusive value="5.00"/>
-          </xs:restriction>
-        </xs:simpleType>
+      <xs:element name="units" type="xs:string"/>
+      <xs:element name="hours" type="xs:string"/>
+      <xs:element name="grade" type="xs:string"/>
+      <xs:element name="facultyMember" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="professorName" type="xs:string"/>
+            <xs:element name="department" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="subjectId" type="xs:string" use="required"/>
+    <xs:attribute name="subjectId" type="xs:string" use="optional"/>
   </xs:complexType>
 
   <!-- ==================== FACULTY MODULE ==================== -->
@@ -112,6 +110,7 @@
                     </xs:simpleType>
                   </xs:element>
                 </xs:sequence>
+                <xs:attribute name="subjectId" type="xs:string" use="optional"/>
               </xs:complexType>
             </xs:element>
           </xs:sequence>
@@ -172,9 +171,9 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element name="borrowerId" type="xs:string"/>
-            <xs:element name="borrowerName" type="xs:string"/>
+            <xs:element name="borrowerName" type="xs:string" minOccurs="0"/>
             <xs:element name="borrowerType" type="xs:string"/>
-            <xs:element name="course" type="xs:string"/>
+            <xs:element name="course" type="xs:string" minOccurs="0"/>
             <xs:element name="contactNo" type="xs:string"/>
           </xs:sequence>
         </xs:complexType>
@@ -206,7 +205,7 @@
   <xs:complexType name="billingRecordType">
     <xs:sequence>
       <xs:element name="studentId" type="xs:string"/>
-      <xs:element name="name" type="xs:string"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
       <xs:element name="tuitionFee">
         <xs:simpleType>
           <xs:restriction base="xs:decimal">

@@ -10,17 +10,22 @@
 
 <!-- ==================== STUDENTS MODULE ==================== -->
 <!ELEMENT students (student+)>
-<!ELEMENT student (firstName, lastName, course, yearLevel, enrolledSubjects, gpa)>
+<!ELEMENT student (firstName, lastName, program, section, studDepartment, yearLevel, enrolledSubjects, gpa)>
 <!ATTLIST student studentId CDATA #REQUIRED>
 
 <!ELEMENT firstName (#PCDATA)>
 <!ELEMENT lastName (#PCDATA)>
-<!ELEMENT course (#PCDATA)>
+<!ELEMENT program (#PCDATA)>
+<!ELEMENT section (#PCDATA)>
+<!ELEMENT studDepartment (#PCDATA)>
 <!ELEMENT yearLevel (#PCDATA)>
 <!ELEMENT gpa (#PCDATA)>
 
 <!ELEMENT enrolledSubjects (subject+)>
-<!ELEMENT subject (subjectName, ((units, grade) | hours))>
+<!ELEMENT subject (subjectName, units?, hours, grade?, facultyMember?)>
+<!-- FacultyMember is used both as a reference in subject and as a full element in faculty -->
+<!ELEMENT facultyMember (id, (name | professorName), department, subjects?, totalHours?)>
+<!ELEMENT professorName (#PCDATA)>
 <!ATTLIST subject subjectId CDATA #IMPLIED>
 
 <!ELEMENT subjectName (#PCDATA)>
@@ -29,7 +34,6 @@
 
 <!-- ==================== FACULTY MODULE ==================== -->
 <!ELEMENT faculty (facultyMember+)>
-<!ELEMENT facultyMember (id, name, department, subjects, totalHours)>
 
 <!ELEMENT id (#PCDATA)>
 <!ELEMENT name (#PCDATA)>
@@ -52,11 +56,11 @@
 <!ELEMENT copies (#PCDATA)>
 
 <!ELEMENT borrowingRecords (record+)>
-<!ELEMENT record ((bookId, borrower, borrowDate, dueDate, returnDate, status) | (studentId, name, tuitionFee, paymentsMade, balance))>
+<!ELEMENT record ((bookId, borrower, borrowDate, dueDate, returnDate, status) | (studentId, name?, tuitionFee, paymentsMade, balance))>
 <!ATTLIST record recordId ID #IMPLIED>
 
 <!ELEMENT bookId (#PCDATA)>
-<!ELEMENT borrower (borrowerId, borrowerName, borrowerType, course, contactNo)>
+<!ELEMENT borrower (borrowerId, borrowerName?, borrowerType, course?, contactNo)>
 <!ELEMENT borrowerId (#PCDATA)>
 <!ELEMENT borrowerName (#PCDATA)>
 <!ELEMENT borrowerType (#PCDATA)>
