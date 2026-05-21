@@ -676,7 +676,7 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
     <!-- JOIN: find the matching student from enrollment.xml using borrowerId -->
     <xsl:variable name="bid" select="borrower/borrowerId"/>
     <xsl:variable name="stu" select="$enrollment[@studentId = $bid]"/>
-    <xsl:variable name="fac" select="document('../group1-enrollment/students.xml')//facultyMember[id = $bid][1]"/>
+    <xsl:variable name="fac" select="document('../group3-faculty/faculty.xml')//facultyMember[id = $bid][1]"/>
 
     <!-- Build full name from enrollment -->
     <xsl:variable name="fullName">
@@ -687,7 +687,7 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
           <xsl:value-of select="$stu/lastName"/>
         </xsl:when>
         <xsl:when test="$fac">
-          <xsl:value-of select="$fac/professorName"/>
+          <xsl:value-of select="$fac/name"/>
         </xsl:when>
         <xsl:otherwise>Unknown</xsl:otherwise>
       </xsl:choose>
@@ -710,13 +710,20 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
       </xsl:choose>
     </xsl:variable>
 
+    <xsl:variable name="computedType">
+      <xsl:choose>
+        <xsl:when test="starts-with($bid, 'FAC-')">Faculty</xsl:when>
+        <xsl:otherwise>Student</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
     <xsl:variable name="s">
       <xsl:value-of select="@recordId"/><xsl:text> </xsl:text>
       <xsl:value-of select="$bid"/><xsl:text> </xsl:text>
       <xsl:value-of select="$fullName"/><xsl:text> </xsl:text>
       <xsl:value-of select="$course"/><xsl:text> </xsl:text>
       <xsl:value-of select="$yearLevel"/><xsl:text> </xsl:text>
-      <xsl:value-of select="borrower/borrowerType"/>
+      <xsl:value-of select="$computedType"/>
     </xsl:variable>
 
     <xsl:variable name="oc"><xsl:if test="status='Overdue'">overdue-row</xsl:if></xsl:variable>
@@ -734,12 +741,7 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
       <td><span class="mono"><xsl:value-of select="bookId"/></span></td>
       <td><span class="bid"><xsl:value-of select="$bid"/></span></td>
       <td class="bold-cell"><xsl:value-of select="$fullName"/></td>
-      <td>
-        <xsl:choose>
-          <xsl:when test="starts-with($bid, 'FAC-')">Faculty</xsl:when>
-          <xsl:otherwise>Student</xsl:otherwise>
-        </xsl:choose>
-      </td>
+      <td><xsl:value-of select="$computedType"/></td>
       <td><xsl:value-of select="$course"/></td>
       <td><span class="yr-pill"><xsl:value-of select="$yearLevel"/></span></td>
       <td class="date-cell"><xsl:value-of select="borrowDate"/></td>
@@ -758,7 +760,7 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
   <xsl:template match="record" mode="notice">
     <xsl:variable name="bid" select="borrower/borrowerId"/>
     <xsl:variable name="stu" select="$enrollment[@studentId = $bid]"/>
-    <xsl:variable name="fac" select="document('../group1-enrollment/students.xml')//facultyMember[id = $bid][1]"/>
+    <xsl:variable name="fac" select="document('../group3-faculty/faculty.xml')//facultyMember[id = $bid][1]"/>
 
     <xsl:variable name="fullName">
       <xsl:choose>
@@ -768,7 +770,7 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
           <xsl:value-of select="$stu/lastName"/>
         </xsl:when>
         <xsl:when test="$fac">
-          <xsl:value-of select="$fac/professorName"/>
+          <xsl:value-of select="$fac/name"/>
         </xsl:when>
         <xsl:otherwise>Unknown</xsl:otherwise>
       </xsl:choose>
