@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE students SYSTEM "students.dtd">
 <?xml-stylesheet type="text/xsl" href="students.xsl"?>
 <students>
@@ -41,6 +41,17 @@
           <id>FAC-024</id>
           <professorName>Prof. Diana Robredo</professorName>
           <department>College of Computer Studies</department>
+        </facultyMember>
+      </subject>
+      <subject subjectId="BUS-150">
+        <subjectName>Microeconomics</subjectName>
+        <units>3</units>
+        <hours>3</hours>
+        <grade>4.00</grade>
+        <facultyMember>
+          <id>FAC-026</id>
+          <professorName>Prof. Ferdinand Lacson</professorName>
+          <department>College of Business Administration</department>
         </facultyMember>
       </subject>
     </enrolledSubjects>
@@ -88,6 +99,17 @@
           <department>College of Arts &amp; Sciences</department>
         </facultyMember>
       </subject>
+      <subject subjectId="ENG-141">
+        <subjectName>Differential Equations</subjectName>
+        <units>3</units>
+        <hours>3</hours>
+        <grade>2.67</grade>
+        <facultyMember>
+          <id>FAC-016</id>
+          <professorName>Engr. Sara Pacquiao</professorName>
+          <department>College of Engineering</department>
+        </facultyMember>
+      </subject>
     </enrolledSubjects>
     <gpa>2.67</gpa>
   </student>
@@ -131,6 +153,17 @@
           <id>FAC-016</id>
           <professorName>Engr. Sara Pacquiao</professorName>
           <department>College of Engineering</department>
+        </facultyMember>
+      </subject>
+      <subject subjectId="ART-101">
+        <subjectName>Ethics</subjectName>
+        <units>3</units>
+        <hours>3</hours>
+        <grade>3.58</grade>
+        <facultyMember>
+          <id>FAC-001</id>
+          <professorName>Dr. Rodrigo Lacson</professorName>
+          <department>College of Arts &amp; Sciences</department>
         </facultyMember>
       </subject>
     </enrolledSubjects>
@@ -178,6 +211,17 @@
           <department>College of Education</department>
         </facultyMember>
       </subject>
+      <subject subjectId="IT-110">
+        <subjectName>Web Systems and Technologies</subjectName>
+        <units>3</units>
+        <hours>3</hours>
+        <grade>3.25</grade>
+        <facultyMember>
+          <id>FAC-002</id>
+          <professorName>Sir Lito Pacquiao</professorName>
+          <department>College of Computer Studies</department>
+        </facultyMember>
+      </subject>
     </enrolledSubjects>
     <gpa>3.25</gpa>
   </student>
@@ -221,6 +265,17 @@
           <id>FAC-014</id>
           <professorName>Prof. Amelita Zubiri</professorName>
           <department>College of Computer Studies</department>
+        </facultyMember>
+      </subject>
+      <subject subjectId="EDUC-128">
+        <subjectName>Curriculum Development</subjectName>
+        <units>3</units>
+        <hours>3</hours>
+        <grade>2.25</grade>
+        <facultyMember>
+          <id>FAC-008</id>
+          <professorName>Dr. Maria Pascual</professorName>
+          <department>College of Education</department>
         </facultyMember>
       </subject>
     </enrolledSubjects>

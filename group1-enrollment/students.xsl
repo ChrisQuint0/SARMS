@@ -992,9 +992,9 @@
           <!-- Filter Controls (Implements XQuery logic interactively) -->
           <div class="filter-controls">
             <div class="filter-group">
-              <label for="courseFilter" class="filter-label">Filter by Course</label>
+              <label for="courseFilter" class="filter-label">Filter by Program</label>
               <select id="courseFilter" class="filter-select" onchange="filterStudents()">
-                <option value="">All Courses</option>
+                <option value="">All Programs</option>
                 <option value="BSIT">BSIT</option>
                 <option value="BSCS">BSCS</option>
               </select>
