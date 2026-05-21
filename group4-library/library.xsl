@@ -676,6 +676,7 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
     <!-- JOIN: find the matching student from enrollment.xml using borrowerId -->
     <xsl:variable name="bid" select="borrower/borrowerId"/>
     <xsl:variable name="stu" select="$enrollment[@studentId = $bid]"/>
+    <xsl:variable name="fac" select="document('../group1-enrollment/students.xml')//facultyMember[id = $bid][1]"/>
 
     <!-- Build full name from enrollment -->
     <xsl:variable name="fullName">
@@ -685,6 +686,9 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
           <xsl:text> </xsl:text>
           <xsl:value-of select="$stu/lastName"/>
         </xsl:when>
+        <xsl:when test="$fac">
+          <xsl:value-of select="$fac/professorName"/>
+        </xsl:when>
         <xsl:otherwise>Unknown</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
@@ -693,6 +697,7 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
     <xsl:variable name="course">
       <xsl:choose>
         <xsl:when test="$stu"><xsl:value-of select="$stu/program"/></xsl:when>
+        <xsl:when test="$fac"><xsl:value-of select="$fac/department"/></xsl:when>
         <xsl:otherwise>N/A</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
@@ -729,7 +734,12 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
       <td><span class="mono"><xsl:value-of select="bookId"/></span></td>
       <td><span class="bid"><xsl:value-of select="$bid"/></span></td>
       <td class="bold-cell"><xsl:value-of select="$fullName"/></td>
-      <td><xsl:value-of select="borrower/borrowerType"/></td>
+      <td>
+        <xsl:choose>
+          <xsl:when test="starts-with($bid, 'FAC-')">Faculty</xsl:when>
+          <xsl:otherwise>Student</xsl:otherwise>
+        </xsl:choose>
+      </td>
       <td><xsl:value-of select="$course"/></td>
       <td><span class="yr-pill"><xsl:value-of select="$yearLevel"/></span></td>
       <td class="date-cell"><xsl:value-of select="borrowDate"/></td>
@@ -748,6 +758,7 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
   <xsl:template match="record" mode="notice">
     <xsl:variable name="bid" select="borrower/borrowerId"/>
     <xsl:variable name="stu" select="$enrollment[@studentId = $bid]"/>
+    <xsl:variable name="fac" select="document('../group1-enrollment/students.xml')//facultyMember[id = $bid][1]"/>
 
     <xsl:variable name="fullName">
       <xsl:choose>
@@ -756,6 +767,9 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
           <xsl:text> </xsl:text>
           <xsl:value-of select="$stu/lastName"/>
         </xsl:when>
+        <xsl:when test="$fac">
+          <xsl:value-of select="$fac/professorName"/>
+        </xsl:when>
         <xsl:otherwise>Unknown</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
@@ -763,6 +777,7 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
     <xsl:variable name="course">
       <xsl:choose>
         <xsl:when test="$stu"><xsl:value-of select="$stu/program"/></xsl:when>
+        <xsl:when test="$fac"><xsl:value-of select="$fac/department"/></xsl:when>
         <xsl:otherwise>N/A</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
@@ -771,6 +786,13 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
       <xsl:choose>
         <xsl:when test="$stu">Year <xsl:value-of select="$stu/yearLevel"/></xsl:when>
         <xsl:otherwise>N/A</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
+    <xsl:variable name="computedType">
+      <xsl:choose>
+        <xsl:when test="starts-with($bid, 'FAC-')">Faculty</xsl:when>
+        <xsl:otherwise>Student</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
 
@@ -786,7 +808,7 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal
         name:       '{$fullName}',
         recordId:   '{@recordId}',
         borrowerId: '{$bid}',
-        type:       '{borrower/borrowerType}',
+        type:       '{$computedType}',
         course:     '{$course}',
         yearLevel:  '{$yearLevel}',
         contact:    '{borrower/contactNo}',
