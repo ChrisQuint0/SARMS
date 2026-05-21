@@ -113,13 +113,25 @@
 
   <!--
     BorrowerType — Integrated with Enrollment Module.
-    Only keeps borrowerId to link with Enrollment records.
+    Uses borrowerId to link with Enrollment records.
+    contactNo is kept locally because the Enrollment module currently does not store it.
   -->
   <xs:complexType name="BorrowerType">
     <xs:sequence>
-      <xs:element name="borrowerId"   type="xs:string"/>
+      <xs:element name="borrowerId"   type="BorrowerIdType"/>
+      <xs:element name="contactNo"    type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
+
+  <!--
+    BorrowerIdType: Ensures the ID strictly matches either the
+    Student format (e.g. 23-00001) or Faculty format (e.g. FAC-016)
+  -->
+  <xs:simpleType name="BorrowerIdType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(\d{2}-\d{5})|(FAC-\d{3})"/>
+    </xs:restriction>
+  </xs:simpleType>
 
   <!-- ==================== SIMPLE TYPE DEFINITIONS ==================== -->
   <!--
