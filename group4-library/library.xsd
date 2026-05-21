@@ -112,35 +112,28 @@
   <!-- ==================== BORROWER ==================== -->
 
   <!--
-    BorrowerType — aligned to library.xml.
-    REMOVED: borrowerName, course  (not present in any record in library.xml)
-    KEPT:    borrowerId, borrowerType, contactNo
+    BorrowerType — Integrated with Enrollment Module.
+    Uses borrowerId to link with Enrollment records.
+    contactNo is kept locally because the Enrollment module currently does not store it.
   -->
   <xs:complexType name="BorrowerType">
     <xs:sequence>
-      <xs:element name="borrowerId"   type="xs:string"/>
-
-      <!--
-        RULE 2: borrowerType must be exactly "Student" or "Faculty".
-      -->
-      <xs:element name="borrowerType" type="BorrowerTypeEnum"/>
-
+      <xs:element name="borrowerId"   type="BorrowerIdType"/>
       <xs:element name="contactNo"    type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
 
-  <!-- ==================== SIMPLE TYPE DEFINITIONS ==================== -->
-
   <!--
-    BorrowerTypeEnum: restricts borrowerType to two allowed values.
+    BorrowerIdType: Ensures the ID strictly matches either the
+    Student format (e.g. 23-00001) or Faculty format (e.g. FAC-016)
   -->
-  <xs:simpleType name="BorrowerTypeEnum">
+  <xs:simpleType name="BorrowerIdType">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="Student"/>
-      <xs:enumeration value="Faculty"/>
+      <xs:pattern value="(\d{2}-\d{5})|(FAC-\d{3})"/>
     </xs:restriction>
   </xs:simpleType>
 
+  <!-- ==================== SIMPLE TYPE DEFINITIONS ==================== -->
   <!--
     StatusType: restricts status to four valid borrowing states.
       Active        - book is currently borrowed, not yet due
