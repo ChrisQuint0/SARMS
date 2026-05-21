@@ -42,7 +42,9 @@ declare variable $lib := doc("library.xml");
   return
     <overdueRecord recordId="{$rec/@recordId}">
       <borrowerId>{$rec/borrower/borrowerId/text()}</borrowerId>
-      <borrowerType>{$rec/borrower/borrowerType/text()}</borrowerType>
+      <borrowerType>{
+        if (starts-with($rec/borrower/borrowerId/text(), "FAC-")) then "Faculty" else "Student"
+      }</borrowerType>
       <contactNo>{$rec/borrower/contactNo/text()}</contactNo>
       <bookId>{$rec/bookId/text()}</bookId>
       <borrowDate>{$rec/borrowDate/text()}</borrowDate>
@@ -104,7 +106,9 @@ declare variable $lib := doc("library.xml");
   return
     <activeLoan recordId="{$rec/@recordId}">
       <borrowerId>{$rec/borrower/borrowerId/text()}</borrowerId>
-      <borrowerType>{$rec/borrower/borrowerType/text()}</borrowerType>
+      <borrowerType>{
+        if (starts-with($rec/borrower/borrowerId/text(), "FAC-")) then "Faculty" else "Student"
+      }</borrowerType>
       <contactNo>{$rec/borrower/contactNo/text()}</contactNo>
       <bookId>{$rec/bookId/text()}</bookId>
       <borrowDate>{$rec/borrowDate/text()}</borrowDate>
