@@ -172,7 +172,7 @@
           <xs:sequence>
             <xs:element name="borrowerId" type="xs:string"/>
             <xs:element name="borrowerName" type="xs:string" minOccurs="0"/>
-            <xs:element name="borrowerType" type="xs:string"/>
+            <xs:element name="borrowerType" type="xs:string" minOccurs="0"/>
             <xs:element name="course" type="xs:string" minOccurs="0"/>
             <xs:element name="contactNo" type="xs:string"/>
           </xs:sequence>

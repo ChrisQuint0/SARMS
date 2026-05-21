@@ -60,7 +60,7 @@
 <!ATTLIST record recordId ID #IMPLIED>
 
 <!ELEMENT bookId (#PCDATA)>
-<!ELEMENT borrower (borrowerId, borrowerName?, borrowerType, course?, contactNo)>
+<!ELEMENT borrower (borrowerId, borrowerName?, borrowerType?, course?, contactNo)>
 <!ELEMENT borrowerId (#PCDATA)>
 <!ELEMENT borrowerName (#PCDATA)>
 <!ELEMENT borrowerType (#PCDATA)>

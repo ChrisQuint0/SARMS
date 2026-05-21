@@ -49,6 +49,17 @@
           <department>College of Computer Studies</department>
         </facultyMember>
       </subject>
+      <subject subjectId="BUS-150">
+        <subjectName>Microeconomics</subjectName>
+        <units>3</units>
+        <hours>3</hours>
+        <grade>4.00</grade>
+        <facultyMember>
+          <id>FAC-026</id>
+          <professorName>Prof. Ferdinand Lacson</professorName>
+          <department>College of Business Administration</department>
+        </facultyMember>
+      </subject>
     </enrolledSubjects>
     <gpa>4.00</gpa>
   </student><student studentId="23-00002">
@@ -90,6 +101,17 @@
           <id>FAC-020</id>
           <professorName>Dr. Gabriel Cayetano</professorName>
           <department>College of Arts &amp; Sciences</department>
+        </facultyMember>
+      </subject>
+      <subject subjectId="ENG-141">
+        <subjectName>Differential Equations</subjectName>
+        <units>3</units>
+        <hours>3</hours>
+        <grade>2.67</grade>
+        <facultyMember>
+          <id>FAC-016</id>
+          <professorName>Engr. Sara Pacquiao</professorName>
+          <department>College of Engineering</department>
         </facultyMember>
       </subject>
     </enrolledSubjects>
@@ -135,6 +157,17 @@
           <department>College of Engineering</department>
         </facultyMember>
       </subject>
+      <subject subjectId="ART-101">
+        <subjectName>Ethics</subjectName>
+        <units>3</units>
+        <hours>3</hours>
+        <grade>3.58</grade>
+        <facultyMember>
+          <id>FAC-001</id>
+          <professorName>Dr. Rodrigo Lacson</professorName>
+          <department>College of Arts &amp; Sciences</department>
+        </facultyMember>
+      </subject>
     </enrolledSubjects>
     <gpa>3.58</gpa>
   </student><student studentId="23-00004">
@@ -178,6 +211,17 @@
           <department>College of Education</department>
         </facultyMember>
       </subject>
+      <subject subjectId="IT-110">
+        <subjectName>Web Systems and Technologies</subjectName>
+        <units>3</units>
+        <hours>3</hours>
+        <grade>3.25</grade>
+        <facultyMember>
+          <id>FAC-002</id>
+          <professorName>Sir Lito Pacquiao</professorName>
+          <department>College of Computer Studies</department>
+        </facultyMember>
+      </subject>
     </enrolledSubjects>
     <gpa>3.25</gpa>
   </student><student studentId="23-00005">
@@ -219,6 +263,17 @@
           <id>FAC-014</id>
           <professorName>Prof. Amelita Zubiri</professorName>
           <department>College of Computer Studies</department>
+        </facultyMember>
+      </subject>
+      <subject subjectId="EDUC-128">
+        <subjectName>Curriculum Development</subjectName>
+        <units>3</units>
+        <hours>3</hours>
+        <grade>2.25</grade>
+        <facultyMember>
+          <id>FAC-008</id>
+          <professorName>Dr. Maria Pascual</professorName>
+          <department>College of Education</department>
         </facultyMember>
       </subject>
     </enrolledSubjects>
@@ -6727,7 +6782,6 @@
       <bookId>BK-001</bookId>
       <borrower>
         <borrowerId>23-00001</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09171234567</contactNo>
       </borrower>
       <borrowDate>2025-04-01</borrowDate>
@@ -6740,7 +6794,6 @@
       <bookId>BK-002</bookId>
       <borrower>
         <borrowerId>23-00002</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09189876543</contactNo>
       </borrower>
       <borrowDate>2025-03-10</borrowDate>
@@ -6753,7 +6806,6 @@
       <bookId>BK-004</bookId>
       <borrower>
         <borrowerId>23-00003</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09201122334</contactNo>
       </borrower>
       <borrowDate>2025-04-20</borrowDate>
@@ -6766,7 +6818,6 @@
       <bookId>BK-006</bookId>
       <borrower>
         <borrowerId>23-00004</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09273344556</contactNo>
       </borrower>
       <borrowDate>2025-02-15</borrowDate>
@@ -6779,7 +6830,6 @@
       <bookId>BK-007</bookId>
       <borrower>
         <borrowerId>23-00005</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09151234000</contactNo>
       </borrower>
       <borrowDate>2025-04-05</borrowDate>
@@ -6792,7 +6842,6 @@
       <bookId>BK-003</bookId>
       <borrower>
         <borrowerId>23-00006</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09261239876</contactNo>
       </borrower>
       <borrowDate>2025-03-01</borrowDate>
@@ -6805,7 +6854,6 @@
       <bookId>BK-008</bookId>
       <borrower>
         <borrowerId>23-00007</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09175550001</contactNo>
       </borrower>
       <borrowDate>2025-04-22</borrowDate>
@@ -6818,7 +6866,6 @@
       <bookId>BK-005</bookId>
       <borrower>
         <borrowerId>23-00008</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09189990011</contactNo>
       </borrower>
       <borrowDate>2025-03-05</borrowDate>
@@ -6831,7 +6878,6 @@
       <bookId>BK-001</bookId>
       <borrower>
         <borrowerId>23-00009</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09171111222</contactNo>
       </borrower>
       <borrowDate>2025-04-10</borrowDate>
@@ -6844,7 +6890,6 @@
       <bookId>BK-009</bookId>
       <borrower>
         <borrowerId>23-00010</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09221234567</contactNo>
       </borrower>
       <borrowDate>2025-04-15</borrowDate>
@@ -6857,7 +6902,6 @@
       <bookId>BK-010</bookId>
       <borrower>
         <borrowerId>23-00011</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09182345678</contactNo>
       </borrower>
       <borrowDate>2025-03-20</borrowDate>
@@ -6870,7 +6914,6 @@
       <bookId>BK-011</bookId>
       <borrower>
         <borrowerId>23-00012</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09273456789</contactNo>
       </borrower>
       <borrowDate>2025-04-01</borrowDate>
@@ -6883,7 +6926,6 @@
       <bookId>BK-012</bookId>
       <borrower>
         <borrowerId>23-00013</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09194567890</contactNo>
       </borrower>
       <borrowDate>2025-04-18</borrowDate>
@@ -6896,7 +6938,6 @@
       <bookId>BK-013</bookId>
       <borrower>
         <borrowerId>23-00014</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09165678901</contactNo>
       </borrower>
       <borrowDate>2025-02-20</borrowDate>
@@ -6909,7 +6950,6 @@
       <bookId>BK-014</bookId>
       <borrower>
         <borrowerId>23-00015</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09176789012</contactNo>
       </borrower>
       <borrowDate>2025-04-12</borrowDate>
@@ -6922,7 +6962,6 @@
       <bookId>BK-015</bookId>
       <borrower>
         <borrowerId>23-00016</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09187890123</contactNo>
       </borrower>
       <borrowDate>2025-04-19</borrowDate>
@@ -6935,7 +6974,6 @@
       <bookId>BK-002</bookId>
       <borrower>
         <borrowerId>23-00017</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09198901234</contactNo>
       </borrower>
       <borrowDate>2025-03-15</borrowDate>
@@ -6948,7 +6986,6 @@
       <bookId>BK-003</bookId>
       <borrower>
         <borrowerId>23-00018</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09209012345</contactNo>
       </borrower>
       <borrowDate>2025-04-05</borrowDate>
@@ -6961,7 +6998,6 @@
       <bookId>BK-004</bookId>
       <borrower>
         <borrowerId>23-00019</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09170123456</contactNo>
       </borrower>
       <borrowDate>2025-04-21</borrowDate>
@@ -6974,7 +7010,6 @@
       <bookId>BK-005</bookId>
       <borrower>
         <borrowerId>23-00020</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09181234567</contactNo>
       </borrower>
       <borrowDate>2025-03-08</borrowDate>
@@ -6987,7 +7022,6 @@
       <bookId>BK-006</bookId>
       <borrower>
         <borrowerId>23-00021</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09192345678</contactNo>
       </borrower>
       <borrowDate>2025-04-14</borrowDate>
@@ -7000,7 +7034,6 @@
       <bookId>BK-007</bookId>
       <borrower>
         <borrowerId>23-00022</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09203456789</contactNo>
       </borrower>
       <borrowDate>2025-02-10</borrowDate>
@@ -7013,7 +7046,6 @@
       <bookId>BK-008</bookId>
       <borrower>
         <borrowerId>23-00023</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09214567890</contactNo>
       </borrower>
       <borrowDate>2025-04-23</borrowDate>
@@ -7026,7 +7058,6 @@
       <bookId>BK-009</bookId>
       <borrower>
         <borrowerId>23-00024</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09225678901</contactNo>
       </borrower>
       <borrowDate>2025-03-25</borrowDate>
@@ -7039,7 +7070,6 @@
       <bookId>BK-010</bookId>
       <borrower>
         <borrowerId>23-00025</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09236789012</contactNo>
       </borrower>
       <borrowDate>2025-04-10</borrowDate>
@@ -7052,7 +7082,6 @@
       <bookId>BK-011</bookId>
       <borrower>
         <borrowerId>23-00026</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09247890123</contactNo>
       </borrower>
       <borrowDate>2025-02-28</borrowDate>
@@ -7065,7 +7094,6 @@
       <bookId>BK-012</bookId>
       <borrower>
         <borrowerId>23-00027</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09258901234</contactNo>
       </borrower>
       <borrowDate>2025-04-16</borrowDate>
@@ -7078,7 +7106,6 @@
       <bookId>BK-013</bookId>
       <borrower>
         <borrowerId>23-00028</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09269012345</contactNo>
       </borrower>
       <borrowDate>2025-04-24</borrowDate>
@@ -7091,7 +7118,6 @@
       <bookId>BK-014</bookId>
       <borrower>
         <borrowerId>23-00029</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09270123456</contactNo>
       </borrower>
       <borrowDate>2025-03-12</borrowDate>
@@ -7104,7 +7130,6 @@
       <bookId>BK-015</bookId>
       <borrower>
         <borrowerId>23-00030</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09281234567</contactNo>
       </borrower>
       <borrowDate>2025-04-08</borrowDate>
@@ -7117,7 +7142,6 @@
       <bookId>BK-001</bookId>
       <borrower>
         <borrowerId>23-00031</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09292345678</contactNo>
       </borrower>
       <borrowDate>2025-02-05</borrowDate>
@@ -7130,7 +7154,6 @@
       <bookId>BK-002</bookId>
       <borrower>
         <borrowerId>23-00032</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09173456789</contactNo>
       </borrower>
       <borrowDate>2025-04-25</borrowDate>
@@ -7143,7 +7166,6 @@
       <bookId>BK-003</bookId>
       <borrower>
         <borrowerId>23-00033</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09184567890</contactNo>
       </borrower>
       <borrowDate>2025-03-18</borrowDate>
@@ -7156,7 +7178,6 @@
       <bookId>BK-004</bookId>
       <borrower>
         <borrowerId>23-00034</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09195678901</contactNo>
       </borrower>
       <borrowDate>2025-02-18</borrowDate>
@@ -7169,7 +7190,6 @@
       <bookId>BK-005</bookId>
       <borrower>
         <borrowerId>23-00035</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09206789012</contactNo>
       </borrower>
       <borrowDate>2025-04-20</borrowDate>
@@ -7182,7 +7202,6 @@
       <bookId>BK-006</bookId>
       <borrower>
         <borrowerId>23-00036</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09217890123</contactNo>
       </borrower>
       <borrowDate>2025-03-22</borrowDate>
@@ -7195,7 +7214,6 @@
       <bookId>BK-007</bookId>
       <borrower>
         <borrowerId>23-00037</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09228901234</contactNo>
       </borrower>
       <borrowDate>2025-04-26</borrowDate>
@@ -7208,7 +7226,6 @@
       <bookId>BK-008</bookId>
       <borrower>
         <borrowerId>23-00038</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09239012345</contactNo>
       </borrower>
       <borrowDate>2025-03-02</borrowDate>
@@ -7221,7 +7238,6 @@
       <bookId>BK-009</bookId>
       <borrower>
         <borrowerId>23-00039</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09240123456</contactNo>
       </borrower>
       <borrowDate>2025-04-11</borrowDate>
@@ -7234,7 +7250,6 @@
       <bookId>BK-010</bookId>
       <borrower>
         <borrowerId>23-00040</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09251234567</contactNo>
       </borrower>
       <borrowDate>2025-04-27</borrowDate>
@@ -7247,7 +7262,6 @@
       <bookId>BK-011</bookId>
       <borrower>
         <borrowerId>23-00041</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09262345678</contactNo>
       </borrower>
       <borrowDate>2025-02-25</borrowDate>
@@ -7260,7 +7274,6 @@
       <bookId>BK-012</bookId>
       <borrower>
         <borrowerId>23-00042</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09273456789</contactNo>
       </borrower>
       <borrowDate>2025-04-14</borrowDate>
@@ -7273,7 +7286,6 @@
       <bookId>BK-013</bookId>
       <borrower>
         <borrowerId>23-00043</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09284567890</contactNo>
       </borrower>
       <borrowDate>2025-03-28</borrowDate>
@@ -7286,7 +7298,6 @@
       <bookId>BK-014</bookId>
       <borrower>
         <borrowerId>23-00044</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09175678901</contactNo>
       </borrower>
       <borrowDate>2025-02-12</borrowDate>
@@ -7299,7 +7310,6 @@
       <bookId>BK-015</bookId>
       <borrower>
         <borrowerId>23-00045</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09186789012</contactNo>
       </borrower>
       <borrowDate>2025-04-28</borrowDate>
@@ -7312,7 +7322,6 @@
       <bookId>BK-001</bookId>
       <borrower>
         <borrowerId>23-00046</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09197890123</contactNo>
       </borrower>
       <borrowDate>2025-03-30</borrowDate>
@@ -7325,7 +7334,6 @@
       <bookId>BK-002</bookId>
       <borrower>
         <borrowerId>23-00047</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09208901234</contactNo>
       </borrower>
       <borrowDate>2025-02-08</borrowDate>
@@ -7338,7 +7346,6 @@
       <bookId>BK-003</bookId>
       <borrower>
         <borrowerId>23-00048</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09219012345</contactNo>
       </borrower>
       <borrowDate>2025-04-29</borrowDate>
@@ -7351,7 +7358,6 @@
       <bookId>BK-004</bookId>
       <borrower>
         <borrowerId>23-00049</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09220123456</contactNo>
       </borrower>
       <borrowDate>2025-03-14</borrowDate>
@@ -7364,7 +7370,6 @@
       <bookId>BK-005</bookId>
       <borrower>
         <borrowerId>23-00050</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09231234567</contactNo>
       </borrower>
       <borrowDate>2025-04-30</borrowDate>
@@ -7377,7 +7382,6 @@
       <bookId>BK-006</bookId>
       <borrower>
         <borrowerId>23-00051</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09242345678</contactNo>
       </borrower>
       <borrowDate>2025-02-22</borrowDate>
@@ -7390,7 +7394,6 @@
       <bookId>BK-007</bookId>
       <borrower>
         <borrowerId>23-00052</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09253456789</contactNo>
       </borrower>
       <borrowDate>2025-04-03</borrowDate>
@@ -7403,7 +7406,6 @@
       <bookId>BK-008</bookId>
       <borrower>
         <borrowerId>23-00053</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09264567890</contactNo>
       </borrower>
       <borrowDate>2025-05-01</borrowDate>
@@ -7416,7 +7418,6 @@
       <bookId>BK-009</bookId>
       <borrower>
         <borrowerId>23-00054</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09275678901</contactNo>
       </borrower>
       <borrowDate>2025-03-06</borrowDate>
@@ -7429,7 +7430,6 @@
       <bookId>BK-010</bookId>
       <borrower>
         <borrowerId>23-00055</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09286789012</contactNo>
       </borrower>
       <borrowDate>2025-04-17</borrowDate>
@@ -7442,7 +7442,6 @@
       <bookId>BK-011</bookId>
       <borrower>
         <borrowerId>23-00056</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09177890123</contactNo>
       </borrower>
       <borrowDate>2025-05-02</borrowDate>
@@ -7455,7 +7454,6 @@
       <bookId>BK-012</bookId>
       <borrower>
         <borrowerId>23-00057</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09188901234</contactNo>
       </borrower>
       <borrowDate>2025-02-14</borrowDate>
@@ -7468,7 +7466,6 @@
       <bookId>BK-013</bookId>
       <borrower>
         <borrowerId>23-00058</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09199012345</contactNo>
       </borrower>
       <borrowDate>2025-04-07</borrowDate>
@@ -7481,7 +7478,6 @@
       <bookId>BK-014</bookId>
       <borrower>
         <borrowerId>23-00059</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09200123456</contactNo>
       </borrower>
       <borrowDate>2025-05-03</borrowDate>
@@ -7494,7 +7490,6 @@
       <bookId>BK-015</bookId>
       <borrower>
         <borrowerId>23-00060</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09211234567</contactNo>
       </borrower>
       <borrowDate>2025-03-10</borrowDate>
@@ -7507,7 +7502,6 @@
       <bookId>BK-001</bookId>
       <borrower>
         <borrowerId>23-00061</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09222345678</contactNo>
       </borrower>
       <borrowDate>2025-04-09</borrowDate>
@@ -7520,7 +7514,6 @@
       <bookId>BK-002</bookId>
       <borrower>
         <borrowerId>23-00062</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09233456789</contactNo>
       </borrower>
       <borrowDate>2025-05-04</borrowDate>
@@ -7533,7 +7526,6 @@
       <bookId>BK-003</bookId>
       <borrower>
         <borrowerId>23-00063</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09244567890</contactNo>
       </borrower>
       <borrowDate>2025-02-16</borrowDate>
@@ -7546,7 +7538,6 @@
       <bookId>BK-004</bookId>
       <borrower>
         <borrowerId>23-00064</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09255678901</contactNo>
       </borrower>
       <borrowDate>2025-04-13</borrowDate>
@@ -7559,7 +7550,6 @@
       <bookId>BK-005</bookId>
       <borrower>
         <borrowerId>23-00065</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09266789012</contactNo>
       </borrower>
       <borrowDate>2025-05-05</borrowDate>
@@ -7572,7 +7562,6 @@
       <bookId>BK-006</bookId>
       <borrower>
         <borrowerId>23-00066</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09277890123</contactNo>
       </borrower>
       <borrowDate>2025-03-04</borrowDate>
@@ -7585,7 +7574,6 @@
       <bookId>BK-007</bookId>
       <borrower>
         <borrowerId>23-00067</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09288901234</contactNo>
       </borrower>
       <borrowDate>2025-04-15</borrowDate>
@@ -7598,7 +7586,6 @@
       <bookId>BK-008</bookId>
       <borrower>
         <borrowerId>23-00068</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09179012345</contactNo>
       </borrower>
       <borrowDate>2025-05-06</borrowDate>
@@ -7611,7 +7598,6 @@
       <bookId>BK-009</bookId>
       <borrower>
         <borrowerId>23-00069</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09180123456</contactNo>
       </borrower>
       <borrowDate>2025-02-20</borrowDate>
@@ -7624,7 +7610,6 @@
       <bookId>BK-010</bookId>
       <borrower>
         <borrowerId>23-00070</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09191234567</contactNo>
       </borrower>
       <borrowDate>2025-04-20</borrowDate>
@@ -7637,7 +7622,6 @@
       <bookId>BK-011</bookId>
       <borrower>
         <borrowerId>23-00071</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09202345678</contactNo>
       </borrower>
       <borrowDate>2025-03-16</borrowDate>
@@ -7650,7 +7634,6 @@
       <bookId>BK-012</bookId>
       <borrower>
         <borrowerId>23-00072</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09213456789</contactNo>
       </borrower>
       <borrowDate>2025-05-07</borrowDate>
@@ -7663,7 +7646,6 @@
       <bookId>BK-013</bookId>
       <borrower>
         <borrowerId>23-00073</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09224567890</contactNo>
       </borrower>
       <borrowDate>2025-02-24</borrowDate>
@@ -7676,7 +7658,6 @@
       <bookId>BK-014</bookId>
       <borrower>
         <borrowerId>23-00074</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09235678901</contactNo>
       </borrower>
       <borrowDate>2025-04-22</borrowDate>
@@ -7689,7 +7670,6 @@
       <bookId>BK-015</bookId>
       <borrower>
         <borrowerId>23-00075</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09246789012</contactNo>
       </borrower>
       <borrowDate>2025-05-08</borrowDate>
@@ -7702,7 +7682,6 @@
       <bookId>BK-001</bookId>
       <borrower>
         <borrowerId>23-00076</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09257890123</contactNo>
       </borrower>
       <borrowDate>2025-03-26</borrowDate>
@@ -7715,7 +7694,6 @@
       <bookId>BK-002</bookId>
       <borrower>
         <borrowerId>23-00077</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09268901234</contactNo>
       </borrower>
       <borrowDate>2025-04-24</borrowDate>
@@ -7728,7 +7706,6 @@
       <bookId>BK-003</bookId>
       <borrower>
         <borrowerId>23-00078</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09279012345</contactNo>
       </borrower>
       <borrowDate>2025-03-08</borrowDate>
@@ -7741,7 +7718,6 @@
       <bookId>BK-004</bookId>
       <borrower>
         <borrowerId>23-00079</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09170234567</contactNo>
       </borrower>
       <borrowDate>2025-05-09</borrowDate>
@@ -7754,7 +7730,6 @@
       <bookId>BK-005</bookId>
       <borrower>
         <borrowerId>23-00080</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09181345678</contactNo>
       </borrower>
       <borrowDate>2025-02-26</borrowDate>
@@ -7767,7 +7742,6 @@
       <bookId>BK-006</bookId>
       <borrower>
         <borrowerId>23-00081</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09192456789</contactNo>
       </borrower>
       <borrowDate>2025-04-16</borrowDate>
@@ -7780,7 +7754,6 @@
       <bookId>BK-007</bookId>
       <borrower>
         <borrowerId>23-00082</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09203567890</contactNo>
       </borrower>
       <borrowDate>2025-05-10</borrowDate>
@@ -7793,7 +7766,6 @@
       <bookId>BK-008</bookId>
       <borrower>
         <borrowerId>23-00083</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09214678901</contactNo>
       </borrower>
       <borrowDate>2025-03-20</borrowDate>
@@ -7806,7 +7778,6 @@
       <bookId>BK-009</bookId>
       <borrower>
         <borrowerId>23-00084</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09225789012</contactNo>
       </borrower>
       <borrowDate>2025-04-18</borrowDate>
@@ -7819,7 +7790,6 @@
       <bookId>BK-010</bookId>
       <borrower>
         <borrowerId>23-00085</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09236890123</contactNo>
       </borrower>
       <borrowDate>2025-05-11</borrowDate>
@@ -7832,7 +7802,6 @@
       <bookId>BK-011</bookId>
       <borrower>
         <borrowerId>23-00086</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09247901234</contactNo>
       </borrower>
       <borrowDate>2025-03-24</borrowDate>
@@ -7845,7 +7814,6 @@
       <bookId>BK-012</bookId>
       <borrower>
         <borrowerId>23-00087</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09258012345</contactNo>
       </borrower>
       <borrowDate>2025-04-26</borrowDate>
@@ -7858,7 +7826,6 @@
       <bookId>BK-013</bookId>
       <borrower>
         <borrowerId>23-00088</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09269123456</contactNo>
       </borrower>
       <borrowDate>2025-05-02</borrowDate>
@@ -7871,7 +7838,6 @@
       <bookId>BK-014</bookId>
       <borrower>
         <borrowerId>23-00089</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09170345678</contactNo>
       </borrower>
       <borrowDate>2025-03-28</borrowDate>
@@ -7884,7 +7850,6 @@
       <bookId>BK-015</bookId>
       <borrower>
         <borrowerId>23-00090</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09181456789</contactNo>
       </borrower>
       <borrowDate>2025-04-28</borrowDate>
@@ -7897,7 +7862,6 @@
       <bookId>BK-001</bookId>
       <borrower>
         <borrowerId>23-00091</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09192567890</contactNo>
       </borrower>
       <borrowDate>2025-05-03</borrowDate>
@@ -7910,7 +7874,6 @@
       <bookId>BK-002</bookId>
       <borrower>
         <borrowerId>23-00092</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09203678901</contactNo>
       </borrower>
       <borrowDate>2025-03-30</borrowDate>
@@ -7923,7 +7886,6 @@
       <bookId>BK-003</bookId>
       <borrower>
         <borrowerId>23-00093</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09214789012</contactNo>
       </borrower>
       <borrowDate>2025-04-02</borrowDate>
@@ -7936,7 +7898,6 @@
       <bookId>BK-101</bookId>
       <borrower>
         <borrowerId>23-00094</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09225890123</contactNo>
       </borrower>
       <borrowDate>2025-05-04</borrowDate>
@@ -7949,7 +7910,6 @@
       <bookId>BK-005</bookId>
       <borrower>
         <borrowerId>23-00095</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09236901234</contactNo>
       </borrower>
       <borrowDate>2025-04-04</borrowDate>
@@ -7962,7 +7922,6 @@
       <bookId>BK-006</bookId>
       <borrower>
         <borrowerId>23-00096</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09248012345</contactNo>
       </borrower>
       <borrowDate>2025-04-06</borrowDate>
@@ -7975,7 +7934,6 @@
       <bookId>BK-007</bookId>
       <borrower>
         <borrowerId>23-00097</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09259123456</contactNo>
       </borrower>
       <borrowDate>2025-05-05</borrowDate>
@@ -7988,7 +7946,6 @@
       <bookId>BK-008</bookId>
       <borrower>
         <borrowerId>23-00098</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09270234567</contactNo>
       </borrower>
       <borrowDate>2025-04-08</borrowDate>
@@ -8001,7 +7958,6 @@
       <bookId>BK-009</bookId>
       <borrower>
         <borrowerId>23-00099</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09181567890</contactNo>
       </borrower>
       <borrowDate>2025-03-14</borrowDate>
@@ -8014,7 +7970,6 @@
       <bookId>BK-010</bookId>
       <borrower>
         <borrowerId>23-00100</borrowerId>
-        <borrowerType>Student</borrowerType>
         <contactNo>09192678901</contactNo>
       </borrower>
       <borrowDate>2025-05-06</borrowDate>
@@ -8023,6 +7978,116 @@
       <status>Active</status>
     </record>
 
+      <record recordId="REC-101">
+      <bookId>BK-005</bookId>
+      <borrower>
+        <borrowerId>FAC-001</borrowerId>
+        <contactNo>09123456781</contactNo>
+      </borrower>
+      <borrowDate>2025-05-01</borrowDate>
+      <dueDate>2025-05-15</dueDate>
+      <returnDate/>
+      <status>Active</status>
+    </record>
+    <record recordId="REC-102">
+      <bookId>BK-012</bookId>
+      <borrower>
+        <borrowerId>FAC-002</borrowerId>
+        <contactNo>09123456782</contactNo>
+      </borrower>
+      <borrowDate>2025-05-02</borrowDate>
+      <dueDate>2025-05-16</dueDate>
+      <returnDate>2025-05-10</returnDate>
+      <status>Returned</status>
+    </record>
+    <record recordId="REC-103">
+      <bookId>BK-008</bookId>
+      <borrower>
+        <borrowerId>FAC-003</borrowerId>
+        <contactNo>09123456783</contactNo>
+      </borrower>
+      <borrowDate>2025-05-03</borrowDate>
+      <dueDate>2025-05-17</dueDate>
+      <returnDate/>
+      <status>Active</status>
+    </record>
+    <record recordId="REC-104">
+      <bookId>BK-015</bookId>
+      <borrower>
+        <borrowerId>FAC-004</borrowerId>
+        <contactNo>09123456784</contactNo>
+      </borrower>
+      <borrowDate>2025-05-04</borrowDate>
+      <dueDate>2025-05-18</dueDate>
+      <returnDate/>
+      <status>Active</status>
+    </record>
+    <record recordId="REC-105">
+      <bookId>BK-002</bookId>
+      <borrower>
+        <borrowerId>FAC-005</borrowerId>
+        <contactNo>09123456785</contactNo>
+      </borrower>
+      <borrowDate>2025-04-10</borrowDate>
+      <dueDate>2025-04-24</dueDate>
+      <returnDate/>
+      <status>Overdue</status>
+    </record>
+    <record recordId="REC-106">
+      <bookId>BK-009</bookId>
+      <borrower>
+        <borrowerId>FAC-006</borrowerId>
+        <contactNo>09123456786</contactNo>
+      </borrower>
+      <borrowDate>2025-05-05</borrowDate>
+      <dueDate>2025-05-19</dueDate>
+      <returnDate/>
+      <status>Active</status>
+    </record>
+    <record recordId="REC-107">
+      <bookId>BK-011</bookId>
+      <borrower>
+        <borrowerId>FAC-007</borrowerId>
+        <contactNo>09123456787</contactNo>
+      </borrower>
+      <borrowDate>2025-04-20</borrowDate>
+      <dueDate>2025-05-04</dueDate>
+      <returnDate>2025-05-05</returnDate>
+      <status>Returned Late</status>
+    </record>
+    <record recordId="REC-108">
+      <bookId>BK-004</bookId>
+      <borrower>
+        <borrowerId>FAC-008</borrowerId>
+        <contactNo>09123456788</contactNo>
+      </borrower>
+      <borrowDate>2025-05-06</borrowDate>
+      <dueDate>2025-05-20</dueDate>
+      <returnDate/>
+      <status>Active</status>
+    </record>
+    <record recordId="REC-109">
+      <bookId>BK-014</bookId>
+      <borrower>
+        <borrowerId>FAC-009</borrowerId>
+        <contactNo>09123456789</contactNo>
+      </borrower>
+      <borrowDate>2025-05-07</borrowDate>
+      <dueDate>2025-05-21</dueDate>
+      <returnDate/>
+      <status>Active</status>
+    </record>
+    <record recordId="REC-110">
+      <bookId>BK-007</bookId>
+      <borrower>
+        <borrowerId>FAC-010</borrowerId>
+        <contactNo>09123456790</contactNo>
+      </borrower>
+      <borrowDate>2025-05-08</borrowDate>
+      <dueDate>2025-05-22</dueDate>
+      <returnDate/>
+      <status>Active</status>
+    </record>
   </borrowingRecords>
     </library>
     
